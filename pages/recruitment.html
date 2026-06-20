@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment — Citrus Circuits 1678</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- Shared Consistent Theme Variables --- */
+        :root[data-theme="dark"] {
+            --bg-darkest: #050606;
+            --bg-dark: #0b0d0d;
+            --bg-card: #111414;
+            --bg-dropdown: #121616;
+            --lime: #7FFF00;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.06);
+            --header-bg: rgba(5, 6, 6, 0.9);
+        }
+
+        :root[data-theme="light"] {
+            --bg-darkest: #f9fafb;
+            --bg-dark: #f3f4f6;
+            --bg-card: #ffffff;
+            --bg-dropdown: #ffffff;
+            --lime: #4ebd00; 
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --border: rgba(0, 0, 0, 0.08);
+            --header-bg: rgba(255, 255, 255, 0.92);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-darkest);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* --- Navigation Bar Header --- */
+        header {
+            background-color: var(--header-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .navbar {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 95px;
+            padding: 0 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-text-stack {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--lime);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .brand-title span { color: var(--text-main); font-weight: 400; font-size: 1rem; }
+        .brand-subtitle { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.1rem; }
+
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
+        
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0 1.15rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-item:hover .nav-link { color: var(--text-main); }
+        .nav-link svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 2.5; transition: transform 0.25s ease; }
+        .nav-item:hover .nav-link svg { transform: rotate(180deg); color: var(--lime); }
+
+        .dropdown-panel {
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: var(--bg-dropdown);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 520px;
+            padding: 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.35rem;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-item:hover .dropdown-panel { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        .dropdown-panel a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; padding: 0.65rem 0.85rem; border-radius: 8px; transition: all 0.2s ease; }
+        .dropdown-panel a:hover { background-color: var(--bg-dark); color: var(--lime); }
+
+        .nav-actions-hub { display: flex; align-items: center; gap: 1rem; }
+        
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--lime);
+            color: var(--lime);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover { background: var(--lime); color: #000; }
+
+        .theme-toggle-btn {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-toggle-btn:hover { border-color: var(--lime); color: var(--lime); }
+        .theme-toggle-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+        :root[data-theme="dark"] .sun-icon { display: block; }
+        :root[data-theme="dark"] .moon-icon { display: none; }
+        :root[data-theme="light"] .sun-icon { display: none; }
+        :root[data-theme="light"] .moon-icon { display: block; }
+
+        /* --- Recruitment Layout Structure --- */
+        main { 
+            padding-top: 95px; 
+        }
+
+        .workspace-header {
+            max-width: 1200px;
+            margin: 4rem auto 2rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .workspace-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--lime);
+        }
+
+        .recruitment-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .media-container {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: var(--bg-dark);
+        }
+
+        .recruitment-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .info-card h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--lime);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .info-card p {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-card p a {
+            color: var(--lime);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--lime);
+            transition: all 0.2s ease;
+        }
+
+        .info-card p a:hover {
+            color: var(--text-main);
+            border-bottom-style: solid;
+        }
+
+        .apply-now-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-color: var(--lime);
+            color: #000;
+            text-decoration: none;
+            padding: 1.1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            margin-top: 1rem;
+            box-shadow: 0 10px 20px rgba(127, 255, 0, 0.15);
+        }
+
+        .apply-now-btn:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem 3rem 2rem;
+            margin-top: 8rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-socket {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 968px) {
+            .recruitment-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .workspace-header h1 { font-size: 2.5rem; }
+            .info-card { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Shared Navigation Menu Header -->
+    <header>
+        <div class="navbar">
+            <!-- FIXED: Using direct local name avoids stepping out crashes -->
+            <a href="index.html" class="brand">
+                <!-- FIXED: Pointing straight to standard asset folder -->
+                <img src="pictures/1678.jpg" alt="Citrus Circuits Logo" class="brand-logo">
+                <div class="brand-text-stack">
+                    <div class="brand-title">1678 <span>Citrus Circuits</span></div>
+                    <div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
+                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html" class="active">Our Robots</a>
+                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
+                        <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
+                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="outreach.html" class="nav-link">Outreach</a></li>
+                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="support.html" class="nav-link">Support Us</a></li>
+            </ul>
+
+            <div class="nav-actions-hub">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Layout Theme Mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 1２.79A9 9 0 １ １ １１.２１ ３ ７ ７ 0 0 0 ２１ １２.79z"></path></svg>
+                </button>
+                <a href="recruitment.html" class="nav-cta">Apply to Team</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Workspace View -->
+    <main>
+        <div class="workspace-header">
+            <h1>Recruitment</h1>
+        </div>
+
+        <div class="recruitment-grid">
+            
+            <!-- Left Side Image Box -->
+            <div class="media-container">
+                <!-- FIXED: Look directly into pictures folder without folder exit commands -->
+                <img src="pictures/recruitment_pic.jpg" alt="Citrus Circuits Team Recruitment" class="recruitment-img">
+            </div>
+
+            <!-- Right Side Detailed Content Panel -->
+            <div class="info-card">
+                <h2>APPLY TO JOIN THE TEAM!</h2>
+                
+                <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScjzfYWE4_OS27A4z3y1h-Wbcz94jIwWt_wiGlDvD5zOHgXrw/viewform" target="_blank">Applications for the team are now open!</a> Rising 9th-12th graders attending local schools are eligible to apply. The deadline to submit the form for priority consideration is Sunday, June 14, 2026, at 11:59 pm PST.</p>
+                
+                <p>We strongly suggest watching the videos in their respective order <a href="subteams.html">here</a> for a team introduction and an overview of each subteam. Once you've watched the videos, please feel free to explore other pages on our website.</p>
+
+                <!-- Big Direct Action Form Anchor Link -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScjzfYWE4_OS27A4z3y1h-Wbcz94jIwWt_wiGlDvD5zOHgXrw/viewform" target="_blank" class="apply-now-btn">
+                    Open Google Application Form &rarr;
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer System Component -->
+    <footer>
+        <div class="footer-socket">
+            <div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div>
+            <!-- FIXED: Back to Home button updated for seamless navigation -->
+            <div><a href="index.html" style="color: var(--lime); text-decoration: none;">&larr; Back to Home</a></div>
+        </div>
+    </footer>
+
+    <!-- Shared Light/Dark Mode Controller Engine -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const rootElement = document.documentElement;
+
+        const currentSavedTheme = localStorage.getItem('theme') || 'dark';
+        rootElement.setAttribute('data-theme', currentSavedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            let activeTheme = rootElement.getAttribute('data-theme');
+            let newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            rootElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>

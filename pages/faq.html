@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — Citrus Circuits 1678</title>
+    <meta name="description" content="Frequently asked questions about FRC Team 1678, Citrus Circuits — what 1678 means, how to join, and how to support the team.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="dark"] .sun-icon { display:none; } [data-theme="dark"] .moon-icon { display:block; }
+        [data-theme="light"] .sun-icon { display:block; } [data-theme="light"] .moon-icon { display:none; }
+        :root[data-theme="dark"] { --bg-darkest:#050606; --bg-dark:#0b0d0d; --bg-card:#111414; --bg-dropdown:#121616; --lime:#7FFF00; --lime-soft:#cfff6a; --text-main:#f3f4f6; --text-muted:#9ca3af; --border:rgba(255,255,255,.06); --header-bg:rgba(5,6,6,.9); }
+        :root[data-theme="light"] { --bg-darkest:#f9fafb; --bg-dark:#f3f4f6; --bg-card:#ffffff; --bg-dropdown:#ffffff; --lime:#4ebd00; --lime-soft:#86d620; --text-main:#111827; --text-muted:#4b5563; --border:rgba(0,0,0,.08); --header-bg:rgba(255,255,255,.92); }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+        html { scroll-behavior:smooth; }
+        body { background-color:var(--bg-darkest); color:var(--text-main); overflow-x:hidden; transition:background-color .3s ease,color .3s ease; }
+        img { max-width:100%; display:block; }
+        #cdot { position:fixed; width:10px; height:10px; background:var(--lime); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:screen; }
+        #cring { position:fixed; width:34px; height:34px; border:1.5px solid var(--lime); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); opacity:.7; transition:width .25s,height .25s,opacity .25s; }
+        @media (hover:none){ #cdot,#cring{display:none;} body{cursor:auto;} }
+        #loader { position:fixed; inset:0; background:var(--bg-darkest); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:8000; transition:opacity .8s,visibility .8s; }
+        #loader.out { opacity:0; visibility:hidden; pointer-events:none; }
+        .ld-n { font-family:'Bebas Neue',sans-serif; font-size:clamp(100px,20vw,220px); color:transparent; -webkit-text-stroke:2px var(--lime); letter-spacing:.04em; line-height:1; animation:ldGl 1.5s ease-in-out infinite; }
+        .ld-sub { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; margin-top:16px; opacity:.7; }
+        .ld-bw { width:160px; height:1px; background:rgba(127,255,0,.2); margin-top:28px; overflow:hidden; } .ld-b { height:100%; background:var(--lime); animation:ldB 2s ease-out forwards; }
+        @keyframes ldB { 0%{width:0;}100%{width:100%;} } @keyframes ldGl { 0%,100%{filter:drop-shadow(0 0 14px rgba(127,255,0,.4));}50%{filter:drop-shadow(0 0 44px rgba(127,255,0,.95));} }
+        header { background-color:var(--header-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); position:fixed; width:100%; top:0; left:0; z-index:1000; transition:background-color .3s ease,border-color .3s ease; }
+        .navbar { max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; height:95px; padding:0 2rem; }
+        .brand { display:flex; align-items:center; gap:1rem; text-decoration:none; color:var(--text-main); }
+        .brand-logo { height:55px; width:auto; object-fit:contain; }
+        .brand-text-stack { display:flex; flex-direction:column; line-height:1.2; }
+        .brand-title { font-size:1.15rem; font-weight:800; letter-spacing:-.01em; color:var(--lime); display:flex; align-items:center; gap:.4rem; }
+        .brand-title span { color:var(--text-main); font-weight:400; font-size:1rem; }
+        .brand-subtitle { font-size:.75rem; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; margin-top:.1rem; }
+        .nav-menu { display:flex; list-style:none; align-items:center; height:100%; }
+        .nav-item { position:relative; height:100%; display:flex; align-items:center; }
+        .nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:500; padding:0 1.15rem; height:100%; display:flex; align-items:center; gap:.35rem; transition:color .2s ease; }
+        .nav-link:hover, .nav-item:hover .nav-link { color:var(--text-main); }
+        .nav-link.active { color:var(--lime); }
+        .nav-link svg { width:10px; height:10px; fill:none; stroke:currentColor; stroke-width:2.5; transition:transform .25s ease; }
+        .nav-item:hover .nav-link svg { transform:rotate(180deg); color:var(--lime); }
+        .dropdown-panel { position:absolute; top:95px; left:50%; transform:translateX(-50%) translateY(10px); background-color:var(--bg-dropdown); border:1px solid var(--border); border-radius:12px; width:520px; padding:1.25rem; display:grid; grid-template-columns:1fr 1fr; gap:.35rem; opacity:0; pointer-events:none; box-shadow:0 30px 60px rgba(0,0,0,.25); transition:opacity .2s ease,transform .2s ease; }
+        .nav-item:hover .dropdown-panel { opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+        .dropdown-panel a { color:var(--text-muted); text-decoration:none; font-size:.85rem; padding:.65rem .85rem; border-radius:8px; transition:all .2s ease; }
+        .dropdown-panel a:hover { background-color:var(--bg-dark); color:var(--lime); }
+        .dropdown-panel a.active { color:var(--lime); background-color:var(--bg-dark); }
+        .nav-actions-hub { display:flex; align-items:center; gap:1rem; }
+        .nav-cta { background:transparent; border:1px solid var(--lime); color:var(--lime); padding:.6rem 1.2rem; border-radius:8px; font-size:.85rem; font-weight:600; text-decoration:none; transition:all .2s ease; }
+        .nav-cta:hover { background:var(--lime); color:#000; }
+        .theme-toggle-btn { background:var(--bg-dark); border:1px solid var(--border); color:var(--text-main); width:40px; height:40px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s ease; }
+        .theme-toggle-btn:hover { border-color:var(--lime); color:var(--lime); }
+        .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
+
+        main { padding-top:95px; }
+        .wrap { max-width:880px; margin:0 auto; padding:0 2rem; }
+        .page-head { text-align:center; margin:4rem auto 3rem; }
+        .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
+        .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
+        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
+        .page-title em { color:var(--lime); font-style:normal; }
+
+        .faq-list { padding-bottom:4rem; }
+        .faq-item { border:1px solid var(--border); border-radius:12px; margin-bottom:1rem; background:var(--bg-card); overflow:hidden; transition:border-color .2s ease; }
+        .faq-item.open { border-color:var(--lime); }
+        .faq-q { width:100%; text-align:left; background:none; border:none; color:var(--text-main); font-size:1.08rem; font-weight:700; padding:1.4rem 1.6rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .faq-q .icon { flex-shrink:0; width:22px; height:22px; position:relative; transition:transform .25s ease; }
+        .faq-q .icon::before, .faq-q .icon::after { content:''; position:absolute; background:var(--lime); border-radius:2px; }
+        .faq-q .icon::before { top:10px; left:2px; right:2px; height:2px; }
+        .faq-q .icon::after { left:10px; top:2px; bottom:2px; width:2px; transition:transform .25s ease; }
+        .faq-item.open .faq-q .icon::after { transform:scaleY(0); }
+        .faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+        .faq-a-inner { padding:0 1.6rem 1.5rem; color:var(--text-muted); line-height:1.75; font-size:1rem; }
+        .faq-a-inner a { color:var(--lime); text-decoration:none; border-bottom:1px dashed var(--lime); }
+        .faq-a-inner a:hover { border-bottom-style:solid; }
+
+        .faq-foot { text-align:center; background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:5rem; }
+        .faq-foot h3 { font-size:1.4rem; font-weight:800; margin-bottom:.5rem; }
+        .faq-foot p { color:var(--text-muted); margin-bottom:1.5rem; }
+        .faq-foot a { background:var(--lime); color:#000; text-decoration:none; padding:.85rem 1.6rem; border-radius:8px; font-weight:700; }
+
+        footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
+        .footer-socket { max-width:880px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
+        .footer-socket a { color:var(--lime); text-decoration:none; }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
+    </style>
+</head>
+<body>
+    <div id="cdot"></div><div id="cring"></div>
+    <div id="loader"><div class="ld-n">1678</div><div class="ld-sub">Initializing Circuits</div><div class="ld-bw"><div class="ld-b"></div></div></div>
+
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="brand">
+                <img src="pictures/1678.jpg" alt="Citrus Circuits Logo" class="brand-logo">
+                <div class="brand-text-stack"><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div></div>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
+                        <a href="recruitment.html">Recruitment</a><a href="our-robots.html">Our Robots</a>
+                        <a href="#">2026 Robot</a><a href="history.html">History</a>
+                        <a href="#">1857 Citrus Sparks</a><a href="#">FIRST Leadership</a>
+                        <a href="faq.html" class="active">FAQ</a><a href="contact.html">Contact Us</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Outreach</a></li>
+                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Support Us</a></li>
+            </ul>
+            <div class="nav-actions-hub">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="recruitment.html" class="nav-cta">Apply to Team</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap">
+            <div class="page-head">
+                <div class="page-eyebrow">Common Questions</div>
+                <h1 class="page-title"><em>FAQ</em></h1>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q">What does "1678" mean? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">FRC assigns every team a number based on the order it joined the competition — we were the 1,678th team to sign up. FIRST uses that number to identify us at events and on leaderboards.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">What are FIRST and FRC? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">FIRST (For Inspiration and Recognition of Science and Technology) is a non-profit founded by Dean Kamen to get students of all ages excited about robotics and technology. It runs several programs; FRC — the FIRST Robotics Competition — is the flagship high-school program we compete in. You can read more at <a href="https://www.firstinspires.org/" target="_blank" rel="noopener">firstinspires.org</a>.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Why do you do all this? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">The team exists to get young people excited about science, technology, engineering, and math. Competing gives us hands-on experience in everything from mechanical engineering to programming and pushes us to solve problems creatively under real constraints of time and materials. FRC students are also eligible for millions of dollars in college scholarships. Mostly, though — it's fun.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">I'd like to join! What do I do? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Membership is by application and interview, open to local students in grades 9–12. Members are expected to attend at least 80% of meetings — Wednesdays and Thursdays 6:30–9 p.m. in Room M-1 at Davis Senior High School, plus weekends 9 a.m.–5 p.m. from January through April. Applications open in spring. See our <a href="recruitment.html">Recruitment</a> page or email <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a> for the coming season.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How do the robotics classes relate to the team? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">The Advanced Robotics Engineering classes are "8th period" courses at Davis Senior High School. They're a way for students to earn high-school credit for the after-school and weekend time they put into the competition.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">What kinds of opportunities are on the team? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Plenty. Students and mentors will teach you programming, mechanical, and electrical skills if that's your interest. If you're drawn to public relations, finance, photography, or filmmaking, our Business and Media subteam offers training and projects too.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How can I support the team? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">We're always looking for new partnerships and rely on our sponsors to extend our outreach. Donations can be made by check to the Davis Robotics Foundation, P.O. Box 577, Davis, CA 95617, or through the Foundation's PayPal. See our <a href="sponsors.html">Sponsors</a> page for benefit tiers. If you'd like to mentor in engineering, mechanics, programming, or media, email <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a>.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Is it like BattleBots? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">No — FIRST games don't involve attacking other robots. It's closer to robotic soccer: two alliances of three robots each compete on an indoor field, and there are penalties for deliberately damaging another robot. Alliances even shift during an event, so today's opponent may be tomorrow's partner. The goal is creative problem-solving and teamwork, not building the deadliest machine.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">What are "gracious professionalism" and "coopertition"? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">They're core FIRST values. Gracious professionalism means behaving maturely and respectfully toward other teams and officials — and helping them out, whether by lending parts or hands, so everyone can compete. Coopertition is the idea of competing cooperatively: teams work alongside others in alliances even while competing. Both are woven so deeply into FIRST culture that there are formal awards for teams that exemplify them.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">I have another question — where do I ask? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Send us a message through the <a href="contact.html">Contact</a> page and we'll get back to you as soon as we can. This isn't a full-time job for any of us, so it may take a couple of days — especially if your question needs a team discussion. We appreciate every question, so don't hesitate to reach out.</div></div>
+                </div>
+            </div>
+
+            <div class="faq-foot">
+                <h3>Still curious?</h3>
+                <p>We're happy to answer anything we missed.</p>
+                <a href="contact.html">Contact the Team &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
+
+    <script>
+        const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
+        root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
+        tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+        window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),1400));
+        // accordion
+        document.querySelectorAll('.faq-q').forEach(btn=>{
+            btn.addEventListener('click',()=>{
+                const item=btn.parentElement, ans=btn.nextElementSibling, isOpen=item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;});
+                if(!isOpen){ item.classList.add('open'); ans.style.maxHeight=ans.scrollHeight+'px'; }
+            });
+        });
+        const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+        if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
+            window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+            (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+            document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+        }
+    </script>
+</body>
+</html>

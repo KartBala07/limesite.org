@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citrus Circuits 1678 — Built on Collective Drive</title>
+<meta name="description" content="FRC Team 1678 — Citrus Circuits. Engineering, fabricating, and competing from Davis, California.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://unpkg.com/three@r128/examples/js/loaders/GLTFLoader.js"></script>
+<style>
+/* === RESET === */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-darkest);color:var(--text-main);
+  font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none;
+  transition:background-color .3s ease,color .3s ease;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* === VARIABLES (mapped to Limesite_bala palette) === */
+:root[data-theme="dark"]{
+  --lime:#7FFF00;        --lime-soft:#cfff6a;
+  --bg-darkest:#050606;  --bg-dark:#0b0d0d;
+  --bg-card:#111414;     --bg-dropdown:#121616;
+  --text-main:#f3f4f6;   --text-muted:#9ca3af;
+  --border:rgba(255,255,255,.06);
+  --header-bg:rgba(5,6,6,.9);
+  --invert-logos:invert(0);
+}
+:root[data-theme="light"]{
+  --lime:#4ebd00;        --lime-soft:#86d620;
+  --bg-darkest:#f9fafb;  --bg-dark:#f3f4f6;
+  --bg-card:#ffffff;     --bg-dropdown:#ffffff;
+  --text-main:#111827;   --text-muted:#4b5563;
+  --border:rgba(0,0,0,.08);
+  --header-bg:rgba(255,255,255,.92);
+  --invert-logos:invert(0);
+}
+
+/* === CURSOR === */
+#cdot{position:fixed;width:10px;height:10px;background:var(--lime);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;mix-blend-mode:screen}
+#cring{position:fixed;width:34px;height:34px;border:1.5px solid var(--lime);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s;opacity:.7}
+
+/* === LOADER === */
+#loader{position:fixed;inset:0;background:var(--bg-darkest);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:8000;transition:opacity .8s,visibility .8s}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,20vw,220px);color:transparent;-webkit-text-stroke:2px var(--lime);letter-spacing:.04em;line-height:1;animation:ldGl 1.5s ease-in-out infinite}
+.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;margin-top:16px;opacity:.7}
+.ld-bw{width:160px;height:1px;background:rgba(127,255,0,.2);margin-top:28px;overflow:hidden}
+.ld-b{height:100%;background:var(--lime);animation:ldB 2s ease-out forwards}
+@keyframes ldB{0%{width:0}100%{width:100%}}
+@keyframes ldGl{0%,100%{filter:drop-shadow(0 0 14px rgba(127,255,0,.4))}50%{filter:drop-shadow(0 0 44px rgba(127,255,0,.95))}}
+
+/* === NAV (Limesite_bala style) === */
+header{
+  background-color:var(--header-bg);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  position:fixed;width:100%;top:0;left:0;z-index:1000;
+  transition:background-color .3s ease,border-color .3s ease;
+}
+.navbar{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:95px;padding:0 2rem}
+.brand{display:flex;align-items:center;gap:1rem;color:var(--text-main)}
+.brand-logo{height:55px;width:auto;object-fit:contain}
+.brand-text-stack{display:flex;flex-direction:column;line-height:1.2}
+.brand-title{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;color:var(--lime);display:flex;align-items:center;gap:.4rem}
+.brand-title span{color:var(--text-main);font-weight:400;font-size:1rem}
+.brand-subtitle{font-size:.75rem;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
+.nav-menu{display:flex;list-style:none;align-items:center;height:100%}
+.nav-item{position:relative;height:100%;display:flex;align-items:center}
+.nav-link{color:var(--text-muted);text-decoration:none;font-size:.9rem;font-weight:500;padding:0 1.15rem;height:100%;display:flex;align-items:center;gap:.35rem;transition:color .2s ease}
+.nav-link:hover{color:var(--text-main)}
+.nav-link svg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .25s ease}
+.nav-item:hover .nav-link svg{transform:rotate(180deg);color:var(--lime)}
+.dropdown-panel{position:absolute;top:95px;left:50%;transform:translateX(-50%) translateY(10px);background-color:var(--bg-dropdown);border:1px solid var(--border);border-radius:12px;width:520px;padding:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:.35rem;opacity:0;pointer-events:none;box-shadow:0 30px 60px rgba(0,0,0,.25);transition:opacity .2s ease,transform .2s ease}
+.nav-item:hover .dropdown-panel{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.dropdown-panel a{color:var(--text-muted);text-decoration:none;font-size:.85rem;padding:.65rem .85rem;border-radius:8px;transition:all .2s ease}
+.dropdown-panel a:hover{background-color:var(--bg-dark);color:var(--lime)}
+.nav-actions-hub{display:flex;align-items:center;gap:1rem}
+.theme-toggle-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:40px;height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease}
+.theme-toggle-btn:hover{border-color:var(--lime);color:var(--lime)}
+.theme-toggle-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+[data-theme="dark"] .sun-icon{display:none}
+[data-theme="dark"] .moon-icon{display:block}
+[data-theme="light"] .sun-icon{display:block}
+[data-theme="light"] .moon-icon{display:none}
+.nav-cta{background:transparent;border:1px solid var(--lime);color:var(--lime);padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s ease}
+.nav-cta:hover{background:var(--lime);color:#000}
+
+/* === HERO === */
+main{padding-top:95px}
+#hero{position:relative;height:calc(100vh - 95px);min-height:680px;display:flex;align-items:center;overflow:hidden;padding:0 60px}
+#hcvs{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-grid{position:relative;z-index:2;max-width:1440px;width:100%;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+.h-eye{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:28px;opacity:0;animation:fuA .7s 2.4s forwards}
+.h-eye::before{content:'';width:36px;height:1px;background:var(--lime)}
+h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,168px);line-height:.92;letter-spacing:.02em}
+.hl{display:block;overflow:hidden}
+.hl span{display:block;transform:translateY(105%);animation:suA .9s cubic-bezier(.16,1,.3,1) forwards}
+.hl:nth-child(1) span{animation-delay:2.5s}
+.hl:nth-child(2) span{animation-delay:2.65s}
+.hl:nth-child(3) span{animation-delay:2.8s;color:var(--lime)}
+.h-sub{font-size:17px;color:var(--text-muted);max-width:480px;line-height:1.85;margin-top:32px;opacity:0;animation:fuA .8s 3.1s forwards}
+.h-btns{display:flex;gap:14px;margin-top:40px;opacity:0;animation:fuA .8s 3.3s forwards}
+.h-scroll{position:absolute;bottom:30px;left:60px;z-index:3;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:fuA .8s 3.6s forwards}
+.hs-ln{width:52px;height:1px;background:var(--border);position:relative;overflow:hidden}
+.hs-ln::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--lime);animation:hsSc 2s ease-in-out infinite}
+@keyframes hsSc{0%{left:-100%}50%{left:0}100%{left:100%}}
+@keyframes suA{from{transform:translateY(105%)}to{transform:translateY(0)}}
+@keyframes fuA{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* === BTN === */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-family:'Inter',sans-serif;transition:all .25s;cursor:pointer;border:none}
+.btn-solid{background:var(--lime);color:#000;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-solid:hover{background:var(--lime-soft);transform:translateY(-2px);box-shadow:0 8px 28px rgba(127,255,0,.35)}
+.btn-ghost{color:var(--text-main);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+
+/* === CAD VIEWER (hero centerpiece) === */
+.cad-stage{
+  position:relative;width:100%;height:520px;
+  background:linear-gradient(180deg,#0a0d0a 0%,#050a05 100%);
+  border:1px solid var(--border);border-radius:20px;overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,.4),0 0 0 1px rgba(127,255,0,.04) inset;
+  cursor:grab;user-select:none;touch-action:none;
+  opacity:0;animation:fuA .9s 2.9s forwards;
+}
+.cad-stage.dragging{cursor:grabbing}
+.cad-stage::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(127,255,0,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(127,255,0,.035) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;
+}
+.cad-frame{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.cad-frame img{max-width:90%;max-height:90%;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));pointer-events:none;transition:filter .3s}
+.cad-corner{position:absolute;width:18px;height:18px;border:1.5px solid var(--lime);opacity:.6}
+.cad-corner.tl{top:14px;left:14px;border-right:none;border-bottom:none}
+.cad-corner.tr{top:14px;right:14px;border-left:none;border-bottom:none}
+.cad-corner.bl{bottom:14px;left:14px;border-right:none;border-top:none}
+.cad-corner.br{bottom:14px;right:14px;border-left:none;border-top:none}
+.cad-tag{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;opacity:.7;background:rgba(0,0,0,.4);padding:4px 14px;border:1px solid var(--border);border-radius:999px;z-index:2}
+.cad-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:.2em;text-transform:uppercase;z-index:2;background:rgba(0,0,0,.4);padding:4px 14px;border-radius:999px}
+.cad-progress{position:absolute;bottom:54px;left:50%;transform:translateX(-50%);width:160px;height:1px;background:var(--border);z-index:2;overflow:hidden}
+.cad-progress-fill{height:100%;background:var(--lime);width:0;transition:width .12s linear}
+.cad-placeholder{text-align:center;color:var(--text-muted);max-width:360px;padding:1.5rem}
+.cad-placeholder img{height:84px;width:auto;margin:0 auto 18px;filter:drop-shadow(0 0 24px rgba(127,255,0,.18))}
+.cad-placeholder h4{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.04em;color:var(--lime);margin-bottom:10px}
+.cad-placeholder p{font-size:13px;line-height:1.7;color:var(--text-muted)}
+.cad-placeholder code{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lime);background:rgba(127,255,0,.08);padding:2px 6px;border-radius:4px}
+
+/* === MARQUEE === */
+.mq-strip{overflow:hidden;background:var(--lime);padding:13px 0}
+.mq-track{display:flex;width:max-content;animation:mq 28s linear infinite}
+.mq-item{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.12em;color:rgba(0,0,0,.65);padding:0 28px;display:flex;align-items:center;gap:20px;white-space:nowrap}
+.mq-dot{color:rgba(0,0,0,.3);font-size:10px}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* === STATS === */
+#stats{background:var(--bg-dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.st-in{max-width:1440px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr)}
+.st-cell{padding:56px 20px;text-align:center;border-right:1px solid var(--border)}
+.st-cell:last-child{border-right:none}
+.st-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(54px,6vw,96px);color:var(--lime);line-height:1;display:flex;align-items:baseline;justify-content:center;gap:2px;text-shadow:0 0 50px rgba(127,255,0,.25)}
+.st-plus{color:var(--lime-soft);font-size:.72em}
+.st-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:.2em;text-transform:uppercase;margin-top:8px}
+
+/* === PANORAMIC (team photo) === */
+.pano-section{max-width:1440px;margin:6rem auto 0;padding:0 2rem}
+.pano-frame{width:100%;height:520px;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 60px rgba(0,0,0,.15);background:var(--bg-dark)}
+.pano-frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* === ABOUT COPY === */
+.content-stack{max-width:1440px;margin:0 auto;padding:5rem 2rem 2rem}
+.content-header{margin-bottom:3.5rem}
+.content-header .tag{font-family:'JetBrains Mono',monospace;color:var(--lime);font-size:.85rem;text-transform:uppercase;letter-spacing:3px;display:block;margin-bottom:1rem}
+.content-header h1{font-family:'Inter',sans-serif;font-size:3.5rem;font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.25rem}
+.content-header p{color:var(--text-muted);font-size:1.2rem;line-height:1.6;max-width:720px}
+
+/* === ACTION PANEL GRID === */
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:4rem}
+.action-btn{background:var(--bg-dark);border:1px solid var(--border);border-radius:16px;padding:2.5rem;text-decoration:none;color:var(--text-main);transition:all .25s ease;display:flex;justify-content:space-between;align-items:center}
+.action-btn:hover{border-color:var(--lime);background:var(--bg-card);transform:translateY(-4px)}
+.action-btn h2{font-size:1.4rem;font-weight:700;margin-bottom:.4rem}
+.action-btn p{color:var(--text-muted);font-size:.95rem}
+.action-arrow{font-size:1.75rem;color:var(--text-muted);transition:transform .2s ease}
+.action-btn:hover .action-arrow{color:var(--lime);transform:translateX(6px)}
+
+/* === RESOURCE CARDS === */
+.cards-section{padding:2rem 2rem 8rem;max-width:1440px;margin:0 auto;border-top:1px solid var(--border)}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.resource-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease}
+.resource-card:hover{transform:translateY(-4px);border-color:var(--lime)}
+.card-img-wrap{width:100%;height:240px;overflow:hidden}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.card-body{padding:2rem;flex-grow:1}
+.card-body h3{font-size:1.35rem;font-weight:800;color:var(--lime);margin-bottom:.75rem;letter-spacing:-.01em}
+.card-body p{color:var(--text-muted);font-size:.95rem;line-height:1.6}
+
+/* === REVEAL === */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.on{opacity:1;transform:translateY(0)}
+
+/* === FOOTER (Limesite_bala blueprint) === */
+footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem 2rem 3rem;transition:background-color .3s ease}
+.footer-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1.5fr;gap:4rem;align-items:flex-start;padding-bottom:4rem;border-bottom:1px solid var(--border)}
+.footer-left{display:flex;flex-direction:column;gap:1.5rem}
+.footer-search{background:var(--bg-darkest);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;width:100%;max-width:320px}
+.footer-search input{background:transparent;border:none;outline:none;color:var(--text-main);font-size:.9rem;width:100%;margin-left:.5rem;font-family:'Inter',sans-serif}
+.footer-search svg{flex-shrink:0}
+.footer-left p{color:var(--text-muted);font-size:.9rem}
+.footer-left a{color:var(--lime);text-decoration:none;font-size:.9rem}
+.footer-links{display:flex;flex-direction:column;gap:.85rem}
+.footer-links a{color:var(--text-muted);text-decoration:none;font-size:.95rem;transition:color .2s ease}
+.footer-links a:hover{color:var(--text-main)}
+.footer-logos{display:flex;justify-content:flex-end;align-items:center;gap:2.5rem}
+.footer-logo-img{height:65px;width:auto;object-fit:contain;filter:var(--invert-logos)}
+.footer-brand-logo{height:75px;width:auto;object-fit:contain}
+.footer-socket{max-width:1440px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:.85rem;flex-wrap:wrap;gap:1rem}
+.footer-social-row{display:flex;gap:1.5rem}
+.footer-social-row a{color:var(--text-muted);text-decoration:none;font-weight:500;transition:color .2s ease}
+.footer-social-row a:hover{color:var(--lime)}
+
+/* === RESPONSIVE === */
+@media(max-width:1100px){
+  #hero{padding:0 30px}
+  .hero-grid{grid-template-columns:1fr;gap:32px;padding-top:32px}
+  .cad-stage{height:380px}
+  .st-in{padding:0 30px;grid-template-columns:repeat(2,1fr)}
+  .st-cell:nth-child(2){border-right:none}
+  .pano-frame{height:360px}
+  .action-grid{grid-template-columns:1fr;gap:1rem}
+  .cards-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:3rem}
+  .footer-logos{justify-content:flex-start}
+  .navbar{padding:0 1.5rem}
+  .nav-menu{display:none}
+  .content-header h1{font-size:2.5rem}
+}
+@media(max-width:700px){
+  #hero{padding:0 20px;min-height:600px}
+  .h-btns{flex-direction:column}
+  .cad-stage{height:300px}
+  .pano-frame{height:240px}
+  .footer-socket{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-n">1678</div>
+  <div class="ld-sub">Initializing Circuits</div>
+  <div class="ld-bw"><div class="ld-b"></div></div>
+</div>
+
+<!-- NAV -->
+<header>
+  <div class="navbar">
+    <a href="index.html" class="brand">
+      <img src="../pages/pictures/1678.jpg" alt="Citrus Circuits Logo" class="brand-logo">
+      <div class="brand-text-stack">
+        <div class="brand-title">1678 <span>Citrus Circuits</span></div>
+        <div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+                     <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
+                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html" class="active">Our Robots</a>
+                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
+                        <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
+                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+      <li class="nav-item"><a href="outreach.html" class="nav-link">Outreach</a></li>
+      <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+      <li class="nav-item"><a href="support.html" class="nav-link">Support Us</a></li>
+    </ul>
+    <div class="nav-actions-hub">
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Layout Theme Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 1２.79A9 9 0 １ １ １１.２１ ３ ７ ７ 0 0 0 ２１ １２.７９z"></path></svg>
+      </button>
+      <a href="recruitment.html" class="nav-cta">Apply to Team</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hcvs"></canvas>
+  <div class="hero-grid">
+    <div class="h-content">
+      <div class="h-eye">FRC Team 1678 &nbsp;·&nbsp; Davis, California &nbsp;·&nbsp; Est. 2005</div>
+      <h1 class="htitle">
+        <span class="hl"><span>CITRUS</span></span>
+        <span class="hl"><span>CIRCUITS</span></span>
+        <span class="hl"><span>1678</span></span>
+      </h1>
+      <p class="h-sub">A culture of peer-to-peer engineering training, precision manufacturing consistency, and direct community transformation across California and the FIRST network.</p>
+      <div class="h-btns">
+        <a href="#about" class="btn btn-solid">Explore the Robot &rarr;</a>
+        <a href="../pages/recruitment.html" class="btn btn-ghost">Join the Team</a>
+      </div>
+    </div>
+
+    <!-- CAD VIEWER -->
+    <div class="cad-stage" id="cadStage">
+      <span class="cad-corner tl"></span>
+      <span class="cad-corner tr"></span>
+      <span class="cad-corner bl"></span>
+      <span class="cad-corner br"></span>
+      <div class="cad-tag">2026 Robot · CAD</div>
+      <div class="cad-frame" id="cadFrame">
+        <!-- Placeholder: shown until GLTF model loads -->
+        <div class="cad-placeholder" id="cadPlaceholder">
+          <img src="../pages/pictures/1678.jpg" alt="Citrus Circuits">
+          <h4>CAD Viewer</h4>
+          <p>Loading 3D model viewer…</p>
+        </div>
+        <!-- 3D Canvas for model display -->
+        <canvas id="cadCanvas" style="display:none;width:100%;height:100%"></canvas>
+      </div>
+      <div class="cad-hint" id="cadHint">Drag to rotate</div>
+    </div>
+  </div>
+  <div class="h-scroll">
+    <div class="hs-ln"></div>
+    <span>Scroll to Explore</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-strip">
+  <div class="mq-track">
+    <span class="mq-item">FIRST Robotics<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Davis, California<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Team 1678<span class="mq-dot">◆</span></span>
+    <span class="mq-item">World Championship Legacy<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Citrus Circuits<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Engineering Inspiration Award<span class="mq-dot">◆</span></span>
+    <span class="mq-item">RoboCamps<span class="mq-dot">◆</span></span>
+    <span class="mq-item">STEM Leadership<span class="mq-dot">◆</span></span>
+    <span class="mq-item">FIRST Robotics<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Davis, California<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Team 1678<span class="mq-dot">◆</span></span>
+    <span class="mq-item">World Championship Legacy<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Citrus Circuits<span class="mq-dot">◆</span></span>
+    <span class="mq-item">Engineering Inspiration Award<span class="mq-dot">◆</span></span>
+    <span class="mq-item">RoboCamps<span class="mq-dot">◆</span></span>
+    <span class="mq-item">STEM Leadership<span class="mq-dot">◆</span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="st-in">
+    <div class="st-cell">
+      <div class="st-n"><span class="cnt" data-t="20">0</span><span class="st-plus">+</span></div>
+      <div class="st-lbl">Years of Competition</div>
+    </div>
+    <div class="st-cell">
+      <div class="st-n"><span class="cnt" data-t="3">0</span></div>
+      <div class="st-lbl">World Championship Finals</div>
+    </div>
+    <div class="st-cell">
+      <div class="st-n"><span class="cnt" data-t="100">0</span><span class="st-plus">+</span></div>
+      <div class="st-lbl">Awards Earned</div>
+    </div>
+    <div class="st-cell">
+      <div class="st-n"><span class="cnt" data-t="80">0</span><span class="st-plus">+</span></div>
+      <div class="st-lbl">Team Members</div>
+    </div>
+  </div>
+</div>
+
+<!-- PANORAMIC TEAM PHOTO -->
+<section class="pano-section">
+  <div class="pano-frame reveal">
+    <img src="../pages/pictures/team_2026.jpg" alt="Citrus Circuits FRC Team 1678 Group Portrait">
+  </div>
+</section>
+
+<!-- ABOUT COPY + ACTION PANELS -->
+<section class="content-stack" id="about">
+  <div class="content-header reveal">
+    <span class="tag">Global Championship Legacy</span>
+    <h1>Built on Collective Drive.</h1>
+    <p>We are a culture of peer-to-peer engineering training, precision manufacturing consistency, and direct community transformation across California and the FIRST network.</p>
+  </div>
+
+  <div class="action-grid">
+    <a href="../pages/recruitment.html" class="action-btn reveal">
+      <div>
+        <h2>Apply for Team Link</h2>
+        <p>Applications portal for the current competitive season.</p>
+      </div>
+      <div class="action-arrow">&rarr;</div>
+    </a>
+    <a href="#about" class="action-btn reveal">
+      <div>
+        <h2>2026 Robot History / CAD AND CODE</h2>
+        <p>Access open-source mechanical assemblies and codebases.</p>
+      </div>
+      <div class="action-arrow">&rarr;</div>
+    </a>
+  </div>
+</section>
+
+<!-- RESOURCE CARDS -->
+<section class="cards-section">
+  <div class="cards-grid">
+    <div class="resource-card reveal">
+      <div class="card-img-wrap">
+        <img src="../pages/pictures/history_cover_pic.jpg" alt="Team History">
+      </div>
+      <div class="card-body">
+        <h3>Team History</h3>
+        <p>Explore over a decade of competitive excellence, engineering growth, and community transformation metrics.</p>
+      </div>
+    </div>
+
+    <div class="resource-card reveal">
+      <div class="card-img-wrap">
+        <img src="../pages/pictures/robocamps_cover_pic.jpg" alt="RoboCamps">
+      </div>
+      <div class="card-body">
+        <h3>RoboCamps</h3>
+        <p>Empowering local youth through structural summer camps exploring foundational engineering skills.</p>
+      </div>
+    </div>
+
+    <div class="resource-card reveal">
+      <div class="card-img-wrap">
+        <img src="../pages/pictures/2025_fall_workshops.jpg" alt="Workshops">
+      </div>
+      <div class="card-body">
+        <h3>Fall Workshops</h3>
+        <p>Annual community integration workspace events sharing specialized technical frameworks globally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-left">
+      <div class="footer-search">
+        <svg width="16" height="16" fill="none" stroke="var(--text-muted)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" placeholder="Search resources...">
+      </div>
+      <p>Email us at <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Support Us</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+    <div class="footer-logos">
+      <img src="../pages/pictures/first_logo.jpg" alt="FIRST Robotics Official Logo" class="footer-logo-img">
+      <img src="../pages/pictures/1678.jpg" alt="Citrus Circuits Branding Shield" class="footer-brand-logo">
+    </div>
+  </div>
+
+  <div class="footer-socket">
+    <div>&copy; 2026 Citrus Circuits 1678. Engineered for competitive execution performance.</div>
+    <div class="footer-social-row">
+      <a href="https://www.instagram.com/frc1678/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.youtube.com/citruscircuits" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/frc1678/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.linkedin.com/company/frc-1678-citrus-circuits-robotics" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* === CURSOR === */
+const dot = document.getElementById('cdot');
+const ring = document.getElementById('cring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+});
+(function aR(){
+  rx+=(mx-rx)*.11; ry+=(my-ry)*.11;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(aR);
+})();
+document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ dot.style.width='18px';dot.style.height='18px';ring.style.width='50px';ring.style.height='50px'; });
+  el.addEventListener('mouseleave',()=>{ dot.style.width='10px';dot.style.height='10px';ring.style.width='34px';ring.style.height='34px'; });
+});
+
+/* === LOADER === */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('out'),2200);
+});
+
+/* === THEME TOGGLE === */
+const themeToggleBtn = document.getElementById('themeToggle');
+const rootElement = document.documentElement;
+const savedTheme = localStorage.getItem('theme') || 'dark';
+rootElement.setAttribute('data-theme', savedTheme);
+themeToggleBtn.addEventListener('click', () => {
+  const activeTheme = rootElement.getAttribute('data-theme');
+  const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+  rootElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
+/* === CIRCUIT CANVAS (recolored to lime) === */
+const cvs=document.getElementById('hcvs');
+const ctx=cvs.getContext('2d');
+let W,H,nodes=[];
+function resize(){
+  W=cvs.width=cvs.offsetWidth;
+  H=cvs.height=cvs.offsetHeight;
+}
+resize();
+window.addEventListener('resize',()=>{ resize(); init(); },{ passive:true });
+function init(){
+  nodes=[];
+  const N=Math.min(Math.floor(W*H/13000),90);
+  for(let i=0;i<N;i++){
+    nodes.push({
+      x:Math.random()*W, y:Math.random()*H,
+      vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22,
+      r:Math.random()*1.8+.6,
+      a:Math.random()*.45+.1,
+      p:Math.random()*Math.PI*2
+    });
+  }
+}
+init();
+
+let frameCount=0;
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  frameCount++;
+  for(let i=0;i<nodes.length;i++){
+    const n=nodes[i];
+    n.p+=.018; n.x+=n.vx; n.y+=n.vy;
+    if(n.x<0||n.x>W) n.vx*=-1;
+    if(n.y<0||n.y>H) n.vy*=-1;
+    for(let j=i+1;j<nodes.length;j++){
+      const m=nodes[j];
+      const dx=n.x-m.x, dy=n.y-m.y;
+      const d=dx*dx+dy*dy;
+      if(d<22500){
+        const dist=Math.sqrt(d);
+        const a=(1-dist/150)*.13;
+        ctx.beginPath();
+        ctx.moveTo(n.x,n.y);
+        if(frameCount%7===0&&dist>50){
+          ctx.lineTo(m.x,n.y);
+          ctx.lineTo(m.x,m.y);
+        } else {
+          ctx.lineTo(m.x,m.y);
+        }
+        ctx.strokeStyle=`rgba(127,255,0,${a})`;
+        ctx.lineWidth=.55;
+        ctx.stroke();
+      }
+    }
+    const alpha=n.a*(.6+.4*Math.sin(n.p));
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(127,255,0,${alpha})`;
+    ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* === SCROLL REVEAL === */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('on'); ro.unobserve(e.target); }
+  });
+},{ threshold:.12 });
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* === COUNTER === */
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el=e.target;
+    const target=parseInt(el.dataset.t);
+    let n=0;
+    const step=target/112;
+    const t=setInterval(()=>{
+      n=Math.min(n+step,target);
+      el.textContent=Math.floor(n);
+      if(n>=target) clearInterval(t);
+    },16);
+    co.unobserve(el);
+  });
+},{ threshold:.5 });
+document.querySelectorAll('.cnt').forEach(el=>co.observe(el));
+
+/* === HERO PARALLAX === */
+const hContent=document.querySelector('.h-content');
+window.addEventListener('scroll',()=>{
+  const s=scrollY;
+  if(s<window.innerHeight){
+    hContent.style.transform=`translateY(${s*.28}px)`;
+    cvs.style.transform=`translateY(${s*.14}px)`;
+  }
+},{ passive:true });
+
+/* === 3D CAD VIEWER (GLTF model, drag to rotate) === */
+const cadStage   = document.getElementById('cadStage');
+const cadCanvas  = document.getElementById('cadCanvas');
+const cadPlace   = document.getElementById('cadPlaceholder');
+const cadHint    = document.getElementById('cadHint');
+
+(async function initCadViewer(){
+  // Wait for Three.js to load
+  let maxWait = 100;
+  while (typeof THREE === 'undefined' && maxWait-- > 0) {
+    await new Promise(r => setTimeout(r, 100));
+  }
+  
+  if (typeof THREE === 'undefined') {
+    console.error('Three.js failed to load');
+    return;
+  }
+
+  // Initialize Three.js scene
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x050606);
+  
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    cadCanvas.parentElement.clientWidth / cadCanvas.parentElement.clientHeight,
+    0.1,
+    1000
+  );
+  camera.position.z = 5;
+
+  const renderer = new THREE.WebGLRenderer({ 
+    canvas: cadCanvas,
+    antialias: true,
+    alpha: true
+  });
+  renderer.setSize(cadCanvas.parentElement.clientWidth, cadCanvas.parentElement.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.shadowMap.enabled = true;
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  directionalLight.position.set(5, 10, 5);
+  directionalLight.castShadow = true;
+  scene.add(directionalLight);
+
+  // Load GLTF model or show placeholder
+  let model;
+
+  // Try to load actual GLTF model
+  if (typeof GLTFLoader !== 'undefined') {
+    try {
+      const loader = new GLTFLoader();
+      loader.load('1678-26c-0000.gltf', 
+        (gltf) => {
+          model = gltf.scene;
+          scene.add(model);
+          const box = new THREE.Box3().setFromObject(model);
+          const size = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z);
+          const fov = camera.fov * (Math.PI / 180);
+          const cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+          camera.position.z = cameraZ * 1.5;
+          activateViewer();
+        },
+        undefined,
+        (error) => {
+          console.log('GLTF load error, showing placeholder:', error);
+          showPlaceholder();
+        }
+      );
+    } catch (e) {
+      console.log('GLTFLoader error:', e);
+      showPlaceholder();
+    }
+  } else {
+    showPlaceholder();
+  }
+
+  function showPlaceholder() {
+    // Show a placeholder 3D cube
+    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    const material = new THREE.MeshStandardMaterial({ 
+      color: 0x7FFF00,
+      metalness: 0.5,
+      roughness: 0.5
+    });
+    model = new THREE.Mesh(geometry, material);
+    scene.add(model);
+    activateViewer();
+  }
+
+  function activateViewer() {
+    // Hide placeholder, show canvas
+    cadPlace.style.display = 'none';
+    cadCanvas.style.display = 'block';
+    cadHint.textContent = 'Drag to rotate · scroll to zoom';
+
+    // Animation loop
+    let dragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    let lastInteractionTime = Date.now();
+
+    function onDown(e) {
+      dragging = true;
+      previousMousePosition = { 
+        x: e.clientX || e.touches?.[0].clientX, 
+        y: e.clientY || e.touches?.[0].clientY 
+      };
+      cadStage.classList.add('dragging');
+      lastInteractionTime = Date.now();
+      e.preventDefault();
+    }
+
+    function onMove(e) {
+      if (!dragging || !model) return;
+      
+      const clientX = e.clientX || e.touches?.[0].clientX;
+      const clientY = e.clientY || e.touches?.[0].clientY;
+
+      const deltaX = clientX - previousMousePosition.x;
+      const deltaY = clientY - previousMousePosition.y;
+
+      model.rotation.y += deltaX * 0.005;
+      model.rotation.x += deltaY * 0.005;
+
+      previousMousePosition = { x: clientX, y: clientY };
+      lastInteractionTime = Date.now();
+    }
+
+    function onUp() {
+      dragging = false;
+      cadStage.classList.remove('dragging');
+    }
+
+    function onWheel(e) {
+      e.preventDefault();
+      camera.position.z += e.deltaY * 0.01;
+      camera.position.z = Math.max(0.1, Math.min(20, camera.position.z));
+      lastInteractionTime = Date.now();
+    }
+
+    cadStage.addEventListener('mousedown', onDown);
+    cadStage.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    cadStage.addEventListener('wheel', onWheel, { passive: false });
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      // Auto-rotate when idle (>2 seconds)
+      if (!dragging && model && Date.now() - lastInteractionTime > 2000) {
+        model.rotation.y += 0.001;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  }
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    const width = cadCanvas.parentElement.clientWidth;
+    const height = cadCanvas.parentElement.clientHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subteams — Citrus Circuits 1678</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- FIXED: Theme Toggle Icon Visibility --- */
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: block; }
+        [data-theme="light"] .sun-icon { display: block; }
+        [data-theme="light"] .moon-icon { display: none; }
+
+        /* --- Shared Consistent Theme Variables --- */
+        :root[data-theme="dark"] {
+            --bg-darkest: #050606;
+            --bg-dark: #0b0d0d;
+            --bg-card: #111414;
+            --bg-dropdown: #121616;
+            --lime: #7FFF00;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.06);
+            --header-bg: rgba(5, 6, 6, 0.9);
+            --yt-red: #ff0033;
+        }
+
+        :root[data-theme="light"] {
+            --bg-darkest: #f9fafb;
+            --bg-dark: #f3f4f6;
+            --bg-card: #ffffff;
+            --bg-dropdown: #ffffff;
+            --lime: #4ebd00; 
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --border: rgba(0, 0, 0, 0.08);
+            --header-bg: rgba(255, 255, 255, 0.92);
+            --yt-red: #cc0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-darkest);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* --- Navigation Bar Header --- */
+        header {
+            background-color: var(--header-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .navbar {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 95px;
+            padding: 0 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-text-stack {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--lime);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .brand-title span { color: var(--text-main); font-weight: 400; font-size: 1rem; }
+        .brand-subtitle { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.1rem; }
+
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
+        
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0 1.15rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-item:hover .nav-link { color: var(--text-main); }
+        .nav-link svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 2.5; transition: transform 0.25s ease; }
+        .nav-item:hover .nav-link svg { transform: rotate(180deg); color: var(--lime); }
+
+        .dropdown-panel {
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: var(--bg-dropdown);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 520px;
+            padding: 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.35rem;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-item:hover .dropdown-panel { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        .dropdown-panel a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; padding: 0.65rem 0.85rem; border-radius: 8px; transition: all 0.2s ease; }
+        .dropdown-panel a:hover { background-color: var(--bg-dark); color: var(--lime); }
+
+        .nav-actions-hub { display: flex; align-items: center; gap: 1rem; }
+        
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--lime);
+            color: var(--lime);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover { background: var(--lime); color: #000; }
+
+        .theme-toggle-btn {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-toggle-btn:hover { border-color: var(--lime); color: var(--lime); }
+        .theme-toggle-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+        /* --- Split Intro Section Style --- */
+        main { padding-top: 95px; }
+
+        .intro-container {
+            max-width: 1440px;
+            margin: 4rem auto 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .subteams-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: var(--lime);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+
+        .intro-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .video-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            background: #000;
+        }
+
+        .video-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.78) 100%);
+        }
+
+        .video-label span {
+            align-self: flex-start;
+            margin-bottom: 0.45rem;
+            padding: 0.35rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(127, 255, 0, 0.14);
+            border: 1px solid rgba(127, 255, 0, 0.25);
+            color: var(--lime);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .video-label strong {
+            font-size: 1.05rem;
+            line-height: 1.25;
+            margin-bottom: 0.2rem;
+        }
+
+        .video-label p {
+            font-size: 0.95rem;
+            color: #e5e7eb;
+            line-height: 1.35;
+        }
+
+        .video-link:hover img {
+            transform: scale(1.03);
+            transition: transform 0.25s ease;
+        }
+
+        .intro-text p {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+        
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Subteams Grid --- */
+        .section-divider {
+            max-width: 1440px;
+            margin: 4rem auto 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-divider h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .subteams-grid {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .subteam-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+            padding: 2.5rem;
+        }
+
+        .subteam-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--lime);
+        }
+
+        .subteam-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .subteam-info h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--lime);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .subteam-info p {
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-actions-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tags span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            background-color: var(--bg-darkest);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .youtube-btn:hover {
+            background-color: var(--bg-darkest);
+            border-color: var(--yt-red);
+            color: var(--yt-red);
+        }
+
+        .youtube-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem 3rem 2rem;
+            margin-top: 6rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-socket {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 968px) {
+            .intro-split { grid-template-columns: 1fr; gap: 2rem; }
+            .subteams-grid { grid-template-columns: 1fr; }
+            .subteams-title { font-size: 2.5rem; }
+            .card-actions-row { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CURSOR -->
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-n">1678</div>
+  <div class="ld-sub">Initializing Circuits</div>
+  <div class="ld-bw"><div class="ld-b"></div></div>
+</div>
+
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="brand">
+                <img src="pictures/1678.jpg" alt="Citrus Circuits Logo" class="brand-logo">
+                <div class="brand-text-stack">
+                    <div class="brand-title">1678 <span>Citrus Circuits</span></div>
+                    <div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
+                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html" class="active">Our Robots</a>
+                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
+                        <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
+                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="outreach.html" class="nav-link">Outreach</a></li>
+                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="support.html" class="nav-link">Support Us</a></li>
+            </ul>
+
+            <div class="nav-actions-hub">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Layout Theme Mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2("moon-icon", viewBox("0 0 24 24"><path d("M２１ １２.７９A９ ９ 0 １ １ １１.２１ ３ ７ ７ 0 0 0 ２１ １２.79z"></path></svg>
+                </button>
+                <a href="recruitment.html" class="nav-cta">Apply to Team</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro-container">
+            <h1 class="subteams-title">Subteams</h1>
+            
+            <div class="intro-split">
+                <div class="video-wrapper">
+                    <a class="video-link" href="https://www.youtube.com/watch?v=Ezk68Fi9byU" target="_blank" rel="noopener noreferrer">
+                        <img src="https://img.youtube.com/vi/Ezk68Fi9byU/maxresdefault.jpg" alt="Introduction video thumbnail" loading="lazy">
+                        <div class="video-label">
+                            <span>Watch on YouTube</span>
+                            <strong>Introduction | Citrus Circuits</strong>
+                            <p>Open the full video in a new tab.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="intro-text">
+                    <p>Citrus Circuits is divided into a total of six primary subteams: Business and Media, Hardware Design/Electrical/Fabrication, Software Robot, and Software Scouting.</p>
+                    <p>All subteams work together to help our team run smoothly and function to the best of its abilities. In addition to primary subteams, students have the option of joining a secondary subteam: Impact Award or Strategy.</p>
+                    <p>The secondary subteams are an opportunity for students to be involved in additional outreach projects/competitions. No previous experience is needed to join the team.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <h2>Primary Subteams</h2>
+        </div>
+
+        <div class="subteams-grid">
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Hardware Design</h3>
+                    <p>In Citrus Circuits, we design and manufacture almost all of our own parts. Because of this, the Hardware Mechanical subteam is split into the design and fabrication teams. The Hardware Design subteam uses Computer-Aided Design (CAD) to create a 3D representation of necessary parts and mechanisms for our robot, which is then sent to Hardware Fabrication. After parts are made, Hardware Design assembles them utilizing bolts, rivets, and more to assemble the final products. Additionally, design members have opportunities to use 3d printers, laser cutters, and gain experience with a variety of industry-grade machines.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>CAD Modeling</span><span>Onshape</span><span>3D Printing</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=zJys7WMYjS0" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Hardware Fabrication</h3>
+                    <p>The Hardware Fabrication subteam works closely with the Hardware Design subteam to create parts based on CAD specifications using a wide variety of tools. Fabrication members receive in-depth training on our various mills, lathes, Haas machines, and CNC routers. Members also gain the opportunity to achieve an industry-recognized Haas certification, which boosts employability and offers a head start in manufacturing careers.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>CNC Routers</span><span>Haas Machining</span><span>Haas Certification</span>
+                    </div>
+                    <a href="https://youtu.be/D9bbZMfNC_s" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Hardware Electrical</h3>
+                    <p>The Hardware Electrical subteam is the bridge between the mechanical and software subteams. Students in electrical apply wiring design concepts to wire robot bases that are created by Hardware Design, learning electrical techniques and real-life skills such as crimping, soldering, and routing in addition to electrical theory. Some components that students learn to use include Kraken motors, Power Distribution Hubs, RoboRios, 12V 18Ah batteries, and various gauges of wire.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>Kraken Motors</span><span>roboRIO System</span><span>Wiring Design</span>
+                    </div>
+                    <a href="https://youtu.be/N1QbxceO3tI" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Software Robot</h3>
+                    <p>The Software Robot subteam programs and creates all the control systems necessary for our robots. They primarily use the Java programming language. This subteam creates all the automation necessary to control our robot, from alignment to motion profiling to path following. Both calculus and physics concepts are used heavily. Additional projects that the subteam works on include position estimation and object detection.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>Java</span><span>Motion Profiling</span><span>Object Detection</span>
+                    </div>
+                    <a href="https://youtu.be/E-Q9aESBg9o" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Software Scouting</h3>
+                    <p>The Software Scouting subteam does coding in a variety of different computer languages - with Front End using Kotlin and Back End using Python. They create a scouting app each season for competitions, allowing scouts to input data about robots in matches at competitions. Members additionally interpret data recorded on scouting apps. The subteam is split into two sections: Front End, which creates the app interface, and Back End, which uses recorded data to assist with match strategy and the alliance selection process.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>Kotlin</span><span>Python</span><span>Data Interpretation</span>
+                    </div>
+                    <a href="https://youtu.be/ANHODE_Jppg" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Business and Media</h3>
+                    <p>The Business and Media (BaM) subteam encompasses a wide range of skills and is responsible for the majority of non-technical tasks on Citrus Circuits. Throughout the year, they contact sponsors for fundraising, write grants, track income and expenditures, and complete the yearly business plan. To maintain the team image, they write and release social media posts, newspaper articles, monthly newsletters, and design the website and all team apparel. Additionally, they capture media and create videos to document the team during the season, the offseason, and outreach events.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>Fundraising</span><span>Media Content</span><span>Business Plans</span>
+                    </div>
+                    <a href="https://youtu.be/5neDzLQ-oFg" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <h2>Secondary Options</h2>
+        </div>
+
+        <div class="subteams-grid" style="padding-bottom: 8rem;">
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Strategy</h3>
+                    <p>Students on the Strategy subteam collaborate to create a playbook that encapsulates any scenarios that occur on the field. They guide the drive team to better prepare for quick reactions in matches. Software students often participate in this secondary subteam, although it is open to any member. The students utilize collaboration and critical thinking skills.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>Match Playbooks</span><span>Drive Team Guidance</span><span>Field Tactics</span>
+                    </div>
+                    <a href="https://youtu.be/zjZ9l4Rhk5s" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+
+            <div class="subteam-card">
+                <div class="subteam-info">
+                    <h3>Impact Award</h3>
+                    <p>The Impact Award subteam works towards completing a submission for the prestigious FIRST Impact Award. This award demonstrates a team’s ability to embody the mission of FIRST through non-technical efforts. The generation application includes an Executive summary of 13 questions, a 10,000-character Essay, and a presentation, all of which are shown to judges. In this subteam, a strong work ethic is essential and open feedback is shared. The submission is worked on in the off-season meaning a strong work ethic is essential and open feedback helps move the application progress forward.</p>
+                </div>
+                <div class="card-actions-row">
+                    <div class="tech-tags">
+                        <span>10,000-char Essay</span><span>Executive Summary</span><span>Judges Presentation</span>
+                    </div>
+                    <a href="https://youtu.be/1SbcCU5Ad_g" class="youtube-btn" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-socket">
+            <div>&copy; 2026 Citrus Circuits 1678. Architectural subteam systems structural matrix.</div>
+            <div><a href="index.html" style="color: var(--lime); text-decoration: none;">&larr; Back to Workspace Home</a></div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const rootElement = document.documentElement;
+
+        const currentSavedTheme = localStorage.getItem('theme') || 'dark';
+        rootElement.setAttribute('data-theme', currentSavedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            let activeTheme = rootElement.getAttribute('data-theme');
+            let newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            rootElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
