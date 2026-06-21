@@ -93,6 +93,11 @@
         .stat-cell .n { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--lime); line-height:1; }
         .stat-cell .l { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-top:.5rem; }
 
+        .resources-split { display:grid; grid-template-columns:1fr 380px; gap:3rem; align-items:start; }
+        .resources-photo { position:sticky; top:120px; border-radius:16px; overflow:hidden; border:1px solid var(--border); }
+        .resources-photo img { width:100%; height:auto; display:block; }
+        @media (max-width:900px) { .resources-split { grid-template-columns:1fr; } .resources-photo { position:static; max-width:480px; margin:0 auto; } }
+
         .link-list { list-style:none; display:flex; flex-direction:column; gap:.1rem; }
         .link-list li { border-bottom:1px solid var(--border); }
         .link-list li:last-child { border-bottom:none; }
@@ -235,28 +240,33 @@
             </div>
             <div class="section-header" id="resources-and-links"><h2>Resources &amp; Links</h2></div>
 
-            <div class="full-card" id="competition-resources">
-                <h3>Competition Resources</h3>
-                <ul class="link-list">
-                    <li><a href="https://www.firstinspires.org/robotics/frc" target="_blank" rel="noopener">FIRST Robotics</a></li>
-                    <li><a href="https://github.com/frc1678" target="_blank" rel="noopener">1678 Scouting Whitepapers</a></li>
-                    <li><a href="https://www.chiefdelphi.com/" target="_blank" rel="noopener">Chief Delphi Forums</a></li>
-                    <li><a href="https://www.firstinspires.org/resource-library" target="_blank" rel="noopener">Documentation for Previous FRC Games</a></li>
-                    <li><a href="https://www.thebluealliance.com/team/1678" target="_blank" rel="noopener">The Blue Alliance &mdash; Citrus Circuits Page</a></li>
-                </ul>
-            </div>
+            <div class="resources-split">
+                <div class="resources-text">
+                    <div class="full-card" id="competition-resources">
+                        <h3>Competition Resources</h3>
+                        <ul class="link-list">
+                            <li><a href="https://www.firstinspires.org/robotics/frc" target="_blank" rel="noopener">FIRST Robotics</a></li>
+                            <li><a href="https://github.com/frc1678" target="_blank" rel="noopener">1678 Scouting Whitepapers</a></li>
+                            <li><a href="https://www.chiefdelphi.com/" target="_blank" rel="noopener">Chief Delphi Forums</a></li>
+                            <li><a href="https://www.firstinspires.org/resource-library" target="_blank" rel="noopener">Documentation for Previous FRC games</a></li>
+                            <li><a href="https://www.thebluealliance.com/team/1678" target="_blank" rel="noopener">The Blue Alliance</a> - <a href="https://www.thebluealliance.com/team/1678" target="_blank" rel="noopener">Citrus Circuits Blue Alliance Page</a></li>
+                        </ul>
+                    </div>
 
-            <div class="full-card" id="technical-references">
-                <h3>Technical References</h3>
-                <p><strong>Source Code:</strong> You can download C/C++ source code for past robots we have developed here. Everything is licensed under the GNU GPL unless otherwise noted.</p>
-                <p>GitHub link: <a href="https://github.com/frc1678" target="_blank" rel="noopener" class="inline-link">github.com/frc1678</a></p>
-                <p>Various Fall Workshops videos can be found on both our website page and on our YouTube channel.</p>
-            </div>
+                    <div class="full-card" id="technical-references">
+                        <h3>Technical References</h3>
+                        <p><strong>Source Code:</strong><br>You can download C/C++ source code for past robots we have developed here. Everything is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener" class="inline-link">GNU GPL</a> unless otherwise noted.<br>GitHub link: <a href="https://github.com/frc1678" target="_blank" rel="noopener" class="inline-link">https://github.com/frc1678</a></p>
+                        <p>Various Fall Workshops videos can be found on both our <a href="outreach.html#fall-workshops" class="inline-link">website page</a> and on our <a href="https://www.youtube.com/citruscircuits" target="_blank" rel="noopener" class="inline-link">YouTube channel</a>.</p>
+                    </div>
 
-            <div class="full-card" id="resources-survey">
-                <h3>Website Resources Survey</h3>
-                <p>Tell us your thoughts on our resources! We'd love to hear any feedback you may have on user experience, helpfulness, or anything that needs to be fixed.</p>
-                <p>Survey link: <a href="https://forms.gle/HVxgWSHWHGx21UJJ7" target="_blank" rel="noopener" class="inline-link">forms.gle/HVxgWSHWHGx21UJJ7</a></p>
+                    <div class="full-card" id="resources-survey">
+                        <h3>Website Resources Survey</h3>
+                        <p>Tell us your thoughts on our resources! We'd love to hear any feedback you may have on user experience, helpfulness, or anything that needs to be fixed.<br>Survey link: <a href="https://forms.gle/HVxgWSHWHGx21UJJ7" target="_blank" rel="noopener" class="inline-link">https://forms.gle/HVxgWSHWHGx21UJJ7</a></p>
+                    </div>
+                </div>
+                <div class="resources-photo">
+                    <img src="pictures/resources page.jpg" alt="Team members at an event">
+                </div>
             </div>
         </div>
 
