@@ -255,6 +255,11 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   .footer-socket{flex-direction:column;align-items:flex-start}
 }
 
+@media(max-width:900px){
+  body{cursor:auto}
+  #cdot,#cring{display:none}
+}
+
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
 .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .25s ease}
@@ -378,9 +383,9 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
       <span class="cad-corner br"></span>
       <div class="cad-tag">2026 Robot · CAD</div>
       <div class="cad-frame" id="cadFrame">
-        <iframe class="cad-iframe" src="https://1678.onshape.com/documents/acdaaf42764a293a9452326d/w/f887ef4c6a254c09c73344c3/e/a9684fa7665096e977b19c44?aa=true&renderMode=0&uiState=6a3827f8bea4a1fb5629205d" allowfullscreen loading="lazy" title="2026 Robot CAD"></iframe>
+        <img src="pictures/2026_robot.jpg" alt="Citrus Circuits 2026 robot on the field">
       </div>
-      <div class="cad-hint">Drag to rotate &middot; scroll to zoom</div>
+      <a class="cad-hint cad-open-link" href="https://1678.onshape.com/documents/acdaaf42764a293a9452326d/w/f887ef4c6a254c09c73344c3/e/a9684fa7665096e977b19c44?aa=true" target="_blank" rel="noopener">Open live CAD in Onshape &rarr;</a>
     </div>
   </div>
   <div class="h-scroll">
