@@ -124,10 +124,10 @@
         .section-header h2 { color: var(--lime); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
         .section-header .count { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.15em; }
 
-        .leadership-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.75rem; }
-        .leadership-grid .leader-card { flex: 1 1 260px; max-width: 300px; }
-        .grid-captains { max-width: 620px; margin: 0 auto; }
-        .grid-captains .leader-card { flex: 1 1 290px; max-width: 300px; }
+        .leadership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; justify-content:center; }
+        .leadership-grid .leader-card { max-width: 300px; margin: 0 auto; width:100%; }
+        .grid-captains { max-width: 620px; margin: 0 auto; grid-template-columns: repeat(2, 1fr); }
+        .grid-captains .leader-card { max-width: 300px; }
 
         .leader-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
         .leader-card:hover { transform: translateY(-5px); border-color: var(--lime); }
@@ -167,8 +167,8 @@
         @media (max-width: 968px) {
             .nav-menu { display: none; }
             .navbar { padding: 0 1.5rem; }
-            .leadership-grid { gap: 1.25rem; }
-            .leadership-grid .leader-card { flex: 1 1 150px; max-width: 200px; }
+            .leadership-grid { gap: 1.25rem; grid-template-columns: repeat(2, 1fr); }
+            .leadership-grid .leader-card { max-width: none; }
             .lead-cta-inner { flex-direction: column; align-items: flex-start; }
         }
     
