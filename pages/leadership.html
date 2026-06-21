@@ -124,8 +124,10 @@
         .section-header h2 { color: var(--lime); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
         .section-header .count { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.15em; }
 
-        .leadership-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.75rem; }
-        .grid-captains { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); max-width: 560px; margin: 0 auto; }
+        .leadership-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.75rem; }
+        .leadership-grid .leader-card { flex: 1 1 230px; max-width: 270px; }
+        .grid-captains { max-width: 560px; margin: 0 auto; }
+        .grid-captains .leader-card { flex: 1 1 260px; max-width: 270px; }
 
         .leader-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
         .leader-card:hover { transform: translateY(-5px); border-color: var(--lime); }
@@ -165,7 +167,8 @@
         @media (max-width: 968px) {
             .nav-menu { display: none; }
             .navbar { padding: 0 1.5rem; }
-            .leadership-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.25rem; }
+            .leadership-grid { gap: 1.25rem; }
+            .leadership-grid .leader-card { flex: 1 1 150px; max-width: 200px; }
             .lead-cta-inner { flex-direction: column; align-items: flex-start; }
         }
     </style>
@@ -205,10 +208,38 @@
                         <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
-                <li class="nav-item"><a href="outreach.html" class="nav-link">Outreach</a></li>
-                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                <li class="nav-item"><a href="support.html" class="nav-link">Support Us</a></li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="resources.html#team-handbook">Team Handbook</a>
+                        <a href="resources.html#build-blogs">Build Blogs / Newsletters</a><a href="resources.html#media">Media</a>
+                        <a href="resources.html#technical-training">Technical Training</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="outreach.html#citrus-service">Citrus Service</a><a href="outreach.html#dyr">Davis Youth Robotics (DYR)</a>
+                        <a href="outreach.html#robocamps">RoboCamps</a><a href="outreach.html#fall-workshops">Fall Workshops</a>
+                        <a href="outreach.html#farmers-market">Farmers Market</a><a href="outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
+                        <a href="outreach.html#distem">DiSTEM</a><a href="outreach.html#wise">WiSE</a>
+                        <a href="outreach.html#robot-demos">Robot Demos</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="sponsors.html" class="nav-link">Sponsors <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="sponsors.html#sponsor-tiers">Sponsor Tiers</a><a href="sponsors.html#become-a-sponsor">Become a Sponsor</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
+                        <a href="support.html#parent-committee">Parent Committee</a><a href="support.html#reimbursement">Reimbursement</a>
+                        <a href="support.html#volunteer-opportunities">Volunteer Opportunities</a>
+                    </div>
+                </li>
             </ul>
 
             <div class="nav-actions-hub">
