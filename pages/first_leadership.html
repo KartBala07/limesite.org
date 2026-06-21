@@ -89,7 +89,7 @@
         .first-intro p:last-child { margin-bottom:0; }
         .first-intro blockquote { border-left:3px solid var(--lime); padding-left:1.25rem; margin:1.5rem 0; font-style:italic; color:var(--text-main); font-size:1.05rem; line-height:1.7; }
         .first-intro blockquote cite { display:block; margin-top:.5rem; font-style:normal; font-size:.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; }
-        .first-logo-panel { width:100%; aspect-ratio:1/1; border-radius:12px; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:2.5rem; }
+        .first-logo-panel { width:100%; aspect-ratio:1/1; border-radius:12px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:2.5rem; }
         .first-logo-panel img { width:100%; height:auto; object-fit:contain; }
         @media (max-width:768px) { .first-intro { grid-template-columns:1fr; gap:2rem; } }
 
@@ -97,15 +97,17 @@
         .recipients-rule { border:none; border-top:2px solid var(--lime); width:120px; margin:0 auto 3rem; opacity:.5; }
         .recipient-featured { display:flex; justify-content:flex-end; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--border); }
         .recipient-featured .rc-card { max-width:280px; }
-        .rc-photo { width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; }
+        .rc-photo { width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; transition:border-color .25s ease,transform .25s ease; }
         .rc-photo img { width:100%; height:100%; object-fit:cover; }
         .rc-photo span { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); opacity:.55; }
+        .rc-card:hover .rc-photo { border-color:var(--lime); transform:translateY(-4px); }
         .rc-name { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.03em; color:var(--lime); text-transform:uppercase; }
         .rc-meta { color:var(--text-muted); font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-top:.2rem; line-height:1.5; }
         .rc-meta .yr { color:var(--lime); }
-        .rc-grid { display:flex; flex-wrap:wrap; gap:2.5rem 2rem; padding-bottom:4rem; border-top:1px solid var(--border); padding-top:2.5rem; }
-        .rc-grid .rc-card { flex:1 1 220px; max-width:240px; text-align:center; }
+        .rc-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem 2rem; padding-bottom:4rem; border-top:1px solid var(--border); padding-top:2.5rem; }
+        .rc-grid .rc-card { flex:1 1 200px; max-width:220px; text-align:center; }
         .recipient-featured .rc-card { text-align:left; }
+        .recipient-featured .rc-photo { aspect-ratio:4/5; }
 
         .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
         .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
@@ -213,7 +215,7 @@
         <div class="wrap">
             <div class="page-head">
                 <div class="page-eyebrow">Beyond Davis</div>
-                <h1 class="page-title">FIRST <em>&reg;</em></h1>
+                <h1 class="page-title">FIRST</h1>
             </div>
 
             <div class="first-intro">
@@ -233,7 +235,7 @@
 
             <div class="recipient-featured">
                 <div class="rc-card">
-                    <div class="rc-photo"><span>AL</span></div>
+                    <div class="rc-photo"><img src="pictures/Alison L_2023.jpg" alt="Alison L."></div>
                     <div class="rc-name">Alison L.</div>
                     <div class="rc-meta"><span class="yr">2023</span> &bull; Software Scouting Front-End</div>
                 </div>
@@ -241,12 +243,12 @@
 
             <div class="rc-grid">
                 <div class="rc-card"><div class="rc-photo"><span>AT</span></div><div class="rc-name">Anna T.</div><div class="rc-meta"><span class="yr">2026</span> &bull; Hardware Design</div></div>
-                <div class="rc-card"><div class="rc-photo"><span>EX</span></div><div class="rc-name">Emily X.</div><div class="rc-meta"><span class="yr">2022</span> &bull; Software Robot</div></div>
-                <div class="rc-card"><div class="rc-photo"><span>AM</span></div><div class="rc-name">Apurva M.</div><div class="rc-meta"><span class="yr">2021</span> &bull; Software Robot</div></div>
-                <div class="rc-card"><div class="rc-photo"><span>EK</span></div><div class="rc-name">Ellie K.</div><div class="rc-meta"><span class="yr">2021</span> &bull; Software Scouting Front-End</div></div>
-                <div class="rc-card"><div class="rc-photo"><span>KS</span></div><div class="rc-name">Katie S.</div><div class="rc-meta"><span class="yr">2019</span> &bull; Business and Media</div></div>
-                <div class="rc-card"><div class="rc-photo"><span>MB</span></div><div class="rc-name">Maya B.</div><div class="rc-meta"><span class="yr">2017</span> &bull; Hardware Design</div></div>
-                <div class="rc-card"><div class="rc-photo"><span>MY</span></div><div class="rc-name">Megan Y.</div><div class="rc-meta"><span class="yr">2015</span> &bull; Hardware Design</div></div>
+                <div class="rc-card"><div class="rc-photo"><img src="pictures/Emily X_2022.jpg" alt="Emily X."></div><div class="rc-name">Emily X.</div><div class="rc-meta"><span class="yr">2022</span> &bull; Software Robot</div></div>
+                <div class="rc-card"><div class="rc-photo"><img src="pictures/apurva m_2021.jpg" alt="Apurva M."></div><div class="rc-name">Apurva M.</div><div class="rc-meta"><span class="yr">2021</span> &bull; Software Robot</div></div>
+                <div class="rc-card"><div class="rc-photo"><img src="pictures/ellie k_2021.jpg" alt="Ellie K."></div><div class="rc-name">Ellie K.</div><div class="rc-meta"><span class="yr">2021</span> &bull; Software Scouting Front-End</div></div>
+                <div class="rc-card"><div class="rc-photo"><img src="pictures/Katie S_2019.jpg" alt="Katie S."></div><div class="rc-name">Katie S.</div><div class="rc-meta"><span class="yr">2019</span> &bull; Business and Media</div></div>
+                <div class="rc-card"><div class="rc-photo"><img src="pictures/Maya b_2017.jpg" alt="Maya B."></div><div class="rc-name">Maya B.</div><div class="rc-meta"><span class="yr">2017</span> &bull; Hardware Design</div></div>
+                <div class="rc-card"><div class="rc-photo"><img src="pictures/Megan y_2015.jpg" alt="Megan Y."></div><div class="rc-name">Megan Y.</div><div class="rc-meta"><span class="yr">2015</span> &bull; Hardware Design</div></div>
             </div>
         </div>
 
