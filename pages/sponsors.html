@@ -101,6 +101,8 @@
         @media (max-width:768px) { .spotlight, .spotlight.reverse { flex-direction:column; gap:1.5rem; } }
 
         .sponsor-text-row { display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; padding:1.5rem 0; }
+        .sponsor-text-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem 4rem; max-width:600px; margin:0 auto; padding:1.5rem 0; }
+        @media (max-width:560px) { .sponsor-text-grid-2 { grid-template-columns:1fr; } }
         .sponsor-text-card { text-align:center; }
         .sponsor-text-card h3 { font-style:italic; font-size:1.15rem; font-weight:700; margin-bottom:1rem; }
 
@@ -282,7 +284,7 @@
 
             <div class="tier">
                 <div class="tier-head"><h2>Lime</h2><span class="amt">$500 – $999</span></div>
-                <div class="sponsor-text-row">
+                <div class="sponsor-text-grid-2">
                     <div class="sponsor-text-card"><h3>University Retirement Community</h3><a href="https://www.universityretirement.org/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
                     <div class="sponsor-text-card"><h3>UCD College of Letters and Science</h3><a href="https://lettersandscience.ucdavis.edu/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
                     <div class="sponsor-text-card"><h3>Bayer</h3><a href="https://www.bayer.com/en/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
