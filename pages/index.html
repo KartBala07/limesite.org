@@ -194,6 +194,16 @@ h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,168px);
 .action-arrow{font-size:1.75rem;color:var(--text-muted);transition:transform .2s ease}
 .action-btn:hover .action-arrow{color:var(--lime);transform:translateX(6px)}
 
+/* === CAD VIEWER === */
+.cad-section{max-width:1440px;margin:0 auto;padding:2rem 2rem 5rem;border-top:1px solid var(--border)}
+.cad-header{margin-bottom:2rem}
+.cad-header .tag{font-family:'JetBrains Mono',monospace;color:var(--lime);font-size:.85rem;text-transform:uppercase;letter-spacing:3px;display:block;margin-bottom:1rem}
+.cad-header h2{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:2.2rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.6rem}
+.cad-header p{color:var(--text-muted);font-size:1.05rem;line-height:1.6}
+.cad-embed-wrap{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--bg-card)}
+.cad-embed{width:100%;height:100%;border:0;display:block}
+@media(max-width:768px){.cad-embed-wrap{aspect-ratio:4/3}}
+
 /* === RESOURCE CARDS === */
 .cards-section{padding:2rem 2rem 8rem;max-width:1440px;margin:0 auto;border-top:1px solid var(--border)}
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
@@ -468,6 +478,18 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
       </div>
       <div class="action-arrow">&rarr;</div>
     </a>
+  </div>
+</section>
+
+<!-- CAD VIEWER -->
+<section class="cad-section reveal">
+  <div class="cad-header">
+    <span class="tag">Live from Onshape</span>
+    <h2>This Year's Robot CAD</h2>
+    <p>Explore our 2026 robot assembly in 3D &mdash; drag to rotate, scroll to zoom.</p>
+  </div>
+  <div class="cad-embed-wrap">
+    <iframe class="cad-embed" src="https://cad.onshape.com/documents/acdaaf42764a293a9452326d/w/f887ef4c6a254c09c73344c3/e/a9684fa7665096e977b19c44?renderMode=0&uiState=embedded" allowfullscreen loading="lazy" title="2026 Robot CAD"></iframe>
   </div>
 </section>
 
