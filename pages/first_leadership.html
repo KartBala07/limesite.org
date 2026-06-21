@@ -84,6 +84,29 @@
         .full-card p:last-child { margin-bottom:0; }
         .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
 
+        .first-intro { display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:start; margin-bottom:1rem; }
+        .first-intro p { color:var(--text-muted); font-size:1rem; line-height:1.8; margin-bottom:1.15rem; }
+        .first-intro p:last-child { margin-bottom:0; }
+        .first-intro blockquote { border-left:3px solid var(--lime); padding-left:1.25rem; margin:1.5rem 0; font-style:italic; color:var(--text-main); font-size:1.05rem; line-height:1.7; }
+        .first-intro blockquote cite { display:block; margin-top:.5rem; font-style:normal; font-size:.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; }
+        .first-logo-panel { width:100%; aspect-ratio:1/1; border-radius:12px; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:2.5rem; }
+        .first-logo-panel img { width:100%; height:auto; object-fit:contain; }
+        @media (max-width:768px) { .first-intro { grid-template-columns:1fr; gap:2rem; } }
+
+        .recipients-heading { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:.04em; color:var(--lime); text-transform:uppercase; margin:5rem 0 .75rem; }
+        .recipients-rule { border:none; border-top:2px solid var(--lime); width:120px; margin:0 auto 3rem; opacity:.5; }
+        .recipient-featured { display:flex; justify-content:flex-end; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--border); }
+        .recipient-featured .rc-card { max-width:280px; }
+        .rc-photo { width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; }
+        .rc-photo img { width:100%; height:100%; object-fit:cover; }
+        .rc-photo span { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); opacity:.55; }
+        .rc-name { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.03em; color:var(--lime); text-transform:uppercase; }
+        .rc-meta { color:var(--text-muted); font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-top:.2rem; line-height:1.5; }
+        .rc-meta .yr { color:var(--lime); }
+        .rc-grid { display:flex; flex-wrap:wrap; gap:2.5rem 2rem; padding-bottom:4rem; border-top:1px solid var(--border); padding-top:2.5rem; }
+        .rc-grid .rc-card { flex:1 1 220px; max-width:240px; text-align:center; }
+        .recipient-featured .rc-card { text-align:left; }
+
         .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
         .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
         .stat-cell .n { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--lime); line-height:1; }
@@ -190,10 +213,44 @@
         <div class="wrap">
             <div class="page-head">
                 <div class="page-eyebrow">Beyond Davis</div>
-                <h1 class="page-title">FIRST <em>Leadership</em></h1>
-                <p class="page-sub">Citrus Circuits alumni and current members take on leadership roles across the FIRST community &mdash; mentoring teams, organizing events, and serving on regional and global committees.</p>
+                <h1 class="page-title">FIRST <em>&reg;</em></h1>
             </div>
 
+            <div class="first-intro">
+                <div>
+                    <p>FIRST&reg; (For Inspiration and Recognition of Science and Technology) is a global robotics community founded in 1989 by inventor Dean Kamen. FIRST designs accessible, innovative programs that build self-confidence, knowledge, and life skills in young people while motivating them to pursue education and career opportunities in science, technology, engineering, and math.</p>
+                    <blockquote>"I can't think of a more important thing to do than try to change the culture, to get kids as excited about academic pursuits as they are about sports."<cite>&mdash; Dean Kamen, FIRST Founder</cite></blockquote>
+                    <p>FIRST programs &mdash; including the FIRST Robotics Competition (FRC), FIRST Tech Challenge (FTC), and FIRST LEGO League (FLL) &mdash; culminate each year at the FIRST Championship in Houston, Texas, where hundreds of thousands of students from around the world compete and celebrate together.</p>
+                    <p>At the heart of every FIRST program are the core values of Gracious Professionalism&reg; and Coopertition&reg;: the idea that teams can be fierce competitors on the field while still helping, respecting, and learning from one another off of it.</p>
+                </div>
+                <div class="first-logo-panel"><img src="pictures/first_logo.png" alt="FIRST logo"></div>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <h2 class="recipients-heading">FIRST Leadership Recipients</h2>
+            <hr class="recipients-rule">
+
+            <div class="recipient-featured">
+                <div class="rc-card">
+                    <div class="rc-photo"><span>AL</span></div>
+                    <div class="rc-name">Alison L.</div>
+                    <div class="rc-meta"><span class="yr">2023</span> &bull; Software Scouting Front-End</div>
+                </div>
+            </div>
+
+            <div class="rc-grid">
+                <div class="rc-card"><div class="rc-photo"><span>AT</span></div><div class="rc-name">Anna T.</div><div class="rc-meta"><span class="yr">2026</span> &bull; Hardware Design</div></div>
+                <div class="rc-card"><div class="rc-photo"><span>EX</span></div><div class="rc-name">Emily X.</div><div class="rc-meta"><span class="yr">2022</span> &bull; Software Robot</div></div>
+                <div class="rc-card"><div class="rc-photo"><span>AM</span></div><div class="rc-name">Apurva M.</div><div class="rc-meta"><span class="yr">2021</span> &bull; Software Robot</div></div>
+                <div class="rc-card"><div class="rc-photo"><span>EK</span></div><div class="rc-name">Ellie K.</div><div class="rc-meta"><span class="yr">2021</span> &bull; Software Scouting Front-End</div></div>
+                <div class="rc-card"><div class="rc-photo"><span>KS</span></div><div class="rc-name">Katie S.</div><div class="rc-meta"><span class="yr">2019</span> &bull; Business and Media</div></div>
+                <div class="rc-card"><div class="rc-photo"><span>MB</span></div><div class="rc-name">Maya B.</div><div class="rc-meta"><span class="yr">2017</span> &bull; Hardware Design</div></div>
+                <div class="rc-card"><div class="rc-photo"><span>MY</span></div><div class="rc-name">Megan Y.</div><div class="rc-meta"><span class="yr">2015</span> &bull; Hardware Design</div></div>
+            </div>
+        </div>
+
+        <div class="wrap">
             <div class="full-card">
                 <h3>Mentoring the Next Generation</h3>
                 <p>Many Citrus Circuits alumni return as mentors, while current members mentor Davis Youth Robotics (DYR) and rookie FRC teams. The team also helps start new FRC and FTC programs across the region.</p>
