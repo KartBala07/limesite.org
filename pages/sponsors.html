@@ -82,6 +82,21 @@
         .tier-lead .sponsor-logo img { max-width:380px; }
         @media (max-width:640px) { .sponsor-logo { height:120px; padding:1rem 1.25rem; } .sponsor-logo img { max-width:220px; } .tier-lead .sponsor-logo { height:140px; } .tier-lead .sponsor-logo img { max-width:260px; } }
 
+        .spotlight { display:flex; align-items:center; gap:3rem; padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        .spotlight:last-of-type { border-bottom:none; }
+        .spotlight.reverse { flex-direction:row-reverse; }
+        .spotlight-logo { flex:0 0 300px; display:flex; align-items:center; justify-content:center; }
+        .spotlight-logo img { max-width:100%; max-height:170px; object-fit:contain; }
+        .spotlight-text { flex:1; text-align:center; }
+        .spotlight-text h3 { font-style:italic; font-size:1.5rem; margin-bottom:.85rem; }
+        .spotlight-text p { color:var(--text-muted); line-height:1.75; margin:0 auto 1.4rem; max-width:480px; }
+        .learn-more-btn { display:inline-block; background:var(--lime); color:#000; text-decoration:none; padding:.65rem 1.4rem; border-radius:6px; font-weight:700; font-size:.85rem; }
+        @media (max-width:768px) { .spotlight, .spotlight.reverse { flex-direction:column; gap:1.5rem; } }
+
+        .sponsor-text-row { display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; padding:1.5rem 0; }
+        .sponsor-text-card { text-align:center; }
+        .sponsor-text-card h3 { font-style:italic; font-size:1.15rem; font-weight:700; margin-bottom:1rem; }
+
         .benefits { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:4rem 0 2rem; }
         .ben-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; }
         .ben-card h3 { font-size:1.3rem; font-weight:800; margin-bottom:1.25rem; }
@@ -199,9 +214,26 @@
 
             <div class="tier tier-lead" id="sponsor-tiers">
                 <div class="tier-head"><h2>Pomelo</h2><span class="amt">$10,000+</span></div>
+
+                <div class="spotlight">
+                    <div class="spotlight-text">
+                        <h3>DJUSD</h3>
+                        <p>DJUSD, our local school district, has provided us with continuous support and encouragement. Their partnership has allowed us to grow as a team and further impact our community.</p>
+                        <a href="https://www.djusd.net/home" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a>
+                    </div>
+                    <div class="spotlight-logo"><img src="pictures/djusd.jpg" alt="DJUSD"></div>
+                </div>
+
+                <div class="spotlight reverse">
+                    <div class="spotlight-text">
+                        <h3>TechnipFMC</h3>
+                        <p>TechnipFMC has been our longest running sponsor since our team's founding in 2004. Their continuous support has not only enabled us to compete successfully but also promote STEM and robotics to generations of students.</p>
+                        <a href="https://www.technipfmc.com/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a>
+                    </div>
+                    <div class="spotlight-logo"><img src="pictures/TechnipFMC.jpg" alt="TechnipFMC"></div>
+                </div>
+
                 <div class="sponsor-row">
-                    <a href="https://www.djusd.net/home" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/djusd.jpg" alt="DJUSD"></a>
-                    <a href="https://www.technipfmc.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/TechnipFMC.jpg" alt="TechnipFMC"></a>
                     <span class="sponsor-logo"><img src="pictures/Philleo Family Fund.jpg" alt="Philleo Family Fund"></span>
                     <a href="https://www.sutterhealth.org/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/Sutter Health.jpg" alt="Sutter Health"></a>
                 </div>
@@ -243,18 +275,18 @@
 
             <div class="tier">
                 <div class="tier-head"><h2>Lime</h2><span class="amt">$500 – $999</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.universityretirement.org/" target="_blank" rel="noopener" class="sponsor-chip">University Retirement Community <span class="ext">&#8599;</span></a>
-                    <a href="https://www.bayer.com/en/" target="_blank" rel="noopener" class="sponsor-chip">Bayer <span class="ext">&#8599;</span></a>
-                    <a href="https://lettersandscience.ucdavis.edu/" target="_blank" rel="noopener" class="sponsor-chip">UCD College of Letters &amp; Science <span class="ext">&#8599;</span></a>
-                    <a href="https://mootensproductions.com/" target="_blank" rel="noopener" class="sponsor-chip">Mootens Productions <span class="ext">&#8599;</span></a>
+                <div class="sponsor-text-row">
+                    <div class="sponsor-text-card"><h3>University Retirement Community</h3><a href="https://www.universityretirement.org/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
+                    <div class="sponsor-text-card"><h3>UCD College of Letters and Science</h3><a href="https://lettersandscience.ucdavis.edu/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
+                    <div class="sponsor-text-card"><h3>Bayer</h3><a href="https://www.bayer.com/en/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
+                    <div class="sponsor-text-card"><h3>Mootens Productions</h3><a href="https://mootensproductions.com/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
                 </div>
             </div>
 
             <div class="tier">
                 <div class="tier-head"><h2>Kumquat</h2><span class="amt">up to $499</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.cecwest.com/" target="_blank" rel="noopener" class="sponsor-chip">Cunningham Engineering Corporation <span class="ext">&#8599;</span></a>
+                <div class="sponsor-text-row">
+                    <div class="sponsor-text-card"><h3>Cunningham Engineering Corporation</h3><a href="https://www.cecwest.com/" target="_blank" rel="noopener" class="learn-more-btn">Learn More</a></div>
                 </div>
             </div>
 
