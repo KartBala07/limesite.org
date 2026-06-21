@@ -84,6 +84,21 @@
         .full-card p:last-child { margin-bottom:0; }
         .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
 
+        .intro-split { display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
+        .intro-split p { color:var(--text-muted); font-size:1.02rem; line-height:1.75; margin-bottom:1.25rem; }
+        .intro-split p:last-child { margin-bottom:0; }
+        .intro-media { width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:linear-gradient(150deg,var(--bg-card),var(--bg-dark)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
+        .intro-media span { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.1em; text-transform:uppercase; opacity:.7; text-align:center; padding:0 1rem; }
+        .section-divider { border:none; border-top:1px solid var(--border); margin:1rem 0 3rem; }
+        .pm-heading { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:.04em; color:var(--lime); text-transform:uppercase; margin-bottom:2.75rem; }
+        .pm-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem 2rem; padding-bottom:4rem; }
+        .pm-card { flex:1 1 220px; max-width:240px; text-align:center; }
+        .pm-photo { width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; }
+        .pm-photo span { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); opacity:.55; }
+        .pm-name { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.03em; color:var(--lime); text-transform:uppercase; }
+        .pm-role { color:var(--text-muted); font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-top:.2rem; line-height:1.5; }
+        @media (max-width:768px) { .intro-split { grid-template-columns:1fr; gap:2rem; } }
+
         .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
         .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
         .stat-cell .n { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--lime); line-height:1; }
@@ -189,22 +204,29 @@
 
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">Rookie Team &bull; Founded 2026</div>
-                <h1 class="page-title">1857 <em>Citrus Sparks</em></h1>
-                <p class="page-sub">Team 1857 Citrus Sparks is Citrus Circuits' new rookie team, giving freshman and sophomore members an early shot at building and competing.</p>
+                <h1 class="page-title">Team 1857 <em>Citrus Sparks</em></h1>
+                <p class="page-sub" style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-main);margin-top:-.5rem;">Our Everybot Team</p>
             </div>
 
-            <div class="full-card">
-                <h3>About Citrus Sparks</h3>
-                <p>Citrus Sparks is led by six student project managers and made up of junior high and high school students from the Davis Joint Unified School District. As a new-member Everybot Project team, freshmen and sophomores on the design, electrical, and software subteams get to build, modify, and compete with Team 118 The Robonauts' Everybot &mdash; a low-cost, open-source FRC platform.</p>
-                <p>The program gives first- and second-year members hands-on ownership of a robot earlier than they'd otherwise get on the varsity build, accelerating the path into full Citrus Circuits leadership roles.</p>
+            <div class="intro-split">
+                <div>
+                    <p>Founded in 2026, Citrus Sparks is our new member Everybot Project team. Freshmen and sophomore team members on our design, electrical, and software robot subteams have the opportunity to build, modify, and compete with Team 118 The Robonauts' Everybot, allowing them to gain sufficient technical and strategic experience during their first year in a competitive environment. The team is led by seven project managers and consists of junior high and high school students from the Davis Joint Unified School District.</p>
+                    <p>The Everybot is a low-cost comprehensive set of build resources to field a competitive and affordable robot intended to play in the FIRST Robotics Competition.</p>
+                </div>
+                <div class="intro-media"><span>1857 Everybot &bull; Photo Coming Soon</span></div>
             </div>
-        </div>
 
-        <div class="lead-cta">
-            <div class="lead-cta-inner">
-                <div><h3>First or second year on the team?</h3><p>Ask your subteam lead about getting involved with Citrus Sparks.</p></div>
-                <a href="leadership.html" class="lead-cta-btn">Meet the Leads &rarr;</a>
+            <hr class="section-divider">
+
+            <h2 class="pm-heading">Project Managers</h2>
+            <div class="pm-grid">
+                <div class="pm-card"><div class="pm-photo"><span>AH</span></div><div class="pm-name">Amy H.</div><div class="pm-role">Pit Software<br>Driver</div></div>
+                <div class="pm-card"><div class="pm-photo"><span>RK</span></div><div class="pm-name">Rishabh K.</div><div class="pm-role">Pit Electrical<br>Human Player</div></div>
+                <div class="pm-card"><div class="pm-photo"><span>LM</span></div><div class="pm-name">Lucia M.</div><div class="pm-role">Pit Mechanical<br>Strategist</div></div>
+                <div class="pm-card"><div class="pm-photo"><span>MS</span></div><div class="pm-name">Miriam S.</div><div class="pm-role">Pit Mechanical</div></div>
+                <div class="pm-card"><div class="pm-photo"><span>JW</span></div><div class="pm-name">Jocelyne W.</div><div class="pm-role">Pit Mechanical</div></div>
+                <div class="pm-card"><div class="pm-photo"><span>TC</span></div><div class="pm-name">Trent C.</div><div class="pm-role">Pit Software</div></div>
+                <div class="pm-card"><div class="pm-photo"><span>LJ</span></div><div class="pm-name">Linden J.</div><div class="pm-role">Pit Design</div></div>
             </div>
         </div>
 
