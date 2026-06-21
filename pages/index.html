@@ -566,8 +566,7 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
 });
 
 /* === LOADER === */
-window.addEventListener('load',()=>{
-  (function(){
+(function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
             const msgs=['Booting Up','Calibrating Sensors','Loading Telemetry','Almost There'];
             let pct=0,mi=0;
@@ -579,7 +578,6 @@ window.addEventListener('load',()=>{
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
             window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
         })();
-});
 
 /* === THEME TOGGLE === */
 const themeToggleBtn = document.getElementById('themeToggle');

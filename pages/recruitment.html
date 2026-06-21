@@ -8,6 +8,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        #cdot{position:fixed;width:10px;height:10px;background:var(--lime);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
+        #cring{position:fixed;width:34px;height:34px;border:1.5px solid var(--lime);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.7;transition:width .25s,height .25s,opacity .25s}
+        @media(hover:none){#cdot,#cring{display:none}body{cursor:auto}}
+        #loader{position:fixed;inset:0;background:var(--bg-darkest);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:8000;transition:opacity .8s,visibility .8s}
+        #loader.out{opacity:0;visibility:hidden;pointer-events:none}
+        .ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
+        .ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+        .ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}
+        .ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 1.8s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}
+        .ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}
+        .ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}
+        @keyframes ldRing{to{stroke-dashoffset:0}}
         /* --- Shared Consistent Theme Variables --- */
         :root[data-theme="dark"] {
             --bg-darkest: #050606;
@@ -340,6 +352,17 @@
 </head>
 <body>
 
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<div id="loader">
+    <div class="ld-ring-wrap">
+        <svg viewBox="0 0 120 120"><circle class="ld-ring-bg" cx="60" cy="60" r="55"></circle><circle class="ld-ring-fg" cx="60" cy="60" r="55"></circle></svg>
+        <span class="ld-pct" id="ldPct">0%</span>
+    </div>
+    <div class="ld-sub" id="ldSub">Loading Application</div>
+</div>
+
     <!-- Shared Navigation Menu Header -->
     <header>
         <div class="navbar">
@@ -459,6 +482,26 @@
             rootElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
+
+        (function(){
+            const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
+            const msgs=['Loading Application','Checking Requirements','Preparing Form','Almost There'];
+            let pct=0,mi=0;
+            const tick=setInterval(()=>{
+                pct=Math.min(100,pct+Math.ceil(Math.random()*9));
+                pctEl.textContent=pct+'%';
+                if(pct>=100){clearInterval(tick);}
+            },110);
+            const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
+            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
+        })();
+
+        const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+        if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
+            window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+            (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+            document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+        }
     </script>
 
 <script>

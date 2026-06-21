@@ -203,7 +203,7 @@
     <!-- LOADER -->
     <div id="loader">
         <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><circle class="ld-ring-bg" cx="60" cy="60" r="55"></circle><circle class="ld-ring-fg" cx="60" cy="60" r="55"></circle></svg>
+            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 116,60 60,116 4,60"></polygon><polygon class="ld-ring-fg" points="60,4 116,60 60,116 4,60" pathLength="345"></polygon></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
         <div class="ld-sub" id="ldSub">Loading Leadership</div>
@@ -457,8 +457,7 @@
         });
 
         // --- Loader ---
-        window.addEventListener('load', () => {
-            (function(){
+        (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
             const msgs=['Loading Leadership','Gathering Captains','Compiling Roster','Almost There'];
             let pct=0,mi=0;
@@ -470,7 +469,6 @@
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
             window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
         })();
-        });
 
         // --- Custom cursor ---
         const dot = document.getElementById('cdot');
