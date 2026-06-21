@@ -69,24 +69,24 @@
         .tier-head { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; padding-bottom:.85rem; margin-bottom:1.25rem; border-bottom:1px solid var(--border); }
         .tier-head h2 { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.04em; color:var(--lime); }
         .tier-head .amt { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--text-muted); letter-spacing:.08em; }
-        .sponsor-row { display:flex; flex-wrap:wrap; gap:.85rem; }
+        .sponsor-row { display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem; }
         .sponsor-chip { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:.85rem 1.25rem; font-weight:600; color:var(--text-main); text-decoration:none; transition:all .2s ease; display:inline-flex; align-items:center; gap:.5rem; }
         .sponsor-chip:hover { border-color:var(--lime); color:var(--lime); transform:translateY(-2px); }
         .sponsor-chip .ext { color:var(--text-muted); font-size:.8rem; }
         .tier-lead .sponsor-chip { padding:1.1rem 1.5rem; font-size:1.05rem; }
-        .sponsor-logo { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 2rem; display:inline-flex; align-items:center; justify-content:center; height:160px; transition:all .2s ease; text-decoration:none; }
+        .sponsor-logo { background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:2rem 2.5rem; display:inline-flex; align-items:center; justify-content:center; height:220px; transition:all .2s ease; text-decoration:none; }
         .sponsor-logo:hover { border-color:var(--lime); transform:translateY(-2px); }
-        .sponsor-logo img { max-height:100%; max-width:320px; width:auto; height:auto; object-fit:contain; filter:grayscale(.15); transition:filter .2s ease; }
+        .sponsor-logo img { max-height:100%; max-width:440px; width:auto; height:auto; object-fit:contain; filter:grayscale(.15); transition:filter .2s ease; }
         .sponsor-logo:hover img { filter:grayscale(0); }
-        .tier-lead .sponsor-logo { height:190px; padding:1.75rem 2.25rem; }
-        .tier-lead .sponsor-logo img { max-width:380px; }
-        @media (max-width:640px) { .sponsor-logo { height:120px; padding:1rem 1.25rem; } .sponsor-logo img { max-width:220px; } .tier-lead .sponsor-logo { height:140px; } .tier-lead .sponsor-logo img { max-width:260px; } }
+        .tier-lead .sponsor-logo { height:260px; padding:2.25rem 2.75rem; }
+        .tier-lead .sponsor-logo img { max-width:500px; }
+        @media (max-width:640px) { .sponsor-logo { height:160px; padding:1.25rem 1.5rem; } .sponsor-logo img { max-width:280px; } .tier-lead .sponsor-logo { height:190px; } .tier-lead .sponsor-logo img { max-width:320px; } }
 
         .spotlight { display:flex; align-items:center; gap:3rem; padding:2.5rem 0; border-bottom:1px solid var(--border); }
         .spotlight:last-of-type { border-bottom:none; }
         .spotlight.reverse { flex-direction:row-reverse; }
-        .spotlight-logo { flex:0 0 300px; display:flex; align-items:center; justify-content:center; }
-        .spotlight-logo img { max-width:100%; max-height:170px; object-fit:contain; }
+        .spotlight-logo { flex:0 0 340px; display:flex; align-items:center; justify-content:center; background:#ffffff; border:1px solid var(--border); border-radius:14px; height:240px; }
+        .spotlight-logo img { max-width:85%; max-height:80%; object-fit:contain; }
         .spotlight-text { flex:1; text-align:center; }
         .spotlight-text h3 { font-style:italic; font-size:1.5rem; margin-bottom:.85rem; }
         .spotlight-text p { color:var(--text-muted); line-height:1.75; margin:0 auto 1.4rem; max-width:480px; }
