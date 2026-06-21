@@ -149,6 +149,8 @@ h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,168px);
 .cad-corner.br{bottom:14px;right:14px;border-left:none;border-top:none}
 .cad-tag{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;opacity:.7;background:rgba(0,0,0,.4);padding:4px 14px;border:1px solid var(--border);border-radius:999px;z-index:2}
 .cad-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:.2em;text-transform:uppercase;z-index:2;background:rgba(0,0,0,.4);padding:4px 14px;border-radius:999px}
+.cad-open-link{color:var(--lime);border:1px solid var(--border);text-decoration:none;transition:border-color .2s ease,color .2s ease}
+.cad-open-link:hover{border-color:var(--lime);color:var(--lime-soft)}
 .cad-progress{position:absolute;bottom:54px;left:50%;transform:translateX(-50%);width:160px;height:1px;background:var(--border);z-index:2;overflow:hidden}
 .cad-progress-fill{height:100%;background:var(--lime);width:0;transition:width .12s linear}
 .cad-placeholder{text-align:center;color:var(--text-muted);max-width:360px;padding:1.5rem}
@@ -376,9 +378,9 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
       <span class="cad-corner br"></span>
       <div class="cad-tag">2026 Robot · CAD</div>
       <div class="cad-frame" id="cadFrame">
-        <iframe class="cad-iframe" src="https://1678.onshape.com/documents/acdaaf42764a293a9452326d/w/f887ef4c6a254c09c73344c3/e/a9684fa7665096e977b19c44?aa=true&renderMode=0&uiState=6a38227abea4a1fb56290933" allowfullscreen loading="lazy" title="2026 Robot CAD"></iframe>
+        <img src="pictures/robot_2025_sublime.jpg" alt="Citrus Circuits robot on the field (preview, last season)">
       </div>
-      <div class="cad-hint">Drag to rotate &middot; scroll to zoom</div>
+      <a class="cad-hint cad-open-link" href="https://1678.onshape.com/documents/acdaaf42764a293a9452326d/w/f887ef4c6a254c09c73344c3/e/a9684fa7665096e977b19c44?aa=true" target="_blank" rel="noopener">Open live CAD in Onshape &rarr;</a>
     </div>
   </div>
   <div class="h-scroll">
