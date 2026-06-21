@@ -197,7 +197,7 @@ h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,168px);
 /* === RESOURCE CARDS === */
 .cards-section{padding:2rem 2rem 8rem;max-width:1440px;margin:0 auto;border-top:1px solid var(--border)}
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
-.resource-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease}
+.resource-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease;text-decoration:none;color:inherit}
 .resource-card:hover{transform:translateY(-4px);border-color:var(--lime)}
 .card-img-wrap{width:100%;height:240px;overflow:hidden}
 .card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
@@ -474,7 +474,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 <!-- RESOURCE CARDS -->
 <section class="cards-section">
   <div class="cards-grid">
-    <div class="resource-card reveal">
+    <a href="./history.html" class="resource-card reveal">
       <div class="card-img-wrap">
         <img src="./pictures/history_cover_pic.jpg" alt="Team History">
       </div>
@@ -482,9 +482,9 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         <h3>Team History</h3>
         <p>Explore over a decade of competitive excellence, engineering growth, and community transformation metrics.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="resource-card reveal">
+    <a href="./outreach.html#robocamps" class="resource-card reveal">
       <div class="card-img-wrap">
         <img src="./pictures/robocamps_cover_pic.jpg" alt="RoboCamps">
       </div>
@@ -492,9 +492,9 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         <h3>RoboCamps</h3>
         <p>Empowering local youth through structural summer camps exploring foundational engineering skills.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="resource-card reveal">
+    <a href="https://www.youtube.com/playlist?list=PL6j32uphg3L_cRRBLHr-gVPF9J-cxPOPe" target="_blank" rel="noopener" class="resource-card reveal">
       <div class="card-img-wrap">
         <img src="./pictures/2025_fall_workshops.jpg" alt="Workshops">
       </div>
@@ -502,7 +502,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         <h3>Fall Workshops</h3>
         <p>Annual community integration workspace events sharing specialized technical frameworks globally.</p>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
