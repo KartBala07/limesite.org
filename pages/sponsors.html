@@ -74,6 +74,12 @@
         .sponsor-chip:hover { border-color:var(--lime); color:var(--lime); transform:translateY(-2px); }
         .sponsor-chip .ext { color:var(--text-muted); font-size:.8rem; }
         .tier-lead .sponsor-chip { padding:1.1rem 1.5rem; font-size:1.05rem; }
+        .sponsor-logo { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:1rem 1.5rem; display:inline-flex; align-items:center; justify-content:center; height:80px; transition:all .2s ease; text-decoration:none; }
+        .sponsor-logo:hover { border-color:var(--lime); transform:translateY(-2px); }
+        .sponsor-logo img { max-height:100%; max-width:160px; width:auto; height:auto; object-fit:contain; filter:grayscale(.15); transition:filter .2s ease; }
+        .sponsor-logo:hover img { filter:grayscale(0); }
+        .tier-lead .sponsor-logo { height:100px; padding:1.25rem 1.85rem; }
+        .tier-lead .sponsor-logo img { max-width:200px; }
 
         .benefits { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:4rem 0 2rem; }
         .ben-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; }
@@ -193,43 +199,44 @@
             <div class="tier tier-lead" id="sponsor-tiers">
                 <div class="tier-head"><h2>Pomelo</h2><span class="amt">$10,000+</span></div>
                 <div class="sponsor-row">
-                    <a href="https://www.djusd.net/home" target="_blank" rel="noopener" class="sponsor-chip">DJUSD <span class="ext">&#8599;</span></a>
-                    <a href="https://www.technipfmc.com/" target="_blank" rel="noopener" class="sponsor-chip">TechnipFMC <span class="ext">&#8599;</span></a>
-                    <span class="sponsor-chip">Philleo Family Fund</span>
-                    <a href="https://www.sutterhealth.org/" target="_blank" rel="noopener" class="sponsor-chip">Sutter Health <span class="ext">&#8599;</span></a>
+                    <a href="https://www.djusd.net/home" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/djusd.jpg" alt="DJUSD"></a>
+                    <a href="https://www.technipfmc.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/TechnipFMC.jpg" alt="TechnipFMC"></a>
+                    <span class="sponsor-logo"><img src="pictures/Philleo Family Fund.jpg" alt="Philleo Family Fund"></span>
+                    <a href="https://www.sutterhealth.org/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/Sutter Health.jpg" alt="Sutter Health"></a>
                 </div>
             </div>
 
             <div class="tier">
                 <div class="tier-head"><h2>Grapefruit</h2><span class="amt">$5,000 – $9,999</span></div>
                 <div class="sponsor-row">
-                    <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener" class="sponsor-chip">UC Davis <span class="ext">&#8599;</span></a>
-                    <a href="https://www.nasa.gov/" target="_blank" rel="noopener" class="sponsor-chip">NASA <span class="ext">&#8599;</span></a>
+                    <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/UC Davis.jpg" alt="UC Davis"></a>
+                    <a href="https://www.nasa.gov/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/NASA.jpg" alt="NASA"></a>
                 </div>
             </div>
 
             <div class="tier">
                 <div class="tier-head"><h2>Orange</h2><span class="amt">$2,500 – $4,999</span></div>
                 <div class="sponsor-row">
-                    <a href="https://www.argosyfnd.org/" target="_blank" rel="noopener" class="sponsor-chip">Argosy Foundation <span class="ext">&#8599;</span></a>
-                    <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener" class="sponsor-chip">Gene Haas Foundation <span class="ext">&#8599;</span></a>
-                    <a href="https://about.google/" target="_blank" rel="noopener" class="sponsor-chip">Google <span class="ext">&#8599;</span></a>
-                    <a href="https://woodstocksdavis.com/" target="_blank" rel="noopener" class="sponsor-chip">Woodstock's Pizza <span class="ext">&#8599;</span></a>
-                    <a href="https://wcproducts.com/" target="_blank" rel="noopener" class="sponsor-chip">WCP <span class="ext">&#8599;</span></a>
+                    <span class="sponsor-logo"><img src="pictures/mmf.jpg" alt="MMF"></span>
+                    <a href="https://www.argosyfnd.org/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/Argosy Foundation.jpg" alt="Argosy Foundation"></a>
+                    <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/gene haas.jpg" alt="Gene Haas Foundation"></a>
+                    <a href="https://about.google/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/google.jpg" alt="Google"></a>
+                    <a href="https://woodstocksdavis.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/woodstock pizza.jpg" alt="Woodstock's Pizza"></a>
+                    <a href="https://wcproducts.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/wcp.jpg" alt="WCP"></a>
                 </div>
             </div>
 
             <div class="tier">
                 <div class="tier-head"><h2>Lemon</h2><span class="amt">$1,000 – $2,499</span></div>
                 <div class="sponsor-row">
-                    <a href="https://farwestern.com/" target="_blank" rel="noopener" class="sponsor-chip">Far Western <span class="ext">&#8599;</span></a>
-                    <a href="https://www.fabworks.com/" target="_blank" rel="noopener" class="sponsor-chip">Fabworks <span class="ext">&#8599;</span></a>
-                    <a href="https://www.intuitive.com/en-us" target="_blank" rel="noopener" class="sponsor-chip">Intuitive <span class="ext">&#8599;</span></a>
-                    <a href="https://www.baesystems.com/en" target="_blank" rel="noopener" class="sponsor-chip">BAE Systems <span class="ext">&#8599;</span></a>
-                    <a href="http://www.mcubed-econ.com/" target="_blank" rel="noopener" class="sponsor-chip">M-Cubed <span class="ext">&#8599;</span></a>
-                    <a href="https://www.hangsterfers.com/" target="_blank" rel="noopener" class="sponsor-chip">Hangsterfer's <span class="ext">&#8599;</span></a>
-                    <a href="https://lwa.com/" target="_blank" rel="noopener" class="sponsor-chip">LWA <span class="ext">&#8599;</span></a>
-                    <a href="https://www.swervedrivespecialties.com/" target="_blank" rel="noopener" class="sponsor-chip">Swerve Drive Specialties <span class="ext">&#8599;</span></a>
+                    <a href="https://farwestern.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/Far Western.jpg" alt="Far Western"></a>
+                    <a href="https://www.fabworks.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/fabworks.jpg" alt="Fabworks"></a>
+                    <a href="https://www.intuitive.com/en-us" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/intuitive.jpg" alt="Intuitive"></a>
+                    <a href="https://www.baesystems.com/en" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/bae system.jpg" alt="BAE Systems"></a>
+                    <a href="http://www.mcubed-econ.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/M-Cubed.jpg" alt="M-Cubed"></a>
+                    <a href="https://www.hangsterfers.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/Hangsterfer.jpg" alt="Hangsterfer's"></a>
+                    <a href="https://lwa.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/lwa.jpg" alt="LWA"></a>
+                    <a href="https://www.swervedrivespecialties.com/" target="_blank" rel="noopener" class="sponsor-logo"><img src="pictures/swerve drive.jpg" alt="Swerve Drive Specialties"></a>
                 </div>
             </div>
 
