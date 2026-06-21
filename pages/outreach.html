@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sponsors — Citrus Circuits 1678</title>
-    <meta name="description" content="The sponsors who power FRC Team 1678, Citrus Circuits, and how your organization can support student STEM in Davis, California.">
+    <title>Outreach — Citrus Circuits 1678</title>
+    <meta name="description" content="Citrus Service, DYR RoboCamps, Fall Workshops, Farmers Market, DiSTEM, WiSE, and community outreach from FRC Team 1678.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,6 +45,7 @@
         .nav-item:hover .dropdown-panel { opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0); }
         .dropdown-panel a { color:var(--text-muted); text-decoration:none; font-size:.85rem; padding:.65rem .85rem; border-radius:8px; transition:all .2s ease; }
         .dropdown-panel a:hover { background-color:var(--bg-dark); color:var(--lime); }
+        .dropdown-panel a.active { color:var(--lime); background-color:var(--bg-dark); }
         .nav-actions-hub { display:flex; align-items:center; gap:1rem; }
         .nav-cta { background:transparent; border:1px solid var(--lime); color:var(--lime); padding:.6rem 1.2rem; border-radius:8px; font-size:.85rem; font-weight:600; text-decoration:none; transition:all .2s ease; }
         .nav-cta:hover { background:var(--lime); color:#000; }
@@ -53,42 +54,54 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .wrap { max-width:1280px; margin:0 auto; padding:0 2rem; }
         .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
         .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
         .page-title em { color:var(--lime); font-style:normal; }
-        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:660px; margin:1.5rem auto 3rem; }
+        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .tier { margin-bottom:2.5rem; }
-        .tier-head { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; padding-bottom:.85rem; margin-bottom:1.25rem; border-bottom:1px solid var(--border); }
-        .tier-head h2 { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.04em; color:var(--lime); }
-        .tier-head .amt { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--text-muted); letter-spacing:.08em; }
-        .sponsor-row { display:flex; flex-wrap:wrap; gap:.85rem; }
-        .sponsor-chip { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:.85rem 1.25rem; font-weight:600; color:var(--text-main); text-decoration:none; transition:all .2s ease; display:inline-flex; align-items:center; gap:.5rem; }
-        .sponsor-chip:hover { border-color:var(--lime); color:var(--lime); transform:translateY(-2px); }
-        .sponsor-chip .ext { color:var(--text-muted); font-size:.8rem; }
-        .tier-lead .sponsor-chip { padding:1.1rem 1.5rem; font-size:1.05rem; }
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
 
-        .benefits { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:4rem 0 2rem; }
-        .ben-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; }
-        .ben-card h3 { font-size:1.3rem; font-weight:800; margin-bottom:1.25rem; }
-        .ben-card ul { list-style:none; }
-        .ben-card li { color:var(--text-muted); line-height:1.6; padding-left:1.5rem; position:relative; margin-bottom:.7rem; font-size:.95rem; }
-        .ben-card li::before { content:'+'; position:absolute; left:0; color:var(--lime); font-weight:800; }
-        .tier-legend { display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.25rem; }
-        .tier-legend span { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); border:1px solid var(--border); border-radius:6px; padding:.3rem .6rem; }
+        .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:3rem; }
+        .info-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; scroll-margin-top:120px; }
+        .info-card:hover { transform:translateY(-5px); border-color:var(--lime); }
+        .info-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .info-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(127,255,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(127,255,0,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .info-media img { width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
+        .info-media img.hidden { display:none; }
+        .info-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(127,255,0,.3); z-index:1; }
+        .info-body { padding:1.5rem; flex-grow:1; }
+        .info-body h3 { font-size:1.3rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; margin-bottom:.6rem; }
+        .info-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
+        .info-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
 
-        .sponsor-cta { background:linear-gradient(135deg,rgba(127,255,0,.08),transparent); border:1px solid rgba(127,255,0,.25); border-radius:16px; padding:2.5rem; text-align:center; margin-bottom:5rem; }
-        .sponsor-cta h3 { font-size:1.6rem; font-weight:800; margin-bottom:.5rem; }
-        .sponsor-cta p { color:var(--text-muted); line-height:1.65; max-width:540px; margin:0 auto 1.5rem; }
-        .sponsor-cta a { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.7rem; border-radius:8px; font-weight:700; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
+        .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
+        .stat-cell .n { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--lime); line-height:1; }
+        .stat-cell .l { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-top:.5rem; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
 
         footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
-        .footer-socket { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
+        .footer-socket { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
         .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .benefits{grid-template-columns:1fr;} }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .info-grid{grid-template-columns:1fr 1fr;} .stat-strip{grid-template-columns:1fr 1fr;} }
+        @media (max-width:620px) { .info-grid{grid-template-columns:1fr;} .stat-strip{grid-template-columns:1fr;} }
+
     </style>
 </head>
 <body>
@@ -114,8 +127,8 @@
                     </div>
                 </li>
                 <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
-                <li class="nav-item"><a href="outreach.html" class="nav-link">Outreach</a></li>
-                <li class="nav-item"><a href="sponsors.html" class="nav-link active">Sponsors</a></li>
+                <li class="nav-item"><a href="outreach.html" class="nav-link active">Outreach</a></li>
+                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
                 <li class="nav-item"><a href="support.html" class="nav-link">Support Us</a></li>
             </ul>
             <div class="nav-actions-hub">
@@ -129,104 +142,69 @@
     </header>
 
     <main>
+
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">2026 Season</div>
-                <h1 class="page-title">Our <em>Sponsors</em></h1>
-                <p class="page-sub">Sponsors are an integral part of the team — they help us compete at the highest level and bring our outreach programs to the wider community. Thank you for powering the next generation of engineers.</p>
+                <div class="page-eyebrow">Community &bull; STEM &bull; Service</div>
+                <h1 class="page-title">Outreach &amp; <em>Service</em></h1>
+                <p class="page-sub">Citrus Circuits exports its expertise by starting and mentoring DYR and FRC teams, hosting Diversity in STEM events, running workshops, and showing up at the Davis Farmers Market every week.</p>
             </div>
 
-            <div class="tier tier-lead">
-                <div class="tier-head"><h2>Pomelo</h2><span class="amt">$10,000+</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.djusd.net/home" target="_blank" rel="noopener" class="sponsor-chip">DJUSD <span class="ext">&#8599;</span></a>
-                    <a href="https://www.technipfmc.com/" target="_blank" rel="noopener" class="sponsor-chip">TechnipFMC <span class="ext">&#8599;</span></a>
-                    <span class="sponsor-chip">Philleo Family Fund</span>
-                    <a href="https://www.sutterhealth.org/" target="_blank" rel="noopener" class="sponsor-chip">Sutter Health <span class="ext">&#8599;</span></a>
-                </div>
+            <div class="full-card" id="citrus-service">
+                <h3>Citrus Service</h3>
+                <p>Founded in 2017, Citrus Service is our outreach program dedicated to aiding other robotics teams in their competitive pursuits &mdash; from spare parts and machining favors to scouting help and strategy support at competitions.</p>
             </div>
 
-            <div class="tier">
-                <div class="tier-head"><h2>Grapefruit</h2><span class="amt">$5,000 – $9,999</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.ucdavis.edu/" target="_blank" rel="noopener" class="sponsor-chip">UC Davis <span class="ext">&#8599;</span></a>
-                    <a href="https://www.nasa.gov/" target="_blank" rel="noopener" class="sponsor-chip">NASA <span class="ext">&#8599;</span></a>
-                </div>
+            <div class="full-card" id="dyr">
+                <h3>Davis Youth Robotics (DYR)</h3>
+                <p>Davis Youth Robotics is the K-12 robotics pipeline that Citrus Circuits founded and continues to mentor, feeding students into FLL, FTC, and eventually FRC teams across Davis.</p>
+                <p><strong>About DYR RoboCamps</strong> &mdash; week-long summer camps introducing robotics fundamentals.<br>
+                <strong>DYR RoboCamps Registration</strong> &mdash; sign-ups open each spring for the following summer.<br>
+                <strong>DYR RoboCamps Forms</strong> &mdash; waivers, medical forms, and camper info sheets.<br>
+                <strong>DYR RoboCamps Resources</strong> &mdash; curriculum and lesson plans for camp counselors.<br>
+                <strong>DYR League</strong> &mdash; a youth competition league for younger robotics teams in the district.<br>
+                <strong>DYR School Programs</strong> &mdash; in-classroom robotics units taught at DJUSD elementary and middle schools.</p>
             </div>
 
-            <div class="tier">
-                <div class="tier-head"><h2>Orange</h2><span class="amt">$2,500 – $4,999</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.argosyfnd.org/" target="_blank" rel="noopener" class="sponsor-chip">Argosy Foundation <span class="ext">&#8599;</span></a>
-                    <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener" class="sponsor-chip">Gene Haas Foundation <span class="ext">&#8599;</span></a>
-                    <a href="https://about.google/" target="_blank" rel="noopener" class="sponsor-chip">Google <span class="ext">&#8599;</span></a>
-                    <a href="https://woodstocksdavis.com/" target="_blank" rel="noopener" class="sponsor-chip">Woodstock's Pizza <span class="ext">&#8599;</span></a>
-                    <a href="https://wcproducts.com/" target="_blank" rel="noopener" class="sponsor-chip">WCP <span class="ext">&#8599;</span></a>
+            <div class="info-grid">
+                <div class="info-card" id="robocamps">
+                    <div class="info-media"><img src="pictures/robocamps_cover_pic.jpg" class="info-img" alt="RoboCamps" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">CAMP</span></div></div>
+                    <div class="info-body"><span class="tag">Grades K&ndash;8</span><h3>RoboCamps</h3><p>Introductory camps for grades 4&ndash;8, Seedling camps for K&ndash;1st, and Sprouts camps for grades 2&ndash;3.</p></div>
                 </div>
-            </div>
-
-            <div class="tier">
-                <div class="tier-head"><h2>Lemon</h2><span class="amt">$1,000 – $2,499</span></div>
-                <div class="sponsor-row">
-                    <a href="https://farwestern.com/" target="_blank" rel="noopener" class="sponsor-chip">Far Western <span class="ext">&#8599;</span></a>
-                    <a href="https://www.fabworks.com/" target="_blank" rel="noopener" class="sponsor-chip">Fabworks <span class="ext">&#8599;</span></a>
-                    <a href="https://www.intuitive.com/en-us" target="_blank" rel="noopener" class="sponsor-chip">Intuitive <span class="ext">&#8599;</span></a>
-                    <a href="https://www.baesystems.com/en" target="_blank" rel="noopener" class="sponsor-chip">BAE Systems <span class="ext">&#8599;</span></a>
-                    <a href="http://www.mcubed-econ.com/" target="_blank" rel="noopener" class="sponsor-chip">M-Cubed <span class="ext">&#8599;</span></a>
-                    <a href="https://www.hangsterfers.com/" target="_blank" rel="noopener" class="sponsor-chip">Hangsterfer's <span class="ext">&#8599;</span></a>
-                    <a href="https://lwa.com/" target="_blank" rel="noopener" class="sponsor-chip">LWA <span class="ext">&#8599;</span></a>
-                    <a href="https://www.swervedrivespecialties.com/" target="_blank" rel="noopener" class="sponsor-chip">Swerve Drive Specialties <span class="ext">&#8599;</span></a>
+                <div class="info-card" id="fall-workshops">
+                    <div class="info-media"><img src="pictures/2025_fall_workshops.jpg" class="info-img" alt="Fall Workshops" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">FALL</span></div></div>
+                    <div class="info-body"><span class="tag">Annual</span><h3>Fall Workshops</h3><p>A collection of technical workshops led by students and mentors at our off-season event, Capital City Classic.</p></div>
                 </div>
-            </div>
-
-            <div class="tier">
-                <div class="tier-head"><h2>Lime</h2><span class="amt">$500 – $999</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.universityretirement.org/" target="_blank" rel="noopener" class="sponsor-chip">University Retirement Community <span class="ext">&#8599;</span></a>
-                    <a href="https://www.bayer.com/en/" target="_blank" rel="noopener" class="sponsor-chip">Bayer <span class="ext">&#8599;</span></a>
-                    <a href="https://lettersandscience.ucdavis.edu/" target="_blank" rel="noopener" class="sponsor-chip">UCD College of Letters &amp; Science <span class="ext">&#8599;</span></a>
-                    <a href="https://mootensproductions.com/" target="_blank" rel="noopener" class="sponsor-chip">Mootens Productions <span class="ext">&#8599;</span></a>
+                <div class="info-card" id="farmers-market">
+                    <div class="info-media"><img src="pictures/robocamp.jpg" class="info-img" alt="Farmers Market" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DFM</span></div></div>
+                    <div class="info-body"><span class="tag">Weekly</span><h3>Farmers Market</h3><p>We maintain a booth at the Davis Farmers Market, demoing robots and running hands-on activities for the community.</p></div>
                 </div>
-            </div>
-
-            <div class="tier">
-                <div class="tier-head"><h2>Kumquat</h2><span class="amt">up to $499</span></div>
-                <div class="sponsor-row">
-                    <a href="https://www.cecwest.com/" target="_blank" rel="noopener" class="sponsor-chip">Cunningham Engineering Corporation <span class="ext">&#8599;</span></a>
+                <div class="info-card" id="lgbtq-of-first">
+                    <div class="info-media"><img src="pictures/business_media_2026.jpg" class="info-img" alt="LGBTQ+ of FIRST" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">LGBT</span></div></div>
+                    <div class="info-body"><span class="tag">Affinity Group</span><h3>LGBTQ+ of FIRST</h3><p>A space connecting LGBTQ+ students and mentors across FIRST teams, fostering belonging in the robotics community.</p></div>
                 </div>
-            </div>
-
-            <div class="benefits">
-                <div class="ben-card">
-                    <h3>Sponsor benefits by tier</h3>
-                    <div class="tier-legend"><span>Pomelo</span><span>Grapefruit</span><span>Orange</span><span>Lemon</span><span>Lime</span><span>Kumquat</span></div>
-                    <ul>
-                        <li><strong>Pomelo ($10k+):</strong> large logo on website, t-shirt, robot, and competition banner; up to a dozen team t-shirts; a robot demo at your functions; a personalized impact video; plus all lower-tier benefits.</li>
-                        <li><strong>Grapefruit ($5k+):</strong> medium logo on website, t-shirt, robot, and banner; two team t-shirts; plus all Lime benefits.</li>
-                        <li><strong>Orange ($2.5k+):</strong> medium logo on website and banner, small on t-shirt; two team t-shirts; plus all Lime benefits.</li>
-                        <li><strong>Lemon ($1k+):</strong> small logo on website, t-shirt, and banner; plus all Lime benefits.</li>
-                        <li><strong>Lime ($500+):</strong> a thank-you team photo and a social media post; plus all Kumquat benefits.</li>
-                        <li><strong>Kumquat ($100+):</strong> your name on our website, a thank-you letter, and an invitation to the UCD Regional and other local events.</li>
-                    </ul>
+                <div class="info-card" id="distem">
+                    <div class="info-media"><img src="pictures/scouting_frontend_2026.jpg" class="info-img" alt="DiSTEM" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DI</span></div></div>
+                    <div class="info-body"><span class="tag">Diversity in STEM</span><h3>DiSTEM</h3><p>Events and panels promoting diversity, equity, and inclusion across STEM and robotics.</p></div>
                 </div>
-                <div class="ben-card">
-                    <h3>Why sponsor us?</h3>
-                    <ul>
-                        <li>Promote STEM education across Davis and Yolo County.</li>
-                        <li>High-profile local press coverage.</li>
-                        <li>Visibility on our website and competition webcasts.</li>
-                        <li>Mentoring opportunities for your team.</li>
-                        <li>A pipeline for recruiting interns and future employees.</li>
-                    </ul>
+                <div class="info-card" id="wise">
+                    <div class="info-media"><img src="pictures/scouting_backend_2026.jpg" class="info-img" alt="WiSE" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">WiSE</span></div></div>
+                    <div class="info-body"><span class="tag">Women in STEM &amp; Eng.</span><h3>WiSE</h3><p>Women in STEM and Engineering &mdash; mentorship and community-building for women on the team and across FIRST.</p></div>
                 </div>
-            </div>
-
-            <div class="sponsor-cta">
-                <h3>Become a 2026 sponsor</h3>
-                <p>Checks can be made to the Davis Robotics Foundation and mailed to P.O. Box 577, Davis, CA 95617. To talk through a partnership, reach out any time.</p>
-                <a href="mailto:admin@citruscircuits.org">Email the Team &rarr;</a>
+                <div class="info-card" id="robot-demos">
+                    <div class="info-media"><img src="pictures/robot_2025_sublime.jpg" class="info-img" alt="Robot Demos" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DEMO</span></div></div>
+                    <div class="info-body"><span class="tag">Community Events</span><h3>Robot Demos</h3><p>Live robot demonstrations at schools, libraries, and community events across Davis.</p></div>
+                </div>
             </div>
         </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Want us at your event?</h3><p>We bring robots, demos, and mentors to schools and community events across Davis.</p></div>
+                <a href="contact.html" class="lead-cta-btn">Get in Touch &rarr;</a>
+            </div>
+        </div>
+
     </main>
 
     <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
@@ -240,7 +218,7 @@
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.sponsor-chip').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.info-card,.full-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 </body>
