@@ -92,10 +92,16 @@
         .intro-split p:last-child { margin-bottom:0; }
         .intro-media { width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:linear-gradient(150deg,var(--bg-card),var(--bg-dark)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
         .intro-media span { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.1em; text-transform:uppercase; opacity:.7; text-align:center; padding:0 1rem; }
-        .dyr-gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; margin-bottom:3rem; }
-        .dyr-gallery .info-media { aspect-ratio:4/3; border-radius:12px; }
-        @media (max-width:768px) { .dyr-gallery { grid-template-columns:1fr 1fr; } }
-        @media (max-width:480px) { .dyr-gallery { grid-template-columns:1fr; } }
+        .dyr-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:3.5rem 0; }
+        .dyr-media { width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:linear-gradient(150deg,var(--bg-card),var(--bg-dark)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
+        .dyr-media .dyr-img { width:100%; height:100%; object-fit:cover; }
+        .dyr-media .dyr-img.hidden { display:none; }
+        .dyr-h { font-size:1.8rem; font-weight:800; color:var(--lime); text-transform:uppercase; letter-spacing:.02em; margin-bottom:1rem; }
+        .dyr-text p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:1rem; }
+        .dyr-text p:last-child { margin-bottom:0; }
+        .dyr-cta { display:inline-block; margin-top:1rem; background:var(--lime); color:#000; text-decoration:none; padding:.85rem 1.5rem; border-radius:8px; font-weight:700; font-size:.95rem; transition:opacity .2s ease,transform .2s ease; }
+        .dyr-cta:hover { transform:translateY(-2px); opacity:.95; }
+        @media (max-width:768px) { .dyr-row { grid-template-columns:1fr; gap:1.5rem; } .dyr-row .dyr-media { order:-1; } }
         .section-divider { border:none; border-top:1px solid var(--border); margin:1rem 0 3rem; }
         .pm-heading { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:.04em; color:var(--lime); text-transform:uppercase; margin-bottom:2.75rem; }
         .pm-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem 2rem; padding-bottom:4rem; max-width:920px; margin:0 auto; }
@@ -234,50 +240,52 @@
                 <p class="page-sub">Organized by the Citrus Circuits Robotics Team, Davis Youth Robotics (DYR) organizes various robotics programs aimed at students ages 8 to 14. In DYR, students collaborate on teams to build robots which compete in given challenges. Students learn about science, math, programming and engineering, as well as the values of sportsmanship and teamwork. See below for a list of DYR programs that we currently offer during the summer.</p>
             </div>
 
-            <div class="dyr-gallery">
-                <div class="info-media"><img src="pictures/dyr_frontpage1.jpg" class="info-img" alt="DYR students" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
-                <div class="info-media"><img src="pictures/dyr_frontpage2.jpg" class="info-img" alt="DYR students" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
-                <div class="info-media"><img src="pictures/dyr_frontpage3.jpg" class="info-img" alt="DYR students" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
-                <div class="info-media"><img src="pictures/dyr_frontpage4.jpg" class="info-img" alt="DYR students" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
+            <div class="dyr-row">
+                <div class="dyr-media"><img src="pictures/dyr_frontpage1.jpg" class="dyr-img" alt="DYR students" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
+                <div class="dyr-text">
+                    <p>Organized by the Citrus Circuits Robotics Team, Davis Youth Robotics (DYR) organizes various robotics programs aimed at students ages 8 to 14. In DYR, students collaborate on teams to build robots which compete in given challenges. Students learn about science, math, programming and engineering, as well as the values of sportsmanship and teamwork. See below for a list of DYR programs that we currently offer during the summer.</p>
+                    <a href="#" class="dyr-cta">Sign Up: DYR Mailing List</a>
+                </div>
             </div>
 
-            <div class="full-card" style="text-align:center;">
-                <h3>Sign Up</h3>
-                <p>Get notified about registration windows, schedules, and new DYR programs.</p>
-                <a href="#" class="inline-link">DYR Mailing List &rarr;</a>
+            <hr class="section-divider">
+
+            <div class="dyr-row" id="about-dyr-robocamps">
+                <div class="dyr-text">
+                    <h2 class="dyr-h">DYR RoboCamps</h2>
+                    <p>DYR RoboCamps consist of one-week programs where students design, build, and code a robot in small groups and compete in a mini competition at the end of the week. Along with beginner and advanced camps, we offer a programming skills camp to allow students with past experience to further develop both their technical and interpersonal skills. New this year are week-long half-day camps for younger students (entering Grades 1-4). Please sign up for the DYR Mailing List for more information.</p>
+                    <p>Learn more about the <a href="#" class="inline-link" id="dyr-robocamps-resources">DYR RoboCamps HERE</a>.</p>
+                    <p id="dyr-robocamps-registration">Registration for DYR RoboCamps opens ahead of each summer session. Sign up for the DYR Mailing List above to be notified as soon as registration opens.</p>
+                    <p id="dyr-robocamps-forms">Camper forms, waivers, and other required paperwork will be linked here ahead of each RoboCamps session.</p>
+                </div>
+                <div class="dyr-media"><img src="pictures/dyr_frontpage2.jpg" class="dyr-img" alt="DYR RoboCamps" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
             </div>
 
-            <div class="full-card" id="about-dyr-robocamps">
-                <h3>DYR RoboCamps</h3>
-                <p>DYR RoboCamps consist of one-week programs where students design, build, and code a robot in small groups and compete in a mini competition at the end of the week. Along with beginner and advanced camps, we offer a programming skills camp to allow students with past experience to further develop both their technical and interpersonal skills. New this year are week-long half-day camps for younger students (entering Grades 1-4). Please sign up for the DYR Mailing List for more information.</p>
-                <p>Learn more about the <a href="#" class="inline-link" id="dyr-robocamps-resources">DYR RoboCamps HERE</a>.</p>
+            <hr class="section-divider">
+
+            <div class="dyr-row" id="dyr-league">
+                <div class="dyr-media"><img src="pictures/dyr_frontpage3.jpg" class="dyr-img" alt="DYR League" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
+                <div class="dyr-text">
+                    <h2 class="dyr-h">DYR League</h2>
+                    <p>DYR League is a program aimed at engaging 4th through 8th grade students in competitive robotics. Through the DYR League, students learn skills like teamwork, programming, communication, and engineering and math all in a fun, collaborative, and after-school environment. Each DYR team is run by parent coaches, with technical and skill-based support from our trained High School Student Mentors.</p>
+                    <p>Learn more about the <a href="#" class="inline-link">DYR League HERE</a> or access the <a href="#" class="inline-link">coaches handbook HERE</a>.</p>
+                </div>
             </div>
 
-            <div class="full-card" id="dyr-robocamps-registration">
-                <h3>DYR RoboCamps Registration</h3>
-                <p>Registration for DYR RoboCamps opens ahead of each summer session. Sign up for the DYR Mailing List above to be notified as soon as registration opens.</p>
+            <hr class="section-divider">
+
+            <div class="dyr-row" id="dyr-school-programs">
+                <div class="dyr-text">
+                    <h2 class="dyr-h">DYR School Programs</h2>
+                    <p>The school programs work school-year round, some after school and some as a class elective. The after school programs are run by teachers with help from Citrus Circuits student mentors; we have after school programs at DSIS, Patwin, North Davis, Montgomery, and Willett. Currently, there are three full classroom programs at Holmes, Harper, and Emerson Junior High. All school programs are invited to attend an end-of-the-year competition.</p>
+                    <p>Learn more about the <a href="#" class="inline-link">DYR School Programs HERE</a>.</p>
+                </div>
+                <div class="dyr-media"><img src="pictures/dyr_frontpage4.jpg" class="dyr-img" alt="DYR School Programs" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
             </div>
 
-            <div class="full-card" id="dyr-robocamps-forms">
-                <h3>DYR RoboCamps Forms</h3>
-                <p>Camper forms, waivers, and other required paperwork will be linked here ahead of each RoboCamps session.</p>
-            </div>
+            <hr class="section-divider">
 
-            <div class="full-card" id="dyr-league">
-                <h3>DYR League</h3>
-                <p>DYR League is a program aimed at engaging 4th through 8th grade students in competitive robotics. Through the DYR League, students learn skills like teamwork, programming, communication, and engineering and math all in a fun, collaborative, and after-school environment. Each DYR team is run by parent coaches, with technical and skill-based support from our trained High School Student Mentors.</p>
-                <p>Learn more about the <a href="#" class="inline-link">DYR League HERE</a> or access the <a href="#" class="inline-link">coaches handbook HERE</a>.</p>
-            </div>
-
-            <div class="full-card" id="dyr-school-programs">
-                <h3>DYR School Programs</h3>
-                <p>The school programs work school-year round, some after school and some as a class elective. The after school programs are run by teachers with help from Citrus Circuits student mentors; we have after school programs at DSIS, Patwin, North Davis, Montgomery, and Willett. Currently, there are three full classroom programs at Holmes, Harper, and Emerson Junior High. All school programs are invited to attend an end-of-the-year competition.</p>
-                <p>Learn more about the <a href="#" class="inline-link">DYR School Programs HERE</a>.</p>
-            </div>
-
-            <div class="full-card">
-                <p style="margin-bottom:0;">For more information, contact Davis Youth Robotics at <a href="mailto:dyr@citruscircuits.org" class="inline-link">dyr@citruscircuits.org</a>.</p>
-            </div>
+            <p style="text-align:center;color:var(--text-muted);font-size:.95rem;padding-bottom:4rem;">For more information, contact Davis Youth Robotics at <a href="mailto:dyr@citruscircuits.org" class="inline-link">dyr@citruscircuits.org</a>.</p>
         </div>
 
     </main>
