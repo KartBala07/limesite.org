@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Robots — Citrus Circuits 1678</title>
+    <title>History — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="pictures/favicon.png?v=3">
-    <meta name="description" content="Every competition robot built by FRC Team 1678, Citrus Circuits, from Lemon Squeeze (2009) to the 2026 robot.">
+    <meta name="description" content="Two decades of FRC Team 1678, Citrus Circuits — from a single classroom in 2004 to a ten-year Einstein streak.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -58,33 +58,31 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1280px; margin:0 auto; padding:0 2rem; }
-        .page-head { text-align:center; margin:4rem auto 1rem; }
+        .wrap { max-width:1000px; margin:0 auto; padding:0 2rem; }
+        .page-head { text-align:center; margin:4rem auto 3rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
         .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
         .page-title em { color:var(--lime); font-style:normal; }
-        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
+        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 0; }
 
-        .robot-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:5rem; }
-        .robot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; text-decoration:none; color:inherit; }
-        .robot-card:hover { transform:translateY(-5px); border-color:var(--lime); }
-        .robot-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .robot-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
-        .robot-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-media img.hidden { display:none; }
-        .robot-fallback .yr { position:relative; font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-year-tag { position:absolute; top:12px; right:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.15em; color:var(--lime); background:rgba(0,0,0,.45); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; }
-        .robot-body { padding:1.5rem; flex-grow:1; }
-        .robot-body h3 { font-size:1.4rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; }
-        .robot-body .game { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin:.35rem 0 .9rem; }
-        .robot-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
+        /* timeline */
+        .timeline { position:relative; margin:4rem 0 2rem; padding-left:2.5rem; }
+        .timeline::before { content:''; position:absolute; left:7px; top:8px; bottom:0; width:2px; background:linear-gradient(var(--lime),var(--border)); }
+        .tl-item { position:relative; margin-bottom:2.75rem; }
+        .tl-item::before { content:''; position:absolute; left:-2.5rem; top:6px; width:16px; height:16px; border-radius:50%; background:var(--bg-darkest); border:2px solid var(--lime); box-shadow:0 0 0 4px rgba(60,213,46,.08); }
+        .tl-year { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; line-height:1; color:var(--lime); letter-spacing:.03em; }
+        .tl-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; margin-top:.6rem; transition:border-color .2s ease,transform .2s ease; }
+        .tl-card:hover { border-color:var(--lime); transform:translateX(4px); }
+        .tl-card p { color:var(--text-muted); line-height:1.7; font-size:1rem; }
+        .tl-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+        .tl-tags span { font-family:'JetBrains Mono',monospace; font-size:.72rem; background:var(--bg-darkest); border:1px solid var(--border); color:var(--lime); padding:.3rem .65rem; border-radius:6px; letter-spacing:.04em; }
+        .tl-milestone .tl-card { border-color:rgba(60,213,46,.35); box-shadow:0 0 40px rgba(60,213,46,.06); }
 
-        footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
-        .footer-socket { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
+        footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; margin-top:5rem; transition:background-color .3s ease; }
+        .footer-socket { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
         .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .robot-grid{grid-template-columns:1fr 1fr;} }
-        @media (max-width:620px) { .robot-grid{grid-template-columns:1fr;} }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -106,16 +104,24 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-</style>
+
+        .hist-detail { max-width:760px; padding-bottom:3rem; }
+        .hist-detail .tl-tags span { display:inline-block; background:var(--bg-card); border:1px solid var(--border); border-radius:999px; padding:.4rem .9rem; font-size:.78rem; color:var(--lime); margin:0 .5rem .5rem 0; }
+        .hist-detail p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:1.5rem; }
+        .hist-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
+        .hist-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
+        .hist-nav-link:hover { color:var(--lime); }
+        .hist-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+    </style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
         <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 111,32 111,88 60,116 9,88 9,32"></polygon><polygon class="ld-ring-fg" points="60,4 111,32 111,88 60,116 9,88 9,32" pathLength="345"></polygon></svg>
+            <svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Robot Archive</div>
+        <div class="ld-sub" id="ldSub">Loading 2021</div>
     </div>
 
     <header>
@@ -131,8 +137,8 @@
                     <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
                         <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
-                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html" class="active">Our Robots</a>
-                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
+                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
+                        <a href="2026_robot.html">2026 Robot</a><a href="history.html" class="active">History</a>
                         <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
                         <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
                     </div>
@@ -189,34 +195,21 @@
 
     <main>
         <div class="wrap">
-            <div class="page-head">
-                <div class="page-eyebrow">2009 &rarr; 2026 &middot; 18 Machines</div>
-                <h1 class="page-title">Our <em>Robots</em></h1>
-                <p class="page-sub">A new robot every season, almost entirely designed and machined in-house — and almost always with a citrus pun. Click any card for the full writeup.</p>
+            <a href="history.html" class="hist-back-link">&larr; Team History</a>
+            <div class="page-head" style="text-align:left;margin:0 0 2rem;">
+                <div class="page-eyebrow" style="justify-content:flex-start;">Season Recap</div>
+                <h1 class="page-title">2021</h1>
             </div>
-
-            <div class="robot-grid">
-                <a href="2026_robot.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2026</span><img src="pictures/2026_robot.jpg" class="robot-img" alt="2026 Robot" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'26</span></div></div><div class="robot-body"><h3>2026 Robot</h3><div class="game">REBUILT</div><p>This year&rsquo;s build &mdash; in progress. Follow along on the 2026 Robot page for the latest mechanisms, software, and reveal updates.</p></div></a>
-                <a href="robot_2025_sublime.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2025</span><img src="pictures/robot_2025_sublime.jpg" class="robot-img" alt="SubLime" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'25</span></div></div><div class="robot-body"><h3>SubLime</h3><div class="game">REEFSCAPE</div><p>A three-time regional winner that intook both coral and algae and scored on all four reef levels with an elevator and end effector. SubLime climbed a deep cage with ease and scored in both the processor and net.</p></div></a>
-                <a href="robot_2024_nik.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2024</span><img src="pictures/robot_2024_nik.jpg" class="robot-img" alt="Nik" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'24</span></div></div><div class="robot-body"><h3>Nik</h3><div class="game">CRESCENDO</div><p>Named in memory of mentor Nik Murray. Roller mechanisms picked up notes and shot them into the speaker and amp; a hook let Nik hang on the chain in the final seconds while scoring a note in the trap.</p></div></a>
-                <a href="robot_2023_tangerine.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2023</span><img src="pictures/robot_2023_tangerine.jpg" class="robot-img" alt="Tangerine Tumbler" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'23</span></div></div><div class="robot-body"><h3>Tangerine Tumbler</h3><div class="game">CHARGED UP</div><p>A rolling intake collected cones and cubes and placed them precisely. With the help of LED rods, it could dock quickly — finishing the balance in the final seconds of a match.</p></div></a>
-                <a href="robot_2022_margie.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2022</span><img src="pictures/robot_2022_margie.jpg" class="robot-img" alt="Margie" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'22</span></div></div><div class="robot-body"><h3>Margie</h3><div class="game">RAPID REACT</div><p>Named after our shop dog. Margie stored cargo, used a color sensor to tell alliance colors apart, shot into the high goal, and climbed the traversal rung in about 10 seconds.</p></div></a>
-                <a href="robot_2021_clementwins.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2021</span><img src="pictures/robot_2021_clementwins.jpg" class="robot-img" alt="Clemen-twins" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'21</span></div></div><div class="robot-body"><h3>Clemen-twins</h3><div class="game">FRC AT HOME</div><p>A tank bot and a swerve bot built for the At-Home skills and auto-path challenges — posting some of the fastest times in the world during the COVID-adjusted season.</p></div></a>
-                <a href="robot_2020_pulpatine.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2020</span><img src="pictures/robot_2020_pulpatine.jpg" class="robot-img" alt="Emperor Pulp-atine" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'20</span></div></div><div class="robot-body"><h3>Emperor Pulp-atine</h3><div class="game">INFINITE RECHARGE</div><p>Built for the Lucasfilm-partnered game, it collected and stored power cells and climbed the generator switch alongside another robot while staying level.</p></div></a>
-                <a href="robot_2019_buzz.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2019</span><img src="pictures/robot_2019_buzz.jpg" class="robot-img" alt="Buzz Lime-year" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'19</span></div></div><div class="robot-body"><h3>Buzz Lime-year</h3><div class="game">DEEP SPACE</div><p>Handled cargo and hatch panels across three levels, climbed to the highest platform, and could lift two other robots with it.</p></div></a>
-                <a href="robot_2018_zest.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2018</span><img src="pictures/robot_2018_zest.jpg" class="robot-img" alt="Lemon Zest" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'18</span></div></div><div class="robot-body"><h3>Lemon Zest</h3><div class="game">POWER UP</div><p>Picked up milk-crate-sized cubes for the scale and switch, then climbed a rung with an 80-inch hook — lifting a second robot on a platform to "beat the boss."</p></div></a>
-                <a href="robot_2017_pomelo.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2017</span><img src="pictures/robot_2017_pomelo.jpg" class="robot-img" alt="Pomelo Pummeler" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'17</span></div></div><div class="robot-body"><h3>Pomelo Pummeler</h3><div class="game">STEAMWORKS</div><p>Shot fuel into the high boiler, delivered gears to the airship, and climbed the rope to the airship in the final 30 seconds.</p></div></a>
-                <a href="robot_2016_adrian.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2016</span><img src="pictures/robot_2016_adrian.jpg" class="robot-img" alt="Adrian" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'16</span></div></div><div class="robot-body"><h3>Adrian</h3><div class="game">STRONGHOLD</div><p>A three-time regional winner with nine air tanks that shot balls ~11 feet at 10 mph, crossing every field defense from the low bar to the portcullis.</p></div></a>
-                <a href="robot_2015_lemondrop.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2015</span><img src="pictures/robot_2015_lemondrop.jpg" class="robot-img" alt="Lemon Drop" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'15</span></div></div><div class="robot-body"><h3>Lemon Drop</h3><div class="game">RECYCLE RUSH</div><p>Part of the winning alliance at the 2015 FIRST World Championship.</p></div></a>
-                <a href="robot_2014_beca.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2014</span><img src="pictures/robot_2014_beca.jpg" class="robot-img" alt="Beca" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'14</span></div></div><div class="robot-body"><h3>Beca</h3><div class="game">AERIAL ASSAULT</div><p>Two intakes and a high-powered catapult sent balls over the truss into the high goal. Beca played midfield and adapted quickly between strategies.</p></div></a>
-                <a href="robot_2013_elimonator.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2013</span><img src="pictures/robot_2013_elimonator.jpg" class="robot-img" alt="E-Lime-o-Nator" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'13</span></div></div><div class="robot-body"><h3>E-Lime-o-Nator</h3><div class="game">ULTIMATE ASCENT</div><p>Intook Frisbee discs from the ground, shot them into the high goal, and hung from the pyramid for 10 bonus points at the buzzer.</p></div></a>
-                <a href="robot_2012_juicer.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2012</span><img src="pictures/robot_2012_juicer.jpg" class="robot-img" alt="The Juicer" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'12</span></div></div><div class="robot-body"><h3>The Juicer</h3><div class="game">REBOUND RUMBLE</div><p>Named after a 72-tooth-sprocket incident, it shot foam basketballs into 96-inch hoops and balanced on the teeter-totter bridges.</p></div></a>
-                <a href="robot_2011_optimus.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2011</span><img src="pictures/robot_2011_optimus.jpg" class="robot-img" alt="Optimus Lime" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'11</span></div></div><div class="robot-body"><h3>Optimus Lime</h3><div class="game">LOGO MOTION</div><p>Our first regional-winning robot — capable of scoring two full logos, an ubertube, and a minibot.</p></div></a>
-                <a href="robot_2010_orangecrush.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2010</span><img src="pictures/robot_2010_orangecrush.jpg" class="robot-img" alt="Orange Crush" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'10</span></div></div><div class="robot-body"><h3>Orange Crush</h3><div class="game">BREAKAWAY</div><p>Shot soccer balls into goals and deployed an arm in the endgame to pull itself up onto a tower.</p></div></a>
-                <a href="robot_2009_lemonsqueeze.html" class="robot-card"><div class="robot-media"><span class="robot-year-tag">2009</span><img src="pictures/robot_2009_lemonsqueeze.jpg" class="robot-img" alt="Lemon Squeeze" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-fallback" style="display:none"><span class="yr">'09</span></div></div><div class="robot-body"><h3>Lemon Squeeze</h3><div class="game">Lunacy</div><p>It was capable of both picking up stray “moon rocks” from the ground and receiving moon rocks thrown by the payload specialist.  The moon rocks were stored in the hopper, with a maximum capacity of 30 balls.  When ready to score, a conveyor belt system carried the balls up and out of the robot, shooting them at point-blank range into our opponent's trailer. </p></div></a>
+            <div class="hist-detail">
+                <p>With in-person events suspended, we competed in the FRC At Home Challenges. We won the Skills Challenge for the Hydrogen Group with some of the fastest times in FRC, were named one of three Game Design winners for our game Storm Surge, and received the Greater Central Valley Chairman's Award.</p><div class="tl-tags"><span>Skills Winner</span><span>Game Design Winner</span><span>Chairman's Award</span></div>
             </div>
         </div>
+        <div class="hist-nav-strip">
+            <a href="season_2020.html" class="hist-nav-link">&larr; 2020</a>
+            <a href="season_2022.html" class="hist-nav-link">2022 &rarr;</a>
+        </div>
     </main>
+
 
     <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
 
@@ -226,7 +219,7 @@
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading Robot Archive','Powering Up','Checking Specs','Almost There'];
+            const msgs=['Loading Team History','Rewinding the Years','Pulling Archives','Almost There'];
             let pct=0,mi=0;
             const tick=setInterval(()=>{
                 pct=Math.min(100,pct+Math.ceil(Math.random()*9));
@@ -240,7 +233,7 @@
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.robot-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.tl-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 
