@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact — Citrus Circuits 1678</title>
+    <title>Clemen-twins (2021) — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="pictures/favicon.png?v=3">
-    <meta name="description" content="Contact FRC Team 1678, Citrus Circuits, located at Davis Senior High School in Davis, California.">
+    <meta name="description" content="Clemen-twins — the Citrus Circuits 1678 robot for the 2021 FRC AT HOME season.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -58,37 +58,33 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
-        .page-head { text-align:center; margin:4rem auto 3rem; }
+        .wrap { max-width:1280px; margin:0 auto; padding:0 2rem; }
+        .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
         .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
         .page-title em { color:var(--lime); font-style:normal; }
+        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .contact-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:2.5rem; align-items:start; padding-bottom:5rem; }
-        .card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; }
-        .card h2 { font-size:1.5rem; font-weight:800; color:var(--lime); margin-bottom:.5rem; }
-        .card .sub { color:var(--text-muted); margin-bottom:1.75rem; line-height:1.6; }
-        .field { margin-bottom:1.1rem; }
-        .field label { display:block; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:.5rem; }
-        .field input, .field textarea { width:100%; background:var(--bg-darkest); border:1px solid var(--border); border-radius:8px; padding:.8rem 1rem; color:var(--text-main); font-size:.95rem; transition:border-color .2s ease; }
-        .field input:focus, .field textarea:focus { outline:none; border-color:var(--lime); }
-        .field textarea { resize:vertical; min-height:120px; }
-        .row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-        .send-btn { width:100%; background:var(--lime); color:#000; border:none; border-radius:8px; padding:1rem; font-size:1rem; font-weight:700; cursor:pointer; margin-top:.5rem; transition:transform .2s ease,opacity .2s ease; }
-        .send-btn:hover { transform:translateY(-2px); opacity:.95; }
-
-        .loc-meta { margin-bottom:1.5rem; }
-        .loc-meta .label { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); margin-bottom:.4rem; }
-        .loc-meta p { color:var(--text-muted); line-height:1.65; }
-        .loc-meta a { color:var(--lime); text-decoration:none; border-bottom:1px dashed var(--lime); }
-        .loc-meta a:hover { border-bottom-style:solid; }
-        .map-embed { width:100%; aspect-ratio:4/3; border:0; border-radius:12px; margin-top:.5rem; filter:grayscale(.2); }
+        .robot-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:5rem; }
+        .robot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; }
+        .robot-card:hover { transform:translateY(-5px); border-color:var(--lime); }
+        .robot-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .robot-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .robot-media img { width:100%; height:100%; object-fit:cover; }
+        .robot-media img.hidden { display:none; }
+        .robot-fallback .yr { position:relative; font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
+        .robot-year-tag { position:absolute; top:12px; right:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.15em; color:var(--lime); background:rgba(0,0,0,.45); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; }
+        .robot-body { padding:1.5rem; flex-grow:1; }
+        .robot-body h3 { font-size:1.4rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; }
+        .robot-body .game { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin:.35rem 0 .9rem; }
+        .robot-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
 
         footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
-        .footer-socket { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
+        .footer-socket { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
         .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .contact-grid{grid-template-columns:1fr;} }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .robot-grid{grid-template-columns:1fr 1fr;} }
+        @media (max-width:620px) { .robot-grid{grid-template-columns:1fr;} }
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -110,16 +106,29 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-</style>
+
+        .robot-detail { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; padding-bottom:3rem; }
+        .robot-detail-media { width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
+        .robot-detail-media img { width:100%; height:100%; object-fit:cover; }
+        .robot-detail-media img.hidden { display:none; }
+        .robot-detail-fallback .yr { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
+        .robot-detail-body .game { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--lime); letter-spacing:.15em; text-transform:uppercase; margin-bottom:.8rem; }
+        .robot-detail-body p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; }
+        .robot-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
+        .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
+        .robot-nav-link:hover { color:var(--lime); }
+        .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+        @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+    </style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
         <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><circle class="ld-ring-bg" cx="60" cy="60" r="55"></circle><circle class="ld-ring-fg" cx="60" cy="60" r="55"></circle></svg>
+            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 111,32 111,88 60,116 9,88 9,32"></polygon><polygon class="ld-ring-fg" points="60,4 111,32 111,88 60,116 9,88 9,32" pathLength="345"></polygon></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Contact Info</div>
+        <div class="ld-sub" id="ldSub">Loading Clemen-twins</div>
     </div>
 
     <header>
@@ -138,7 +147,7 @@
                         <a href="recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
                         <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
                         <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
-                        <a href="faq.html">FAQ</a><a href="contact.html" class="active">Contact US</a>
+                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -193,50 +202,27 @@
 
     <main>
         <div class="wrap">
-            <div class="page-head">
-                <div class="page-eyebrow">We're here to help</div>
-                <h1 class="page-title">Contact <em>Us</em></h1>
+            <a href="our_robots.html" class="robot-back-link">&larr; All Robots</a>
+            <div class="page-head" style="text-align:left;margin:0 0 2.5rem;">
+                <div class="page-eyebrow" style="justify-content:flex-start;">2021 Season</div>
+                <h1 class="page-title">Clemen-twins</h1>
             </div>
 
-            <div class="contact-grid">
-                <div class="card">
-                    <h2>Send a message</h2>
-                    <p class="sub">Questions, comments, concerns? Fill this out and we'll email you back as soon as we can.</p>
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="field"><label>First name *</label><input type="text" name="first" required></div>
-                            <div class="field"><label>Last name *</label><input type="text" name="last" required></div>
-                        </div>
-                        <div class="field"><label>Email *</label><input type="email" name="email" required></div>
-                        <div class="field"><label>Subject</label><input type="text" name="subject"></div>
-                        <div class="field"><label>Message</label><textarea name="message" placeholder="Write a message..."></textarea></div>
-                        <button type="submit" class="send-btn">Send Message</button>
-                    </form>
-                </div>
-
-                <div class="card">
-                    <h2>Find us</h2>
-                    <div class="loc-meta">
-                        <div class="label">Address</div>
-                        <p>Davis Senior High School<br>315 West 14th Street, Davis, CA 95616</p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Where on campus</div>
-                        <p>General meetings are in Room M-1; our shop and practice field are in the Steve Harvey Robotics Engineering Building, parallel to and behind M-1, near the library and the Oak Avenue staff lot. Parking is in the stadium lot on Oak Avenue and along the streets.</p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Email</div>
-                        <p><a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Map</div>
-                        <p><a href="https://maps.app.goo.gl/7kJiuddSPLd3R4zk9" target="_blank" rel="noopener">Open in Google Maps &rarr;</a></p>
-                    </div>
-                    <iframe class="map-embed" loading="lazy" title="Davis Senior High School map" src="https://maps.google.com/maps?q=Davis%20Senior%20High%20School%2C%20315%20West%2014th%20Street%2C%20Davis%2C%20CA%2095616&output=embed"></iframe>
+            <div class="robot-detail">
+                <div class="robot-detail-media"><img src="pictures/robot_2021_clementwins.jpg" class="robot-img" alt="Clemen-twins" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'21</span></div></div>
+                <div class="robot-detail-body">
+                    <div class="game">FRC AT HOME</div>
+                    <p>A tank bot and a swerve bot built for the At-Home skills and auto-path challenges — posting some of the fastest times in the world during the COVID-adjusted season.</p>
                 </div>
             </div>
         </div>
+
+        <div class="robot-nav-strip">
+            <a href="robot_2020_pulpatine.html" class="robot-nav-link">&larr; Emperor Pulp-atine (2020)</a>
+            <a href="robot_2022_margie.html" class="robot-nav-link">Margie (2022) &rarr;</a>
+        </div>
     </main>
+
 
     <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
 
@@ -246,7 +232,7 @@
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading Contact Info','Locating Davis HS','Preparing Map','Almost There'];
+            const msgs=['Loading Clemen-twins','Powering Up','Checking Specs','Almost There'];
             let pct=0,mi=0;
             const tick=setInterval(()=>{
                 pct=Math.min(100,pct+Math.ceil(Math.random()*9));
@@ -256,19 +242,11 @@
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
             window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
         })();
-        // contact form -> opens user's email client (static site has no backend)
-        document.getElementById('contactForm').addEventListener('submit',e=>{
-            e.preventDefault();
-            const f=e.target;
-            const subj=encodeURIComponent(f.subject.value||('Website message from '+f.first.value+' '+f.last.value));
-            const body=encodeURIComponent('From: '+f.first.value+' '+f.last.value+' ('+f.email.value+')\n\n'+f.message.value);
-            window.location.href='mailto:admin@citruscircuits.org?subject='+subj+'&body='+body;
-        });
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,input,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.robot-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 

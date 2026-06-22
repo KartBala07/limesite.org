@@ -88,18 +88,9 @@
         .full-card p:last-child { margin-bottom:0; }
         .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
 
-        .support-divider { width:100%; height:1px; background:var(--border); margin:3rem 0; }
-        .support-split { display:grid; grid-template-columns:1fr 1.2fr; gap:3.5rem; align-items:start; padding-bottom:5rem; }
-        .support-media-col { display:flex; flex-direction:column; gap:1.25rem; }
-        .support-media { width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:linear-gradient(150deg,var(--bg-card),var(--bg-dark)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
-        .support-media .info-img { width:100%; height:100%; object-fit:cover; }
-        .support-donate-btn { display:block; text-align:center; background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; transition:opacity .2s ease,transform .2s ease; }
-        .support-donate-btn:hover { transform:translateY(-2px); opacity:.95; }
-        .support-text-col { display:flex; flex-direction:column; gap:2.25rem; }
-        .support-block h3 { font-family:'Bebas Neue',sans-serif; color:var(--lime); font-size:1.9rem; font-weight:400; text-transform:uppercase; letter-spacing:.02em; margin-bottom:.7rem; }
-        .support-block p { color:var(--text-muted); font-size:1rem; line-height:1.75; }
-        .support-block a.inline-link { color:var(--lime); text-decoration:underline; }
-        @media (max-width:768px) { .support-split{grid-template-columns:1fr;gap:2rem;} }
+        /* Davis Robotics Foundation brand palette */
+        #davis-robotics-foundation h3 { color:#F7941D; }
+        #davis-robotics-foundation a.inline-link { color:#F7941D; }
 
         .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
         .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
@@ -204,10 +195,10 @@
                 <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
                 <li class="nav-item">
                     <a href="support.html" class="nav-link active">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                    <div class="dropdown-panel" style="grid-template-columns:1fr;width:260px;">
-                        <a href="support.html#become-a-coach" class="active">Become a Coach</a>
-                        <a href="support.html#become-a-sponsor" class="active">Become a Sponsor</a>
-                        <a href="support.html#support-with-purchases" class="active">Support Us With Your Purchases</a>
+                    <div class="dropdown-panel">
+                        <a href="support.html#davis-robotics-foundation" class="active">Davis Robotics Foundation</a><a href="support.html#nik-murray-memorial-sponsorship" class="active">Nik Murray Memorial Sponsorship</a>
+                        <a href="support.html#parent-committee" class="active">Parent Committee</a><a href="support.html#reimbursement" class="active">Reimbursement</a>
+                        <a href="support.html#volunteer-opportunities" class="active">Volunteer Opportunities</a>
                     </div>
                 </li>
             </ul>
@@ -227,33 +218,47 @@
             <div class="page-head">
                 <div class="page-eyebrow">Donate &bull; Volunteer &bull; Sponsor</div>
                 <h1 class="page-title">Support <em>Us</em></h1>
-                <p class="page-sub">As a FIRST Robotics Team, we require many resources for our program to be successful. Our team is always looking for support whether it be in the form of coaching, sponsorships, or other involvement.</p>
+                <p class="page-sub">Citrus Circuits is funded through the Davis Robotics Foundation, a 501(c)(3) nonprofit. Whether through donations, sponsorship, or volunteer hours, every bit of support keeps the team running.</p>
             </div>
 
-            <div class="support-divider"></div>
+            <div class="full-card" id="davis-robotics-foundation">
+                <h3>Davis Robotics Foundation</h3>
+                <p>The Davis Robotics Foundation (DRF) is a nonprofit corporation, incorporated in California on October 10, 2016, organized to support STEM activities for K&ndash;12 students with a focus on robotics. DRF funds the operation of FRC Team 1678, the Davis Youth Robotics program, and associated competition, outreach, and education programs.</p>
+                <p>Donations to the Foundation are tax-deductible. You can also support DRF through the <a class="inline-link" href="https://www.bigdayofgiving.org/organization/Davis-Robotics-Foundation" target="_blank" rel="noopener noreferrer">Big Day of Giving</a> campaign each year.</p>
+            </div>
 
-            <div class="support-split">
-                <div class="support-media-col">
-                    <div class="support-media"><img src="pictures/support.jpg" class="info-img" alt="Mentor and students working on the robot" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">1678</span></div></div>
-                    <a href="https://www.paypal.com/donate/?hosted_button_id=YXGHB8WLD96M8" target="_blank" rel="noopener noreferrer" class="support-donate-btn">Donate to our PayPal!</a>
+            <div class="full-card" id="nik-murray-memorial-sponsorship">
+                <h3>Nik Murray Memorial Sponsorship</h3>
+                <p>Established in memory of longtime mentor Nik Murray, this sponsorship fund honors his impact on the team by supporting the same mentorship and technical training programs he helped build. The 2024 robot, "Nik," was named in his memory.</p>
+            </div>
+
+            <div class="full-card" id="parent-committee">
+                <h3>Parent Committee</h3>
+                <p>Our Parent Committee coordinates logistics for build season and competitions &mdash; meals, travel, fundraising events, and chaperoning &mdash; and is always looking for new parent volunteers.</p>
+            </div>
+
+            <div class="full-card" id="reimbursement">
+                <h3>Reimbursement</h3>
+                <p>Mentors and parents who incur approved team expenses (parts, travel, supplies) can submit a reimbursement request to the Davis Robotics Foundation treasurer. Contact us for the current reimbursement form.</p>
+            </div>
+
+            <div class="full-card" id="volunteer-opportunities">
+                <h3>Volunteer Opportunities</h3>
+                <p>We need mentors, judges, scouts, drivers, and event-day volunteers throughout the season &mdash; technical background not required. Reach out via the <a class="inline-link" href="contact.html">Contact</a> page if you'd like to help.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-media"><img src="pictures/team_2026.jpg" class="info-img" alt="Sponsors" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">SPON</span></div></div>
+                    <div class="info-body"><span class="tag">Companies &amp; Orgs</span><h3>Become a Sponsor</h3><p>Companies interested in sponsoring through money, parts, or mentors can reach us at <a class="inline-link" href="mailto:sponsorships@citruscircuits.org">sponsorships@citruscircuits.org</a>. See our current sponsors on the <a class="inline-link" href="sponsors.html">Sponsors</a> page.</p></div>
                 </div>
+            </div>
+        </div>
 
-                <div class="support-text-col">
-                    <div class="support-block" id="become-a-coach">
-                        <h3>Become a Coach</h3>
-                        <p>If you have any questions or are interested in mentoring our team, email us at <a class="inline-link" href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a>.</p>
-                    </div>
-
-                    <div class="support-block" id="become-a-sponsor">
-                        <h3>Become a Sponsor</h3>
-                        <p>Our team is always in need of funding and sponsors. If your company is interested in sponsoring us through things like money, parts, or mentors, feel free to contact us at <a class="inline-link" href="mailto:administration@citruscircuits.org">administration@citruscircuits.org</a>. We'll be happy to add you as a sponsor and to see your logo on our t-shirts and robot next year. To view our sponsor page <a class="inline-link" href="sponsors.html">click here</a>.</p>
-                    </div>
-
-                    <div class="support-block" id="support-with-purchases">
-                        <h3>Support Us With Your Purchases</h3>
-                        <p>If you would like to support the team in another manner, please choose the Davis Robotics Foundation!</p>
-                    </div>
-                </div>
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Ready to support the team?</h3><p>Every donation, sponsorship, and volunteer hour keeps Citrus Circuits running.</p></div>
+                <a href="mailto:admin@citruscircuits.org" class="lead-cta-btn">Email Us &rarr;</a>
             </div>
         </div>
 

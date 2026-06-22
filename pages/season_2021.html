@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact — Citrus Circuits 1678</title>
+    <title>History — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="pictures/favicon.png?v=3">
-    <meta name="description" content="Contact FRC Team 1678, Citrus Circuits, located at Davis Senior High School in Davis, California.">
+    <meta name="description" content="Two decades of FRC Team 1678, Citrus Circuits — from a single classroom in 2004 to a ten-year Einstein streak.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -58,37 +58,31 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .wrap { max-width:1000px; margin:0 auto; padding:0 2rem; }
         .page-head { text-align:center; margin:4rem auto 3rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
         .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
         .page-title em { color:var(--lime); font-style:normal; }
+        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 0; }
 
-        .contact-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:2.5rem; align-items:start; padding-bottom:5rem; }
-        .card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; }
-        .card h2 { font-size:1.5rem; font-weight:800; color:var(--lime); margin-bottom:.5rem; }
-        .card .sub { color:var(--text-muted); margin-bottom:1.75rem; line-height:1.6; }
-        .field { margin-bottom:1.1rem; }
-        .field label { display:block; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:.5rem; }
-        .field input, .field textarea { width:100%; background:var(--bg-darkest); border:1px solid var(--border); border-radius:8px; padding:.8rem 1rem; color:var(--text-main); font-size:.95rem; transition:border-color .2s ease; }
-        .field input:focus, .field textarea:focus { outline:none; border-color:var(--lime); }
-        .field textarea { resize:vertical; min-height:120px; }
-        .row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-        .send-btn { width:100%; background:var(--lime); color:#000; border:none; border-radius:8px; padding:1rem; font-size:1rem; font-weight:700; cursor:pointer; margin-top:.5rem; transition:transform .2s ease,opacity .2s ease; }
-        .send-btn:hover { transform:translateY(-2px); opacity:.95; }
+        /* timeline */
+        .timeline { position:relative; margin:4rem 0 2rem; padding-left:2.5rem; }
+        .timeline::before { content:''; position:absolute; left:7px; top:8px; bottom:0; width:2px; background:linear-gradient(var(--lime),var(--border)); }
+        .tl-item { position:relative; margin-bottom:2.75rem; }
+        .tl-item::before { content:''; position:absolute; left:-2.5rem; top:6px; width:16px; height:16px; border-radius:50%; background:var(--bg-darkest); border:2px solid var(--lime); box-shadow:0 0 0 4px rgba(60,213,46,.08); }
+        .tl-year { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; line-height:1; color:var(--lime); letter-spacing:.03em; }
+        .tl-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; margin-top:.6rem; transition:border-color .2s ease,transform .2s ease; }
+        .tl-card:hover { border-color:var(--lime); transform:translateX(4px); }
+        .tl-card p { color:var(--text-muted); line-height:1.7; font-size:1rem; }
+        .tl-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+        .tl-tags span { font-family:'JetBrains Mono',monospace; font-size:.72rem; background:var(--bg-darkest); border:1px solid var(--border); color:var(--lime); padding:.3rem .65rem; border-radius:6px; letter-spacing:.04em; }
+        .tl-milestone .tl-card { border-color:rgba(60,213,46,.35); box-shadow:0 0 40px rgba(60,213,46,.06); }
 
-        .loc-meta { margin-bottom:1.5rem; }
-        .loc-meta .label { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); margin-bottom:.4rem; }
-        .loc-meta p { color:var(--text-muted); line-height:1.65; }
-        .loc-meta a { color:var(--lime); text-decoration:none; border-bottom:1px dashed var(--lime); }
-        .loc-meta a:hover { border-bottom-style:solid; }
-        .map-embed { width:100%; aspect-ratio:4/3; border:0; border-radius:12px; margin-top:.5rem; filter:grayscale(.2); }
-
-        footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
-        .footer-socket { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
+        footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; margin-top:5rem; transition:background-color .3s ease; }
+        .footer-socket { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
         .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .contact-grid{grid-template-columns:1fr;} }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -110,16 +104,24 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-</style>
+
+        .hist-detail { max-width:760px; padding-bottom:3rem; }
+        .hist-detail .tl-tags span { display:inline-block; background:var(--bg-card); border:1px solid var(--border); border-radius:999px; padding:.4rem .9rem; font-size:.78rem; color:var(--lime); margin:0 .5rem .5rem 0; }
+        .hist-detail p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:1.5rem; }
+        .hist-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
+        .hist-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
+        .hist-nav-link:hover { color:var(--lime); }
+        .hist-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+    </style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
         <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><circle class="ld-ring-bg" cx="60" cy="60" r="55"></circle><circle class="ld-ring-fg" cx="60" cy="60" r="55"></circle></svg>
+            <svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Contact Info</div>
+        <div class="ld-sub" id="ldSub">Loading 2021</div>
     </div>
 
     <header>
@@ -136,9 +138,9 @@
                     <div class="dropdown-panel">
                         <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
                         <a href="recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
-                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
+                        <a href="2026_robot.html">2026 Robot</a><a href="history.html" class="active">History</a>
                         <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
-                        <a href="faq.html">FAQ</a><a href="contact.html" class="active">Contact US</a>
+                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -193,50 +195,21 @@
 
     <main>
         <div class="wrap">
-            <div class="page-head">
-                <div class="page-eyebrow">We're here to help</div>
-                <h1 class="page-title">Contact <em>Us</em></h1>
+            <a href="history.html" class="hist-back-link">&larr; Team History</a>
+            <div class="page-head" style="text-align:left;margin:0 0 2rem;">
+                <div class="page-eyebrow" style="justify-content:flex-start;">Season Recap</div>
+                <h1 class="page-title">2021</h1>
             </div>
-
-            <div class="contact-grid">
-                <div class="card">
-                    <h2>Send a message</h2>
-                    <p class="sub">Questions, comments, concerns? Fill this out and we'll email you back as soon as we can.</p>
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="field"><label>First name *</label><input type="text" name="first" required></div>
-                            <div class="field"><label>Last name *</label><input type="text" name="last" required></div>
-                        </div>
-                        <div class="field"><label>Email *</label><input type="email" name="email" required></div>
-                        <div class="field"><label>Subject</label><input type="text" name="subject"></div>
-                        <div class="field"><label>Message</label><textarea name="message" placeholder="Write a message..."></textarea></div>
-                        <button type="submit" class="send-btn">Send Message</button>
-                    </form>
-                </div>
-
-                <div class="card">
-                    <h2>Find us</h2>
-                    <div class="loc-meta">
-                        <div class="label">Address</div>
-                        <p>Davis Senior High School<br>315 West 14th Street, Davis, CA 95616</p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Where on campus</div>
-                        <p>General meetings are in Room M-1; our shop and practice field are in the Steve Harvey Robotics Engineering Building, parallel to and behind M-1, near the library and the Oak Avenue staff lot. Parking is in the stadium lot on Oak Avenue and along the streets.</p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Email</div>
-                        <p><a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Map</div>
-                        <p><a href="https://maps.app.goo.gl/7kJiuddSPLd3R4zk9" target="_blank" rel="noopener">Open in Google Maps &rarr;</a></p>
-                    </div>
-                    <iframe class="map-embed" loading="lazy" title="Davis Senior High School map" src="https://maps.google.com/maps?q=Davis%20Senior%20High%20School%2C%20315%20West%2014th%20Street%2C%20Davis%2C%20CA%2095616&output=embed"></iframe>
-                </div>
+            <div class="hist-detail">
+                <p>With in-person events suspended, we competed in the FRC At Home Challenges. We won the Skills Challenge for the Hydrogen Group with some of the fastest times in FRC, were named one of three Game Design winners for our game Storm Surge, and received the Greater Central Valley Chairman's Award.</p><div class="tl-tags"><span>Skills Winner</span><span>Game Design Winner</span><span>Chairman's Award</span></div>
             </div>
         </div>
+        <div class="hist-nav-strip">
+            <a href="season_2020.html" class="hist-nav-link">&larr; 2020</a>
+            <a href="season_2022.html" class="hist-nav-link">2022 &rarr;</a>
+        </div>
     </main>
+
 
     <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
 
@@ -246,7 +219,7 @@
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading Contact Info','Locating Davis HS','Preparing Map','Almost There'];
+            const msgs=['Loading Team History','Rewinding the Years','Pulling Archives','Almost There'];
             let pct=0,mi=0;
             const tick=setInterval(()=>{
                 pct=Math.min(100,pct+Math.ceil(Math.random()*9));
@@ -256,19 +229,11 @@
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
             window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
         })();
-        // contact form -> opens user's email client (static site has no backend)
-        document.getElementById('contactForm').addEventListener('submit',e=>{
-            e.preventDefault();
-            const f=e.target;
-            const subj=encodeURIComponent(f.subject.value||('Website message from '+f.first.value+' '+f.last.value));
-            const body=encodeURIComponent('From: '+f.first.value+' '+f.last.value+' ('+f.email.value+')\n\n'+f.message.value);
-            window.location.href='mailto:admin@citruscircuits.org?subject='+subj+'&body='+body;
-        });
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,input,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.tl-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 
