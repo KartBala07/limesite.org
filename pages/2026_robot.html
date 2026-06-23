@@ -99,10 +99,10 @@
         .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
         .detail-media img { width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
         .detail-media img.hidden { display:none; }
-        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
+        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity .4s ease; }
         .detail-media.slideshow img.active { opacity:1; }
-        .media-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-        .media-duo .detail-media { aspect-ratio:1/1; }
+        .media-duo { display:grid; grid-template-columns:1fr; grid-template-rows:1fr 1fr; gap:1rem; }
+        .media-duo .detail-media { aspect-ratio:16/9; }
         .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
         .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
         .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
@@ -256,8 +256,11 @@
             </div>
 
             <div class="detail-row">
-                <div class="detail-media">
-                    <img src="pictures/cad of the robot_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                <div class="detail-media slideshow">
+                    <img src="pictures/cad of the robot_2026.jpg" alt="Limestone CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/cad of the robot1_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot2_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot3_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');">
                     <div class="detail-fallback" style="display:none"><span class="ic">LIMESTONE</span></div>
                 </div>
                 <div class="detail-body">
@@ -271,8 +274,9 @@
             <div class="section-header"><h2>Scoring</h2></div>
             <div class="detail-row reverse">
                 <div class="media-duo">
-                    <div class="detail-media">
-                        <img src="pictures/intake_2026.jpg" alt="Intake mechanism" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-media slideshow">
+                        <img src="pictures/intake_2026.jpg" alt="Intake mechanism" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <img src="pictures/intake1_2026.jpg" alt="Intake mechanism" onerror="this.classList.add('hidden');">
                         <div class="detail-fallback" style="display:none"><span class="ic">INTAKE</span></div>
                     </div>
                     <div class="detail-media">
@@ -321,8 +325,9 @@
             </div>
 
             <div class="detail-row reverse">
-                <div class="detail-media">
-                    <img src="pictures/hopper and climber_2026.jpg" alt="Hopper and climber" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                <div class="detail-media slideshow">
+                    <img src="pictures/hopper and climber_2026.jpg" alt="Hopper and climber" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/hopper and climber1_2026.jpg" alt="Hopper and climber" onerror="this.classList.add('hidden');">
                     <div class="detail-fallback" style="display:none"><span class="ic">HOPPER</span></div>
                 </div>
                 <div class="detail-body">
@@ -355,8 +360,11 @@
 
             <div class="section-header"><h2>CAD &amp; Code</h2></div>
             <div class="detail-row">
-                <div class="detail-media">
-                    <img src="pictures/cad of the robot_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                <div class="detail-media slideshow">
+                    <img src="pictures/cad of the robot_2026.jpg" alt="Limestone CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/cad of the robot1_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot2_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot3_2026.jpg" alt="Limestone CAD" onerror="this.classList.add('hidden');">
                     <div class="detail-fallback" style="display:none"><span class="ic">CAD</span></div>
                 </div>
                 <div class="detail-body">
@@ -408,7 +416,7 @@
             const imgs=ss.querySelectorAll('img');
             if(imgs.length<2)return;
             let i=0;
-            setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},3000);
+            setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},1500);
         });
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
