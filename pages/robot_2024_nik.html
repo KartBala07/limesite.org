@@ -119,6 +119,58 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+        .detail-media.slideshow img.active { opacity:1; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; }
+
+        .res-list { display:flex; flex-direction:column; gap:.75rem; }
+        .res-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .res-item .rn { font-weight:700; }
+        .res-soon { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:.3rem .75rem; white-space:nowrap; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .res-item{flex-direction:column;align-items:flex-start;gap:.6rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -204,16 +256,109 @@
         <div class="wrap">
             <a href="our_robots.html" class="robot-back-link">&larr; All Robots</a>
             <div class="page-head" style="text-align:left;margin:0 0 2.5rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">2024 Season</div>
+                <div class="page-eyebrow" style="justify-content:flex-start;">CRESCENDO &bull; 2024 Season</div>
                 <h1 class="page-title">Nik</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2024_nik.jpg" class="robot-img" alt="Nik" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'24</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">CRESCENDO</div>
-                    <p>Named in memory of mentor Nik Murray. Roller mechanisms picked up notes and shot them into the speaker and amp; a hook let Nik hang on the chain in the final seconds while scoring a note in the trap.</p>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="pictures/cad of the robot_2024.jpg" alt="Nik CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/cad of the robot1_2024.jpg" alt="Nik CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot2_2024.jpg" alt="Nik CAD" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">NIK</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">Overview</span>
+                    <h3>Nik</h3>
+                    <p>Our 2024 robot, named Nik in memory of our mentor Nik Murray, competed in the CRESCENDO games presented by Haas. It used roller mechanisms to pick up notes and accurately shoot them back into the speaker and amp.</p>
+                    <p>Using a hook based mechanism, Nik was easily able to hang on the chains in the final few seconds of the match and simultaneously score a note in the trap.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="detail-row reverse">
+                <div class="detail-media"><div class="detail-fallback" style="display:flex"><span class="ic">SCORING</span></div></div>
+                <div class="detail-body">
+                    <span class="tag">Notes</span>
+                    <h3>Scoring</h3>
+                    <p>The touch-it, own-it over-the-bumper intake, designed for a large acquisition zone and to play a crucial role in field clean-up, funnels the note into the indexer, where it is stored. A triple-point system determines whether the note travels up the single-stage elevator to score in the AMP or exits through the back of the robot into the single-sided angled shooter, allowing the robot to score from different positions.</p>
+                    <p>A wide, pivot climber hooks onto the chain and works together with the passive rollers on the elevator. The chain is pulled down, and the rollers roll up the stage, using the same mechanism as the AMP scoring to trap.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="detail-row">
+                <div class="detail-media"><div class="detail-fallback" style="display:flex"><span class="ic">DRIVE</span></div></div>
+                <div class="detail-body">
+                    <span class="tag">Mobility</span>
+                    <h3>Drivetrain</h3>
+                    <p>The 2024 Drivetrain is 26" by 26" and uses the MK4i swerve modules. The 1/16" unpocketed bellypan keeps the robot light while maximizing the surface for electronics mounting. The indexer flips up and pivots on the shooter's dead axle shaft to easily access the electronics.</p>
+                    <p>To keep our robot's CG low, and to prevent notes from getting stuck underneath the robot, an additional 1" by 1" tube is added between the drivetrain rail and the swerve modules.</p>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <h3>Operating Interface</h3>
+                <p>Similar to previous years, we use Xbox-style controllers to control the robot. We have the option to either use a single-controller configuration, in which a singular driver controls all robot functions using the 12 buttons and 2 joysticks available, or a dual-controller setup, in which a driver focuses on maneuvering the robot and note acquisition, and an operator focuses on scoring.</p>
+            </div>
+
+            <div class="full-card">
+                <h3>Electrical</h3>
+                <p>This year, our electrical system included the new Kraken X60 motors, as well as improvements made in our wiring systems carrying over from prior years. There were a total of 20 motors utilized, including one on the over-the-bumper intake and three on the shooter.</p>
+                <p>We utilized four Kraken X60s at the base of the bellypan, two of which rotated a pulley to bring down the climber, and another two which controlled the elevator.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item"><div class="ev">Silicon Valley Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resources/library/frc/fia-resources" target="_blank" rel="noopener">FIRST Impact Award</a></div></div>
+                <div class="achv-item"><div class="ev">East Bay Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-machine-creativity-innovation" target="_blank" rel="noopener">Innovation in Control Award</a></div></div>
+                <div class="achv-item"><div class="ev">Sacramento Regional</div><div class="awards"><a class="achv-badge" href="https://www.firstinspires.org/resources/library/frc/machine-awards" target="_blank" rel="noopener">Excellence in Engineering Award</a></div></div>
+                <div class="achv-item"><div class="ev">Archimedes Division &mdash; FIRST Championship</div><div class="awards"><span class="achv-badge">Championship Division Winner</span><a class="achv-badge" href="https://www.firstinspires.org/resources/library/frc/machine-awards" target="_blank" rel="noopener">Autonomous Award</a></div></div>
+            </div>
+
+            <div class="section-header"><h2>CAD &amp; Code</h2></div>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="pictures/cad of the robot_2024.jpg" alt="Nik CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/cad of the robot1_2024.jpg" alt="Nik CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot2_2024.jpg" alt="Nik CAD" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">CAD</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Nik</span>
+                    <h3>CAD &amp; Code</h3>
+                    <p>Nik's full CAD model and robot code were developed by our design and software subteams.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">CAD</span><a class="achv-badge" href="https://cad.onshape.com/documents/05760c4d8b40fba37db8fa48/w/f31b499c519e8471cced93dc/e/b53dde24ab8b46d679af9944" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                        <div class="res-item"><span class="rn">Code</span><a class="achv-badge" href="https://github.com/frc1678/C2023-Public" target="_blank" rel="noopener">View on GitHub &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scouting Whitepaper &amp; Github Repositories</h2></div>
+            <div class="full-card">
+                <h3>Scouting Whitepaper</h3>
+                <p>Our Scouting Whitepapers can be viewed <span class="res-soon">Link coming soon</span>.</p>
+            </div>
+            <div class="full-card">
+                <h3>Github Repositories</h3>
+                <p>Click on the buttons below for Github Repositories.</p>
+                <div class="res-list">
+                    <div class="res-item"><span class="rn">Server</span><a class="achv-badge" href="https://github.com/frc1678/server-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Schema</span><a class="achv-badge" href="https://github.com/frc1678/schema-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Grosbeak</span><a class="achv-badge" href="https://github.com/frc1678/grosbeak-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Stand Strategist</span><a class="achv-badge" href="https://github.com/frc1678/stand-strategist-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Match Collection</span><a class="achv-badge" href="https://github.com/frc1678/match-collection-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Viewer</span><a class="achv-badge" href="https://github.com/frc1678/viewer-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Pit Collection</span><a class="achv-badge" href="https://github.com/frc1678/pit-collection-2024-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Curious about the build?</h3><p>Follow along all season or come see Nik in person.</p></div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 
@@ -230,6 +375,12 @@
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+        document.querySelectorAll('.detail-media.slideshow').forEach(ss=>{
+            const imgs=ss.querySelectorAll('img');
+            if(imgs.length<2)return;
+            let i=0;
+            setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},2500);
+        });
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
             const msgs=['Loading Nik','Powering Up','Checking Specs','Almost There'];
