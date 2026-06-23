@@ -116,9 +116,7 @@
         .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
         .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
 
-        footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
-        .footer-socket { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
-        .footer-socket a { color:var(--lime); text-decoration:none; }
+.footer-socket a { color:var(--lime); text-decoration:none; }
         @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .info-grid{grid-template-columns:1fr 1fr;} .stat-strip{grid-template-columns:1fr 1fr;} }
         @media (max-width:620px) { .info-grid{grid-template-columns:1fr;} .stat-strip{grid-template-columns:1fr;} }
 
@@ -248,7 +246,59 @@
 
     </main>
 
-    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
+    <style>
+footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem 2rem 3rem;transition:background-color .3s ease}
+.footer-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1.5fr;gap:4rem;align-items:flex-start;padding-bottom:4rem;border-bottom:1px solid var(--border)}
+.footer-left{display:flex;flex-direction:column;gap:1.5rem}
+.footer-search{background:var(--bg-darkest);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;width:100%;max-width:320px}
+.footer-search input{background:transparent;border:none;outline:none;color:var(--text-main);font-size:.9rem;width:100%;margin-left:.5rem;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.footer-search svg{flex-shrink:0}
+.footer-left p{color:var(--text-muted);font-size:.9rem}
+.footer-left a{color:var(--lime);text-decoration:none;font-size:.9rem}
+.footer-links{display:flex;flex-direction:column;gap:.85rem}
+.footer-links a{color:var(--text-muted);text-decoration:none;font-size:.95rem;transition:color .2s ease}
+.footer-links a:hover{color:var(--text-main)}
+.footer-logos{display:flex;justify-content:flex-end;align-items:center;gap:2.5rem}
+.footer-logo-img{height:65px;width:auto;object-fit:contain;filter:var(--invert-logos,none)}
+.footer-brand-logo{height:75px;width:auto;object-fit:contain}
+.footer-social-row{display:flex;gap:1.5rem}
+.footer-social-row a{color:var(--text-muted);text-decoration:none;font-weight:500;transition:color .2s ease}
+.footer-social-row a:hover{color:var(--lime)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr;gap:3rem}.footer-logos{justify-content:flex-start}}
+</style>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-left">
+      <div class="footer-search">
+        <svg width="16" height="16" fill="none" stroke="var(--text-muted)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="footerSearchInput" placeholder="Search resources...">
+      </div>
+      <p>Email us at <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about/about.html">About Us</a>
+      <a href="support.html">Support Us</a>
+      <a href="about/contact.html">Contact Us</a>
+    </div>
+
+    <div class="footer-logos">
+      <img src="pictures/site/first_logo.png" alt="FIRST Robotics Official Logo" class="footer-logo-img">
+      <img src="pictures/site/1678.png" alt="Citrus Circuits Branding Shield" class="footer-brand-logo">
+    </div>
+  </div>
+
+  <div class="footer-socket">
+    <div>&copy; 2026 Citrus Circuits 1678. Engineered for competitive execution performance.</div>
+    <div class="footer-social-row">
+      <a href="https://www.instagram.com/frc1678/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.youtube.com/citruscircuits" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/frc1678/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.linkedin.com/company/frc-1678-citrus-circuits-robotics" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 
     <script>
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
@@ -297,6 +347,19 @@
         toggle.classList.remove('open');
         menu.classList.remove('open');
       });
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var si=document.getElementById('footerSearchInput');
+  if(!si) return;
+  si.addEventListener('keydown',function(e){
+    if(e.key!=='Enter') return;
+    var q=si.value.trim().toLowerCase().replace(/[?.!]/g,'');
+    if(q==='who made this'){
+      window.location.href='about/credits.html';
     }
   });
 })();

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emperor Pulp-atine (2020) — Citrus Circuits 1678</title>
+    <title>Who Made This — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
-    <meta name="description" content="Emperor Pulp-atine — the Citrus Circuits 1678 robot for the 2020 INFINITE RECHARGE season.">
+    <meta name="description" content="The story behind this site: why it was rebuilt, who helped, and a link back to the original Citrus Circuits website.">
+    <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -58,32 +59,28 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1280px; margin:0 auto; padding:0 2rem; }
-        .page-head { text-align:center; margin:4rem auto 1rem; }
+        .wrap { max-width:760px; margin:0 auto; padding:0 2rem; }
+        .page-head { text-align:center; margin:5rem auto 3rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
-        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
+        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; }
         .page-title em { color:var(--lime); font-style:normal; }
-        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .robot-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:5rem; }
-        .robot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; }
-        .robot-card:hover { transform:translateY(-5px); border-color:var(--lime); }
-        .robot-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .robot-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
-        .robot-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-media img.hidden { display:none; }
-        .robot-fallback .yr { position:relative; font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-year-tag { position:absolute; top:12px; right:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.15em; color:var(--lime); background:rgba(0,0,0,.45); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; }
-        .robot-body { padding:1.5rem; flex-grow:1; }
-        .robot-body h3 { font-size:1.4rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; }
-        .robot-body .game { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin:.35rem 0 .9rem; }
-        .robot-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
+        .story { padding-bottom:5rem; color:var(--text-main); font-size:1.08rem; line-height:1.85; }
+        .story p { margin-bottom:1.5rem; }
+        .story p:first-of-type { font-size:1.2rem; color:var(--text-main); }
+        .story .lede { color:var(--lime-soft); font-weight:600; }
+        .card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.25rem 2.5rem; margin:2.5rem 0; }
+        .card h2 { font-size:1.1rem; font-weight:800; color:var(--lime); margin-bottom:.85rem; font-family:'JetBrains Mono',monospace; letter-spacing:.05em; text-transform:uppercase; }
+        .card p { margin-bottom:1rem; color:var(--text-muted); }
+        .card p:last-child { margin-bottom:0; }
+        .old-link { display:inline-flex; align-items:center; gap:.5rem; color:var(--lime); text-decoration:none; border-bottom:1px dashed var(--lime); font-weight:600; }
+        .old-link:hover { border-bottom-style:solid; }
+        .sign-off { margin-top:3.5rem; padding-top:2rem; border-top:1px solid var(--border); color:var(--text-muted); font-style:italic; }
+        .sign-off strong { color:var(--lime); font-style:normal; }
 
-.footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .robot-grid{grid-template-columns:1fr 1fr;} }
-        @media (max-width:620px) { .robot-grid{grid-template-columns:1fr;} }
-    
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
+
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
 .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .25s ease}
@@ -104,29 +101,16 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-
-        .robot-detail { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; padding-bottom:3rem; }
-        .robot-detail-media { width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
-        .robot-detail-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-detail-media img.hidden { display:none; }
-        .robot-detail-fallback .yr { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-detail-body .game { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--lime); letter-spacing:.15em; text-transform:uppercase; margin-bottom:.8rem; }
-        .robot-detail-body p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; }
-        .robot-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
-        .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
-        .robot-nav-link:hover { color:var(--lime); }
-        .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
-        @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
-    </style>
+</style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
         <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 111,32 111,88 60,116 9,88 9,32"></polygon><polygon class="ld-ring-fg" points="60,4 111,32 111,88 60,116 9,88 9,32" pathLength="345"></polygon></svg>
+            <svg viewBox="0 0 120 120"><circle class="ld-ring-bg" cx="60" cy="60" r="55"></circle><circle class="ld-ring-fg" cx="60" cy="60" r="55"></circle></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Emperor Pulp-atine</div>
+        <div class="ld-sub" id="ldSub">Loading the Story</div>
     </div>
 
     <header>
@@ -139,13 +123,13 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                 <li class="nav-item">
-                    <a href="../about/about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="about.html" class="nav-link">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="../about/leadership.html">Leadership</a><a href="../about/subteams.html">Subteams</a>
-                        <a href="../about/recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
-                        <a href="2026_robot.html">2026 Robot</a><a href="../seasons/history.html">History</a>
-                        <a href="../about/1857.html">1857 Citrus Sparks</a><a href="../about/first_leadership.html">FIRST Leadership</a>
-                        <a href="../about/faq.html">FAQ</a><a href="../about/contact.html">Contact Us</a>
+                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
+                        <a href="recruitment.html">Recruitment</a><a href="../robots/our_robots.html">Our Robots</a>
+                        <a href="../robots/2026_robot.html">2026 Robot</a><a href="../seasons/history.html">History</a>
+                        <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
+                        <a href="faq.html">FAQ</a><a href="contact.html">Contact US</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -193,34 +177,47 @@
                     <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
-                <a href="../about/recruitment.html" class="nav-cta">Apply to Team</a>
+                <a href="recruitment.html" class="nav-cta">Apply to Team</a>
             </div>
         </div>
     </header>
 
     <main>
         <div class="wrap">
-            <a href="our_robots.html" class="robot-back-link">&larr; All Robots</a>
-            <div class="page-head" style="text-align:left;margin:0 0 2.5rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">2020 Season</div>
-                <h1 class="page-title">Emperor Pulp-atine</h1>
+            <div class="page-head">
+                <div class="page-eyebrow">A note from the builder</div>
+                <h1 class="page-title">Who Made <em>This</em></h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="../pictures/robots/robot_2020_pulpatine.jpg" class="robot-img" alt="Emperor Pulp-atine" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'20</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">INFINITE RECHARGE</div>
-                    <p>Built for the Lucasfilm-partnered game, it collected and stored power cells and climbed the generator switch alongside another robot while staying level.</p>
+            <div class="story">
+                <p><span class="lede">You found the secret page.</span> Since you searched for it, you've earned the real answer: I rebuilt this site myself, for our team, because I love this team.</p>
+
+                <p>Our old site had served us well for years, but it was starting to feel its age — static, hard to update, and not really capturing what it's like to be part of Citrus Circuits today. I wanted something that felt as sharp and deliberate as the robots we build: fast, clean, and built with the same care we put into every subsystem in the shop. So I sat down and rebuilt it from the ground up, page by page, picture by picture.</p>
+
+                <div class="card">
+                    <h2>Why I built it this way</h2>
+                    <p>Every part of this redesign — the layout, the navigation, the way the pictures are organized, even small details like the theme toggle — was a chance to make this team's story easier to tell and easier to find. I wanted alumni, mentors, sponsors, and future members to land on this site and immediately feel the same pride I feel walking into our shop.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Credit where it's due</h2>
+                    <p>I didn't do this completely alone. I worked closely with Claude, an AI assistant from Anthropic, to help write and organize the code, reorganize years of photos into folders that actually make sense, and catch the small mistakes that are easy to miss when you're moving fast. It was a real collaboration — I made the decisions and did the work, and it helped me move faster and build something better than I could have alone in the same amount of time.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Where we came from</h2>
+                    <p>None of this replaces our history. If you want to see where this site started, the original Citrus Circuits website is still up:</p>
+                    <p><a class="old-link" href="https://www.citruscircuits.org/" target="_blank" rel="noopener noreferrer">Visit the original citruscircuits.org &rarr;</a></p>
+                </div>
+
+                <p>I built this because Citrus Circuits has given me so much — friendships, late nights in the shop, the feeling of a robot finally working right before a match. This site is my way of giving something back: a home for this team that's built with as much care as everything else we make.</p>
+
+                <div class="sign-off">
+                    Made with love, for <strong>1678</strong>, by someone who isn't done yet.
                 </div>
             </div>
         </div>
-
-        <div class="robot-nav-strip">
-            <a href="robot_2019_buzz.html" class="robot-nav-link">&larr; Buzz Lime-year (2019)</a>
-            <a href="robot_2021_clementwins.html" class="robot-nav-link">Clemen-twins (2021) &rarr;</a>
-        </div>
     </main>
-
 
     <style>
 footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem 2rem 3rem;transition:background-color .3s ease}
@@ -237,6 +234,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 .footer-logos{display:flex;justify-content:flex-end;align-items:center;gap:2.5rem}
 .footer-logo-img{height:65px;width:auto;object-fit:contain;filter:var(--invert-logos,none)}
 .footer-brand-logo{height:75px;width:auto;object-fit:contain}
+.footer-socket{max-width:1440px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:.85rem;flex-wrap:wrap;gap:1rem}
 .footer-social-row{display:flex;gap:1.5rem}
 .footer-social-row a{color:var(--text-muted);text-decoration:none;font-weight:500;transition:color .2s ease}
 .footer-social-row a:hover{color:var(--lime)}
@@ -282,7 +280,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading Emperor Pulp-atine','Powering Up','Checking Specs','Almost There'];
+            const msgs=['Loading the Story','Finding the Words','Almost There'];
             let pct=0,mi=0;
             const tick=setInterval(()=>{
                 pct=Math.min(100,pct+Math.ceil(Math.random()*9));
@@ -296,9 +294,23 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.robot-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,input,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
+
+    <script>
+(function(){
+  var si=document.getElementById('footerSearchInput');
+  if(!si) return;
+  si.addEventListener('keydown',function(e){
+    if(e.key!=='Enter') return;
+    var q=si.value.trim().toLowerCase().replace(/[?.!]/g,'');
+    if(q==='who made this'){
+      window.location.href='../about/credits.html';
+    }
+  });
+})();
+</script>
 
 <script>
 (function(){
@@ -332,19 +344,6 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         toggle.classList.remove('open');
         menu.classList.remove('open');
       });
-    }
-  });
-})();
-</script>
-<script>
-(function(){
-  var si=document.getElementById('footerSearchInput');
-  if(!si) return;
-  si.addEventListener('keydown',function(e){
-    if(e.key!=='Enter') return;
-    var q=si.value.trim().toLowerCase().replace(/[?.!]/g,'');
-    if(q==='who made this'){
-      window.location.href='../about/credits.html';
     }
   });
 })();

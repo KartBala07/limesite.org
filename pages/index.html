@@ -530,7 +530,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     <div class="footer-left">
       <div class="footer-search">
         <svg width="16" height="16" fill="none" stroke="var(--text-muted)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" placeholder="Search resources...">
+        <input type="text" id="footerSearchInput" placeholder="Search resources...">
       </div>
       <p>Email us at <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
     </div>
@@ -729,6 +729,19 @@ window.addEventListener('scroll',()=>{
         toggle.classList.remove('open');
         menu.classList.remove('open');
       });
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var si=document.getElementById('footerSearchInput');
+  if(!si) return;
+  si.addEventListener('keydown',function(e){
+    if(e.key!=='Enter') return;
+    var q=si.value.trim().toLowerCase().replace(/[?.!]/g,'');
+    if(q==='who made this'){
+      window.location.href='about/credits.html';
     }
   });
 })();
