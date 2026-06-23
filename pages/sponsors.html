@@ -358,6 +358,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 .footer-logos{display:flex;justify-content:flex-end;align-items:center;gap:2.5rem}
 .footer-logo-img{height:65px;width:auto;object-fit:contain;filter:var(--invert-logos,none)}
 .footer-brand-logo{height:75px;width:auto;object-fit:contain}
+.footer-socket{max-width:1440px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:.85rem;flex-wrap:wrap;gap:1rem}
 .footer-social-row{display:flex;gap:1.5rem}
 .footer-social-row a{color:var(--text-muted);text-decoration:none;font-weight:500;transition:color .2s ease}
 .footer-social-row a:hover{color:var(--lime)}
@@ -461,12 +462,83 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 (function(){
   var si=document.getElementById('footerSearchInput');
   if(!si) return;
+  var PREFIX='';
+  var PAGES=[
+  {u:'index.html',t:'Home',k:'home main landing front page citrus circuits 1678 frc'},
+  {u:'about/about.html',t:'About Us',k:'about who we are team overview mission story'},
+  {u:'about/leadership.html',t:'Leadership',k:'leadership captains co-captain leads officers students'},
+  {u:'about/subteams.html',t:'Subteams',k:'subteams mechanical electrical software design business media scouting strategy fabrication'},
+  {u:'about/recruitment.html',t:'Recruitment',k:'recruitment join apply application become a member new members tryout sign up join the team apply to team join team'},
+  {u:'about/faq.html',t:'FAQ',k:'faq questions answers frequently asked help'},
+  {u:'about/contact.html',t:'Contact Us',k:'contact email address location map davis high school reach us message'},
+  {u:'about/first_leadership.html',t:'FIRST Leadership',k:'first leadership program inspiration recognition of science technology'},
+  {u:'about/1857.html',t:'1857 Citrus Sparks',k:'1857 citrus sparks sister team rookie ftc'},
+  {u:'robots/our_robots.html',t:'Our Robots',k:'robots robot index all robots history list every robot'},
+  {u:'robots/2026_robot.html',t:'2026 Robot',k:'2026 robot current season newest latest build reefscape'},
+  {u:'robots/robot_2025_sublime.html',t:'2025 Robot Sublime',k:'2025 sublime robot'},
+  {u:'robots/robot_2024_nik.html',t:'2024 Robot Nik',k:'2024 nik robot crescendo'},
+  {u:'robots/robot_2023_tangerine.html',t:'2023 Robot Tangerine',k:'2023 tangerine robot charged up'},
+  {u:'robots/robot_2022_margie.html',t:'2022 Robot Margie',k:'2022 margie robot rapid react'},
+  {u:'robots/robot_2021_clementwins.html',t:'2021 Robot Clementwins',k:'2021 clementwins robot infinite recharge'},
+  {u:'robots/robot_2020_pulpatine.html',t:'2020 Robot Pulpatine',k:'2020 pulpatine robot infinite recharge'},
+  {u:'robots/robot_2019_buzz.html',t:'2019 Robot Buzz',k:'2019 buzz robot destination deep space'},
+  {u:'robots/robot_2018_zest.html',t:'2018 Robot Zest',k:'2018 zest robot power up'},
+  {u:'robots/robot_2017_pomelo.html',t:'2017 Robot Pomelo',k:'2017 pomelo robot steamworks'},
+  {u:'robots/robot_2016_adrian.html',t:'2016 Robot Adrian',k:'2016 adrian robot stronghold'},
+  {u:'robots/robot_2015_lemondrop.html',t:'2015 Robot Lemondrop',k:'2015 lemondrop robot recycle rush'},
+  {u:'robots/robot_2014_beca.html',t:'2014 Robot Beca',k:'2014 beca robot aerial assist'},
+  {u:'robots/robot_2013_elimonator.html',t:'2013 Robot Elimonator',k:'2013 elimonator robot ultimate ascent'},
+  {u:'robots/robot_2012_juicer.html',t:'2012 Robot Juicer',k:'2012 juicer robot rebound rumble'},
+  {u:'robots/robot_2011_optimus.html',t:'2011 Robot Optimus',k:'2011 optimus robot logo motion'},
+  {u:'robots/robot_2010_orangecrush.html',t:'2010 Robot Orange Crush',k:'2010 orange crush robot breakaway'},
+  {u:'robots/robot_2009_lemonsqueeze.html',t:'2009 Robot Lemon Squeeze',k:'2009 lemon squeeze robot lunacy first robot'},
+  {u:'seasons/history.html',t:'Team History',k:'history seasons timeline past years team story awards'},
+  {u:'seasons/season_2025.html',t:'2025 Season',k:'2025 season reefscape recap'},
+  {u:'seasons/season_2024.html',t:'2024 Season',k:'2024 season crescendo recap'},
+  {u:'seasons/season_2023.html',t:'2023 Season',k:'2023 season charged up recap'},
+  {u:'seasons/season_2022.html',t:'2022 Season',k:'2022 season rapid react recap'},
+  {u:'seasons/season_2021.html',t:'2021 Season',k:'2021 season infinite recharge recap'},
+  {u:'seasons/season_2020.html',t:'2020 Season',k:'2020 season infinite recharge recap'},
+  {u:'seasons/season_2019.html',t:'2019 Season',k:'2019 season deep space recap'},
+  {u:'seasons/season_2018.html',t:'2018 Season',k:'2018 season power up recap'},
+  {u:'seasons/season_2017.html',t:'2017 Season',k:'2017 season steamworks recap'},
+  {u:'seasons/season_2016.html',t:'2016 Season',k:'2016 season stronghold recap'},
+  {u:'blog/blog_2025.html',t:'2025 Build Blog',k:'blog 2025 build newsletter posts updates'},
+  {u:'blog/blog_2024.html',t:'2024 Build Blog',k:'blog 2024 build newsletter posts updates'},
+  {u:'blog/blog_2023.html',t:'2023 Build Blog',k:'blog 2023 build newsletter posts updates'},
+  {u:'blog/blog_2022.html',t:'2022 Build Blog',k:'blog 2022 build newsletter posts updates'},
+  {u:'outreach/outreach.html',t:'Outreach',k:'outreach community service robocamps workshops farmers market distem wise demos lgbtq'},
+  {u:'outreach/dyr.html',t:'Davis Youth Robotics',k:'dyr davis youth robotics robocamps league school programs kids registration'},
+  {u:'resources.html',t:'Resources',k:'resources handbook cte courses media technical training build blogs documents'},
+  {u:'sponsors.html',t:'Sponsors',k:'sponsors partners donors funding support companies nasa google'},
+  {u:'support.html',t:'Support Us',k:'support donate give foundation reimbursement parent committee volunteer sponsorship'},
+  {u:'capital_city_classic.html',t:'Capital City Classic',k:'capital city classic ccc offseason competition event tournament'}
+];
+  function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
+  // Fuzzy clue detection for the hidden credits page — no exact phrase needed.
+  function isSecret(q){
+    if(/\bwho\b/.test(q) && /(made|make|making|built|build|create|created|design|designed|cod|behind|did)/.test(q)) return true;
+    if(/(creator|credits|who made this|made this site|made this website|behind this site|behind this website|who is behind|secret page)/.test(q)) return true;
+    return false;
+  }
   si.addEventListener('keydown',function(e){
     if(e.key!=='Enter') return;
-    var q=si.value.trim().toLowerCase().replace(/[?.!]/g,'');
-    if(q==='who made this'){
-      window.location.href='about/credits.html';
-    }
+    var q=norm(si.value);
+    if(!q) return;
+    if(isSecret(q)){ window.location.href=PREFIX+'about/credits.html'; return; }
+    var toks=q.split(' ').filter(function(t){return t.length>2;});
+    var best=null, bestScore=0;
+    PAGES.forEach(function(p){
+      var title=norm(p.t), hay=norm(p.t+' '+p.k), score=0;
+      if(q.indexOf(' ')>=0 && hay.indexOf(q)>=0) score+=5;
+      toks.forEach(function(tk){
+        if(title.indexOf(tk)>=0) score+=2;
+        else if(hay.indexOf(tk)>=0) score+=1;
+      });
+      if(score>bestScore){ bestScore=score; best=p; }
+    });
+    if(best && bestScore>0){ window.location.href=PREFIX+best.u; }
+    else { window.location.href=PREFIX+'resources.html'; }
   });
 })();
 </script>
