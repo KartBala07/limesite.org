@@ -160,7 +160,7 @@
         .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
         .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
 
-        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} }
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
         @media (max-width:620px) {
             .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
             .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
@@ -260,7 +260,7 @@
                 <h1 class="page-title">SubLime</h1>
             </div>
 
-            <div class="detail-row">
+            <div class="detail-row hero">
                 <div class="detail-media slideshow">
                     <img src="pictures/cad of the robot_2025.jpg" alt="SubLime CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
                     <img src="pictures/cad of the robot1_2025.jpg" alt="SubLime CAD" onerror="this.classList.add('hidden');">
@@ -275,15 +275,11 @@
             </div>
 
             <div class="section-header"><h2>Scoring</h2></div>
-            <div class="detail-row reverse">
-                <div class="detail-media"><div class="detail-fallback" style="display:flex"><span class="ic">SCORING</span></div></div>
-                <div class="detail-body">
-                    <span class="tag">Coral &amp; Algae</span>
-                    <h3>Scoring</h3>
-                    <p>This year's full-width four-bar intake intakes coral from the ground in all orientations. The coral moves up a polycarbonate ramp at the bottom of the intake, which also functions as part of the funnel system&mdash;along with the indexer&mdash;to consistently reorient the coral into the coral side of the end effector. Two 2" compliance wheels grip the coral from the inside.</p>
-                    <p>To pick up algae from the ground or to score it into the processor, the algae intake&mdash;mounted on the opposite end of the coral intake&mdash;pivots out and intakes the algae into the algae side of the end effector. For scoring of either algae or coral, the end effector pivots on a dead axle tube mounted to the carriage of a two-stage continuous elevator.</p>
-                    <p>To complete the endgame, the climber engages one of the deep cage bars using two spinning compliance wheels and a latch system. The climber pulls the cage back and down towards the center of the robot, lifting the robot off the ground.</p>
-                </div>
+            <div class="full-card">
+                <h3>Scoring</h3>
+                <p>This year's full-width four-bar intake intakes coral from the ground in all orientations. The coral moves up a polycarbonate ramp at the bottom of the intake, which also functions as part of the funnel system&mdash;along with the indexer&mdash;to consistently reorient the coral into the coral side of the end effector. Two 2" compliance wheels grip the coral from the inside.</p>
+                <p>To pick up algae from the ground or to score it into the processor, the algae intake&mdash;mounted on the opposite end of the coral intake&mdash;pivots out and intakes the algae into the algae side of the end effector. For scoring of either algae or coral, the end effector pivots on a dead axle tube mounted to the carriage of a two-stage continuous elevator.</p>
+                <p>To complete the endgame, the climber engages one of the deep cage bars using two spinning compliance wheels and a latch system. The climber pulls the cage back and down towards the center of the robot, lifting the robot off the ground.</p>
             </div>
 
             <div class="section-header"><h2>Intake</h2></div>
@@ -322,7 +318,10 @@
 
             <div class="section-header"><h2>Drivetrain</h2></div>
             <div class="detail-row">
-                <div class="detail-media"><div class="detail-fallback" style="display:flex"><span class="ic">DRIVE</span></div></div>
+                <div class="detail-media">
+                    <img src="pictures/drive_2025.jpg" alt="Drivetrain" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">DRIVE</span></div>
+                </div>
                 <div class="detail-body">
                     <span class="tag">Mobility</span>
                     <h3>Drivetrain</h3>

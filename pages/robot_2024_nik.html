@@ -160,7 +160,7 @@
         .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
         .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
 
-        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} }
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
         @media (max-width:620px) {
             .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
             .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
@@ -260,7 +260,7 @@
                 <h1 class="page-title">Nik</h1>
             </div>
 
-            <div class="detail-row">
+            <div class="detail-row hero">
                 <div class="detail-media slideshow">
                     <img src="pictures/cad of the robot_2024.jpg" alt="Nik CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
                     <img src="pictures/cad of the robot1_2024.jpg" alt="Nik CAD" onerror="this.classList.add('hidden');">
@@ -277,7 +277,10 @@
 
             <div class="section-header"><h2>Scoring</h2></div>
             <div class="detail-row reverse">
-                <div class="detail-media"><div class="detail-fallback" style="display:flex"><span class="ic">SCORING</span></div></div>
+                <div class="detail-media">
+                    <img src="pictures/scoring_2024.jpg" alt="Scoring mechanism" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">SCORING</span></div>
+                </div>
                 <div class="detail-body">
                     <span class="tag">Notes</span>
                     <h3>Scoring</h3>
@@ -288,7 +291,10 @@
 
             <div class="section-header"><h2>Drivetrain</h2></div>
             <div class="detail-row">
-                <div class="detail-media"><div class="detail-fallback" style="display:flex"><span class="ic">DRIVE</span></div></div>
+                <div class="detail-media">
+                    <img src="pictures/drive_2024.jpg" alt="Drivetrain" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">DRIVE</span></div>
+                </div>
                 <div class="detail-body">
                     <span class="tag">Mobility</span>
                     <h3>Drivetrain</h3>
