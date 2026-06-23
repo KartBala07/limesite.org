@@ -119,6 +119,58 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+        .detail-media.slideshow img.active { opacity:1; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; }
+
+        .res-list { display:flex; flex-direction:column; gap:.75rem; }
+        .res-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .res-item .rn { font-weight:700; }
+        .res-soon { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:.3rem .75rem; white-space:nowrap; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .res-item{flex-direction:column;align-items:flex-start;gap:.6rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -204,16 +256,121 @@
         <div class="wrap">
             <a href="our_robots.html" class="robot-back-link">&larr; All Robots</a>
             <div class="page-head" style="text-align:left;margin:0 0 2.5rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">2025 Season</div>
+                <div class="page-eyebrow" style="justify-content:flex-start;">REEFSCAPE &bull; 2025 Season</div>
                 <h1 class="page-title">SubLime</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2025_sublime.jpg" class="robot-img" alt="SubLime" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'25</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">REEFSCAPE</div>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="pictures/cad of the robot_2025.jpg" alt="SubLime CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/cad of the robot1_2025.jpg" alt="SubLime CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot2_2025.jpg" alt="SubLime CAD" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">SUBLIME</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Overview</span>
+                    <h3>SubLime</h3>
                     <p>A three-time regional winner that intook both coral and algae and scored on all four reef levels with an elevator and end effector. SubLime climbed a deep cage with ease and scored in both the processor and net.</p>
                 </div>
+            </div>
+
+            <div class="section-header"><h2>Intake</h2></div>
+            <div class="detail-row reverse">
+                <div class="detail-media slideshow">
+                    <img src="pictures/Ghost Coral Intake.jpg" alt="Ghost Coral Intake" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/Ghost Coral Intake1.jpg" alt="Ghost Coral Intake" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">INTAKE</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Coral</span>
+                    <h3>Ghost Coral Intake</h3>
+                    <p>SubLime's coral intake, Ghost, picked coral up off the ground and fed it into the end effector for scoring on all four reef levels.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">Ghost Coral Intake CAD</span><a class="achv-badge" href="https://1678.onshape.com/documents/d215c211b1d9a52a9ded2eea/w/f43e86b13bd9c9507f75dcef/e/34d7db3c431882c4da6cbbb8?renderMode=0&uiState=682e54101902544c71e87cc0&aa=true" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Climber</h2></div>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="pictures/Rembrandts Climber.jpg" alt="Rembrandts Climber" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/Rembrandts Climber1.jpg" alt="Rembrandts Climber" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">CLIMBER</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Endgame</span>
+                    <h3>Rembrandts Climber</h3>
+                    <p>SubLime's climber, Rembrandts, reached up and locked onto a deep cage with ease at the end of every match.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">Rembrandts Climber CAD</span><a class="achv-badge" href="https://1678.onshape.com/documents/73be7aa2a89c3cbd0e9743fd/w/8b4ef973d4546e58bd832506/e/cd081f166783c758a1198ab6?renderMode=0&uiState=682e55476b48334af71e0489&aa=true" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <h3>Operating Interface</h3>
+                <p>The driver uses one controller to control all normal robot functions. Joysticks are used for drivetrain control, and the 12 available buttons are used to trigger intake and scoring sequences. In order to fit the many functions of our robot onto one controller, we implement a dual-mode system, so that the driver can use the same buttons for different actions depending on which gamepiece is involved. We also map several scoring functions to rear buttons accessible while operating the drivetrain, ensuring that are driver can maintain control of the sticks throughout the match.</p>
+                <p>In order to communicate robot states to the driver, we use LEDs on the robot to show score and intake targeting, and an Elastic dashboard to show more specific information.</p>
+            </div>
+
+            <div class="full-card">
+                <h3>Electrical</h3>
+                <p>This year, our electrical systems were comprised of a combination of old components and new ones. We began using Kraken X44 motors, as well as two Limelight 4 vision systems. We also used the new PDP 2.0 to power our components.</p>
+                <p>There were a total of 18 motors on this robot, including 2 of which being used to power the elevator pulley system, 2 used for the climber, and a total of 6 motors across both intakes and the end effector.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item"><div class="ev">Pinnacles Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resources/library/frc/fia-resources" target="_blank" rel="noopener">FIRST Impact Award</a></div></div>
+                <div class="achv-item"><div class="ev">Sacramento Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-machine-creativity-innovation" target="_blank" rel="noopener">Innovation in Control Award</a></div></div>
+                <div class="achv-item"><div class="ev">Contra Costa Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span></div></div>
+                <div class="achv-item"><div class="ev">Daly Division &mdash; FIRST Championship</div><div class="awards"><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-team-attributes" target="_blank" rel="noopener">Gracious Professionalism Award</a></div></div>
+            </div>
+
+            <div class="section-header"><h2>CAD &amp; Code</h2></div>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="pictures/cad of the robot_2025.jpg" alt="SubLime CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/cad of the robot1_2025.jpg" alt="SubLime CAD" onerror="this.classList.add('hidden');">
+                    <img src="pictures/cad of the robot2_2025.jpg" alt="SubLime CAD" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">CAD</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">SubLime</span>
+                    <h3>CAD &amp; Code</h3>
+                    <p>SubLime's full CAD model and robot code were developed by our design and software subteams.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">SubLime CAD</span><a class="achv-badge" href="https://1678.onshape.com/documents/0d5fb3dc444f66866c3df100/w/3aa4dce6ea2c22f3ef57d096/e/0f84fb27f2a02ead9cf842de?renderMode=0&uiState=682e510f1303955f4603aa16&aa=true" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                        <div class="res-item"><span class="rn">SubLime Code</span><a class="achv-badge" href="https://github.com/frc1678/C2025-Public" target="_blank" rel="noopener">View on GitHub &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scouting Whitepaper &amp; Github Repositories</h2></div>
+            <div class="full-card">
+                <h3>Scouting Whitepaper</h3>
+                <p>Our Scouting Whitepapers can be viewed <span class="res-soon">Link coming soon</span>.</p>
+            </div>
+            <div class="full-card">
+                <h3>Github Repositories</h3>
+                <p>Click on the buttons below for Github Repositories.</p>
+                <div class="res-list">
+                    <div class="res-item"><span class="rn">Server</span><a class="achv-badge" href="https://github.com/frc1678/server-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Playoffs Scouting</span><a class="achv-badge" href="https://github.com/frc1678/elims-scouting-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Kestrel</span><a class="achv-badge" href="https://github.com/frc1678/kestrel-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Stand Strategist</span><a class="achv-badge" href="https://github.com/frc1678/stand-strategist-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Match Collection</span><a class="achv-badge" href="https://github.com/frc1678/match-collection-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Viewer</span><a class="achv-badge" href="https://github.com/frc1678/viewer-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Pit Collection</span><a class="achv-badge" href="https://github.com/frc1678/pit-collection-2025-public" target="_blank" rel="noopener">View &rarr;</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Curious about the build?</h3><p>Follow along all season or come see SubLime in person.</p></div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 
@@ -230,6 +387,12 @@
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+        document.querySelectorAll('.detail-media.slideshow').forEach(ss=>{
+            const imgs=ss.querySelectorAll('img');
+            if(imgs.length<2)return;
+            let i=0;
+            setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},2500);
+        });
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
             const msgs=['Loading SubLime','Powering Up','Checking Specs','Almost There'];
