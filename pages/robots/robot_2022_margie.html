@@ -66,24 +66,70 @@
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .robot-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:5rem; }
-        .robot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; }
-        .robot-card:hover { transform:translateY(-5px); border-color:var(--lime); }
-        .robot-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .robot-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
-        .robot-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-media img.hidden { display:none; }
-        .robot-fallback .yr { position:relative; font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-year-tag { position:absolute; top:12px; right:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.15em; color:var(--lime); background:rgba(0,0,0,.45); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; }
-        .robot-body { padding:1.5rem; flex-grow:1; }
-        .robot-body h3 { font-size:1.4rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; }
-        .robot-body .game { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin:.35rem 0 .9rem; }
-        .robot-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+        .detail-media.slideshow img.active { opacity:1; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; text-decoration:none; transition:background .2s ease,color .2s ease; }
+        a.achv-badge:hover { background:var(--lime); color:#000; }
+
+        .res-list { display:flex; flex-direction:column; gap:.75rem; }
+        .res-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .res-item .rn { font-weight:700; }
+        .res-soon { font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:.3rem .75rem; white-space:nowrap; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 1rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        .robot-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; }
+        .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
+        .robot-nav-link:hover { color:var(--lime); }
+        .robot-back-link { display:inline-block; margin:0 0 1rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
 
 .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .robot-grid{grid-template-columns:1fr 1fr;} }
-        @media (max-width:620px) { .robot-grid{grid-template-columns:1fr;} }
-    
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} }
+        @media (max-width:620px) {
+            .wrap{padding:0 1.25rem;}
+            .page-head{margin:2.5rem auto 1rem;}
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .res-item{flex-direction:column;align-items:flex-start;gap:.6rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3{font-size:1.35rem;}
+            .detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
+
+
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
 .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .25s ease}
@@ -104,20 +150,7 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-
-        .robot-detail { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; padding-bottom:3rem; }
-        .robot-detail-media { width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
-        .robot-detail-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-detail-media img.hidden { display:none; }
-        .robot-detail-fallback .yr { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-detail-body .game { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--lime); letter-spacing:.15em; text-transform:uppercase; margin-bottom:.8rem; }
-        .robot-detail-body p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; }
-        .robot-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
-        .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
-        .robot-nav-link:hover { color:var(--lime); }
-        .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
-        @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
-    </style>
+</style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
@@ -199,19 +232,149 @@
     </header>
 
     <main>
+
         <div class="wrap">
             <a href="our_robots.html" class="robot-back-link">&larr; All Robots</a>
-            <div class="page-head" style="text-align:left;margin:0 0 2.5rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">2022 Season</div>
-                <h1 class="page-title">Margie</h1>
+            <div class="page-head">
+                <div class="page-eyebrow">RAPID REACT &bull; 2022 Season</div>
+                <h1 class="page-title"><em>Margie</em></h1>
+                <p class="page-sub">Margie came prepared to compete in FIRST's RAPID REACT, sponsored by the Boeing Company &mdash; collecting and sorting cargo by color, shooting from anywhere on the field, and climbing the traversal rung.</p>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="../pictures/robots/robot_2022_margie.jpg" class="robot-img" alt="Margie" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'22</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">RAPID REACT</div>
-                    <p>Named after our shop dog. Margie stored cargo, used a color sensor to tell alliance colors apart, shot into the high goal, and climbed the traversal rung in about 10 seconds.</p>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="../pictures/robots/robot_2022_margie.jpg" alt="Margie" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="../pictures/robots/2022/cad of the robot_2022.jpg" alt="Margie CAD" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">MARGIE</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">Overview</span>
+                    <h3>Margie</h3>
+                    <p>2022's robot, Margie, came prepared to compete in FIRST's challenge: RAPID REACT, sponsored by the Boeing Company. Our robot was built with the capability of identifying two colors &mdash; red and blue. This function was used to collect cargo (color-coated large tennis balls), and the correct color was determined right before each match.</p>
+                    <p>After Margie obtains the ball marked for our side, it is then shot into a goal. Margie could also climb onto elevated bars and sustain stability in the air.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="detail-row reverse">
+                <div class="detail-media">
+                    <div class="detail-fallback"><span class="ic">SCORING</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Cargo</span>
+                    <h3>Intake, Indexer &amp; Shooter</h3>
+                    <p>Our robot was able to collect and store the provided cargo, and climb to the traversal rung in the hangar in eight seconds. Margie's first mechanism is the three-roller motor-actuated cargo ground intake. This is the first mechanism involved in the scoring of cargo. The indexer, or "pooper", would then sort the cargo based off of the two different colors, allowing our robot to score efficiently and effectively.</p>
+                    <p>A wheel is then spun to bring the ball up into the shooter, which has an adjustable hood, allowing Margie to shoot from anywhere on the field. Along with the former, there is also a 3D-printed gear backing, which provides balanced compression throughout the shooter. The shooter's back rollers provide balanced backspin to prevent the balls from bouncing out of the goal.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="detail-row">
+                <div class="detail-media">
+                    <div class="detail-fallback"><span class="ic">DRIVE</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Mobility</span>
+                    <h3>Drivetrain</h3>
+                    <p>Our drivetrain is made using the SDS Mk4i swerve modules with a 16 ft/sec maximum speed, and rotatable wheels. Our drivetrain enables us to go in any direction on the field with extreme speed and dexterity.</p>
+                    <p>The pocketed belly pan provides structural support and mounting space for most of the electronic components without compromising on weight savings.</p>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <h3>Operating Interface</h3>
+                <p>The robot drives and operates using Xbox controllers. The Controller's joystick controls the robot's rotation, and the Operator's controls the robot's movement, letting us aim towards the goal while maneuvering away from defense. This was used to intake balls, and tell the robot when to shoot. The robot also uses a camera to see the other side of the playing field to search for more cargo.</p>
+            </div>
+
+            <div class="full-card">
+                <h3>Electrical</h3>
+                <p>This year's robot saw interesting electrical changes from previous seasons. We switched from pneumatics on our robot to relying solely on motors. This meant that mechanisms which have commonly been used with pneumatics, such as our intake, had to change their power transfer to use rotation in the motors. In addition, we used a Limelight 2+ camera to find the distance from the goal, and aimed the shooter accordingly.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item"><div class="ev">Hueneme Port Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-creativity-innovation" target="_blank" rel="noopener">Autonomous Award (Ford)</a></div></div>
+                <div class="achv-item"><div class="ev">Silicon Valley Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-team-attributes" target="_blank" rel="noopener">Engineering Inspiration</a></div></div>
+                <div class="achv-item"><div class="ev">Sacramento Regional</div><div class="awards"><span class="achv-badge">Regional Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/submitted-awards" target="_blank" rel="noopener">Regional Chairman's Award</a><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/submitted-awards" target="_blank" rel="noopener">Dean's List Finalist &mdash; Emily Xia</a></div></div>
+                <div class="achv-item"><div class="ev">Hopper Division &mdash; FIRST Championship</div><div class="awards"><span class="achv-badge">Division Winners</span><a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-creativity-innovation" target="_blank" rel="noopener">Autonomous Award (Ford)</a></div></div>
+            </div>
+
+            <div class="section-header"><h2>CAD &amp; Code</h2></div>
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="../pictures/robots/2022/cad of the robot_2022.jpg" alt="Margie CAD" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="../pictures/robots/2022/cad of the robot1_2022.jpg" alt="Margie CAD" onerror="this.classList.add('hidden');">
+                    <img src="../pictures/robots/2022/cad of the robot2_2022.jpg" alt="Margie CAD" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">CAD</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Margie</span>
+                    <h3>CAD &amp; Code</h3>
+                    <p>Margie's full CAD model and robot code were developed by our design and software subteams.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">CAD</span><a class="achv-badge" href="https://1678.onshape.com/documents/9ba9c21c35a06156e891cb3f/w/dce427c99c4c237d6c20ed2c/e/5ad5e173df9a364f40c65ca7" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                        <div class="res-item"><span class="rn">Code</span><a class="achv-badge" href="https://github.com/frc1678/C2023-Public" target="_blank" rel="noopener">View on GitHub &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-row reverse">
+                <div class="detail-media">
+                    <img src="../pictures/robots/2022/alpha_2022.jpg" alt="Alpha prototype" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">ALPHA</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Prototype</span>
+                    <h3>Alpha</h3>
+                    <p>Alpha was our first design iteration of the season, used to test concepts before committing to the competition robot.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">Alpha CAD</span><a class="achv-badge" href="https://1678.onshape.com/documents/4725889c8ffb6be593c07598/w/022ef37bb5efab996fe06b97/e/bfc2f0e1f48cab19e336c167" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-media slideshow">
+                    <img src="../pictures/robots/2022/beta_2022.jpg" alt="Beta prototype" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="../pictures/robots/2022/beta1_2022.jpg" alt="Beta prototype" onerror="this.classList.add('hidden');">
+                    <img src="../pictures/robots/2022/beta2_2022.jpg" alt="Beta prototype" onerror="this.classList.add('hidden');">
+                    <div class="detail-fallback" style="display:none"><span class="ic">BETA</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Prototype</span>
+                    <h3>Beta</h3>
+                    <p>Beta refined the lessons learned from Alpha, bringing our mechanisms closer to the final Margie design.</p>
+                    <div class="res-list">
+                        <div class="res-item"><span class="rn">Beta CAD</span><a class="achv-badge" href="https://1678.onshape.com/documents/fd0038469db89f113bc53109/w/130ead1b8b0c617165306be0/e/b50a1c381931e2986a2a43b7" target="_blank" rel="noopener">View on Onshape &rarr;</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scouting Whitepaper</h2></div>
+            <div class="full-card">
+                <h3>Scouting Whitepaper</h3>
+                <p>Our 2022 Scouting Whitepaper isn't available at the moment &mdash; check back soon.</p>
+                <p>In the meantime, the GitHub repositories behind our scouting system are linked below.</p>
+            </div>
+            <div class="full-card">
+                <h3>GitHub Repositories</h3>
+                <div class="res-list">
+                    <div class="res-item"><span class="rn">Server</span><a class="achv-badge" href="https://github.com/frc1678/server-2022-public/tree/main" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Schema</span><a class="achv-badge" href="https://github.com/frc1678/schema-2022-public/tree/main" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Cardinal</span><a class="achv-badge" href="https://github.com/frc1678/cardinal-2022-public/tree/main" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Picklist Editor</span><a class="achv-badge" href="https://github.com/frc1678/picklist-editor-2022-public/tree/main" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Viewer</span><a class="achv-badge" href="https://github.com/frc1678/viewer-2022-public/tree/release" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Match Collection</span><a class="achv-badge" href="https://github.com/frc1678/match-collection-2022-public/tree/main" target="_blank" rel="noopener">View &rarr;</a></div>
+                    <div class="res-item"><span class="rn">Live Picklist</span><a class="achv-badge" href="https://github.com/frc1678/grosbeak-2022-public/tree/main" target="_blank" rel="noopener">View &rarr;</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Curious about the build?</h3><p>Reach out to learn more about Margie and the 2022 season.</p></div>
+                <a href="../about/contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 
@@ -219,8 +382,8 @@
             <a href="robot_2021_clementwins.html" class="robot-nav-link">&larr; Clemen-twins (2021)</a>
             <a href="robot_2023_tangerine.html" class="robot-nav-link">Tangerine Tumbler (2023) &rarr;</a>
         </div>
-    </main>
 
+    </main>
 
     <style>
 footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem 2rem 3rem;transition:background-color .3s ease}
@@ -281,6 +444,12 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+        document.querySelectorAll('.detail-media.slideshow').forEach(ss=>{
+            const imgs=ss.querySelectorAll('img');
+            if(imgs.length<2)return;
+            let i=0;
+            setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},2500);
+        });
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
             const msgs=['Loading Margie','Powering Up','Checking Specs','Almost There'];
@@ -297,7 +466,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.robot-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.full-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 
