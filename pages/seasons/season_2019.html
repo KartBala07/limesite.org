@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History — Citrus Circuits 1678</title>
-    <link rel="icon" type="image/png" href="pictures/favicon.png?v=3">
+    <link rel="icon" type="image/png" href="../pictures/favicon.png?v=3">
     <meta name="description" content="Two decades of FRC Team 1678, Citrus Circuits — from a single classroom in 2004 to a ten-year Einstein streak.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,9 +78,6 @@
         .tl-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
         .tl-tags span { font-family:'JetBrains Mono',monospace; font-size:.72rem; background:var(--bg-darkest); border:1px solid var(--border); color:var(--lime); padding:.3rem .65rem; border-radius:6px; letter-spacing:.04em; }
         .tl-milestone .tl-card { border-color:rgba(60,213,46,.35); box-shadow:0 0 40px rgba(60,213,46,.06); }
-        .tl-btns { margin-top:1rem; display:flex; gap:.6rem; }
-        .tl-btn { display:inline-block; color:var(--lime); text-decoration:none; font-size:.8rem; font-weight:700; border:1px solid var(--border); padding:.4rem .8rem; border-radius:999px; transition:all .2s ease; }
-        .tl-btn:hover { background:var(--lime); color:#000; border-color:var(--lime); }
 
         footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; margin-top:5rem; transition:background-color .3s ease; }
         .footer-socket { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
@@ -107,7 +104,15 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-</style>
+
+        .hist-detail { max-width:760px; padding-bottom:3rem; }
+        .hist-detail .tl-tags span { display:inline-block; background:var(--bg-card); border:1px solid var(--border); border-radius:999px; padding:.4rem .9rem; font-size:.78rem; color:var(--lime); margin:0 .5rem .5rem 0; }
+        .hist-detail p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; margin-bottom:1.5rem; }
+        .hist-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
+        .hist-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
+        .hist-nav-link:hover { color:var(--lime); }
+        .hist-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+    </style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
@@ -116,65 +121,65 @@
             <svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Team History</div>
+        <div class="ld-sub" id="ldSub">Loading 2019</div>
     </div>
 
     <header>
         <div class="navbar">
-            <a href="index.html" class="brand">
-                <img src="pictures/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
+            <a href="../index.html" class="brand">
+                <img src="../pictures/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
                 <div class="brand-text-stack"><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div></div>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"><span></span></button>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
-                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
-                        <a href="2026_robot.html">2026 Robot</a><a href="history.html" class="active">History</a>
-                        <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
-                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
+                        <a href="../leadership.html">Leadership</a><a href="../subteams.html">Subteams</a>
+                        <a href="../recruitment.html">Recruitment</a><a href="../our_robots.html">Our Robots</a>
+                        <a href="../2026_robot.html">2026 Robot</a><a href="../history.html" class="active">History</a>
+                        <a href="../1857.html">1857 Citrus Sparks</a><a href="../first_leadership.html">FIRST Leadership</a>
+                        <a href="../faq.html">FAQ</a><a href="../contact.html">Contact Us</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="resources.html#team-handbook">Team Handbook</a>
-                        <a href="resources.html#build-blogs">Build Blogs / Newsletters</a><a href="resources.html#media">Media</a>
-                        <a href="resources.html#technical-training">Technical Training</a>
+                        <a href="../resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="../resources.html#team-handbook">Team Handbook</a>
+                        <a href="../resources.html#build-blogs">Build Blogs / Newsletters</a><a href="../resources.html#media">Media</a>
+                        <a href="../resources.html#technical-training">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="outreach.html#citrus-service">Citrus Service</a><a href="outreach.html#dyr">Davis Youth Robotics (DYR)</a>
-                        <a href="outreach.html#robocamps">RoboCamps</a><a href="outreach.html#fall-workshops">Fall Workshops</a>
-                        <a href="outreach.html#farmers-market">Farmers Market</a><a href="outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
-                        <a href="outreach.html#distem">DiSTEM</a><a href="outreach.html#wise">WiSE</a>
-                        <a href="outreach.html#robot-demos">Robot Demos</a>
+                        <a href="../outreach.html#citrus-service">Citrus Service</a><a href="../outreach.html#dyr">Davis Youth Robotics (DYR)</a>
+                        <a href="../outreach.html#robocamps">RoboCamps</a><a href="../outreach.html#fall-workshops">Fall Workshops</a>
+                        <a href="../outreach.html#farmers-market">Farmers Market</a><a href="../outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
+                        <a href="../outreach.html#distem">DiSTEM</a><a href="../outreach.html#wise">WiSE</a>
+                        <a href="../outreach.html#robot-demos">Robot Demos</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="dyr.html" class="nav-link">DYR <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../dyr.html" class="nav-link">DYR <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel" style="grid-template-columns:1fr;width:260px;">
-                        <a href="dyr.html#about-dyr-robocamps">About DYR RoboCamps</a>
-                        <a href="dyr.html#dyr-robocamps-registration">DYR RoboCamps Registration</a>
-                        <a href="dyr.html#dyr-robocamps-forms">DYR RoboCamps Forms</a>
-                        <a href="dyr.html#dyr-robocamps-resources">DYR RoboCamps Resources</a>
-                        <a href="dyr.html#dyr-league">DYR League</a>
-                        <a href="dyr.html#dyr-school-programs">DYR School Programs</a>
+                        <a href="../dyr.html#about-dyr-robocamps">About DYR RoboCamps</a>
+                        <a href="../dyr.html#dyr-robocamps-registration">DYR RoboCamps Registration</a>
+                        <a href="../dyr.html#dyr-robocamps-forms">DYR RoboCamps Forms</a>
+                        <a href="../dyr.html#dyr-robocamps-resources">DYR RoboCamps Resources</a>
+                        <a href="../dyr.html#dyr-league">DYR League</a>
+                        <a href="../dyr.html#dyr-school-programs">DYR School Programs</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
-                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="../capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
+                <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
                 <li class="nav-item">
-                    <a href="support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
-                        <a href="support.html#parent-committee">Parent Committee</a><a href="support.html#reimbursement">Reimbursement</a>
-                        <a href="support.html#volunteer-opportunities">Volunteer Opportunities</a>
+                        <a href="../support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="../support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
+                        <a href="../support.html#parent-committee">Parent Committee</a><a href="../support.html#reimbursement">Reimbursement</a>
+                        <a href="../support.html#volunteer-opportunities">Volunteer Opportunities</a>
                     </div>
                 </li>
             </ul>
@@ -183,129 +188,30 @@
                     <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
-                <a href="recruitment.html" class="nav-cta">Apply to Team</a>
+                <a href="../recruitment.html" class="nav-cta">Apply to Team</a>
             </div>
         </div>
     </header>
 
     <main>
         <div class="wrap">
-            <div class="page-head">
-                <div class="page-eyebrow">2004 &rarr; Today</div>
-                <h1 class="page-title">Team <em>History</em></h1>
-                <p class="page-sub">From 15 students in a single classroom to a roster of 100+ with a decade-long streak on the Einstein field. Here's how 1678 got here.</p>
+            <a href="../history.html" class="hist-back-link">&larr; Team History</a>
+            <div class="page-head" style="text-align:left;margin:0 0 2rem;">
+                <div class="page-eyebrow" style="justify-content:flex-start;">Season Recap</div>
+                <h1 class="page-title">2019</h1>
             </div>
-
-            <div class="timeline">
-                <div class="tl-item tl-milestone">
-                    <div class="tl-year">2025</div>
-                    <div class="tl-card">
-                        <p>Our robot SubLime swept three regionals during REEFSCAPE — seeding first at and winning Pinnacles, Sacramento, and Contra Costa — and we took the Impact Award at Pinnacles. Our ten-year Einstein streak closed this year, but we built one of our most complex machines yet and finished among the top five in EPA by Championships.</p>
-                        <div class="tl-tags"><span>3× Regional Winner</span><span>Impact Award</span><span>Top 5 EPA</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2025.html" class="tl-btn">Season &rarr;</a><a href="blog/blog_2025.html" class="tl-btn">Blog &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item tl-milestone">
-                    <div class="tl-year">2024</div>
-                    <div class="tl-card">
-                        <p>For our 20th anniversary we won the East Bay and Silicon Valley regionals and took the Regional FIRST Impact Award at SVR. At the World Championship we won the Archimedes Division and reached the Einstein field for the 10th straight year, finishing ranked first in the world on Statbotics.</p>
-                        <div class="tl-tags"><span>Archimedes Champions</span><span>10th Einstein</span><span>World #1 (Statbotics)</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2024.html" class="tl-btn">Season &rarr;</a><a href="blog/blog_2024.html" class="tl-btn">Blog &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2023</div>
-                    <div class="tl-card">
-                        <p>With Tangerine Tumbler we won the Hueneme Port, Sacramento, and Silicon Valley regionals. In Houston we ranked first and won the Galileo Division, then advanced to Einstein with a 1–2 record.</p>
-                        <div class="tl-tags"><span>Galileo Champions</span><span>3× Regional Winner</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2023.html" class="tl-btn">Season &rarr;</a><a href="blog/blog_2023.html" class="tl-btn">Blog &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item tl-milestone">
-                    <div class="tl-year">2022</div>
-                    <div class="tl-card">
-                        <p>Coming back from the pandemic, we won three regionals — Hueneme Port, Sacramento, and Silicon Valley — and earned the Engineering Inspiration Award for the first time. At Champs we won the Hopper division and reached the Einstein semifinals for the eighth straight year, placing fifth worldwide.</p>
-                        <div class="tl-tags"><span>Engineering Inspiration</span><span>Hopper Champions</span><span>5th Worldwide</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2022.html" class="tl-btn">Season &rarr;</a><a href="blog/blog_2022.html" class="tl-btn">Blog &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2021</div>
-                    <div class="tl-card">
-                        <p>With in-person events suspended, we competed in the FRC At Home Challenges. We won the Skills Challenge for the Hydrogen Group with some of the fastest times in FRC, were named one of three Game Design winners for our game Storm Surge, and received the Greater Central Valley Chairman's Award.</p>
-                        <div class="tl-tags"><span>Skills Winner</span><span>Game Design Winner</span><span>Chairman's Award</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2021.html" class="tl-btn">Season &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2020</div>
-                    <div class="tl-card">
-                        <p>We won our first event at the LA North Regional before the season halted abruptly due to COVID-19 — we were waiting to start matches in St. Louis when it was called. We kept meeting on Zoom and started new-member training early, and earned the Chairman's Award at the St. Louis Regional even though the event itself was canceled.</p>
-                        <div class="tl-tags"><span>LA North Winner</span><span>Chairman's Award</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2020.html" class="tl-btn">Season &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2019</div>
-                    <div class="tl-card">
-                        <p>We seeded first and won the Sacramento, Central Valley, and Utah regionals, taking the Chairman's and Entrepreneurship awards at Sacramento. We won the Newton Subdivision and reached the Einstein semifinals for the sixth year running, placing third worldwide.</p>
-                        <div class="tl-tags"><span>3× Regional Winner</span><span>Newton Champions</span><span>3rd Worldwide</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2019.html" class="tl-btn">Season &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item tl-milestone">
-                    <div class="tl-year">2018</div>
-                    <div class="tl-card">
-                        <p>On our 15th anniversary we became the first team ever to reach the Einstein field seven years in a row — winning Central Valley, Sacramento, Aerospace Valley, and the Carver division at Champs. We earned our first Entrepreneurship Award at Worlds and the Chairman's Award at Central Valley, finishing third worldwide.</p>
-                        <div class="tl-tags"><span>First-Ever 7× Einstein</span><span>Carver Champions</span><span>3rd Worldwide</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2018.html" class="tl-btn">Season &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2017</div>
-                    <div class="tl-card">
-                        <p>We founded the non-profit Davis Robotics Foundation to support local STEM programs and FRC teams. The roster hit 100 students for the first time, we won three regionals and the Newton Subdivision, and finished as World Champion Finalists — extending our Einstein streak to five years.</p>
-                        <div class="tl-tags"><span>Davis Robotics Foundation</span><span>World Finalists</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2017.html" class="tl-btn">Season &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2016</div>
-                    <div class="tl-card">
-                        <p>A growing team earned a second classroom. We formalized the Davis Youth Robotics League and summer camp programs, drawing over a hundred local students in year one, won three regionals, and took the Hopper Subdivision to reach the Einstein semifinals.</p>
-                        <div class="tl-tags"><span>3× Regional Winner</span><span>Hopper Champions</span></div>
-                        <div class="tl-btns"><a href="seasons/season_2016.html" class="tl-btn">Season &rarr;</a></div>
-                    </div>
-                </div>
-                <div class="tl-item tl-milestone">
-                    <div class="tl-year">2015</div>
-                    <div class="tl-card">
-                        <p>Our school district became a major sponsor, giving us a large workspace and supporting three robotics classes for the first time. We added five machines, won three regionals, and won the World Championship alongside alliance partners 118 Robonauts, 1671 Bird Brains, and 5012 Gryffingear.</p>
-                        <div class="tl-tags"><span>World Champions</span><span>3× Regional Winner</span></div>
-                        
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2011 – 2014</div>
-                    <div class="tl-card">
-                        <p>These years built the foundation of a powerhouse. We won our first regional in 2011 and reached the Curie quarterfinals; UC Davis began sponsoring us in 2012 and we launched our Farmers Market booth; new shop machinery in 2013 expanded hands-on training; and in 2014 we won the Newton division, losing only in the final seconds of the last match on Einstein.</p>
-                        <div class="tl-tags"><span>First Regional Win</span><span>UC Davis Sponsor</span><span>Newton Champions</span></div>
-                        
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-year">2004 – 2010</div>
-                    <div class="tl-card">
-                        <p>Founded in 2004 as EnGen Robotics by Steve Harvey with 15 students, the team spent its early years in a single classroom with one mentor — even buying a 20-foot shipping container as a workspace in 2008. From 2005 to 2010 we attended only the Sacramento Regional each year, often serving as alliance captain but never advancing past the quarterfinals.</p>
-                        <div class="tl-tags"><span>Founded 2004</span><span>The Origin Years</span></div>
-                        
-                    </div>
-                </div>
+            <div class="hist-detail">
+                <p>We seeded first and won the Sacramento, Central Valley, and Utah regionals, taking the Chairman's and Entrepreneurship awards at Sacramento. We won the Newton Subdivision and reached the Einstein semifinals for the sixth year running, placing third worldwide.</p><div class="tl-tags"><span>3× Regional Winner</span><span>Newton Champions</span><span>3rd Worldwide</span></div>
             </div>
+        </div>
+        <div class="hist-nav-strip">
+            <a href="../seasons/season_2018.html" class="hist-nav-link">&larr; 2018</a>
+            <a href="../seasons/season_2020.html" class="hist-nav-link">2020 &rarr;</a>
         </div>
     </main>
 
-    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
+
+    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="../index.html">&larr; Back to Home</a></div></div></footer>
 
     <script>
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
