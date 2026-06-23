@@ -99,6 +99,10 @@
         .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
         .detail-media img { width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
         .detail-media img.hidden { display:none; }
+        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
+        .detail-media.slideshow img.active { opacity:1; }
+        .media-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .media-duo .detail-media { aspect-ratio:1/1; }
         .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
         .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
         .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
@@ -255,9 +259,15 @@
 
             <div class="section-header"><h2>Scoring</h2></div>
             <div class="detail-row reverse">
-                <div class="detail-media">
-                    <img src="pictures/intake_2026.jpg" alt="Intake mechanism" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
-                    <div class="detail-fallback" style="display:none"><span class="ic">INTAKE</span></div>
+                <div class="media-duo">
+                    <div class="detail-media">
+                        <img src="pictures/intake_2026.jpg" alt="Intake mechanism" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="detail-fallback" style="display:none"><span class="ic">INTAKE</span></div>
+                    </div>
+                    <div class="detail-media">
+                        <img src="pictures/floor rollers_2026.jpg" alt="Floor rollers" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="detail-fallback" style="display:none"><span class="ic">ROLLERS</span></div>
+                    </div>
                 </div>
                 <div class="detail-body">
                     <span class="tag">Intake</span>
@@ -266,17 +276,14 @@
                     <p>Two hex shafts sleeved with 0.625&Prime; carbon fiber tubes and supported by 3D-printed idler spacers help guide balls through the intake while preventing them from recontacting the main roller after acquisition. A 1/8" thick 2" x 1" aluminum crash bar takes impacts alongside the SRPP plates, which are hot-swappable.</p>
                     <p>The roller floor uses five 1" dead axle rollers and three 2" flex wheel rollers to maximize bps. The three dead axle rollers located toward the intake are minimally slanted over the intake pivot. As you progress toward the shooter, there are three flex wheel rollers at a much steeper angle to minimize keystoning and maximize through-put. The final two dead axle rollers are located closest to the shooter and follow the path of the ball through the feeder roller.</p>
                     <p>All dead axle rollers are made of carbon fiber covered in silicone, run on metric bearings on studs of hex shaft that were rounded down to still provide wrench access for torque. The power transfer goes from one X60 to the foremost live axle at a reduction of 3:1 for the live 2" rollers and 1.5:1 for the 1" dead axle rollers. The roller floor is mounted to the shooter in the back through rounded down hex stubs to allow it to pivot for electrical access. Toward the intake, the 1" by 1" cross tube rests on hardstops mounted to the swerves. On one side the hardstop extends up to provide a hole for a pin that goes through the 3/16" plate and into the hardstop to keep the roller floor down at all times during a match.</p>
-                    <div class="detail-media" style="margin-top:1.5rem;">
-                        <img src="pictures/floor rollers_2026.jpg" alt="Floor rollers" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
-                        <div class="detail-fallback" style="display:none"><span class="ic">ROLLERS</span></div>
-                    </div>
                 </div>
             </div>
 
             <div class="section-header"><h2>Ball Tunnel / Shooter</h2></div>
             <div class="detail-row">
-                <div class="detail-media">
-                    <img src="pictures/shooter_2026.jpg" alt="Shooter / ball tunnel" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                <div class="detail-media slideshow">
+                    <img src="pictures/shooter_2026.jpg" alt="Shooter / ball tunnel" class="active" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <img src="pictures/shooter1_2026.jpg" alt="Shooter / ball tunnel" onerror="this.classList.add('hidden');">
                     <div class="detail-fallback" style="display:none"><span class="ic">SHOOTER</span></div>
                 </div>
                 <div class="detail-body">
@@ -302,10 +309,17 @@
                 </div>
             </div>
 
-            <div class="full-card">
-                <h3>Hopper</h3>
-                <p>This year, the hopper had two parts: a horizontal extension with the intake and a vertical extension attached to the climber. The horizontal extension was made of 1/8-inch polycarbonate on the sides and dual-wall corrugated plastic on the front, with bent metal corners VHB'd and riveted together. We used 1/2-inch slots on the side plates to interface with a 1/2-inch metal standoff and a 1/16-inch thick, 2-inch diameter washer.</p>
-                <p>The intake and output actuation is controlled by the slanted vertical slot on the side that interfaces with the intake plate. This uses a custom standoff with a flange that is tapped for a 1/4-20 bolt and bolts from the inside of the intake plate. For the horizontal extension, we had two .75x.75-inch tubes attached to the climber, which had four rivnuts on the top that hold down a piece of dual-wall corrugated plastic that is bent in the back to retain the balls on the shooter side of the robot. The up-down motion is controlled by a chain drive system that uses #25 chain and one Kraken X60.</p>
+            <div class="detail-row reverse">
+                <div class="detail-media">
+                    <img src="pictures/hopper and climber_2026.jpg" alt="Hopper and climber" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">HOPPER</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Storage</span>
+                    <h3>Hopper</h3>
+                    <p>This year, the hopper had two parts: a horizontal extension with the intake and a vertical extension attached to the climber. The horizontal extension was made of 1/8-inch polycarbonate on the sides and dual-wall corrugated plastic on the front, with bent metal corners VHB'd and riveted together. We used 1/2-inch slots on the side plates to interface with a 1/2-inch metal standoff and a 1/16-inch thick, 2-inch diameter washer.</p>
+                    <p>The intake and output actuation is controlled by the slanted vertical slot on the side that interfaces with the intake plate. This uses a custom standoff with a flange that is tapped for a 1/4-20 bolt and bolts from the inside of the intake plate. For the horizontal extension, we had two .75x.75-inch tubes attached to the climber, which had four rivnuts on the top that hold down a piece of dual-wall corrugated plastic that is bent in the back to retain the balls on the shooter side of the robot. The up-down motion is controlled by a chain drive system that uses #25 chain and one Kraken X60.</p>
+                </div>
             </div>
 
             <div class="full-card">
@@ -362,21 +376,6 @@
                 </div>
             </div>
 
-            <div class="section-header"><h2>Behind the Build</h2></div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-media"><img src="pictures/hardware_design_2026.jpg" class="info-img" alt="Design" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">CAD</span></div></div>
-                    <div class="info-body"><span class="tag">Mechanical</span><h3>Design</h3><p>CAD design and prototyping for the 2026 mechanisms.</p></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-media"><img src="pictures/hardware_fabrication_2026.jpg" class="info-img" alt="Fabrication" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">FAB</span></div></div>
-                    <div class="info-body"><span class="tag">Mechanical</span><h3>Fabrication</h3><p>In-house machining and assembly of every mechanism.</p></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-media"><img src="pictures/kids_scouting_2026.jpg" class="info-img" alt="Scouting" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">SCOUT</span></div></div>
-                    <div class="info-body"><span class="tag">Strategy</span><h3>Scouting</h3><p>Match scouting and strategy support throughout the season.</p></div>
-                </div>
-            </div>
         </div>
 
         <div class="lead-cta">
@@ -394,6 +393,12 @@
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+        document.querySelectorAll('.detail-media.slideshow').forEach(ss=>{
+            const imgs=ss.querySelectorAll('img');
+            if(imgs.length<2)return;
+            let i=0;
+            setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},3000);
+        });
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
             const msgs=['Loading CAD Data','Rendering Robot','Checking Subsystems','Almost There'];
