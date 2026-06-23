@@ -12,15 +12,22 @@ directory via [`.github/workflows/static.yml`](.github/workflows/static.yml).
 ```
 pages/                     # site root (served by GitHub Pages)
 ├── index.html             # home page
-├── about.html             # core / informational pages
-├── leadership.html        # (subteams, recruitment, sponsors, contact, etc.)
-├── our_robots.html        # index of every competition robot
-├── 2026_robot.html        # current-season robot
-├── history.html           # team history / season index
+├── resources.html         # standalone top-level pages
+├── sponsors.html
+├── support.html
+├── capital_city_classic.html
 │
-├── robots/                # one detail page per competition robot
+├── about/                 # "About" nav section
+│   ├── about.html  leadership.html  subteams.html
+│   ├── recruitment.html  first_leadership.html
+│   └── faq.html  contact.html  1857.html
+├── outreach/              # "Outreach" nav section
+│   └── outreach.html  dyr.html
+├── robots/                # robot index + per-robot detail pages
+│   ├── our_robots.html  2026_robot.html
 │   └── robot_<year>_<name>.html      (2009–2025)
-├── seasons/               # per-season recap pages
+├── seasons/               # team history + per-season recaps
+│   ├── history.html
 │   └── season_<year>.html            (2016–2025)
 ├── blog/                  # build blogs / newsletters
 │   └── blog_<year>.html              (2022–2025)
@@ -28,13 +35,16 @@ pages/                     # site root (served by GitHub Pages)
 └── pictures/              # all images (robots, people, logos, covers)
 ```
 
+The folders mirror the site's navigation: pages live next to the nav section
+they belong to. `index.html` and a few standalone pages stay at the root.
+
 ## Conventions
 
 - **No build step.** Every page is plain HTML with an inline `<style>` block;
   open any file directly in a browser to preview it.
-- **Relative links.** Pages in the root link to subfolders with
-  `robots/…`, `seasons/…`, `blog/…`; pages inside a subfolder reach the root
-  and images with `../`.
+- **Relative links.** Pages reference each other and images with paths relative
+  to their own folder — siblings by bare name, other folders and `pictures/`
+  via `../`.
 - **Theming.** Colors are driven by CSS variables on `:root[data-theme]`
   (dark/light), toggled by the theme button and persisted in `localStorage`.
 - **Robot pages** share a common layout: a hero image, detail sections
