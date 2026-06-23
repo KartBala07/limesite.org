@@ -119,6 +119,50 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -208,12 +252,83 @@
                 <h1 class="page-title">Lemon Zest</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2018_zest.jpg" class="robot-img" alt="Lemon Zest" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'18</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">POWER UP</div>
-                    <p>Picked up milk-crate-sized cubes for the scale and switch, then climbed a rung with an 80-inch hook — lifting a second robot on a platform to "beat the boss."</p>
+            <div class="detail-row hero">
+                <div class="detail-media">
+                    <img src="pictures/robot_2018_zest.jpg" alt="Lemon Zest" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">'18</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">POWER UP</span>
+                    <h3>Lemon Zest</h3>
+                    <p>2018's robot, Lemon Zest, was able to pick up a cube the size of a milk crate, place it on a scale or switch, and climb a metal rung to 'beat the boss'. The robot climbed using a metal hook, which fully extended to 80 inches and could simultaneously lift a second robot using a metal platform.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="full-card">
+                <p>Lemon Zest was equipped with a three part scoring system: an intake, rotating wrist, and 2-stage cascading elevator. The intake used two pneumatically powered arms that extend back and forth to quickly drag in a power cube. While the robot drove, the cube was firmly clasped between these arms and the robot averaged a 10 cube intake per game. Using the wrist and elevator, the cube was lifted and could be scored off the front or back of the robot. When scoring off the front, the intake rose up the elevator and outward-rotating wheels could shoot the cube into either the switch or scale. When scoring off the back, the wrist mechanism lifts to the top of the first stage elevator and rotates around to shoot the cube off of the backside.</p>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="full-card">
+                <p>Our drivetrain consisted of four Colson wheels to grip the ground surface and two Omni wheels at the front of the robot which allowed us to turn efficiently. It was powered with a two flipped mini cim gearbox that had two speeds; we could reach up to 18 feet per second.</p>
+            </div>
+
+            <div class="section-header"><h2>Operating Interface</h2></div>
+            <div class="full-card">
+                <p>Lemon Zest was steered with a wheel and vertical joystick, which controlled the angle and speed of the robot's drive base. The joystick qualified the driver to place cubes on game elements or to align to the hanging climb bar with minimal effort. The wheel enabled the robot to achieve tight turns while also maneuvering the robot around defense smoothly. The cube intake, elevator, and climber, among other mechanisms on the robot, were controlled by an Xbox 360 game controller and the drive team used a small screen to see video from a camera mounted on the wrist above the cube intake. The feed showed cubes that could not be seen by the drive team, and made cube acquisition and scoring much easier.</p>
+            </div>
+
+            <div class="section-header"><h2>Electrical</h2></div>
+            <div class="full-card">
+                <p>This year's robot used many sensors. These included a proximity sensor, to sense whether or not the robot was in possession of a cube; hall effect sensors to help gauge the height of the arm on the elevator; and the usual encoders to measure speed of the drivetrain. Because of the elevator, the wires and pneumatics going to the wrist had to be routed through conduit (plastic joints linked together, in which wires are placed to be protected) and back down the side of the robot. Pneumatics were used on the intake to clamp around the cube, and to deploy the hook and ramp.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item">
+                    <div class="ev">Houston World Championships</div>
+                    <div class="awards">
+                        <span class="achv-badge">Newton Division Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-creativity-innovation" target="_blank" rel="noopener">Autonomous Award sponsored by Ford</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Utah Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-machine" target="_blank" rel="noopener">Quality Award sponsored by Motorola Solutions Foundation</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Sacramento Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/submitted-awards" target="_blank" rel="noopener">Chairman's Award</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Central Valley Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/submitted-awards" target="_blank" rel="noopener">Entrepreneurship Award sponsored by Kleiner, Perkins, Caulfield, and Byers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <h3>CAD</h3>
+                <p><a class="inline-link" href="https://grabcad.com/library/lemon-zest-frc-team-1678-2018-1" target="_blank" rel="noopener">Click here</a> to see more renders of our 2018 robot.</p>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div>
+                    <h3>Want to know more?</h3>
+                    <p>Reach out to the team with any questions about Lemon Zest or our 2018 season.</p>
+                </div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 

@@ -119,6 +119,50 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -208,12 +252,83 @@
                 <h1 class="page-title">Pomelo Pummeler</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2017_pomelo.jpg" class="robot-img" alt="Pomelo Pummeler" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'17</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">STEAMWORKS</div>
-                    <p>Shot fuel into the high boiler, delivered gears to the airship, and climbed the rope to the airship in the final 30 seconds.</p>
+            <div class="detail-row hero">
+                <div class="detail-media">
+                    <img src="pictures/robot_2017_pomelo.jpg" alt="Pomelo Pummeler" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">'17</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">STEAMWORKS</span>
+                    <h3>Pomelo Pummeler</h3>
+                    <p>Our 2017 STEAMWORKS competition robot, "Pomelo Pummeler" was able to shoot fuel to the high boiler goal, collect and retrieve gears for the "airship," and use its climber to reach the top of the rope on the airship in the last 30 seconds of a match.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="full-card">
+                <p>Our 2017 robot was equipped with a shooter and a ground intake mechanism. The ground fuel intake could collect about 60 fuel pieces from the game field, and funnel them into the magazine for storage. Using a belt and roller system, the fuel then fed from the magazine into the shooter mechanism. The shooter had two different flywheels that allow two streams of balls to be fired at once, giving the robot the ability to achieve up to 40 kPA in autonomous mode. On the back of the robot, there was a gear intake designed to intake a gear from the ground. A pop-up roller combined with AndyMark compliant wheels trapped the gear to be scored on the airship lift.</p>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="full-card">
+                <p>The West Coast Drive used on the Pomelo Pummeler had two omni wheels in the front, and four colson wheels to provide traction in the middle and back. There were four CIM motors allowing the robot to hit a top speed of 17.5 feet per second.</p>
+            </div>
+
+            <div class="section-header"><h2>Operating Interface</h2></div>
+            <div class="full-card">
+                <p>A wheel and vertical joystick made driving the Pomelo Pummeler easy by controlling the angle and speed of the robot respectively. The wheel allowed for tight turns to be executed, maneuvering the robot smoothly around defense, while the throttle joystick enabled the driver to easily score gears and shoot fuel.</p>
+            </div>
+
+            <div class="section-header"><h2>Electrical</h2></div>
+            <div class="full-card">
+                <p>An Xbox 360 game controller was used to control the other mechanisms on the robot, including the ball and gear intakes, the magazine conveyors, and the climber. A small screen was also used by the drive team to view video streamed from a camera mounted above the ground gear mechanism. The feed showed gears that cannot be seen by the drive team, and makes gear acquisition and scoring much easier.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item">
+                    <div class="ev">Houston World Championship</div>
+                    <div class="awards">
+                        <span class="achv-badge">Newton Division Winners</span>
+                        <span class="achv-badge">Championship Finalists</span>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Sacramento Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-creativity-innovation" target="_blank" rel="noopener">Innovation in Control Award sponsored by Rockwell Automation</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Las Vegas Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-creativity-innovation" target="_blank" rel="noopener">Innovation in Control Award sponsored by Rockwell Automation</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Central Valley Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-machine" target="_blank" rel="noopener">Quality Award sponsored by Motorola Solutions Foundation</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <h3>CAD</h3>
+                <p><a class="inline-link" href="https://grabcad.com/library/pomelo-pummeler-frc-team-1678-2017-1" target="_blank" rel="noopener">Click here</a> to see more renders of our 2017 robot.</p>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div>
+                    <h3>Want to know more?</h3>
+                    <p>Reach out to the team with any questions about Pomelo Pummeler or our 2017 season.</p>
+                </div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 

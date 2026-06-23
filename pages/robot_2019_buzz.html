@@ -119,6 +119,50 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -208,12 +252,78 @@
                 <h1 class="page-title">Buzz Lime-year</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2019_buzz.jpg" class="robot-img" alt="Buzz Lime-year" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'19</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">DEEP SPACE</div>
-                    <p>Handled cargo and hatch panels across three levels, climbed to the highest platform, and could lift two other robots with it.</p>
+            <div class="detail-row hero">
+                <div class="detail-media">
+                    <img src="pictures/robot_2019_buzz.jpg" alt="Buzz Lime-year" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">'19</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">DEEP SPACE</span>
+                    <h3>Buzz Lime-year</h3>
+                    <p>2019's robot, Buzz Lime-year, was prepared to compete in FIRST's challenge: DESTINATION DEEP SPACE Presented by Boeing. Our robot was able to pick up Cargo (rubber playground balls) and Hatch panels (flat disks) and place them on three different levels. It was also able to climb the highest level platform, and lift two other robots with it.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="full-card">
+                <p>Buzz Lime-year has a multiple part intake system, which includes a Hatch panel intake, a Cargo Intake, and an elevator. Our Human Player Hatch Intake is designed with an arrowhead shape to quickly pierce through the center of the hatch when placed in the Human Player station. Two double-acting pneumatic cylinders trigger outward to hold the hatch in place during transport, then release to score. Our Cargo Intake is designed to quickly gain possession of the cargo with the "touch-it, own-it" design concept, making this mechanism highly reliable. Two proximity sensors send a signal to our driveteam when cargo is intaked. Our elevator allows for our cargo and Human Player hatch intakes to pass through it, enabling us to score from either side of the robot.</p>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="full-card">
+                <p>Our drivetrain is a 6-wheeled system with a 3-MiniCIM gearbox on each side, designed to reach a maximum speed of 12 feet per second. Omni-directional wheels on each end maximize our robot's turning capabilities. Many electrical components have 3D-printed mounts, including a RoboRIO-PDP combination mount and pneumatic manifold-PCM combination mount that creates more space for mechanisms on the bellypan.</p>
+            </div>
+
+            <div class="section-header"><h2>Operating Interface</h2></div>
+            <div class="full-card">
+                <p>Our Robot is driven with a wheel and vertical joystick. The wheel controls the angle of the robot's drive base and point turns, while the joystick enables the driver to place game objects on both the rocket and cargo ship with precision. The wheel enables the robot to achieve tight turns while also maneuvering smoothly around defense. The hatch and cargo intakes, elevator, and climbing system are controlled by an Xbox 360 game controller. The drive team uses a small screen to see video from cameras mounted on the front of the robot. The feed, along with an automatic vision processing system, made game element acquisition and placement much easier.</p>
+            </div>
+
+            <div class="section-header"><h2>Electrical</h2></div>
+            <div class="full-card">
+                <p>This year's robot saw big changes in its electrical system. We switched fully over to the CAN bus system from the PWM system, which means that we no longer need the Spartan Board for the extra signal ports. We also switched to using Mag-encoders, which detect the rotation of a magnetic field, and can be plugged directly into speed controllers. Since we have an elevator again this year, we are again using conduit (plastic joints linked together, in which wires are placed to be protected). We are using an Ethernet switch to give us more Ethernet ports for the Limelights (used for vision targeting). For the past two years we have used an off-board compressor, but this year all robots with a pneumatics system are required to use on-board compressors.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item">
+                    <div class="ev">Houston World Championships</div>
+                    <div class="awards">
+                        <span class="achv-badge">Carver Division Winners</span>
+                        <span class="achv-badge">Entrepreneurship Award sponsored by Kleiner, Perkins, Caulfield, and Byers</span>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Sacramento Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-machine-creativity-innovation" target="_blank" rel="noopener">Industrial Design Award Sponsored by General Motors</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Aerospace Valley Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/awards-based-on-machine-creativity-innovation" target="_blank" rel="noopener">Excellence in Engineering Sponsored by Delphi</a>
+                    </div>
+                </div>
+                <div class="achv-item">
+                    <div class="ev">Central Valley Regional</div>
+                    <div class="awards">
+                        <span class="achv-badge">Regional Winners</span>
+                        <a class="achv-badge" href="https://www.firstinspires.org/resource-library/frc/submitted-awards" target="_blank" rel="noopener">Chairman's Award</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div>
+                    <h3>Want to know more?</h3>
+                    <p>Reach out to the team with any questions about Buzz Lime-year or our 2019 season.</p>
+                </div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 
