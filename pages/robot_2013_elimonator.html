@@ -119,6 +119,42 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -208,12 +244,51 @@
                 <h1 class="page-title">E-Lime-o-Nator</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2013_elimonator.jpg" class="robot-img" alt="E-Lime-o-Nator" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'13</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">ULTIMATE ASCENT</div>
-                    <p>Intook Frisbee discs from the ground, shot them into the high goal, and hung from the pyramid for 10 bonus points at the buzzer.</p>
+            <div class="detail-row hero">
+                <div class="detail-media">
+                    <img src="pictures/robot_2013_elimonator.jpg" alt="E-Lime-o-Nator" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">'13</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">ULTIMATE ASCENT</span>
+                    <h3>E-Lime-o-Nator</h3>
+                    <p>Our 2013 competition robot was named "The E-lime-o-nator." The E-lime-o-nator had the ability to intake Frisbee discs from the ground, shoot them into the high goal as hang from the pyramid for 10 bonus points at the end of the match.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="full-card">
+                <p>The E-lime-o-nator had a custom machined six wheel drop center tank drive (for ease while turning) powered by four CIM motors connected to two Vex Pro ball shifter gearboxes. This drivetrain was the team's first to be CNC machined and features the improved speed and agility versus those of previous years.</p>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="full-card">
+                <p>The E-lime-o-nator's final revision (as seen at 2013 World Championships) scoring mechanism used a partially curved shooter with a single, high-speed rubber wheel to accelerate Frisbee discs from the shooter. Grip on one side of the Frisbee combined with the fast spinning shooter wheel caused the Frisbee to spin upon exit for maximum accuracy. A previous incarnation of this system (as seen at Central Valley Regional 2013) had no curve and used two spinning Banebots wheels (at different speeds) to accelerate the Frisbee. This system was retired and switched for the system mentioned above which proved to be more consistent and reliable.</p>
+            </div>
+
+            <div class="section-header"><h2>Pyramid Hanging Mechanism</h2></div>
+            <div class="full-card">
+                <p>The final revision of the E-lime-o-nator used two hooks (made from modified rock climbing carabiners) mounted on top of pneumatic pistons which pull the robot off of the ground shortly before the end of the match.</p>
+            </div>
+
+            <div class="section-header"><h2>Control/Electrical System</h2></div>
+            <div class="full-card">
+                <p>A previous version of the system did not use pistons and instead was completely passive, using only a sloped piece of plywood. This system was removed after it proved too difficult to properly align and therefore, was unreliable.</p>
+            </div>
+
+            <div class="section-header"><h2>Operator Interface</h2></div>
+            <div class="full-card">
+                <p>The E-lime-o-nator was controlled by two joystick controllers and a gamepad. The drive system used a simple tank drive, meaning that one joystick controls one side of the drive train. The driver also controlled the majority of the functions including running the intake, hopper, and shooter mechanisms. The manipulator (using a gamepad) controlled the intake and hopper pneumatics (essentially "folding" the robot to fit inside of it's frame perimeter). They also controlled the hanging mechanism and stopped the shooter wheel (after the driver had finished shooting).</p>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div>
+                    <h3>Want to know more?</h3>
+                    <p>Reach out to the team with any questions about E-Lime-o-Nator or our 2013 season.</p>
+                </div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 

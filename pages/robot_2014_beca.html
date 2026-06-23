@@ -119,6 +119,42 @@
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
         @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media (max-width:968px) { .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .detail-row:not(.hero) .detail-media{order:2;} }
+        @media (max-width:620px) {
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3,.detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+        }
     </style>
 </head>
 <body>
@@ -208,12 +244,51 @@
                 <h1 class="page-title">Beca</h1>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="pictures/robot_2014_beca.jpg" class="robot-img" alt="Beca" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'14</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">AERIAL ASSAULT</div>
-                    <p>Two intakes and a high-powered catapult sent balls over the truss into the high goal. Beca played midfield and adapted quickly between strategies.</p>
+            <div class="detail-row hero">
+                <div class="detail-media">
+                    <img src="pictures/robot_2014_beca.jpg" alt="Beca" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback" style="display:none"><span class="ic">'14</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">AERIAL ASSIST</span>
+                    <h3>Beca</h3>
+                    <p>Our 2014 competition robot was named "Beca." In Aerial Assist, Beca flew across the field with two intakes and a high powered catapult that picked up balls and shot them over the truss and into the high goal. Beca mainly played midfield but had the ability to quickly adapt to changing strategies, as she could effectively inbound and score balls in the 10 point goal.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Drivetrain</h2></div>
+            <div class="full-card">
+                <p>Beca featured a custom machined "West Coast" drive powered by 6 CIM motors connected to 2 Vex Pro ball shifter gearboxes. The top speed (free speed) of the drive train was approximately 22 feet/second, which made it the fastest Citrus Circuits robot to date and one of the fastest 2014 FRC robots.</p>
+            </div>
+
+            <div class="section-header"><h2>Scoring</h2></div>
+            <div class="full-card">
+                <p>Beca's finalized scoring mechanism consisted of a catapult powered by around 10 feet of speargun tubing. A spiral (drop-off) cam assisted the catapult crank-back, and a magnet on the cam coupled with a Hall effect sensor stopped the cam in the correct primed position. A nylon strap attached from the top of the catapult to a sliding sled in the catapult frame determined shot power. Hard stops in the frame were deployed with pneumatic cylinders to stop the sled midway through its travel providing a lower powered "short shot". Previous versions of Beca's catapult used surgical tubing and the Hall effect sensor at the top of the catapult.</p>
+            </div>
+
+            <div class="section-header"><h2>Intake</h2></div>
+            <div class="full-card">
+                <p>Beca's double polycarb intake was inspired by Team 16's flexible intakes in 2008. Our team used 1/4″ polycarb in a curved shape that allowed off-center balls to be controlled and secured. Beca also had a pair of secondary intakes over the center of the catapult that kept ball's in a secure position and increased shot consistency.</p>
+            </div>
+
+            <div class="section-header"><h2>Control/Electrical System</h2></div>
+            <div class="full-card">
+                <p>Beca's control system used Wi-Fi communications and a National Instruments cRIO, implemented by FIRST in 2009. Motors were controlled by Talon speed controllers and pneumatics by Vex Pro Spike relays and solenoids. Encoders on the drivetrain were used to move accurately in autonomous mode. During the competition season, a camera detected the "hot" goal and helped the team earn extra points at the beginning of each match. We used C++ in the Wind River Workbench for robot code and Java in NetBeans for vision processing. We then use Network Tables to communicate information to the robot.</p>
+            </div>
+
+            <div class="section-header"><h2>Operator Interface</h2></div>
+            <div class="full-card">
+                <p>Beca was controlled by two joystick controllers and a gamepad. The drive system uses a simple tank drive, meaning that one joystick controls one side of the drive train. The driver also controls the robot's shooting mechanism. The manipulator controls the intake and settling mechanisms.</p>
+            </div>
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div>
+                    <h3>Want to know more?</h3>
+                    <p>Reach out to the team with any questions about Beca or our 2014 season.</p>
+                </div>
+                <a href="contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 
