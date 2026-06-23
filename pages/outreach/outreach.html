@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davis Youth Robotics (DYR) — Citrus Circuits 1678</title>
-    <link rel="icon" type="image/png" href="pictures/favicon.png?v=3">
-    <meta name="description" content="Davis Youth Robotics (DYR), Citrus Circuits 1678's robotics programs for students ages 8 to 14: RoboCamps, DYR League, and School Programs.">
+    <title>Outreach — Citrus Circuits 1678</title>
+    <link rel="icon" type="image/png" href="../pictures/favicon.png?v=3">
+    <meta name="description" content="Citrus Service, DYR RoboCamps, Fall Workshops, Farmers Market, DiSTEM, WiSE, and community outreach from FRC Team 1678.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,12 +23,13 @@
         @media (hover:none){ #cdot,#cring{display:none;} body{cursor:auto;} }
         #loader { position:fixed; inset:0; background:var(--bg-darkest); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:8000; transition:opacity .8s,visibility .8s; }
         #loader.out { opacity:0; visibility:hidden; pointer-events:none; }
-        .ld-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,20vw,220px);color:transparent;-webkit-text-stroke:2px var(--lime);letter-spacing:.04em;line-height:1;animation:ldGl 1.5s ease-in-out infinite}
-.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;margin-top:16px;opacity:.7}
-.ld-bw{width:160px;height:1px;background:rgba(60,213,46,.2);margin-top:28px;overflow:hidden}
-.ld-b{height:100%;background:var(--lime);animation:ldB 2s ease-out forwards}
-@keyframes ldB{0%{width:0}100%{width:100%}}
-@keyframes ldGl{0%,100%{filter:drop-shadow(0 0 14px rgba(60,213,46,.4))}50%{filter:drop-shadow(0 0 44px rgba(60,213,46,.95))}}
+        .ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
+.ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}
+.ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 1.8s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}
+.ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}
+.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}
+@keyframes ldRing{to{stroke-dashoffset:0}}
         header { background-color:var(--header-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); position:fixed; width:100%; top:0; left:0; z-index:1000; transition:background-color .3s ease,border-color .3s ease; }
         .navbar { max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; height:95px; padding:0 2rem; }
         .brand { display:flex; align-items:center; gap:1rem; text-decoration:none; color:var(--text-main); }
@@ -72,10 +73,10 @@
         .info-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; scroll-margin-top:120px; }
         .info-card:hover { transform:translateY(-5px); border-color:var(--lime); }
         .info-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .info-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,212,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,212,0,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .info-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
         .info-media img { width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
         .info-media img.hidden { display:none; }
-        .info-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(255,212,0,.3); z-index:1; }
+        .info-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
         .info-body { padding:1.5rem; flex-grow:1; }
         .info-body h3 { font-size:1.3rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; margin-bottom:.6rem; }
         .info-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
@@ -85,34 +86,20 @@
         .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
         .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
         .full-card p:last-child { margin-bottom:0; }
-        .full-card a.inline-link, a.inline-link { color:var(--lime); text-decoration:underline; }
 
-        .intro-split { display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
-        .intro-split p { color:var(--text-muted); font-size:1.02rem; line-height:1.75; margin-bottom:1.25rem; }
-        .intro-split p:last-child { margin-bottom:0; }
-        .intro-media { width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:linear-gradient(150deg,var(--bg-card),var(--bg-dark)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
-        .intro-media span { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.1em; text-transform:uppercase; opacity:.7; text-align:center; padding:0 1rem; }
-        .dyr-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:3.5rem 0; }
-        .dyr-media { width:100%; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:linear-gradient(150deg,var(--bg-card),var(--bg-dark)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
-        .dyr-media .dyr-img { width:100%; height:100%; object-fit:cover; }
-        .dyr-media .dyr-img.hidden { display:none; }
-        .dyr-h { font-size:1.8rem; font-weight:800; color:var(--lime); text-transform:uppercase; letter-spacing:.02em; margin-bottom:1rem; }
-        .dyr-text p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:1rem; }
-        .dyr-text p:last-child { margin-bottom:0; }
-        .dyr-cta { display:inline-block; margin-top:1rem; background:var(--lime); color:#000; text-decoration:none; padding:.85rem 1.5rem; border-radius:8px; font-weight:700; font-size:.95rem; transition:opacity .2s ease,transform .2s ease; }
-        .dyr-cta:hover { transform:translateY(-2px); opacity:.95; }
-        @media (max-width:768px) { .dyr-row { grid-template-columns:1fr; gap:1.5rem; } .dyr-row .dyr-media { order:-1; } }
-        .section-divider { border:none; border-top:1px solid var(--border); margin:1rem 0 3rem; }
-        .pm-heading { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:.04em; color:var(--lime); text-transform:uppercase; margin-bottom:2.75rem; }
-        .pm-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem 2rem; padding-bottom:4rem; max-width:920px; margin:0 auto; }
-        .pm-card { max-width:290px; width:100%; margin:0 auto; text-align:center; }
-        @media (max-width:768px) { .pm-grid { grid-template-columns:repeat(2,1fr); } }
-        @media (max-width:480px) { .pm-grid { grid-template-columns:1fr; } }
-        .pm-photo { width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; }
-        .pm-photo span { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); opacity:.55; }
-        .pm-name { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.03em; color:var(--lime); text-transform:uppercase; }
-        .pm-role { color:var(--text-muted); font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-top:.2rem; line-height:1.5; }
-        @media (max-width:768px) { .intro-split { grid-template-columns:1fr; gap:2rem; } }
+        /* Davis Youth Robotics brand palette (DYR Orange / DYR Blue) */
+        #dyr h3, #robocamps h3, #fall-workshops h3 { color:#FF6F2A; }
+        #dyr strong { color:#0075C9; }
+        #robocamps:hover, #fall-workshops:hover { border-color:#FF6F2A; }
+        #robocamps .info-fallback .ic, #fall-workshops .info-fallback .ic { color:#FF6F2A; text-shadow:0 0 36px rgba(255,111,42,.3); }
+        #robocamps .tag, #fall-workshops .tag { color:#0075C9; }
+
+        /* DiSTEM brand palette (Purple / Green) */
+        #distem h3 { color:#a1007D; }
+        #distem:hover { border-color:#a1007D; }
+        #distem .info-fallback .ic { color:#a1007D; text-shadow:0 0 36px rgba(161,0,125,.3); }
+        #distem .tag { color:#8cc63f; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
 
         .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
         .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
@@ -158,46 +145,48 @@
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
-        <div class="ld-n">DYR</div>
-        <div class="ld-sub">Loading Davis Youth Robotics</div>
-        <div class="ld-bw"><div class="ld-b"></div></div>
+        <div class="ld-ring-wrap">
+            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 116,60 60,116 4,60"></polygon><polygon class="ld-ring-fg" points="60,4 116,60 60,116 4,60" pathLength="345"></polygon></svg>
+            <span class="ld-pct" id="ldPct">0%</span>
+        </div>
+        <div class="ld-sub" id="ldSub">Loading Outreach</div>
     </div>
 
     <header>
         <div class="navbar">
-            <a href="index.html" class="brand">
-                <img src="pictures/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
+            <a href="../index.html" class="brand">
+                <img src="../pictures/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
                 <div class="brand-text-stack"><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div></div>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"><span></span></button>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../about/about.html" class="nav-link">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
-                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
-                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
-                        <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
-                        <a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
+                        <a href="../about/leadership.html">Leadership</a><a href="../about/subteams.html">Subteams</a>
+                        <a href="../about/recruitment.html">Recruitment</a><a href="../robots/our_robots.html">Our Robots</a>
+                        <a href="../robots/2026_robot.html">2026 Robot</a><a href="../seasons/history.html">History</a>
+                        <a href="../about/1857.html">1857 Citrus Sparks</a><a href="../about/first_leadership.html">FIRST Leadership</a>
+                        <a href="../about/faq.html">FAQ</a><a href="../about/contact.html">Contact Us</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="resources.html#team-handbook">Team Handbook</a>
-                        <a href="resources.html#build-blogs">Build Blogs / Newsletters</a><a href="resources.html#media">Media</a>
-                        <a href="resources.html#technical-training">Technical Training</a>
+                        <a href="../resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="../resources.html#team-handbook">Team Handbook</a>
+                        <a href="../resources.html#build-blogs">Build Blogs / Newsletters</a><a href="../resources.html#media">Media</a>
+                        <a href="../resources.html#technical-training">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="outreach.html" class="nav-link active">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="outreach.html#citrus-service">Citrus Service</a><a href="outreach.html#dyr">Davis Youth Robotics (DYR)</a>
-                        <a href="outreach.html#robocamps">RoboCamps</a><a href="outreach.html#fall-workshops">Fall Workshops</a>
-                        <a href="outreach.html#farmers-market">Farmers Market</a><a href="outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
-                        <a href="outreach.html#distem">DiSTEM</a><a href="outreach.html#wise">WiSE</a>
-                        <a href="outreach.html#robot-demos">Robot Demos</a>
+                        <a href="outreach.html#citrus-service" class="active">Citrus Service</a><a href="outreach.html#dyr" class="active">Davis Youth Robotics (DYR)</a>
+                        <a href="outreach.html#robocamps" class="active">RoboCamps</a><a href="outreach.html#fall-workshops" class="active">Fall Workshops</a>
+                        <a href="outreach.html#farmers-market" class="active">Farmers Market</a><a href="outreach.html#lgbtq-of-first" class="active">LGBTQ+ of FIRST</a>
+                        <a href="outreach.html#distem" class="active">DiSTEM</a><a href="outreach.html#wise" class="active">WiSE</a>
+                        <a href="outreach.html#robot-demos" class="active">Robot Demos</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -211,14 +200,14 @@
                         <a href="dyr.html#dyr-school-programs">DYR School Programs</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
-                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="../capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
+                <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
                 <li class="nav-item">
-                    <a href="support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
-                        <a href="support.html#parent-committee">Parent Committee</a><a href="support.html#reimbursement">Reimbursement</a>
-                        <a href="support.html#volunteer-opportunities">Volunteer Opportunities</a>
+                        <a href="../support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="../support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
+                        <a href="../support.html#parent-committee">Parent Committee</a><a href="../support.html#reimbursement">Reimbursement</a>
+                        <a href="../support.html#volunteer-opportunities">Volunteer Opportunities</a>
                     </div>
                 </li>
             </ul>
@@ -227,7 +216,7 @@
                     <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
-                <a href="recruitment.html" class="nav-cta">Apply to Team</a>
+                <a href="../about/recruitment.html" class="nav-cta">Apply to Team</a>
             </div>
         </div>
     </header>
@@ -236,70 +225,86 @@
 
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">Ages 8&ndash;14 &bull; Davis, California</div>
-                <h1 class="page-title">Davis Youth <em>Robotics</em></h1>
-                <p class="page-sub">Organized by the Citrus Circuits Robotics Team, Davis Youth Robotics (DYR) organizes various robotics programs aimed at students ages 8 to 14. In DYR, students collaborate on teams to build robots which compete in given challenges. Students learn about science, math, programming and engineering, as well as the values of sportsmanship and teamwork. See below for a list of DYR programs that we currently offer during the summer.</p>
+                <div class="page-eyebrow">Community &bull; STEM &bull; Service</div>
+                <h1 class="page-title">Outreach &amp; <em>Service</em></h1>
+                <p class="page-sub">Citrus Circuits exports its expertise by starting and mentoring DYR and FRC teams, hosting Diversity in STEM events, running workshops, and showing up at the Davis Farmers Market every week.</p>
             </div>
 
-            <div class="dyr-row">
-                <div class="dyr-media"><img src="pictures/dyr_frontpage1.jpg" class="dyr-img" alt="DYR students" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
-                <div class="dyr-text">
-                    <p>Organized by the Citrus Circuits Robotics Team, Davis Youth Robotics (DYR) organizes various robotics programs aimed at students ages 8 to 14. In DYR, students collaborate on teams to build robots which compete in given challenges. Students learn about science, math, programming and engineering, as well as the values of sportsmanship and teamwork. See below for a list of DYR programs that we currently offer during the summer.</p>
-                    <a href="#" class="dyr-cta">Sign Up: DYR Mailing List</a>
+            <div class="full-card" id="citrus-service">
+                <h3>Citrus Service</h3>
+                <p>Founded in 2017, Citrus Service is our outreach program dedicated to aiding other robotics teams in their competitive pursuits &mdash; from spare parts and machining favors to scouting help and strategy support at competitions.</p>
+            </div>
+
+            <div class="full-card" id="dyr">
+                <h3>Davis Youth Robotics (DYR)</h3>
+                <p>Davis Youth Robotics is the K-12 robotics pipeline that Citrus Circuits founded and continues to mentor, feeding students into FLL, FTC, and eventually FRC teams across Davis.</p>
+                <p><strong id="about-dyr-robocamps">About DYR RoboCamps</strong> &mdash; week-long summer camps introducing robotics fundamentals.<br>
+                <strong id="dyr-robocamps-registration">DYR RoboCamps Registration</strong> &mdash; sign-ups open each spring for the following summer.<br>
+                <strong id="dyr-robocamps-forms">DYR RoboCamps Forms</strong> &mdash; waivers, medical forms, and camper info sheets.<br>
+                <strong id="dyr-robocamps-resources">DYR RoboCamps Resources</strong> &mdash; curriculum and lesson plans for camp counselors.<br>
+                <strong id="dyr-league">DYR League</strong> &mdash; a youth competition league for younger robotics teams in the district.<br>
+                <strong id="dyr-school-programs">DYR School Programs</strong> &mdash; in-classroom robotics units taught at DJUSD elementary and middle schools.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card" id="robocamps">
+                    <div class="info-media"><img src="../pictures/robocamps_cover_pic.jpg" class="info-img" alt="RoboCamps" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">CAMP</span></div></div>
+                    <div class="info-body"><span class="tag">Grades K&ndash;8</span><h3>RoboCamps</h3><p>Introductory camps for grades 4&ndash;8, Seedling camps for K&ndash;1st, and Sprouts camps for grades 2&ndash;3.</p></div>
+                </div>
+                <div class="info-card" id="fall-workshops">
+                    <div class="info-media"><img src="../pictures/2025_fall_workshops.jpg" class="info-img" alt="Fall Workshops" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">FALL</span></div></div>
+                    <div class="info-body"><span class="tag">Annual</span><h3>Fall Workshops</h3><p>A collection of technical workshops led by students and mentors at our off-season event, Capital City Classic.</p></div>
+                </div>
+                <div class="info-card" id="farmers-market">
+                    <div class="info-media"><img src="../pictures/robocamp.jpg" class="info-img" alt="Farmers Market" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DFM</span></div></div>
+                    <div class="info-body"><span class="tag">Weekly</span><h3>Farmers Market</h3><p>We maintain a booth at the Davis Farmers Market, demoing robots and running hands-on activities for the community.</p></div>
+                </div>
+                <div class="info-card" id="lgbtq-of-first">
+                    <div class="info-media"><img src="../pictures/business_media_2026.jpg" class="info-img" alt="LGBTQ+ of FIRST" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">LGBT</span></div></div>
+                    <div class="info-body"><span class="tag">Affinity Group</span><h3>LGBTQ+ of FIRST</h3><p>A space connecting LGBTQ+ students and mentors across FIRST teams, fostering belonging in the robotics community.</p></div>
+                </div>
+                <div class="info-card" id="distem">
+                    <div class="info-media"><img src="../pictures/scouting_frontend_2026.jpg" class="info-img" alt="DiSTEM" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DI</span></div></div>
+                    <div class="info-body"><span class="tag">Diversity in STEM</span><h3>DiSTEM</h3><p>Events and panels promoting diversity, equity, and inclusion across STEM and robotics.</p></div>
+                </div>
+                <div class="info-card" id="wise">
+                    <div class="info-media"><img src="../pictures/scouting_backend_2026.jpg" class="info-img" alt="WiSE" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">WiSE</span></div></div>
+                    <div class="info-body"><span class="tag">Women in STEM &amp; Eng.</span><h3>WiSE</h3><p>Women in STEM and Engineering &mdash; mentorship and community-building for women on the team and across FIRST.</p></div>
+                </div>
+                <div class="info-card" id="robot-demos">
+                    <div class="info-media"><img src="../pictures/robot_2025_sublime.jpg" class="info-img" alt="Robot Demos" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DEMO</span></div></div>
+                    <div class="info-body"><span class="tag">Community Events</span><h3>Robot Demos</h3><p>Live robot demonstrations at schools, libraries, and community events across Davis.</p></div>
                 </div>
             </div>
+        </div>
 
-            <hr class="section-divider">
-
-            <div class="dyr-row" id="about-dyr-robocamps">
-                <div class="dyr-text">
-                    <h2 class="dyr-h">DYR RoboCamps</h2>
-                    <p>DYR RoboCamps consist of one-week programs where students design, build, and code a robot in small groups and compete in a mini competition at the end of the week. Along with beginner and advanced camps, we offer a programming skills camp to allow students with past experience to further develop both their technical and interpersonal skills. New this year are week-long half-day camps for younger students (entering Grades 1-4). Please sign up for the DYR Mailing List for more information.</p>
-                    <p>Learn more about the <a href="#" class="inline-link" id="dyr-robocamps-resources">DYR RoboCamps HERE</a>.</p>
-                    <p id="dyr-robocamps-registration">Registration for DYR RoboCamps opens ahead of each summer session. Sign up for the DYR Mailing List above to be notified as soon as registration opens.</p>
-                    <p id="dyr-robocamps-forms">Camper forms, waivers, and other required paperwork will be linked here ahead of each RoboCamps session.</p>
-                </div>
-                <div class="dyr-media"><img src="pictures/dyr_frontpage2.jpg" class="dyr-img" alt="DYR RoboCamps" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Want us at your event?</h3><p>We bring robots, demos, and mentors to schools and community events across Davis.</p></div>
+                <a href="../about/contact.html" class="lead-cta-btn">Get in Touch &rarr;</a>
             </div>
-
-            <hr class="section-divider">
-
-            <div class="dyr-row" id="dyr-league">
-                <div class="dyr-media"><img src="pictures/dyr_frontpage3.jpg" class="dyr-img" alt="DYR League" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
-                <div class="dyr-text">
-                    <h2 class="dyr-h">DYR League</h2>
-                    <p>DYR League is a program aimed at engaging 4th through 8th grade students in competitive robotics. Through the DYR League, students learn skills like teamwork, programming, communication, and engineering and math all in a fun, collaborative, and after-school environment. Each DYR team is run by parent coaches, with technical and skill-based support from our trained High School Student Mentors.</p>
-                    <p>Learn more about the <a href="#" class="inline-link">DYR League HERE</a> or access the <a href="#" class="inline-link">coaches handbook HERE</a>.</p>
-                </div>
-            </div>
-
-            <hr class="section-divider">
-
-            <div class="dyr-row" id="dyr-school-programs">
-                <div class="dyr-text">
-                    <h2 class="dyr-h">DYR School Programs</h2>
-                    <p>The school programs work school-year round, some after school and some as a class elective. The after school programs are run by teachers with help from Citrus Circuits student mentors; we have after school programs at DSIS, Patwin, North Davis, Montgomery, and Willett. Currently, there are three full classroom programs at Holmes, Harper, and Emerson Junior High. All school programs are invited to attend an end-of-the-year competition.</p>
-                    <p>Learn more about the <a href="#" class="inline-link">DYR School Programs HERE</a>.</p>
-                </div>
-                <div class="dyr-media"><img src="pictures/dyr_frontpage4.jpg" class="dyr-img" alt="DYR School Programs" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DYR</span></div></div>
-            </div>
-
-            <hr class="section-divider">
-
-            <p style="text-align:center;color:var(--text-muted);font-size:.95rem;padding-bottom:4rem;">For more information, contact Davis Youth Robotics at <a href="mailto:dyr@citruscircuits.org" class="inline-link">dyr@citruscircuits.org</a>.</p>
         </div>
 
     </main>
 
-    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
+    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="../index.html">&larr; Back to Home</a></div></div></footer>
 
     <script>
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
-        window.addEventListener('load',()=>{
-            setTimeout(()=>document.getElementById('loader').classList.add('out'),2200);
-        });
+        (function(){
+            const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
+            const msgs=['Loading Outreach','Gathering Programs','Connecting Community','Almost There'];
+            let pct=0,mi=0;
+            const tick=setInterval(()=>{
+                pct=Math.min(100,pct+Math.ceil(Math.random()*9));
+                pctEl.textContent=pct+'%';
+                if(pct>=100){clearInterval(tick);}
+            },110);
+            const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
+            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
+        })();
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact — Citrus Circuits 1678</title>
-    <link rel="icon" type="image/png" href="pictures/favicon.png?v=3">
-    <meta name="description" content="Contact FRC Team 1678, Citrus Circuits, located at Davis Senior High School in Davis, California.">
+    <title>FAQ — Citrus Circuits 1678</title>
+    <link rel="icon" type="image/png" href="../pictures/favicon.png?v=3">
+    <meta name="description" content="Frequently asked questions about FRC Team 1678, Citrus Circuits — what 1678 means, how to join, and how to support the team.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -58,37 +58,36 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .wrap { max-width:880px; margin:0 auto; padding:0 2rem; }
         .page-head { text-align:center; margin:4rem auto 3rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
         .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; }
         .page-title em { color:var(--lime); font-style:normal; }
 
-        .contact-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:2.5rem; align-items:start; padding-bottom:5rem; }
-        .card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; }
-        .card h2 { font-size:1.5rem; font-weight:800; color:var(--lime); margin-bottom:.5rem; }
-        .card .sub { color:var(--text-muted); margin-bottom:1.75rem; line-height:1.6; }
-        .field { margin-bottom:1.1rem; }
-        .field label { display:block; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:.5rem; }
-        .field input, .field textarea { width:100%; background:var(--bg-darkest); border:1px solid var(--border); border-radius:8px; padding:.8rem 1rem; color:var(--text-main); font-size:.95rem; transition:border-color .2s ease; }
-        .field input:focus, .field textarea:focus { outline:none; border-color:var(--lime); }
-        .field textarea { resize:vertical; min-height:120px; }
-        .row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-        .send-btn { width:100%; background:var(--lime); color:#000; border:none; border-radius:8px; padding:1rem; font-size:1rem; font-weight:700; cursor:pointer; margin-top:.5rem; transition:transform .2s ease,opacity .2s ease; }
-        .send-btn:hover { transform:translateY(-2px); opacity:.95; }
+        .faq-list { padding-bottom:4rem; }
+        .faq-item { border:1px solid var(--border); border-radius:12px; margin-bottom:1rem; background:var(--bg-card); overflow:hidden; transition:border-color .2s ease; }
+        .faq-item.open { border-color:var(--lime); }
+        .faq-q { width:100%; text-align:left; background:none; border:none; color:var(--text-main); font-size:1.08rem; font-weight:700; padding:1.4rem 1.6rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .faq-q .icon { flex-shrink:0; width:22px; height:22px; position:relative; transition:transform .25s ease; }
+        .faq-q .icon::before, .faq-q .icon::after { content:''; position:absolute; background:var(--lime); border-radius:2px; }
+        .faq-q .icon::before { top:10px; left:2px; right:2px; height:2px; }
+        .faq-q .icon::after { left:10px; top:2px; bottom:2px; width:2px; transition:transform .25s ease; }
+        .faq-item.open .faq-q .icon::after { transform:scaleY(0); }
+        .faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+        .faq-a-inner { padding:0 1.6rem 1.5rem; color:var(--text-muted); line-height:1.75; font-size:1rem; }
+        .faq-a-inner a { color:var(--lime); text-decoration:none; border-bottom:1px dashed var(--lime); }
+        .faq-a-inner a:hover { border-bottom-style:solid; }
 
-        .loc-meta { margin-bottom:1.5rem; }
-        .loc-meta .label { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); margin-bottom:.4rem; }
-        .loc-meta p { color:var(--text-muted); line-height:1.65; }
-        .loc-meta a { color:var(--lime); text-decoration:none; border-bottom:1px dashed var(--lime); }
-        .loc-meta a:hover { border-bottom-style:solid; }
-        .map-embed { width:100%; aspect-ratio:4/3; border:0; border-radius:12px; margin-top:.5rem; filter:grayscale(.2); }
+        .faq-foot { text-align:center; background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:5rem; }
+        .faq-foot h3 { font-size:1.4rem; font-weight:800; margin-bottom:.5rem; }
+        .faq-foot p { color:var(--text-muted); margin-bottom:1.5rem; }
+        .faq-foot a { background:var(--lime); color:#000; text-decoration:none; padding:.85rem 1.6rem; border-radius:8px; font-weight:700; }
 
         footer { background-color:var(--bg-dark); border-top:1px solid var(--border); padding:4rem 2rem 3rem; transition:background-color .3s ease; }
-        .footer-socket { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
+        .footer-socket { max-width:880px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:1rem; }
         .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .contact-grid{grid-template-columns:1fr;} }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -119,65 +118,65 @@
             <svg viewBox="0 0 120 120"><circle class="ld-ring-bg" cx="60" cy="60" r="55"></circle><circle class="ld-ring-fg" cx="60" cy="60" r="55"></circle></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Contact Info</div>
+        <div class="ld-sub" id="ldSub">Loading FAQs</div>
     </div>
 
     <header>
         <div class="navbar">
-            <a href="index.html" class="brand">
-                <img src="pictures/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
+            <a href="../index.html" class="brand">
+                <img src="../pictures/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
                 <div class="brand-text-stack"><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div></div>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"><span></span></button>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link active">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
                         <a href="leadership.html">Leadership</a><a href="subteams.html">Subteams</a>
-                        <a href="recruitment.html">Recruitment</a><a href="our_robots.html">Our Robots</a>
-                        <a href="2026_robot.html">2026 Robot</a><a href="history.html">History</a>
+                        <a href="recruitment.html">Recruitment</a><a href="../robots/our_robots.html">Our Robots</a>
+                        <a href="../robots/2026_robot.html">2026 Robot</a><a href="../seasons/history.html">History</a>
                         <a href="1857.html">1857 Citrus Sparks</a><a href="first_leadership.html">FIRST Leadership</a>
-                        <a href="faq.html">FAQ</a><a href="contact.html" class="active">Contact US</a>
+                        <a href="faq.html" class="active">FAQ</a><a href="contact.html">Contact Us</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="resources.html#team-handbook">Team Handbook</a>
-                        <a href="resources.html#build-blogs">Build Blogs / Newsletters</a><a href="resources.html#media">Media</a>
-                        <a href="resources.html#technical-training">Technical Training</a>
+                        <a href="../resources.html#djusd-cte-courses">DJUSD CTE Courses</a><a href="../resources.html#team-handbook">Team Handbook</a>
+                        <a href="../resources.html#build-blogs">Build Blogs / Newsletters</a><a href="../resources.html#media">Media</a>
+                        <a href="../resources.html#technical-training">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../outreach/outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="outreach.html#citrus-service">Citrus Service</a><a href="outreach.html#dyr">Davis Youth Robotics (DYR)</a>
-                        <a href="outreach.html#robocamps">RoboCamps</a><a href="outreach.html#fall-workshops">Fall Workshops</a>
-                        <a href="outreach.html#farmers-market">Farmers Market</a><a href="outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
-                        <a href="outreach.html#distem">DiSTEM</a><a href="outreach.html#wise">WiSE</a>
-                        <a href="outreach.html#robot-demos">Robot Demos</a>
+                        <a href="../outreach/outreach.html#citrus-service">Citrus Service</a><a href="../outreach/outreach.html#dyr">Davis Youth Robotics (DYR)</a>
+                        <a href="../outreach/outreach.html#robocamps">RoboCamps</a><a href="../outreach/outreach.html#fall-workshops">Fall Workshops</a>
+                        <a href="../outreach/outreach.html#farmers-market">Farmers Market</a><a href="../outreach/outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
+                        <a href="../outreach/outreach.html#distem">DiSTEM</a><a href="../outreach/outreach.html#wise">WiSE</a>
+                        <a href="../outreach/outreach.html#robot-demos">Robot Demos</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="dyr.html" class="nav-link">DYR <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../outreach/dyr.html" class="nav-link">DYR <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel" style="grid-template-columns:1fr;width:260px;">
-                        <a href="dyr.html#about-dyr-robocamps">About DYR RoboCamps</a>
-                        <a href="dyr.html#dyr-robocamps-registration">DYR RoboCamps Registration</a>
-                        <a href="dyr.html#dyr-robocamps-forms">DYR RoboCamps Forms</a>
-                        <a href="dyr.html#dyr-robocamps-resources">DYR RoboCamps Resources</a>
-                        <a href="dyr.html#dyr-league">DYR League</a>
-                        <a href="dyr.html#dyr-school-programs">DYR School Programs</a>
+                        <a href="../outreach/dyr.html#about-dyr-robocamps">About DYR RoboCamps</a>
+                        <a href="../outreach/dyr.html#dyr-robocamps-registration">DYR RoboCamps Registration</a>
+                        <a href="../outreach/dyr.html#dyr-robocamps-forms">DYR RoboCamps Forms</a>
+                        <a href="../outreach/dyr.html#dyr-robocamps-resources">DYR RoboCamps Resources</a>
+                        <a href="../outreach/dyr.html#dyr-league">DYR League</a>
+                        <a href="../outreach/dyr.html#dyr-school-programs">DYR School Programs</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
-                <li class="nav-item"><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="../capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
+                <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
                 <li class="nav-item">
-                    <a href="support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
-                        <a href="support.html#parent-committee">Parent Committee</a><a href="support.html#reimbursement">Reimbursement</a>
-                        <a href="support.html#volunteer-opportunities">Volunteer Opportunities</a>
+                        <a href="../support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="../support.html#nik-murray-memorial-sponsorship">Nik Murray Memorial Sponsorship</a>
+                        <a href="../support.html#parent-committee">Parent Committee</a><a href="../support.html#reimbursement">Reimbursement</a>
+                        <a href="../support.html#volunteer-opportunities">Volunteer Opportunities</a>
                     </div>
                 </li>
             </ul>
@@ -194,51 +193,62 @@
     <main>
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">We're here to help</div>
-                <h1 class="page-title">Contact <em>Us</em></h1>
+                <div class="page-eyebrow">Common Questions</div>
+                <h1 class="page-title"><em>FAQ</em></h1>
             </div>
 
-            <div class="contact-grid">
-                <div class="card">
-                    <h2>Send a message</h2>
-                    <p class="sub">Questions, comments, concerns? Fill this out and we'll email you back as soon as we can.</p>
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="field"><label>First name *</label><input type="text" name="first" required></div>
-                            <div class="field"><label>Last name *</label><input type="text" name="last" required></div>
-                        </div>
-                        <div class="field"><label>Email *</label><input type="email" name="email" required></div>
-                        <div class="field"><label>Subject</label><input type="text" name="subject"></div>
-                        <div class="field"><label>Message</label><textarea name="message" placeholder="Write a message..."></textarea></div>
-                        <button type="submit" class="send-btn">Send Message</button>
-                    </form>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q">What does "1678" mean? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">FRC assigns every team a number based on the order it joined the competition — we were the 1,678th team to sign up. FIRST uses that number to identify us at events and on leaderboards.</div></div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-q">What are FIRST and FRC? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">FIRST (For Inspiration and Recognition of Science and Technology) is a non-profit founded by Dean Kamen to get students of all ages excited about robotics and technology. It runs several programs; FRC — the FIRST Robotics Competition — is the flagship high-school program we compete in. You can read more at <a href="https://www.firstinspires.org/" target="_blank" rel="noopener">firstinspires.org</a>.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Why do you do all this? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">The team exists to get young people excited about science, technology, engineering, and math. Competing gives us hands-on experience in everything from mechanical engineering to programming and pushes us to solve problems creatively under real constraints of time and materials. FRC students are also eligible for millions of dollars in college scholarships. Mostly, though — it's fun.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">I'd like to join! What do I do? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Membership is by application and interview, open to local students in grades 9–12. Members are expected to attend at least 80% of meetings — Wednesdays and Thursdays 6:30–9 p.m. in Room M-1 at Davis Senior High School, plus weekends 9 a.m.–5 p.m. from January through April. Applications open in spring. See our <a href="recruitment.html">Recruitment</a> page or email <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a> for the coming season.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How do the robotics classes relate to the team? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">The Advanced Robotics Engineering classes are "8th period" courses at Davis Senior High School. They're a way for students to earn high-school credit for the after-school and weekend time they put into the competition.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">What kinds of opportunities are on the team? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Plenty. Students and mentors will teach you programming, mechanical, and electrical skills if that's your interest. If you're drawn to public relations, finance, photography, or filmmaking, our Business and Media subteam offers training and projects too.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How can I support the team? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">We're always looking for new partnerships and rely on our sponsors to extend our outreach. Donations can be made by check to the Davis Robotics Foundation, P.O. Box 577, Davis, CA 95617, or through the Foundation's PayPal. See our <a href="../sponsors.html">Sponsors</a> page for benefit tiers. If you'd like to mentor in engineering, mechanics, programming, or media, email <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a>.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Is it like BattleBots? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">No — FIRST games don't involve attacking other robots. It's closer to robotic soccer: two alliances of three robots each compete on an indoor field, and there are penalties for deliberately damaging another robot. Alliances even shift during an event, so today's opponent may be tomorrow's partner. The goal is creative problem-solving and teamwork, not building the deadliest machine.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">What are "gracious professionalism" and "coopertition"? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">They're core FIRST values. Gracious professionalism means behaving maturely and respectfully toward other teams and officials — and helping them out, whether by lending parts or hands, so everyone can compete. Coopertition is the idea of competing cooperatively: teams work alongside others in alliances even while competing. Both are woven so deeply into FIRST culture that there are formal awards for teams that exemplify them.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">I have another question — where do I ask? <span class="icon"></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Send us a message through the <a href="contact.html">Contact</a> page and we'll get back to you as soon as we can. This isn't a full-time job for any of us, so it may take a couple of days — especially if your question needs a team discussion. We appreciate every question, so don't hesitate to reach out.</div></div>
+                </div>
+            </div>
 
-                <div class="card">
-                    <h2>Find us</h2>
-                    <div class="loc-meta">
-                        <div class="label">Address</div>
-                        <p>Davis Senior High School<br>315 West 14th Street, Davis, CA 95616</p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Where on campus</div>
-                        <p>General meetings are in Room M-1; our shop and practice field are in the Steve Harvey Robotics Engineering Building, parallel to and behind M-1, near the library and the Oak Avenue staff lot. Parking is in the stadium lot on Oak Avenue and along the streets.</p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Email</div>
-                        <p><a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
-                    </div>
-                    <div class="loc-meta">
-                        <div class="label">Map</div>
-                        <p><a href="https://maps.app.goo.gl/7kJiuddSPLd3R4zk9" target="_blank" rel="noopener">Open in Google Maps &rarr;</a></p>
-                    </div>
-                    <iframe class="map-embed" loading="lazy" title="Davis Senior High School map" src="https://maps.google.com/maps?q=Davis%20Senior%20High%20School%2C%20315%20West%2014th%20Street%2C%20Davis%2C%20CA%2095616&output=embed"></iframe>
-                </div>
+            <div class="faq-foot">
+                <h3>Still curious?</h3>
+                <p>We're happy to answer anything we missed.</p>
+                <a href="contact.html">Contact the Team &rarr;</a>
             </div>
         </div>
     </main>
 
-    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="index.html">&larr; Back to Home</a></div></div></footer>
+    <footer><div class="footer-socket"><div>&copy; 2026 Citrus Circuits 1678. All rights reserved.</div><div><a href="../index.html">&larr; Back to Home</a></div></div></footer>
 
     <script>
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
@@ -246,7 +256,7 @@
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
         (function(){
             const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading Contact Info','Locating Davis HS','Preparing Map','Almost There'];
+            const msgs=['Loading FAQs','Gathering Answers','Sorting Questions','Almost There'];
             let pct=0,mi=0;
             const tick=setInterval(()=>{
                 pct=Math.min(100,pct+Math.ceil(Math.random()*9));
@@ -256,19 +266,19 @@
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
             window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
         })();
-        // contact form -> opens user's email client (static site has no backend)
-        document.getElementById('contactForm').addEventListener('submit',e=>{
-            e.preventDefault();
-            const f=e.target;
-            const subj=encodeURIComponent(f.subject.value||('Website message from '+f.first.value+' '+f.last.value));
-            const body=encodeURIComponent('From: '+f.first.value+' '+f.last.value+' ('+f.email.value+')\n\n'+f.message.value);
-            window.location.href='mailto:admin@citruscircuits.org?subject='+subj+'&body='+body;
+        // accordion
+        document.querySelectorAll('.faq-q').forEach(btn=>{
+            btn.addEventListener('click',()=>{
+                const item=btn.parentElement, ans=btn.nextElementSibling, isOpen=item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;});
+                if(!isOpen){ item.classList.add('open'); ans.style.maxHeight=ans.scrollHeight+'px'; }
+            });
         });
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,input,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 
