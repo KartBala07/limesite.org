@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Compass Alliance — Citrus Circuits 1678</title>
+    <title>Robot Demos — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
-    <meta name="description" content="Citrus Circuits is a founding member of The Compass Alliance, an international organization providing resources and pathways to rookie and inexperienced FRC teams.">
+    <meta name="description" content="Citrus Circuits Robot Demos — public demonstrations of our robot at local schools, community events, and sponsor gatherings. Request a demo for your event.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -60,30 +60,36 @@
         main { padding-top:95px; }
 
         /* page layout */
-        .ca-wrap { max-width:1000px; margin:0 auto; padding:3rem 2rem 6rem; }
-        .ca-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; }
-        .ca-eyebrow::before, .ca-eyebrow::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
-        .ca-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; margin-bottom:2.5rem; }
-        .ca-title em { color:var(--lime); font-style:normal; }
+        .rd-wrap { max-width:1000px; margin:0 auto; padding:3rem 2rem 6rem; }
+        .rd-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; }
+        .rd-eyebrow::before, .rd-eyebrow::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
+        .rd-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; margin-bottom:2.5rem; }
+        .rd-title em { color:var(--lime); font-style:normal; }
 
         /* two-column: text + image */
-        .ca-content { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
-        .ca-text p { color:var(--text-muted); font-size:1.05rem; line-height:1.85; margin-bottom:1.4rem; }
-        .ca-text p:last-child { margin-bottom:0; }
-        .ca-cta { display:inline-flex; align-items:center; gap:.4rem; margin-top:.5rem; color:var(--lime); font-weight:600; font-size:.95rem; text-decoration:none; transition:opacity .2s; }
-        .ca-cta:hover { opacity:.75; }
+        .rd-content { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; margin-bottom:2.5rem; }
+        .rd-text p { color:var(--text-muted); font-size:1.05rem; line-height:1.85; margin-bottom:1.4rem; }
+        .rd-text p:last-child { margin-bottom:0; }
+
+        /* contact callout */
+        .rd-contact { margin-top:2rem; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1.5rem 2rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .rd-contact svg { width:24px; height:24px; stroke:var(--lime); fill:none; stroke-width:2; flex-shrink:0; }
+        .rd-contact-text { flex:1; }
+        .rd-contact-text p { color:var(--text-muted); font-size:.95rem; line-height:1.6; }
+        .rd-contact-text a { color:var(--lime); text-decoration:none; font-weight:600; }
+        .rd-contact-text a:hover { text-decoration:underline; }
 
         /* photo */
-        .ca-photo { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--bg-card); }
-        .ca-photo img { width:100%; height:auto; display:block; }
+        .rd-photo { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--bg-card); }
+        .rd-photo img { width:100%; height:auto; display:block; }
 
         /* back link */
-        .ca-back { display:inline-flex; align-items:center; gap:.4rem; color:var(--text-muted); text-decoration:none; font-size:.85rem; font-weight:600; margin-bottom:2rem; transition:color .2s; }
-        .ca-back:hover { color:var(--lime); }
+        .rd-back { display:inline-flex; align-items:center; gap:.4rem; color:var(--text-muted); text-decoration:none; font-size:.85rem; font-weight:600; margin-top:2rem; transition:color .2s; }
+        .rd-back:hover { color:var(--lime); }
 
         .footer-socket a { color:var(--lime); text-decoration:none; }
         @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
-        @media (max-width:700px) { .ca-content { grid-template-columns:1fr; } }
+        @media (max-width:700px) { .rd-content { grid-template-columns:1fr; } }
 
         .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -114,7 +120,7 @@
             <svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Compass Alliance</div>
+        <div class="ld-sub" id="ldSub">Loading Robot Demos</div>
     </div>
 
     <header>
@@ -140,8 +146,7 @@
                     <a href="../resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
                         <a href="../djusd_cte.html">DJUSD CTE Courses</a><a href="../team_handbook.html">Team Handbook</a>
-                        <a href="../media.html">Media</a>
-                        <a href="../technical_training.html">Technical Training</a>
+                        <a href="../media.html">Media</a><a href="../technical_training.html">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -150,7 +155,7 @@
                         <a href="citrus_service.html">Citrus Service</a><a href="farmers_market.html">Farmers Market</a>
                         <a href="fall_workshops.html">Fall Workshops</a><a href="outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
                         <a href="distem.html">DiSTEM</a><a href="outreach.html#wise">WiSE</a>
-                        <a href="robot_demos.html">Robot Demos</a>
+                        <a href="robot_demos.html" class="active">Robot Demos</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -186,24 +191,26 @@
     </header>
 
     <main>
-      <div class="ca-wrap">
-        <div class="ca-eyebrow">Outreach &bull; Leadership Team</div>
-        <h1 class="ca-title">The Compass <em>Alliance</em></h1>
+      <div class="rd-wrap">
+        <div class="rd-eyebrow">Outreach &bull; Community Events</div>
+        <h1 class="rd-title">Robot <em>Demos</em></h1>
 
-        <div class="ca-content">
-          <div class="ca-text">
-            <p>The Compass Alliance (TCA) is a collection of teams working together to provide resources to new and inexperienced FRC teams. We are one of the founding members of The Compass Alliance, and continue to work as a leadership team.</p>
-            <p>TCA is an international organization designed to support rookie teams and give them resources to become successful and impactful in their communities. On the website, organized "pathways" lead rookie teams to all the essential information and techniques they need for starting and running an FRC team. TCA is now even translating the website pages into Mandarin, Hebrew, and Spanish for prospective teams around the world. As a Leadership Team, we aid in the writing, editing, and organization of the resources offered on TCA's website.</p>
-            <p>The Compass Alliance has been one of the most rewarding outreach projects done by our team in the last two years and we look forward to see where it will go.</p>
-            <a href="http://www.thecompassalliance.org/" target="_blank" rel="noopener noreferrer" class="ca-cta">
-              Learn more about The Compass Alliance &#8594;
-            </a>
+        <div class="rd-content">
+          <div class="rd-text">
+            <p>Robot Demos are events where Citrus Circuits members give a public demonstration of our robot, along with a presentation about our team and what we do. Visitors have the opportunity to interact with our robot and ask questions about Citrus Circuits.</p>
+            <p>During a Robot Demo, team members talk about our other outreach programs, such as DYR (Davis Youth Robotics) and WISE (Women in STEM Empowerment). Past Robot Demos have been held at WISE events, Farmer's Markets, the University Retirement Center, local schools and sponsor events, but we are open to any events in the community.</p>
+            <div class="rd-contact">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div class="rd-contact-text">
+                <p>Interested in having a Robot Demo at your event?<br>Contact us at <a href="mailto:demos@citruscircuits.org">demos@citruscircuits.org</a></p>
+              </div>
+            </div>
           </div>
-          <div class="ca-photo">
-            <img src="../pictures/outreach/compass-alliance.jpg" alt="The Compass Alliance" onerror="this.closest('.ca-photo').style.display='none'">
+          <div class="rd-photo">
+            <img src="../pictures/outreach/Robot Demos.jpg" alt="Citrus Circuits Robot Demo" onerror="this.closest('.rd-photo').style.display='none'">
           </div>
         </div>
-      <a href="outreach.html" class="ca-back">&#8592; All Outreach</a>
+        <a href="outreach.html" class="rd-back">&#8592; All Outreach</a>
       </div>
     </main>
 
@@ -306,10 +313,11 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   {u:'about/recruitment.html',t:'Recruitment',k:'recruitment join apply application become a member new members'},
   {u:'about/faq.html',t:'FAQ',k:'faq questions answers frequently asked help'},
   {u:'about/contact.html',t:'Contact Us',k:'contact email address location map davis high school'},
-  {u:'outreach/outreach.html',t:'Outreach',k:'outreach community service robocamps workshops farmers market distem'},
+  {u:'outreach/outreach.html',t:'Outreach',k:'outreach community service workshops farmers market distem demos'},
   {u:'outreach/citrus_service.html',t:'Citrus Service',k:'citrus service pit competition help assist teams champs 2017'},
   {u:'outreach/farmers_market.html',t:'Farmers Market',k:'farmers market davis saturday robot demo stem community booth'},
-  {u:'outreach/compass_alliance.html',t:'The Compass Alliance',k:'compass alliance tca rookie teams resources pathways international leadership founding member'},
+  {u:'outreach/fall_workshops.html',t:'Fall Workshops',k:'fall workshops 2015 2016 2017 2018 2019 2020 2022 2023 2024 2025 youtube playlist training frc'},
+  {u:'outreach/robot_demos.html',t:'Robot Demos',k:'robot demos community events school sponsor wise retirement center presentation'},
   {u:'outreach/dyr.html',t:'Davis Youth Robotics',k:'dyr davis youth robotics robocamps league school programs kids'},
   {u:'capital_city_classic.html',t:'Capital City Classic',k:'capital city classic ccc offseason competition event tournament'},
   {u:'sponsors.html',t:'Sponsors',k:'sponsors partners donors funding support companies'},
