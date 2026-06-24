@@ -104,23 +104,7 @@
         .link-list a:hover { color:var(--lime); }
         .link-list a::before { content:'→'; color:var(--lime); }
 
-        .cte-course { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:2rem; scroll-margin-top:120px; }
-        .cte-course-head { padding:2rem 2.5rem 1.5rem; }
-        .cte-course-head h3 { color:var(--lime); font-size:1.5rem; font-weight:800; margin-bottom:.5rem; }
-        .cte-meta { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--text-muted); letter-spacing:.08em; text-transform:uppercase; margin-bottom:.5rem; }
-        .cte-course-body { display:grid; grid-template-columns:1fr 360px; gap:2rem; align-items:start; padding:0 2.5rem 2rem; }
-        .cte-course-body.reverse { direction:rtl; }
-        .cte-course-body.reverse > * { direction:ltr; }
-        .cte-course-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
-        .cte-course-body p:last-child { margin-bottom:0; }
-        .cte-course-body a.inline-link { color:var(--lime); text-decoration:underline; }
-        .cte-video { border-radius:12px; overflow:hidden; aspect-ratio:16/9; background:var(--bg-darkest); }
-        .cte-video iframe { width:100%; height:100%; display:block; border:none; }
-        .cte-photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-        .cte-photo-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:10px; border:1px solid var(--border); }
-        @media(max-width:860px){ .cte-course-body,.cte-course-body.reverse{grid-template-columns:1fr;direction:ltr;} }
-
-        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+.lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
         .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
         .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
         .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
@@ -265,61 +249,6 @@
                 </div>
                 <div class="resources-photo">
                     <img src="pictures/site/resources page.jpg" alt="Team members at an event">
-                </div>
-            </div>
-        </div>
-
-        <div class="wrap">
-            <div class="section-header" id="djusd-cte-courses"><h2>DJUSD CTE Courses</h2></div>
-            <p style="color:var(--text-muted);font-size:1rem;line-height:1.75;margin-bottom:2.5rem;">All of the robotics engineering courses are available to 10th&ndash;12th grade students at Davis Senior High School or DaVinci High School. The course descriptions for the robotics classes are listed below. For more information contact Ms. Singh at <a href="mailto:ksingh@djusd.net" style="color:var(--lime);">ksingh@djusd.net</a>.</p>
-
-            <div class="cte-course" id="intro-robotics">
-                <div class="cte-course-head">
-                    <h3>Introduction to Robotics Engineering</h3>
-                    <div class="cte-meta">1 year &bull; 10 credits &bull; CTE &nbsp;|&nbsp; Prerequisite: None</div>
-                </div>
-                <div class="cte-course-body">
-                    <div>
-                        <p>This is an introductory course designed to give students an overview of many aspects of engineering as applied to robotics applications. The emphasis of this course is to provide students with a fun, hands-on experience where they will work in small teams to design, build and program their own robot. Teams will be given several design challenges and, ultimately, participate in a competition to test the worthiness of their design.</p>
-                        <p>During the design and fabrication process, students will test and evaluate their robot, all while learning important life skills and engineering concepts. Topics will include workspace safety, teamwork and organization, engineering process, mechanical design/CAD, mechanical fabrication, electronics, programming, pneumatics, media, and competition strategy.</p>
-                    </div>
-                    <div class="cte-video">
-                        <iframe src="https://www.youtube.com/embed/hW0KrA2FLvw" title="Introduction to Robotics Engineering" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cte-course" id="intermediate-robotics">
-                <div class="cte-course-head">
-                    <h3>Intermediate Robotics Engineering</h3>
-                    <div class="cte-meta">1 year &bull; 10 credits &bull; CTE &nbsp;|&nbsp; Prerequisite: Introduction to Robotics Engineering</div>
-                </div>
-                <div class="cte-course-body reverse">
-                    <div>
-                        <p>This course is designed for students who have already completed the &ldquo;Introduction to Robotics Engineering&rdquo; course. The course will follow the same format as the introductory course but topics will be taken to a higher level and more emphasis will be put on Mechanical Design. The main focus of the course will be designing and building a robot to compete in the most recent <a href="https://www.vexrobotics.com/competition" target="_blank" rel="noopener" class="inline-link">VEX Robotics Competition</a>.</p>
-                        <p>Students will learn to use Solidworks CAD design software and then use 3-D printers to manufacture components based on their designs. Additional topics covered will include workspace safety, teamwork and organization, engineering process, electronics, programming, pneumatics, media, and competition strategy.</p>
-                    </div>
-                    <div class="cte-video">
-                        <iframe src="https://www.youtube.com/embed/xAheaRQVRnY" title="Intermediate Robotics Engineering" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cte-course" id="advanced-robotics">
-                <div class="cte-course-head">
-                    <h3>Advanced Robotics Engineering / Advanced Robotics Engineering Honors</h3>
-                    <div class="cte-meta">1 year &bull; 10 credits &bull; CTE &nbsp;|&nbsp; Prerequisite: Introduction to Robotics Engineering OR one year of experience on a FIRST robotics team</div>
-                </div>
-                <div class="cte-course-body">
-                    <div>
-                        <p>This course is designed to allow students to pursue their interests in a variety of areas related to robotics while participating in a nationally recognized robotics program, FIRST Robotics. Students taking this class will be required to participate on the Citrus Circuits robotics team. Students will choose their area of interest from the following subteams: mechanical design/CAD, mechanical fabrication/assembly, electronics, programming, or business/media. More information about each subteam is available <a href="about/subteams.html" class="inline-link">here</a>.</p>
-                        <p>Students in a leadership position on the team will be eligible to take the honors section for the course. Although there will be some academic topics such as mechanics, electronics and programming, the course is mostly project-based and will require a significant amount of work outside of the regular class period. The main focus of the course will be the design, fabrication, assembly, and programming of a competition robot.</p>
-                        <p>However, students interested in the business/media strand will focus on support of the team through business development (fundraising, sponsorship, financial management, etc.) and team image (press releases, social media, website development, team apparel, etc.) More information about the FIRST Robotics program can be found at <a href="https://www.usfirst.org/roboticsprograms/frc" target="_blank" rel="noopener" class="inline-link">www.usfirst.org/roboticsprograms/frc</a>.</p>
-                    </div>
-                    <div class="cte-photo-grid">
-                        <img src="pictures/resources/DJUSD CTE courses1.jpg" alt="Advanced Robotics Engineering class">
-                        <img src="pictures/resources/DJUSD CTE courses2.jpg" alt="Advanced Robotics Engineering class">
-                    </div>
                 </div>
             </div>
         </div>
