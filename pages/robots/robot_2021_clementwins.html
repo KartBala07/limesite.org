@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clemen-twins (2021) — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
-    <meta name="description" content="Clemen-twins — the Citrus Circuits 1678 robot for the 2021 FRC AT HOME season.">
+    <meta name="description" content="Clemen-twins — the Citrus Circuits 1678 robots for the 2021 INFINITE RECHARGE AT HOME season.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -66,24 +66,82 @@
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .robot-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:5rem; }
-        .robot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; }
-        .robot-card:hover { transform:translateY(-5px); border-color:var(--lime); }
-        .robot-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .robot-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
-        .robot-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-media img.hidden { display:none; }
-        .robot-fallback .yr { position:relative; font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-year-tag { position:absolute; top:12px; right:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.15em; color:var(--lime); background:rgba(0,0,0,.45); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; }
-        .robot-body { padding:1.5rem; flex-grow:1; }
-        .robot-body h3 { font-size:1.4rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; }
-        .robot-body .game { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin:.35rem 0 .9rem; }
-        .robot-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
+        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
+        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+
+        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
+        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .full-card p:last-child { margin-bottom:0; }
+        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
+
+        .detail-row { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:0 0 3rem; }
+        .detail-row.reverse .detail-media { order:2; }
+        .detail-media { position:relative; aspect-ratio:4/3; background:linear-gradient(150deg,var(--bg-card) 0%,var(--bg-darkest) 100%); border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); transition:background .3s ease; }
+        .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
+        .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
+        .detail-media img.hidden { display:none; }
+        .detail-media.slideshow img { position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+        .detail-media.slideshow img.active { opacity:1; }
+        .detail-fallback { display:none; flex-direction:column; align-items:center; justify-content:center; position:absolute; inset:0; z-index:2; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
+        .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
+        .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
+        .detail-body p:last-child { margin-bottom:0; }
+
+        .achv-list { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+        .achv-item { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .achv-item .ev { font-weight:800; font-size:1.05rem; }
+        .achv-item .awards { display:flex; gap:.5rem; flex-wrap:wrap; }
+        .achv-badge { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--lime); border:1px solid var(--lime); border-radius:999px; padding:.35rem .85rem; white-space:nowrap; text-decoration:none; transition:background .2s ease,color .2s ease; }
+        a.achv-badge:hover { background:var(--lime); color:#000; }
+
+        .res-list { display:flex; flex-direction:column; gap:.75rem; }
+        .res-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .res-item .rn { font-weight:700; }
+
+        .proto-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:2rem; }
+        .proto-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
+        .proto-card-img { position:relative; aspect-ratio:4/3; background:var(--bg-darkest); overflow:hidden; }
+        .proto-card-img img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+        .proto-card-img img.hidden { display:none; }
+        .proto-card-fallback { position:absolute; inset:0; display:none; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--lime); letter-spacing:.04em; }
+        .proto-card-body { padding:1.25rem 1.5rem 1.5rem; flex:1; display:flex; flex-direction:column; gap:.85rem; }
+        .proto-card-body h4 { font-size:1.1rem; font-weight:800; }
+        .proto-card-body .proto-tag { font-family:'JetBrains Mono',monospace; font-size:.65rem; color:var(--text-muted); letter-spacing:.1em; text-transform:uppercase; }
+        .proto-card-links { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:auto; }
+
+        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 1rem; }
+        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
+        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
+        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
+        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        .robot-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; }
+        .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
+        .robot-nav-link:hover { color:var(--lime); }
+        .robot-back-link { display:inline-block; margin:0 0 1rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
 
 .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .robot-grid{grid-template-columns:1fr 1fr;} }
-        @media (max-width:620px) { .robot-grid{grid-template-columns:1fr;} }
-    
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .detail-row{grid-template-columns:1fr;gap:1.5rem;} .detail-row.reverse .detail-media{order:0;} .proto-grid{grid-template-columns:repeat(2,1fr);} }
+        @media (max-width:620px) {
+            .wrap{padding:0 1.25rem;}
+            .page-head{margin:2.5rem auto 1rem;}
+            .detail-row{grid-template-columns:1fr;gap:1.25rem;margin:0 0 2.25rem;}
+            .detail-media{aspect-ratio:4/3;min-height:240px;border-radius:14px;}
+            .achv-item{flex-direction:column;align-items:flex-start;gap:.75rem;}
+            .res-item{flex-direction:column;align-items:flex-start;gap:.6rem;}
+            .full-card,.detail-row{margin-bottom:1.5rem;}
+            .full-card{padding:1.5rem;}
+            .full-card h3{font-size:1.35rem;}
+            .detail-body h3{font-size:1.35rem;}
+            .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
+            .proto-grid{grid-template-columns:1fr;}
+        }
+
+
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
 .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .25s ease}
@@ -104,20 +162,7 @@
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
   .nav-cta{display:none}
 }
-
-        .robot-detail { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; padding-bottom:3rem; }
-        .robot-detail-media { width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; }
-        .robot-detail-media img { width:100%; height:100%; object-fit:cover; }
-        .robot-detail-media img.hidden { display:none; }
-        .robot-detail-fallback .yr { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); }
-        .robot-detail-body .game { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--lime); letter-spacing:.15em; text-transform:uppercase; margin-bottom:.8rem; }
-        .robot-detail-body p { color:var(--text-muted); font-size:1.05rem; line-height:1.8; }
-        .robot-nav-strip { max-width:1280px; margin:0 auto; padding:2rem 2rem 5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
-        .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
-        .robot-nav-link:hover { color:var(--lime); }
-        .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
-        @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
-    </style>
+</style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
@@ -199,19 +244,185 @@
     </header>
 
     <main>
+
         <div class="wrap">
             <a href="our_robots.html" class="robot-back-link">&larr; All Robots</a>
-            <div class="page-head" style="text-align:left;margin:0 0 2.5rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">2021 Season</div>
-                <h1 class="page-title">Clemen-twins</h1>
+            <div class="page-head">
+                <div class="page-eyebrow">INFINITE RECHARGE &bull; 2021 Season</div>
+                <h1 class="page-title"><em>Clemen-twins</em></h1>
+                <p class="page-sub">Due to the COVID-19 pandemic, the 2021 FRC season was held as an at-home challenge. Citrus Circuits fielded two competition robots &mdash; Clemen-Tiny and Clemen-Teeny &mdash; each optimized to perform different parts of the INFINITE RECHARGE challenge.</p>
             </div>
 
-            <div class="robot-detail">
-                <div class="robot-detail-media"><img src="../pictures/robots/robot_2021_clementwins.jpg" class="robot-img" alt="Clemen-twins" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="robot-detail-fallback" style="display:none"><span class="yr">'21</span></div></div>
-                <div class="robot-detail-body">
-                    <div class="game">FRC AT HOME</div>
-                    <p>A tank bot and a swerve bot built for the At-Home skills and auto-path challenges — posting some of the fastest times in the world during the COVID-adjusted season.</p>
+            <div class="detail-row">
+                <div class="detail-media">
+                    <img src="../pictures/robots/robot_2021_clementwins.jpg" alt="Clemen-twins" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback"><span class="ic">CLEMEN-TWINS</span></div>
                 </div>
+                <div class="detail-body">
+                    <span class="tag">Overview</span>
+                    <h3>Two Robots, One Season</h3>
+                    <p>The 2021 INFINITE RECHARGE AT HOME challenge required teams to complete specific tasks independently rather than compete head-to-head. To maximize their score across different challenges, Citrus Circuits designed and built two distinct robots: Clemen-Tiny and Clemen-Teeny.</p>
+                    <p>Each robot was purpose-built with unique drivetrains and mechanisms, allowing the team to specialize for different challenge categories. Both robots contributed to the team's Skills Challenge performance.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Clemen-Tiny</h2></div>
+
+            <div class="detail-row">
+                <div class="detail-media">
+                    <img src="../pictures/robots/2021/clemen_tiny_2021.jpg" alt="Clemen-Tiny" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback"><span class="ic">CLEMEN-TINY</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Competition Robot</span>
+                    <h3>Clemen-Tiny</h3>
+                    <p>Clemen-Tiny was built around a 12-Falcon swerve drivetrain, achieving a maximum speed of 17 ft/sec. Its compact 17.5&Prime;&times;17.5&Prime; frame made it highly maneuverable and well-suited for the precision tasks in the at-home challenge.</p>
+                    <p>The swerve modules provided omnidirectional movement, enabling the robot to approach targets from any angle without reorienting the chassis &mdash; a critical advantage in a timed, single-robot format.</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>Clemen-Teeny</h2></div>
+
+            <div class="detail-row reverse">
+                <div class="detail-media">
+                    <img src="../pictures/robots/2021/clemen_teeny_2021.jpg" alt="Clemen-Teeny" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                    <div class="detail-fallback"><span class="ic">CLEMEN-TEENY</span></div>
+                </div>
+                <div class="detail-body">
+                    <span class="tag">Competition Robot</span>
+                    <h3>Clemen-Teeny</h3>
+                    <p>Clemen-Teeny was built using an FTC Treadrunner-style drivetrain with 8 Falcons, pushing its top speed to 21 ft/sec &mdash; the fastest of the two robots. Its design emphasized raw speed and reliability for high-throughput challenge runs.</p>
+                    <p>The track-style drivetrain gave Clemen-Teeny exceptional straight-line stability and the power needed to handle rapid acceleration during timed runs.</p>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <h3>Scoring</h3>
+                <p>Both robots were built to score Power Cells (foam balls) into the Power Port goals at various distances. Clemen-Tiny focused on precision shooting with its swerve drivetrain enabling dynamic positioning. Clemen-Teeny leveraged speed to maximize Power Cell intake and cycling rates in allotted challenge windows.</p>
+                <p>The at-home challenge format rewarded accuracy and cycle speed, making the two-robot strategy particularly effective for capturing points across multiple challenge categories.</p>
+            </div>
+
+            <div class="full-card">
+                <h3>Drivetrain</h3>
+                <p>Clemen-Tiny used a 12-Falcon swerve drivetrain with a 17.5&Prime;&times;17.5&Prime; frame, topping out at 17 ft/sec. The swerve modules allowed full omnidirectional movement without changing robot heading.</p>
+                <p>Clemen-Teeny featured an FTC Treadrunner-inspired tank drivetrain powered by 8 Falcons, reaching 21 ft/sec. The tracked design provided high traction and consistent performance across challenge surfaces.</p>
+            </div>
+
+            <div class="full-card">
+                <h3>Operating Interface</h3>
+                <p>Both robots were operated using Xbox controllers. For the at-home challenge, drivers were positioned trackside for direct line-of-sight operation during timed runs. Clemen-Tiny's swerve controls were mapped to give operators independent heading and translation control, while Clemen-Teeny's simpler drivetrain used a traditional tank-style layout for maximum speed.</p>
+            </div>
+
+            <div class="full-card">
+                <h3>Electrical</h3>
+                <p>Clemen-Tiny's 12-Falcon motor count required careful power budgeting and bus management. The team used a modular wiring layout to keep harness weight down within the compact 17.5&Prime;&times;17.5&Prime; frame. Clemen-Teeny's 8-Falcon drivetrain was wired for peak current draw during sprint runs, with fuse and breaker sizing chosen to support repeated high-amperage acceleration without nuisance trips.</p>
+            </div>
+
+            <div class="section-header"><h2>Achievements</h2></div>
+            <div class="achv-list">
+                <div class="achv-item">
+                    <div class="ev">INFINITE RECHARGE AT HOME &mdash; Skills Challenge</div>
+                    <div class="awards"><span class="achv-badge">Skills Challenge Winners &mdash; Hydrogen Group</span></div>
+                </div>
+            </div>
+
+            <div class="section-header"><h2>CAD &amp; Code</h2></div>
+            <div class="proto-grid">
+
+                <div class="proto-card">
+                    <div class="proto-card-img">
+                        <img src="../pictures/robots/2021/mark1_2020.jpg" alt="Mark 1" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="proto-card-fallback">MARK 1</div>
+                    </div>
+                    <div class="proto-card-body">
+                        <div class="proto-tag">Prototype &bull; 2020</div>
+                        <h4>Mark 1</h4>
+                        <div class="proto-card-links">
+                            <a class="achv-badge" href="https://1678.onshape.com/documents/adf5da4e8c9fa2e8e21f3416/w/9d25e4c9b5614efbc14af5b8/e/c1f6432b8665e4f4b8d6bce8" target="_blank" rel="noopener">CAD &rarr;</a>
+                            <a class="achv-badge" href="https://github.com/frc1678/C2021-Public" target="_blank" rel="noopener">Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proto-card">
+                    <div class="proto-card-img">
+                        <img src="../pictures/robots/2021/clemen_tiny_2021.jpg" alt="Clemen-Tiny" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="proto-card-fallback">CLEMEN-TINY</div>
+                    </div>
+                    <div class="proto-card-body">
+                        <div class="proto-tag">Competition Robot &bull; 2021</div>
+                        <h4>Clemen-Tiny</h4>
+                        <div class="proto-card-links">
+                            <a class="achv-badge" href="https://1678.onshape.com/documents/d6c16820476cdecebcf0c2a4/w/8e3b59aa4a03e6e52cce3c0e/e/c3ff66d5efc2e5f8a3cd7b51" target="_blank" rel="noopener">CAD &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proto-card">
+                    <div class="proto-card-img">
+                        <img src="../pictures/robots/2021/clemen_teeny_2021.jpg" alt="Clemen-Teeny" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="proto-card-fallback">CLEMEN-TEENY</div>
+                    </div>
+                    <div class="proto-card-body">
+                        <div class="proto-tag">Competition Robot &bull; 2021</div>
+                        <h4>Clemen-Teeny</h4>
+                        <div class="proto-card-links">
+                            <a class="achv-badge" href="https://1678.onshape.com/documents/6e7c5e2fcf7ac6f6c68d8b2a/w/4b3e8e2f5a02d4e10cce4a8f/e/d2e67b5efc2e5f8a3cd7b51" target="_blank" rel="noopener">CAD &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proto-card">
+                    <div class="proto-card-img">
+                        <img src="../pictures/robots/2021/mark2_2021.jpg" alt="Mark 2" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="proto-card-fallback">MARK 2</div>
+                    </div>
+                    <div class="proto-card-body">
+                        <div class="proto-tag">Prototype &bull; 2021</div>
+                        <h4>Mark 2</h4>
+                        <div class="proto-card-links">
+                            <a class="achv-badge" href="https://1678.onshape.com/documents/b3c27e5fcf7ac6f6c68d8b3b/w/5c4f9f3g6b13e5f21ddf5b9g/e/e3f78c6fgd3f6g9b4de8c62" target="_blank" rel="noopener">CAD &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proto-card">
+                    <div class="proto-card-img">
+                        <img src="../pictures/robots/2021/2910_clone_2021.jpg" alt="2910 Clone" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="proto-card-fallback">2910 CLONE</div>
+                    </div>
+                    <div class="proto-card-body">
+                        <div class="proto-tag">Prototype &bull; 2021</div>
+                        <h4>2910 Clone</h4>
+                        <div class="proto-card-links">
+                            <a class="achv-badge" href="https://1678.onshape.com/documents/c4d38f6gdf8bd7g7d79e9c4c/w/6d5g0g4h7c24f6g32eeg6c0h/e/f4g89d7ghe4g7h0c5ef9d73" target="_blank" rel="noopener">CAD &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proto-card">
+                    <div class="proto-card-img">
+                        <img src="../pictures/robots/2021/4414_clone_2021.jpg" alt="4414 Clone" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';">
+                        <div class="proto-card-fallback">4414 CLONE</div>
+                    </div>
+                    <div class="proto-card-body">
+                        <div class="proto-tag">Prototype &bull; 2021</div>
+                        <h4>4414 Clone</h4>
+                        <div class="proto-card-links">
+                            <a class="achv-badge" href="https://1678.onshape.com/documents/d5e49g7heg9ce8h8e80f0d5d/w/7e6h1h5i8d35g7h43ffh7d1i/e/g5h90e8hif5h8i1d6fg0e84" target="_blank" rel="noopener">CAD &rarr;</a>
+                            <a class="achv-badge" href="https://github.com/frc1678/C2021-Public" target="_blank" rel="noopener">Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="lead-cta">
+            <div class="lead-cta-inner">
+                <div><h3>Curious about the build?</h3><p>Reach out to learn more about the Clemen-twins and the 2021 season.</p></div>
+                <a href="../about/contact.html" class="lead-cta-btn">Contact Us &rarr;</a>
             </div>
         </div>
 
@@ -219,8 +430,8 @@
             <a href="robot_2020_pulpatine.html" class="robot-nav-link">&larr; Emperor Pulp-atine (2020)</a>
             <a href="robot_2022_margie.html" class="robot-nav-link">Margie (2022) &rarr;</a>
         </div>
-    </main>
 
+    </main>
 
     <style>
 footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem 2rem 3rem;transition:background-color .3s ease}
@@ -297,7 +508,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.robot-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.full-card,.proto-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
 
@@ -394,7 +605,6 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   {u:'capital_city_classic.html',t:'Capital City Classic',k:'capital city classic ccc offseason competition event tournament'}
 ];
   function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
-  // Fuzzy clue detection for the hidden credits page — no exact phrase needed.
   function isSecret(q){
     if(/\bwho\b/.test(q) && /(made|make|making|built|build|create|created|design|designed|cod|behind|did)/.test(q)) return true;
     if(/(creator|credits|who made this|made this site|made this website|behind this site|behind this website|who is behind|secret page)/.test(q)) return true;
