@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DYR RoboCamps Registration 2026 — Citrus Circuits 1678</title>
+    <title>DYR RoboCamps Forms — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
-    <meta name="description" content="2026 DYR RoboCamps registration — one-week robotics camps for students grades K–8 in Davis, CA, organized by Citrus Circuits 1678.">
+    <meta name="description" content="DYR RoboCamps camper forms — emergency medical information, media opt-out, and self-checkout release forms in English and Spanish.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -57,52 +57,36 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:1280px; margin:0 auto; padding:0 2rem; }
+        .wrap { max-width:960px; margin:0 auto; padding:0 2rem; }
         .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
-        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
+        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
         .page-title em { color:var(--lime); font-style:normal; }
-        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
+        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:620px; margin:1.5rem auto 3rem; }
 
-        .rc-notice { background:var(--bg-card); border:1px solid var(--lime); border-radius:14px; padding:1.5rem 2rem; margin:0 0 3rem; display:flex; align-items:flex-start; gap:1rem; }
-        .rc-notice-icon { font-size:1.4rem; flex-shrink:0; margin-top:.1rem; }
-        .rc-notice p { color:var(--text-muted); font-size:.98rem; line-height:1.65; }
-        .rc-notice p strong { color:var(--text-main); }
+        .rf-notice { background:var(--bg-card); border:1px solid var(--lime); border-radius:14px; padding:1.5rem 2rem; margin:0 0 3rem; display:flex; align-items:flex-start; gap:1rem; }
+        .rf-notice-icon { font-size:1.4rem; flex-shrink:0; margin-top:.1rem; }
+        .rf-notice p { color:var(--text-muted); font-size:.98rem; line-height:1.65; }
+        .rf-notice p strong { color:var(--text-main); }
 
-        .rc-week-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.75rem; margin-bottom:4rem; }
-        @media(max-width:768px){ .rc-week-grid { grid-template-columns:1fr; } }
+        .rf-lang-section { margin-bottom:3rem; }
+        .rf-lang-title { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.05em; color:var(--lime); text-transform:uppercase; border-bottom:1px solid var(--border); padding-bottom:.75rem; margin-bottom:1.5rem; }
+        .rf-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+        @media(max-width:720px){ .rf-grid { grid-template-columns:1fr; } }
 
-        .rc-week { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; transition:border-color .25s ease,transform .25s ease; }
-        .rc-week:hover { border-color:var(--lime); transform:translateY(-4px); }
-        .rc-week-header { padding:1.25rem 1.5rem 1rem; border-bottom:1px solid var(--border); }
-        .rc-week-label { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.4rem; }
-        .rc-week-title { font-size:1.25rem; font-weight:800; color:var(--text-main); }
-        .rc-week-body { padding:1.25rem 1.5rem; }
-        .rc-week-meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
-        .rc-tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; padding:.3rem .7rem; border-radius:6px; background:var(--bg-dark); border:1px solid var(--border); color:var(--text-muted); letter-spacing:.05em; }
-        .rc-tag.wise { border-color:rgba(60,213,46,.4); color:var(--lime); background:rgba(60,213,46,.07); }
-        .rc-session { margin-bottom:.75rem; }
-        .rc-session-name { font-size:.9rem; font-weight:600; color:var(--text-main); margin-bottom:.35rem; }
-        .rc-session p { font-size:.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:.35rem; }
-        .rc-session p em { font-style:italic; }
-        .rc-btn { display:inline-block; background:var(--lime); color:#000; text-decoration:none; padding:.55rem 1.1rem; border-radius:7px; font-weight:700; font-size:.82rem; transition:opacity .2s ease,transform .2s ease; margin-right:.5rem; margin-top:.2rem; }
-        .rc-btn:hover { opacity:.88; transform:translateY(-1px); }
-        .rc-btn.outline { background:transparent; border:1px solid var(--lime); color:var(--lime); }
-        .rc-btn.outline:hover { background:var(--lime); color:#000; }
-        .rc-divider { border:none; border-top:1px solid var(--border); margin:.9rem 0; }
+        .rf-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem; display:flex; flex-direction:column; gap:1rem; transition:border-color .25s ease,transform .25s ease; }
+        .rf-card:hover { border-color:var(--lime); transform:translateY(-3px); }
+        .rf-card-icon { width:40px; height:40px; border-radius:8px; background:rgba(60,213,46,.1); border:1px solid rgba(60,213,46,.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .rf-card-icon svg { width:20px; height:20px; fill:none; stroke:var(--lime); stroke-width:2; }
+        .rf-card-name { font-size:1rem; font-weight:700; color:var(--text-main); line-height:1.4; }
+        .rf-card-note { font-size:.82rem; color:var(--text-muted); font-style:italic; line-height:1.5; }
+        .rf-card-btn { display:inline-flex; align-items:center; gap:.5rem; background:var(--lime); color:#000; text-decoration:none; padding:.6rem 1.1rem; border-radius:7px; font-weight:700; font-size:.85rem; transition:opacity .2s ease,transform .2s ease; margin-top:auto; align-self:flex-start; }
+        .rf-card-btn:hover { opacity:.88; transform:translateY(-1px); }
+        .rf-card-btn svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.5; }
 
-        .rc-cta-strip { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.25rem 2.5rem; margin-bottom:5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
-        .rc-cta-strip h3 { font-size:1.35rem; font-weight:800; margin-bottom:.35rem; }
-        .rc-cta-strip p { color:var(--text-muted); font-size:.95rem; }
-        .rc-cta-strip .rc-cta-btns { display:flex; gap:.85rem; flex-wrap:wrap; flex-shrink:0; }
-        .rc-cta-btn { display:inline-block; background:var(--lime); color:#000; text-decoration:none; padding:.85rem 1.5rem; border-radius:8px; font-weight:700; font-size:.9rem; transition:opacity .2s ease,transform .2s ease; white-space:nowrap; }
-        .rc-cta-btn:hover { opacity:.88; transform:translateY(-2px); }
-        .rc-cta-btn.outline { background:transparent; border:1px solid var(--lime); color:var(--lime); }
-        .rc-cta-btn.outline:hover { background:var(--lime); color:#000; }
-
-        .rc-back { display:inline-flex; align-items:center; gap:.5rem; color:var(--text-muted); text-decoration:none; font-size:.9rem; margin:0 0 3rem; transition:color .2s ease; }
-        .rc-back:hover { color:var(--lime); }
+        .rf-back { display:inline-flex; align-items:center; gap:.5rem; color:var(--text-muted); text-decoration:none; font-size:.9rem; margin:0 0 4rem; transition:color .2s ease; }
+        .rf-back:hover { color:var(--lime); }
 
         .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
         .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -123,22 +107,13 @@
           .nav-item.open .dropdown-panel{display:grid!important}
           .nav-actions-hub .nav-cta{display:none}
         }
-        @media(max-width:968px){ .rc-cta-strip{flex-direction:column;align-items:flex-start;} }
-
-        .rc-logo-row { text-align:center; margin-bottom:2rem; }
-        .rc-logo { max-height:160px; width:auto; margin:0 auto; }
-        .rc-photo-strip { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-bottom:2.5rem; }
-        .rc-photo { aspect-ratio:4/3; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); }
-        .rc-photo img { width:100%; height:100%; object-fit:cover; }
-        @media(max-width:768px){ .rc-photo-strip { grid-template-columns:repeat(3,1fr); } }
-        @media(max-width:480px){ .rc-photo-strip { grid-template-columns:repeat(2,1fr); } }
     </style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
         <div class="ld-n">DYR</div>
-        <div class="ld-sub">Loading RoboCamps Registration</div>
+        <div class="ld-sub">Loading RoboCamps Forms</div>
         <div class="ld-bw"><div class="ld-b"></div></div>
     </div>
 
@@ -182,8 +157,8 @@
                     <a href="dyr.html" class="nav-link active">DYR <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel" style="grid-template-columns:1fr;width:260px;">
                         <a href="dyr.html#about-dyr-robocamps">About DYR RoboCamps</a>
-                        <a href="robocamps.html" class="active">DYR RoboCamps Registration</a>
-                        <a href="robocamps_forms.html">DYR RoboCamps Forms</a>
+                        <a href="robocamps.html">DYR RoboCamps Registration</a>
+                        <a href="robocamps_forms.html" class="active">DYR RoboCamps Forms</a>
                         <a href="dyr.html#dyr-robocamps-resources">DYR RoboCamps Resources</a>
                         <a href="dyr.html#dyr-league">DYR League</a>
                         <a href="dyr.html#dyr-school-programs">DYR School Programs</a>
@@ -213,206 +188,93 @@
     <main>
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">DYR &bull; Summer 2026 &bull; Davis, CA</div>
-                <h1 class="page-title">RoboCamps <em>Registration</em></h1>
-                <p class="page-sub">One-week robotics camps where students design, build, and code a robot — then compete in a mini competition at the end of the week. Each camper may only participate in one camp.</p>
+                <div class="page-eyebrow">DYR RoboCamps &bull; Camper Documents</div>
+                <h1 class="page-title">RoboCamps <em>Forms</em></h1>
+                <p class="page-sub">Please print then fill out these forms and bring them to the first day of camp to speed up the check-in process. Blank forms will be available on-site as well.</p>
             </div>
 
-            <div class="rc-logo-row">
-                <img src="../pictures/dyr/robocamps logo.jpg" alt="DYR RoboCamps Logo" class="rc-logo" onerror="this.style.display='none'">
+            <div class="rf-notice">
+                <div class="rf-notice-icon">&#x1F4CB;</div>
+                <p><strong>Tip:</strong> Print and complete all applicable forms before arriving at camp. Bring them on the first day to speed up check-in. Blank copies will also be available on-site.</p>
             </div>
 
-            <div class="rc-photo-strip">
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps1.jpg" alt="RoboCamps photo 1" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps2.jpg" alt="RoboCamps photo 2" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps3.jpg" alt="RoboCamps photo 3" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps4.jpg" alt="RoboCamps photo 4" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps5.jpg" alt="RoboCamps photo 5" onerror="this.closest('.rc-photo').style.display='none'"></div>
-            </div>
-
-            <div class="rc-notice">
-                <div class="rc-notice-icon">&#x1F4CD;</div>
-                <p><strong>Location:</strong> Birch Lane Elementary School, 1600 Birch Lane, Davis, CA &nbsp;&bull;&nbsp; <strong>Registration opens:</strong> Wednesday, March 11 at 7:00 p.m.</p>
-            </div>
-
-            <div class="rc-week-grid">
-
-                <!-- Week 1 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 1 &bull; June 15–18</div>
-                        <div class="rc-week-title">Kumquat Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Kumquat — Intro to Intermediate</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2023721" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
+            <!-- English -->
+            <div class="rf-lang-section">
+                <div class="rf-lang-title">English</div>
+                <div class="rf-grid">
+                    <div class="rf-card">
+                        <div class="rf-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
-                        <hr class="rc-divider">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Kumquat WiSE</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span><span class="rc-tag wise">WiSE</span></div>
-                            <p><em>Women in STEM Empowerment (WiSE) camps are exclusive for girls and non-binary students.</em></p>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027774" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
+                        <div class="rf-card-name">Emergency Medical Information Form</div>
+                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_40ebf16d99d841f4a480ceb9e5945a93.docx?dn=Emergency%20Medical%20Information.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
+                            Click here
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                        </a>
+                    </div>
+                    <div class="rf-card">
+                        <div class="rf-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
+                        <div class="rf-card-name">Media Opt-Out Form</div>
+                        <div class="rf-card-note">ONLY fill out if you do not want your child to be photographed.</div>
+                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_722395163ebc4419bfbb1646db3b7630.pdf" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
+                            Click here
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Week 2 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 2 &bull; June 22–26</div>
-                        <div class="rc-week-title">Lime Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Lime — Intro to Intermediate</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027726" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
+                    <div class="rf-card">
+                        <div class="rf-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
-                        <hr class="rc-divider">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Lime Seedlings</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades K–1</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027777" target="_blank" rel="noopener noreferrer" class="rc-btn">Morning</a>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027783" target="_blank" rel="noopener noreferrer" class="rc-btn outline">Afternoon</a>
-                        </div>
+                        <div class="rf-card-name">Camper Self-Checkout Release</div>
+                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_c56816dba2284633950cebeefb6c7c4c.docx?dn=Camper%20Self%20Check-Out%20Release%20Form.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
+                            Click here
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Week 3 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 3 &bull; June 29 – July 2</div>
-                        <div class="rc-week-title">Lemon Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Lemon — Intro to Intermediate</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027737" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
-                        </div>
-                        <hr class="rc-divider">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Lemon Seedlings</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades K–1</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027785" target="_blank" rel="noopener noreferrer" class="rc-btn">Morning</a>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027790" target="_blank" rel="noopener noreferrer" class="rc-btn outline">Afternoon</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Week 4 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 4 &bull; July 6–10</div>
-                        <div class="rc-week-title">Tangerine Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Tangerine — Intermediate to Advanced</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027747" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
-                        </div>
-                        <hr class="rc-divider">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Tangerine Sprouts</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 2–3</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027796" target="_blank" rel="noopener noreferrer" class="rc-btn">Morning</a>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027800" target="_blank" rel="noopener noreferrer" class="rc-btn outline">Afternoon</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Week 5 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 5 &bull; July 13–17</div>
-                        <div class="rc-week-title">Orange Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Orange — Intermediate to Advanced</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027756" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
-                        </div>
-                        <hr class="rc-divider">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Orange Sprouts</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 2–3</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027802" target="_blank" rel="noopener noreferrer" class="rc-btn">Morning</a>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027804" target="_blank" rel="noopener noreferrer" class="rc-btn outline">Afternoon</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Week 6 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 6 &bull; July 20–24</div>
-                        <div class="rc-week-title">Grapefruit Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Grapefruit — Programming Skills</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 4–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027760" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
-                        </div>
-                        <hr class="rc-divider">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Grapefruit Sprouts</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 2–3</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027806" target="_blank" rel="noopener noreferrer" class="rc-btn">Morning</a>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027809" target="_blank" rel="noopener noreferrer" class="rc-btn outline">Afternoon</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Week 7 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 7 &bull; July 27–31</div>
-                        <div class="rc-week-title">Clementine Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Clementine — Intro to Engineering</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 6–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027762" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Week 8 -->
-                <div class="rc-week">
-                    <div class="rc-week-header">
-                        <div class="rc-week-label">Week 8 &bull; August 3–7</div>
-                        <div class="rc-week-title">Pomelo Week</div>
-                    </div>
-                    <div class="rc-week-body">
-                        <div class="rc-session">
-                            <div class="rc-session-name">Pomelo — Intro to Engineering</div>
-                            <div class="rc-week-meta"><span class="rc-tag">Grades 6–8</span></div>
-                            <a href="https://buytickets.at/davisroboticsfoundation/2027765" target="_blank" rel="noopener noreferrer" class="rc-btn">Register &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="rc-cta-strip">
-                <div>
-                    <h3>Stay in the loop</h3>
-                    <p>Sign up for the DYR mailing list to receive notifications for future camps and DYR programs.</p>
-                </div>
-                <div class="rc-cta-btns">
-                    <a href="https://citruscircuits.us18.list-manage.com/subscribe?u=baaa8ef57d81cf6d18dcb8d23&id=ee60288693" target="_blank" rel="noopener noreferrer" class="rc-cta-btn">DYR Mailing List</a>
-                    <a href="robocamps_forms.html" class="rc-cta-btn outline">RoboCamps Forms</a>
                 </div>
             </div>
 
-            <a href="dyr.html" class="rc-back">&larr; Back to DYR</a>
+            <!-- Español -->
+            <div class="rf-lang-section">
+                <div class="rf-lang-title">Espa&ntilde;ol</div>
+                <div class="rf-grid">
+                    <div class="rf-card">
+                        <div class="rf-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <div class="rf-card-name">Forma de Informaci&oacute;n M&eacute;dica de Emergencia</div>
+                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_2b46bcd5f9bf4a53b57dc6b7cdb54403.docx?dn=Emergency%20Medical%20Information%20-%20Spanish.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
+                            Clic aqu&iacute;
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                        </a>
+                    </div>
+                    <div class="rf-card">
+                        <div class="rf-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <div class="rf-card-name">Formulario de Exclusi&oacute;n de Medios</div>
+                        <div class="rf-card-note">Compl&eacute;telo SOLO si no desea que fotografi&eacute;n a su hijo/a.</div>
+                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_79fa636bea5b43619fa582bcb8096fb1.pdf" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
+                            Clic aqu&iacute;
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                        </a>
+                    </div>
+                    <div class="rf-card">
+                        <div class="rf-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <div class="rf-card-name">Documento Autorizaci&oacute;n de Salir Solo para Participantes</div>
+                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_924ec32cc9fa4885b1062bceb74bd614.docx?dn=Camper%20Self%20Check-Out%20Release%20Form%20-%20Spanish.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
+                            Clic aqu&iacute;
+                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="robocamps.html" class="rf-back">&larr; Back to RoboCamps Registration</a>
         </div>
     </main>
 
@@ -477,7 +339,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.rc-week').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+            document.querySelectorAll('a,button,.rf-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
     </script>
     <script>
@@ -497,46 +359,6 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
           link.addEventListener('click',function(){toggle.classList.remove('open');menu.classList.remove('open');});
         }
       });
-    })();
-    </script>
-    <script>
-    (function(){
-      var si=document.getElementById('footerSearchInput');
-      if(!si) return;
-      var PREFIX='../';
-      var PAGES=[
-        {u:'index.html',t:'Home',k:'home main landing front page citrus circuits 1678 frc'},
-        {u:'about/about.html',t:'About Us',k:'about who we are team overview'},
-        {u:'about/recruitment.html',t:'Recruitment',k:'recruitment join apply application'},
-        {u:'outreach/dyr.html',t:'Davis Youth Robotics',k:'dyr robocamps league school programs youth robotics'},
-        {u:'outreach/robocamps.html',t:'RoboCamps Registration',k:'robocamps registration 2026 camps summer'},
-        {u:'outreach/outreach.html',t:'Outreach',k:'outreach community service'},
-        {u:'support.html',t:'Support Us',k:'support donate sponsor'},
-        {u:'about/contact.html',t:'Contact Us',k:'contact email'},
-      ];
-      si.addEventListener('input',function(){
-        var q=this.value.trim().toLowerCase();
-        var old=document.getElementById('fsr');
-        if(old)old.remove();
-        if(!q)return;
-        var res=PAGES.filter(function(p){return p.t.toLowerCase().includes(q)||p.k.includes(q);}).slice(0,5);
-        if(!res.length)return;
-        var box=document.createElement('div');
-        box.id='fsr';
-        box.style.cssText='position:absolute;background:var(--bg-dropdown);border:1px solid var(--border);border-radius:8px;margin-top:4px;width:100%;max-width:320px;z-index:999;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.3)';
-        res.forEach(function(p){
-          var a=document.createElement('a');
-          a.href=PREFIX+p.u;
-          a.textContent=p.t;
-          a.style.cssText='display:block;padding:.65rem 1rem;color:var(--text-muted);text-decoration:none;font-size:.88rem;transition:background .15s ease';
-          a.onmouseenter=function(){this.style.background='var(--bg-dark)';this.style.color='var(--lime)';};
-          a.onmouseleave=function(){this.style.background='';this.style.color='';};
-          box.appendChild(a);
-        });
-        si.parentElement.style.position='relative';
-        si.parentElement.appendChild(box);
-      });
-      document.addEventListener('click',function(e){if(!si.contains(e.target)){var old=document.getElementById('fsr');if(old)old.remove();}});
     })();
     </script>
 </body>
