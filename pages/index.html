@@ -142,6 +142,7 @@ h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,168px);
 }
 .cad-frame{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .cad-frame img{max-width:90%;max-height:90%;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));pointer-events:none;transition:filter .3s}
+.cad-frame .cad-slide{position:absolute;inset:0;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover;filter:none;transition:opacity .7s ease;}
 .cad-iframe{width:100%;height:100%;border:0;display:block}
 .cad-corner{position:absolute;width:18px;height:18px;border:1.5px solid var(--lime);opacity:.6}
 .cad-corner.tl{top:14px;left:14px;border-right:none;border-bottom:none}
@@ -397,7 +398,10 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
       <span class="cad-corner br"></span>
       <div class="cad-tag">2026 Robot · CAD</div>
       <div class="cad-frame" id="cadFrame">
-        <img src="pictures/robots/2026_robot.jpg" alt="Citrus Circuits 2026 robot on the field">
+        <img src="pictures/robots/2026/cad of the robot_2026.jpg" alt="2026 Robot CAD" class="cad-slide active" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .7s ease;">
+        <img src="pictures/robots/2026/cad of the robot1_2026.jpg" alt="2026 Robot CAD" class="cad-slide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease;">
+        <img src="pictures/robots/2026/cad of the robot2_2026.jpg" alt="2026 Robot CAD" class="cad-slide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease;">
+        <img src="pictures/robots/2026/cad of the robot3_2026.jpg" alt="2026 Robot CAD" class="cad-slide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease;">
       </div>
       <a class="cad-hint cad-open-link" href="https://1678.onshape.com/documents/acdaaf42764a293a9452326d/w/f887ef4c6a254c09c73344c3/e/a9684fa7665096e977b19c44?aa=true" target="_blank" rel="noopener">Open live CAD in Onshape &rarr;</a>
     </div>
@@ -815,6 +819,18 @@ window.addEventListener('scroll',()=>{
     if(best && bestScore>0){ window.location.href=PREFIX+best.u; }
     else { window.location.href=PREFIX+'resources.html'; }
   });
+})();
+</script>
+<script>
+(function(){
+  var slides=document.querySelectorAll('#cadFrame .cad-slide');
+  if(slides.length<2)return;
+  var i=0;
+  setInterval(function(){
+    slides[i].style.opacity='0';
+    i=(i+1)%slides.length;
+    slides[i].style.opacity='1';
+  },2500);
 })();
 </script>
 </body>
