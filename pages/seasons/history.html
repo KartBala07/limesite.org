@@ -476,30 +476,54 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 ];
   function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
   // Fuzzy clue detection for the hidden credits page — no exact phrase needed.
-  function isSecret(q){
-    if(/\bwho\b/.test(q) && /(made|make|making|built|build|create|created|design|designed|cod|behind|did)/.test(q)) return true;
-    if(/(creator|credits|who made this|made this site|made this website|behind this site|behind this website|who is behind|secret page)/.test(q)) return true;
-    return false;
+  function score(p,q,toks){
+    var title=norm(p.t),hay=norm(p.t+' '+p.k),s=0;
+    if(q.indexOf(' ')>=0&&hay.indexOf(q)>=0) s+=5;
+    toks.forEach(function(tk){if(title.indexOf(tk)>=0) s+=2; else if(hay.indexOf(tk)>=0) s+=1;});
+    return s;
   }
+  function topN(q,n){
+    var toks=q.split(' ').filter(function(t){return t.length>1;});
+    var scored=[];
+    PAGES.forEach(function(p){var s=score(p,q,toks);if(s>0)scored.push({p:p,s:s});});
+    scored.sort(function(a,b){return b.s-a.s;});
+    return scored.slice(0,n).map(function(x){return x.p;});
+  }
+  var sugBox=document.createElement('div');
+  sugBox.style.cssText='position:absolute;left:0;right:0;top:100%;background:var(--bg-dropdown);border:1px solid var(--border);border-radius:10px;overflow:hidden;z-index:3000;display:none;box-shadow:0 12px 32px rgba(0,0,0,.35);margin-top:4px;';
+  var wrap=si.parentElement;
+  wrap.style.position='relative';
+  wrap.appendChild(sugBox);
+  function renderSug(results){
+    if(!results.length){sugBox.style.display='none';return;}
+    sugBox.innerHTML='';
+    results.forEach(function(p,i){
+      var a=document.createElement('a');
+      a.href=PREFIX+p.u;
+      a.textContent=p.t;
+      a.style.cssText='display:block;padding:.6rem 1rem;color:var(--text-muted);text-decoration:none;font-size:.85rem;border-top:'+(i?'1px solid var(--border)':'none')+';transition:background .15s,color .15s;';
+      a.addEventListener('mouseenter',function(){this.style.background='var(--bg-dark)';this.style.color='var(--lime)';});
+      a.addEventListener('mouseleave',function(){this.style.background='';this.style.color='var(--text-muted)';});
+      sugBox.appendChild(a);
+    });
+    sugBox.style.display='block';
+  }
+  si.addEventListener('input',function(){
+    var q=norm(si.value);
+    renderSug(q.length>1?topN(q,3):[]);
+  });
   si.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){sugBox.style.display='none';return;}
     if(e.key!=='Enter') return;
+    sugBox.style.display='none';
     var q=norm(si.value);
     if(!q) return;
-    if(isSecret(q)){ window.location.href=PREFIX+'about/credits.html'; return; }
-    var toks=q.split(' ').filter(function(t){return t.length>2;});
-    var best=null, bestScore=0;
-    PAGES.forEach(function(p){
-      var title=norm(p.t), hay=norm(p.t+' '+p.k), score=0;
-      if(q.indexOf(' ')>=0 && hay.indexOf(q)>=0) score+=5;
-      toks.forEach(function(tk){
-        if(title.indexOf(tk)>=0) score+=2;
-        else if(hay.indexOf(tk)>=0) score+=1;
-      });
-      if(score>bestScore){ bestScore=score; best=p; }
-    });
-    if(best && bestScore>0){ window.location.href=PREFIX+best.u; }
-    else { window.location.href=PREFIX+'resources.html'; }
+    if(isSecret(q)){window.location.href=PREFIX+'about/credits.html';return;}
+    var res=topN(q,1);
+    if(res.length) window.location.href=PREFIX+res[0].u;
+    else window.location.href=PREFIX+'resources.html';
   });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))sugBox.style.display='none';});
 })();
 </script>
 </body>
