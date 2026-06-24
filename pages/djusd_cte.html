@@ -74,15 +74,19 @@
         .cte-course-head { padding:2.5rem 2.5rem 1.5rem; border-bottom:1px solid var(--border); }
         .cte-course-head h3 { font-size:1.9rem; font-weight:800; margin-bottom:.6rem; }
         .cte-meta { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--lime); letter-spacing:.1em; text-transform:uppercase; }
-        .cte-course-body { padding:2.5rem; display:flex; flex-direction:column; gap:2rem; }
+        .cte-course-body { padding:2.5rem; }
+        .cte-body-split { display:grid; grid-template-columns:1fr 480px; gap:3rem; align-items:start; }
+        .cte-body-split.reverse { grid-template-columns:480px 1fr; }
+        .cte-body-split.reverse .cte-text { order:2; }
+        .cte-body-split.reverse .cte-media { order:1; }
         .cte-text p { color:var(--text-muted); font-size:1rem; line-height:1.8; margin-bottom:1rem; }
         .cte-text p:last-child { margin-bottom:0; }
         .cte-text a { color:var(--lime); text-decoration:underline; }
-        .cte-video { border-radius:14px; overflow:hidden; aspect-ratio:16/9; background:var(--bg-darkest); border:1px solid var(--border); max-width:800px; }
+        .cte-video { border-radius:14px; overflow:hidden; aspect-ratio:16/9; background:var(--bg-darkest); border:1px solid var(--border); }
         .cte-video iframe { width:100%; height:100%; display:block; border:none; }
         .cte-photo-pair { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-        .cte-photo-pair img { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:12px; border:1px solid var(--border); display:block; }
-        .cte-photo-fallback { aspect-ratio:16/9; border-radius:12px; border:1px solid var(--border); background:var(--bg-darkest); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.06em; }
+        .cte-photo-pair img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid var(--border); display:block; }
+        .cte-photo-fallback { aspect-ratio:4/3; border-radius:12px; border:1px solid var(--border); background:var(--bg-darkest); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.06em; }
 
         .lead-cta { max-width:1280px; margin:2rem auto 0; padding:0 2rem 5rem; }
         .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
@@ -93,7 +97,7 @@
 
 .footer-socket a { color:var(--lime); text-decoration:none; }
         @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
-        @media (max-width:860px) {
+        @media (max-width:900px) {
             .cte-body-split, .cte-body-split.reverse { grid-template-columns:1fr; }
             .cte-body-split.reverse .cte-text { order:1; }
             .cte-body-split.reverse .cte-media { order:2; }
@@ -164,7 +168,7 @@
                     <div class="dropdown-panel">
                         <a href="djusd_cte.html" class="active">DJUSD CTE Courses</a><a href="team_handbook.html">Team Handbook</a>
                         <a href="resources.html#build-blogs">Build Blogs / Newsletters</a><a href="resources.html#media">Media</a>
-                        <a href="resources.html#technical-training">Technical Training</a>
+                        <a href="technical_training.html">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -224,13 +228,17 @@
                     <div class="cte-meta">1 year &bull; 10 credits &bull; CTE &nbsp;&nbsp;&bull;&nbsp;&nbsp; Prerequisite: None</div>
                 </div>
                 <div class="cte-course-body">
-                    <div class="cte-text">
-                        <p>This is an introductory course designed to give students an overview of many aspects of engineering as applied to robotics applications. The emphasis of this course is to provide students with a fun, hands-on experience where they will work in small teams to design, build and program their own robot.</p>
-                        <p>Teams will be given several design challenges and, ultimately, participate in a competition to test the worthiness of their design. During the design and fabrication process, students will test and evaluate their robot, all while learning important life skills and engineering concepts.</p>
-                        <p>Topics will include workspace safety, teamwork and organization, engineering process, mechanical design/CAD, mechanical fabrication, electronics, programming, pneumatics, media, and competition strategy.</p>
-                    </div>
-                    <div class="cte-video">
-                        <iframe src="https://www.youtube.com/embed/hW0KrA2FLvw" title="Introduction to Robotics Engineering" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    <div class="cte-body-split">
+                        <div class="cte-text">
+                            <p>This is an introductory course designed to give students an overview of many aspects of engineering as applied to robotics applications. The emphasis of this course is to provide students with a fun, hands-on experience where they will work in small teams to design, build and program their own robot.</p>
+                            <p>Teams will be given several design challenges and, ultimately, participate in a competition to test the worthiness of their design. During the design and fabrication process, students will test and evaluate their robot, all while learning important life skills and engineering concepts.</p>
+                            <p>Topics will include workspace safety, teamwork and organization, engineering process, mechanical design/CAD, mechanical fabrication, electronics, programming, pneumatics, media, and competition strategy.</p>
+                        </div>
+                        <div class="cte-media">
+                            <div class="cte-video">
+                                <iframe src="https://www.youtube.com/embed/hW0KrA2FLvw" title="Introduction to Robotics Engineering" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,13 +250,17 @@
                     <div class="cte-meta">1 year &bull; 10 credits &bull; CTE &nbsp;&nbsp;&bull;&nbsp;&nbsp; Prerequisite: Introduction to Robotics Engineering</div>
                 </div>
                 <div class="cte-course-body">
-                    <div class="cte-text">
-                        <p>This course is designed for students who have already completed the &ldquo;Introduction to Robotics Engineering&rdquo; course. The course will follow the same format as the introductory course but topics will be taken to a higher level and more emphasis will be put on Mechanical Design.</p>
-                        <p>The main focus of the course will be designing and building a robot to compete in the most recent <a href="https://www.vexrobotics.com/competition" target="_blank" rel="noopener">VEX Robotics Competition</a>. Students will learn to use Solidworks CAD design software and then use 3-D printers to manufacture components based on their designs.</p>
-                        <p>Additional topics covered will include workspace safety, teamwork and organization, engineering process, electronics, programming, pneumatics, media, and competition strategy.</p>
-                    </div>
-                    <div class="cte-video">
-                        <iframe src="https://www.youtube.com/embed/xAheaRQVRnY" title="Intermediate Robotics Engineering" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    <div class="cte-body-split reverse">
+                        <div class="cte-text">
+                            <p>This course is designed for students who have already completed the &ldquo;Introduction to Robotics Engineering&rdquo; course. The course will follow the same format as the introductory course but topics will be taken to a higher level and more emphasis will be put on Mechanical Design.</p>
+                            <p>The main focus of the course will be designing and building a robot to compete in the most recent <a href="https://www.vexrobotics.com/competition" target="_blank" rel="noopener">VEX Robotics Competition</a>. Students will learn to use Solidworks CAD design software and then use 3-D printers to manufacture components based on their designs.</p>
+                            <p>Additional topics covered will include workspace safety, teamwork and organization, engineering process, electronics, programming, pneumatics, media, and competition strategy.</p>
+                        </div>
+                        <div class="cte-media">
+                            <div class="cte-video">
+                                <iframe src="https://www.youtube.com/embed/xAheaRQVRnY" title="Intermediate Robotics Engineering" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,17 +272,21 @@
                     <div class="cte-meta">1 year &bull; 10 credits &bull; CTE &nbsp;&nbsp;&bull;&nbsp;&nbsp; Prerequisite: Introduction to Robotics Engineering OR one year of experience on a FIRST robotics team</div>
                 </div>
                 <div class="cte-course-body">
-                    <div class="cte-text">
-                        <p>This course is designed to allow students to pursue their interests in a variety of areas related to robotics while participating in a nationally recognized robotics program, FIRST Robotics. Students taking this class will be required to participate on the Citrus Circuits robotics team.</p>
-                        <p>Students will choose their area of interest from the following subteams: mechanical design/CAD, mechanical fabrication/assembly, electronics, programming, or business/media. More information about each subteam is available <a href="about/subteams.html">here</a>. Students in a leadership position on the team will be eligible to take the honors section for the course.</p>
-                        <p>Although there will be some academic topics such as mechanics, electronics and programming, the course is mostly project-based and will require a significant amount of work outside of the regular class period. The main focus of the course will be the design, fabrication, assembly, and programming of a competition robot.</p>
-                        <p>However, students interested in the business/media strand will focus on support of the team through business development (fundraising, sponsorship, financial management, etc.) and team image (press releases, social media, website development, team apparel, etc.) More information about the FIRST Robotics program can be found at <a href="https://www.usfirst.org/roboticsprograms/frc" target="_blank" rel="noopener">www.usfirst.org/roboticsprograms/frc</a>.</p>
-                    </div>
-                    <div class="cte-photo-pair">
-                        <img src="pictures/resources/DJUSD CTE courses1.jpg" alt="Advanced Robotics Engineering class" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                        <div class="cte-photo-fallback" style="display:none;">Photo</div>
-                        <img src="pictures/resources/DJUSD CTE courses2.jpg" alt="Advanced Robotics Engineering class" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                        <div class="cte-photo-fallback" style="display:none;">Photo</div>
+                    <div class="cte-body-split">
+                        <div class="cte-text">
+                            <p>This course is designed to allow students to pursue their interests in a variety of areas related to robotics while participating in a nationally recognized robotics program, FIRST Robotics. Students taking this class will be required to participate on the Citrus Circuits robotics team.</p>
+                            <p>Students will choose their area of interest from the following subteams: mechanical design/CAD, mechanical fabrication/assembly, electronics, programming, or business/media. More information about each subteam is available <a href="about/subteams.html">here</a>. Students in a leadership position on the team will be eligible to take the honors section for the course.</p>
+                            <p>Although there will be some academic topics such as mechanics, electronics and programming, the course is mostly project-based and will require a significant amount of work outside of the regular class period. The main focus of the course will be the design, fabrication, assembly, and programming of a competition robot.</p>
+                            <p>However, students interested in the business/media strand will focus on support of the team through business development (fundraising, sponsorship, financial management, etc.) and team image (press releases, social media, website development, team apparel, etc.) More information about the FIRST Robotics program can be found at <a href="https://www.usfirst.org/roboticsprograms/frc" target="_blank" rel="noopener">www.usfirst.org/roboticsprograms/frc</a>.</p>
+                        </div>
+                        <div class="cte-media">
+                            <div class="cte-photo-pair">
+                                <img src="pictures/DJUSD CTE courses1.jpg" alt="Advanced Robotics Engineering class" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <div class="cte-photo-fallback" style="display:none;">Photo</div>
+                                <img src="pictures/DJUSD CTE courses2.jpg" alt="Advanced Robotics Engineering class" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <div class="cte-photo-fallback" style="display:none;">Photo</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -445,7 +461,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     return s;
   }
   function topN(q,n){
-    var toks=q.split(' ').filter(function(t){return t.length>1;});
+    var toks=q.split(' ').filter(function(t){return t.length>0;});
     var scored=[];
     PAGES.forEach(function(p){var s=score(p,q,toks);if(s>0)scored.push({p:p,s:s});});
     scored.sort(function(a,b){return b.s-a.s;});
@@ -472,7 +488,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   }
   si.addEventListener('input',function(){
     var q=norm(si.value);
-    renderSug(q.length>1?topN(q,3):[]);
+    renderSug(q.length>0?topN(q,3):[]);
   });
   si.addEventListener('keydown',function(e){
     if(e.key==='Escape'){sugBox.style.display='none';return;}

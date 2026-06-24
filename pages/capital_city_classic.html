@@ -175,7 +175,7 @@
                     <div class="dropdown-panel">
                         <a href="djusd_cte.html">DJUSD CTE Courses</a><a href="team_handbook.html">Team Handbook</a>
                         <a href="resources.html#build-blogs">Build Blogs / Newsletters</a><a href="resources.html#media">Media</a>
-                        <a href="resources.html#technical-training">Technical Training</a>
+                        <a href="technical_training.html">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -417,7 +417,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     return s;
   }
   function topN(q,n){
-    var toks=q.split(' ').filter(function(t){return t.length>1;});
+    var toks=q.split(' ').filter(function(t){return t.length>0;});
     var scored=[];
     PAGES.forEach(function(p){var s=score(p,q,toks);if(s>0)scored.push({p:p,s:s});});
     scored.sort(function(a,b){return b.s-a.s;});
@@ -444,7 +444,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   }
   si.addEventListener('input',function(){
     var q=norm(si.value);
-    renderSug(q.length>1?topN(q,3):[]);
+    renderSug(q.length>0?topN(q,3):[]);
   });
   si.addEventListener('keydown',function(e){
     if(e.key==='Escape'){sugBox.style.display='none';return;}
