@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History — Citrus Circuits 1678</title>
+    <title>2022 Build Blog — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
     <meta name="description" content="Two decades of FRC Team 1678, Citrus Circuits — from a single classroom in 2004 to a ten-year Einstein streak.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,6 +110,34 @@
         .hist-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
         .hist-nav-link:hover { color:var(--lime); }
         .hist-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+
+        /* build blog */
+        .blog-wrap { max-width:980px; margin:0 auto; padding:0 2rem 6rem; }
+        .blog-head { text-align:center; padding:3.5rem 0 2.5rem; border-bottom:2px solid var(--border); margin-bottom:0; }
+        .blog-week { margin-top:0; }
+        .blog-week-header { padding:1.5rem 0 .6rem; border-bottom:2px solid var(--lime); margin-bottom:0; }
+        .blog-week-title { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; color:var(--text-main); letter-spacing:.06em; text-transform:uppercase; }
+        .blog-intro { color:var(--text-muted); font-size:1rem; line-height:1.7; padding:.85rem 0 .85rem; border-bottom:1px solid var(--border); }
+        .bb-row { display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid var(--border); }
+        .bb-cell { padding:1.6rem 1.5rem; }
+        .bb-cell--img { padding:.75rem; display:flex; align-items:center; justify-content:center; background:var(--bg-card); }
+        .bb-cell--img img { width:100%; height:260px; object-fit:cover; border-radius:6px; display:block; }
+        .bb-name { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--lime); letter-spacing:.06em; text-transform:uppercase; margin-bottom:.6rem; }
+        .bb-text { color:var(--text-muted); font-size:1.05rem; line-height:1.8; }
+        .bb-dual { display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid var(--border); }
+        .bb-dual .bb-cell { border-right:1px solid var(--border); padding:1.6rem 1.5rem; }
+        .bb-dual .bb-cell:last-child { border-right:none; }
+        .bb-full { padding:1.6rem 1.5rem; border-bottom:1px solid var(--border); }
+        .bb-full .bb-name { margin-bottom:.5rem; }
+        .blog-nav { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; margin-top:2rem; }
+        .blog-nav a { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s; }
+        .blog-nav a:hover { color:var(--lime); }
+        @media(max-width:700px){
+          .bb-row,.bb-dual { grid-template-columns:1fr; }
+          .bb-cell--img { height:200px; }
+          .bb-cell--img img { height:200px; }
+          .bb-dual .bb-cell { border-right:none; border-bottom:1px solid var(--border); }
+        }
     </style>
 </head>
 <body>
@@ -192,20 +220,233 @@
     </header>
 
     <main>
-        <div class="wrap">
-            <a href="../seasons/history.html" class="hist-back-link">&larr; Team History</a>
-            <div class="page-head" style="text-align:left;margin:0 0 2rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">Build Blog</div>
-                <h1 class="page-title">2022</h1>
-            </div>
-            <div class="hist-detail">
-                <p>Coming back from the pandemic, we won three regionals — Hueneme Port, Sacramento, and Silicon Valley — and earned the Engineering Inspiration Award for the first time. At Champs we won the Hopper division and reached the Einstein semifinals for the eighth straight year, placing fifth worldwide.</p><div class="tl-tags"><span>Engineering Inspiration</span><span>Hopper Champions</span><span>5th Worldwide</span></div><p>The full build blog archive for this season lives with our newsletters and build updates — see the <a class="inline-link" href="../build_blogs.html" style="color:var(--lime);text-decoration:underline;">Build Blogs / Newsletters</a> page.</p>
-            </div>
+      <div class="blog-wrap">
+        <div class="blog-head">
+          <h1 class="page-title">Build Blog 2022</h1>
+          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">Engineering Inspiration</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">Hopper Champions</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">3× Regional Winner</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">RAPID REACT</span>
+          </div>
         </div>
-        <div class="hist-nav-strip">
-            <span></span>
-            <a href="blog_2023.html" class="hist-nav-link">2023 &rarr;</a>
+
+        <!-- ═══════════════════ WEEK 7 — WE'VE ARRIVED ═══════════════════ -->
+        <div class="blog-week" id="week-7">
+          <div class="blog-week-header"><div class="blog-week-title">Week 7 - We've Arrived</div></div>
+          <div class="blog-intro">At Citrus Circuits, we've never been more excited for competition! As Margie is getting ready for her debut and Epsilon was showing off at Premiere Night, all of the subteams have made their final preparations for Hueneme Port next week. This will be our last edition of Build Blog for 2022.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">Hardware has done a lot to get Epsilon and Margie working in the past week. On Monday, Epsilon had its first successful traverse climb. Since then, lots of stress testing and driver practice has helped iron out bugs and inconsistencies within both the climber mechanism and the outtake. Margie has been very quickly assembled and is already being tested and practiced with. Margie's shooter, climber, and intake were finished on Monday and were assembled onto the bellypan throughout the week.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/Build Blog 2022.jpg" alt="Hardware Design Week 7"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/1Build Blog 2022.jpg" alt="Hardware Fabrication Week 7"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Fabrication is preparing for competition by making spare parts for the pit boxes. One key part they've been creating is surplus red and blue bumpers so that the pit crew can easily switch between the team colors. Also, after using the newer swerve modules during the offseason competitions, the pit crew noticed the treads on the wheels would wear down extremely quickly. Fabrication is preparing accordingly by cutting strips of treads so that the pit crew can have them on hand to switch quicker and easier.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">While Design and Fabrication were assembling Margie, it took Electrical only three meetings to wire all the mechanisms, other than the color sensor, and begin testing on Friday. Epsilon, on the other hand, has been subject to the 'Fail Faster' treatment, and Electrical has been hard at work fixing and refining various problems with the CAN loop and unwanted resistance.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/2Build Blog 2022.jpg" alt="Hardware Electrical Week 7"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/3Build Blog 2022.jpg" alt="Software Robot Week 7"></div>
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">During this last week Software Robot has by far been the busiest subteam. Between creating a working indexer and tuning the auto climb, they have had many systems to stress test. Both the intake and drivetrain code were implemented from Epsilon onto Margie. During driver practice they refined the five-ball auto code and tested two-by-two autos. Once Margie's climber gearbox and arms were mounted, Software Robot began testing a manual climb, then tuned the automatic climb. The LEDs change color to notify the driver about the status of the shooter hood, when the robot enters climb mode, and how many balls have been taken in.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">This week has involved a lot of field testing for Software Scouting. This has in turn meant a lot of small bug fixing for Back-End, such as missing subjective data and updating calculations for all data, along with revising the packability weighing. Front-End has created new icons for the apps as well as begun packing for Hueneme Port.</div></div>
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">Business and Media has been preparing vinyl cutouts for pit boxes and the sponsor panel for Margie. BAM members have also been renewing the interactive pit display and creating multiple promotional videos. The 2022 offseason recap was released on Wednesday, and on Saturday we participated in the Premiere Night livestream. The Chairman's video has been finished and is ready for submittal. Finally, the new team apparel order came in and is being distributed to team members.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Chairman's Award</div><div class="bb-text">Although the essay and executive summary have already been submitted, the Chairman's team isn't done yet. They have been practicing and finalizing the presentation for competition along with the prop. They have also been working with Business and Media to finalize the Chairman's video as well as create a handout to give to the Chairman's judges.</div></div>
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">With only 6 days until competition, Strategy reviewed various 'Week Zero' events to make some final changes to match strategy. To prepare for Hueneme Port, Strategy is making final super scout/strategist selections and doing some more training.</div></div>
+          </div>
         </div>
+
+        <!-- ═══════════════════ WEEK 6 — BUCKLE YOUR SEATBELTS ═══════════════════ -->
+        <div class="blog-week" id="week-6">
+          <div class="blog-week-header"><div class="blog-week-title">Week 6 - Buckle Your Seatbelts, Prepare to Land!</div></div>
+          <div class="blog-intro">With just a little over two weeks before our first competition, we're on the final approach to getting our robot on the field. Our drive team is practicing with Epsilon, the Competition robot is coming together, and we've seen how the game is played at the Week 0 event.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">As we get closer to Week 1, Hardware Design has been working to complete the Competition robot and make sure it's fully functioning. They separated into five groups to design and assemble each part: intake, shooter, hopper, climber, and drivetrain. Epsilon was fully assembled on Tuesday, including the new climber, and went down to 254's shop in San Jose on Saturday for driver practice. All of the individual subsystems for the Competition robot have been completed, and should be fully assembled as a working robot by the end of the weekend.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/4Build Blog 2022.jpg" alt="Hardware Design Week 6"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/5Build Blog 2022.jpg" alt="Hardware Fabrication Week 6"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication made a lot of progress this week making parts for the Epsilon and Comp robots. Parts were fabricated on the lathes throughout the week, with the quality remaining consistently high. Fabrication also made the stock for our flywheels through a process that involved precision machining a brass shell and aluminum core, heating up the brass, and sliding it onto the aluminum cylinder. There were also some problems with the drivetrain tubes causing the drivetrain to be uneven, so new drivetrain tubes were made and assembled on the flat surface of the router table to eliminate any inconsistency.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">The Software Robot subteam was in full force this week working on Epsilon for test driving at 254's shop. They tested everything on Epsilon, going over every sensor and mechanism to make sure it worked perfectly. They also tested the two-ball autonomous routine and five-ball autonomous, which were working perfectly! Additionally, they worked on attaching color sensors for the outtake and tuned the shooter regression for accuracy. Thanks to the subteam's hard work, Epsilon was ready for competition-level practice.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/6Build Blog 2022.jpg" alt="Software Robot Week 6"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/7Build Blog 2022.jpg" alt="Hardware Electrical Week 6"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">This week, Hardware Electrical finished wiring belly pans for the Epsilon and Comp robots. They were challenged to finish Epsilon in a limited timeframe before it left for 254's shop, but they managed to get it done and tested successfully! The subteam also worked on finishing building a practice kit bot and deconstructing old robots for parts.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Software Scouting accomplished a variety of tasks in the past week to get ready for competition. Frontend completed their field test and decided who the scouts will be at our first competition. They've also been adding and fixing features in the scouting app. Backend worked on and finished their competition outcome predictions, and imported their picklist into the database. Scouting has a number of other tasks in progress, including scout documentation, updating the schema file, and fixing some problems with the super scout UI.</div></div>
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">Business and Media has been busy finishing the offseason recap video and Chairman's video. Both videos are facing due dates soon, but they are almost done thanks to all the hard work of our video editors! They are also working on this week's Build Blog, February Newsletter, and finances. Business and Media held a Sponsor Open House on February 19 and 20, where sponsors came to the shop for a tour of our facilities and to see our robot and students in action.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">Strategy has been hard at work determining the key factors for scouting at our upcoming competitions, aided by watching some of the Week 0 matches on Saturday morning that gave insight into how this year's game will be played. Strategy has also been talking about how different scenarios may play out when combining robots of diverse builds and capabilities.</div></div>
+            <div class="bb-cell"><div class="bb-name">Chairman's Award</div><div class="bb-text">The first step on our path to the Chairman's award is complete! Both the essay and executive summary were submitted this week, supported by lots of input from team members, parents, and mentors. The final pieces in our pursuit of this year's Chairman's award are finalizing the presentation by practicing in front of numerous panels of parents, and completing the video, which just had final voice-overs added.</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 5 — EPSILON AND BEYOND! ═══════════════════ -->
+        <div class="blog-week" id="week-5">
+          <div class="blog-week-header"><div class="blog-week-title">Week 5 - Epsilon and Beyond!</div></div>
+          <div class="blog-intro">We were at full-throttle this week and completed the design of Epsilon, our fourth robot iteration! The week finished on Saturday with a trip to San Jose for driver practice on the full-size field at the shop for Team 254 The Cheesy Poofs.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">This week, Hardware Design worked hard to redesign and improve the climber and intake mechanisms after the test from last week. They designed a functional climber in 24 hours after scrapping the previous climber design, and are currently on track to test the climber and shooter after Fabrication completes the parts and assembles them.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/8Build Blog 2022.jpg" alt="Hardware Design Week 5"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/9Build Blog 2022.jpg" alt="Hardware Fabrication Week 5"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication has been busy fabricating and assembling a new intake on Alpha, as well as preparing all the parts for the Competition robot and Epsilon. Currently, our Competition robot is being assembled and all the parts are being finished for Epsilon. They are aiming to finish assembling on Monday.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">Hardware Electrical has completed deconstructing the 2020/2021 competition robot to salvage components for Epsilon. They are currently preparing to wire up the belly pan for Epsilon once it is fabricated.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/10Build Blog 2022.jpg" alt="Hardware Electrical Week 5"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/11Build Blog 2022.jpg" alt="Software Scouting Week 5"></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Software Scouting has continued working on the scouting app user interface and database. Front-End and Back-End members had successful field tests, and they were able to transfer data all the way from match collection through the server, onto Cardinal, and then to the viewer. Front-End members finished adding search features on the match strategy viewer. Back-End members fixed cloud updating, bugs, and discovered issues from the UI.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">The Strategy subteam has combined their discussion on robot categorization with match strategy and their general sequencing of the match. They started with the categories of brick (non-moving), low, mid-low, mid-high and high robots, and the general 'four acts' of the game, and determined what would happen with different combinations of robots.</div></div>
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">This week, Business and Media was able to finish the Build Blog week 4, the February newsletter, sending sponsor open house invitations, and designing Robocamps ads. They are currently working on the Chairman's prop, Chairman's video, Offseason recap video, Chairman's presentation handout, and business plan.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Chairman's Award</div><div class="bb-text">Chairman's has focused on preparing the executive summary and essay for the Chairman's award, which will be submitted on February 17. They are working on final edits and getting ready to submit, and finalizing the presentation prop. They also wrote and recorded the voice-over for the Chairman's video, and worked with Business and Media to incorporate it into the final version.</div></div>
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">Software Robot has worked on programming and testing the auto paths, and compiled Epsilon code. Their biggest accomplishment this week has been getting the almost complete five-ball auto on the beta robot, and starting on climb automation. The subteam tested the shooter and gathered more data to improve shot accuracy. They were also able to prepare the competition robot for driving practice at the Cheesy Poofs' practice field.</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 4 — HALFWAY THERE! ═══════════════════ -->
+        <div class="blog-week" id="week-4">
+          <div class="blog-week-header"><div class="blog-week-title">Week 4 - Halfway There!</div></div>
+          <div class="blog-intro">Welcome to Week 4 of the Citrus Circuits Build Blog! We're halfway through our eight weeks before our first competition, and ready to power through the last four weeks!</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">This week, Hardware Design completed designs for the Beta robot, and they are changing some designs depending on how the robot performs. Also, the competition robot is going through minor redesigns to eliminate pneumatic fire time delay, and modifying the ball tunnel for the shooter and outtake. Unfortunately, our original climber design isn't working out as expected, so Hardware Design is redesigning the climb system for our second try.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/12Build Blog 2022.jpg" alt="Hardware Design Week 4"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/13Build Blog 2022.jpg" alt="Hardware Fabrication Week 4"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication was able to finish fabricating the Beta robot this week. They are continuing to make the many parts sent from our Hardware Design subteam, as well as finishing up the Competition robot.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">Hardware Electrical was "flying to new heights" by finishing the belly pan and drivetrain for the Competition robot, as well as finishing wiring the Falcon motor and singulator for the Beta robot. Since our team is aiming to get climbing done by the start of week 4, they worked hard to get the upper climb motor wired and pistons ready. They are now currently working with Hardware Design and Software Robot for the location of a color sensor to allow us to tell the difference between red and blue cargo.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/14Build Blog 2022.jpg" alt="Hardware Electrical Week 4"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/15Build Blog 2022.jpg" alt="Software Robot Week 4"></div>
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">Over the past week, Software Robot has continued calculations of x and y coordinates for the shooter and finalized the climber code. Early this week, they did a full bringup on the Beta robot drivetrain and intake, and are now working on developing new autonomous mode paths, and testing the outtake and color sensing with Hardware Design and Electrical.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Our Software Scouting subteam spent much of this week testing the current scouting app and its features, such as QR scanning, picklist storage into the database, and calculations for starting positions. In addition, training on the picklist editor has begun, and the creation of options for user preference and display changes is in progress.</div></div>
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">This week, members of Strategy learned about the field clock, and discussed general match strategy and Four Acts. The Four Acts is a certain strategy where the team splits each match into four acts, and decide on roles for robots to play in each of those four acts. In addition, they will be assigning the position of robots based on their notes from the meeting and discussions.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Chairman's Award</div><div class="bb-text">Chairman's is making final edits and getting ready to submit their Executive Summary and Essay for the Chairman's award by February 17. They recorded voiceovers for the Chairman's video and gave feedback to Business and Media to help create a more informative and entertaining end product. As part of practicing the presentation, they gave a first runthrough to a panel of parents.</div></div>
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">This past week, Business and Media has continued to edit the Chairman's video with input from the Chairman's subteam. In addition, the subteam is working on the Offseason recap video, Business Plan, sponsors finances, newsletter, and other small projects, including apparel design and ordering. Get ready for bucket hats!</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 3 — BETA BLAST OFF ═══════════════════ -->
+        <div class="blog-week" id="week-3">
+          <div class="blog-week-header"><div class="blog-week-title">Week 3 - Beta Blast Off</div></div>
+          <div class="blog-intro">We're soaring into week three everyone! After the completion of the Alpha bot and our five-ball auto, we've started working on the Beta and Competition robot. Each subteam has been working extremely hard on their respective tasks.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">Hardware Design is using Computer-Aided Design (CAD) to develop the design of new mechanisms to pass on to Fabrication to machine the parts for both the Competition and Beta robots. The Beta shooter has been approved for assembly and is currently being fabricated, while the intake is still in testing. In addition, CAD for a four-roller shooter hood is underway.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/16Build Blog 2022.jpg" alt="Hardware Design Week 3"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/17Build Blog 2022.jpg" alt="Hardware Fabrication Week 3"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">This week, members of Hardware Fabrication received CAD from Design for the Beta robot and began fabricating parts. They are currently assembling the shooter and testing the different mechanisms alongside Hardware Design.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">This week, Hardware Electrical wired the belly pan for the Beta robot. The belly pan is a metal frame where the drivetrain, wheels, and mechanisms are attached to. They are also wiring the indexer, hopper, shooter, and climber on Beta. The belly pan of the competition robot is mostly done, and Electrical is almost ready to hand it over to Software Robot. In addition, they are working with Hardware Design and Fabrication to put together mechanisms, and are looking toward finalizing the locations of the Falcon 500 motors, sensors, and other components.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/18Build Blog 2022.jpg" alt="Hardware Electrical Week 3"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/19Build Blog 2022.jpg" alt="Software Scouting Week 3"></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Software Scouting was able to get all basic calculations done for the software program. Currently, they are counting and averaging how much we can score in the autonomous and teleoperated periods. They are also deploying the script for the Cardinal, which transfers data from the Scouting database into the viewer, and are adding the start position and climb point in the script.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">This week, Business and Media collected orders for apparel and is ready to order. The team is also working on the February newsletter, team finances, writing Build Blog, the Chairman's presentation prop, and getting the Chairman's video finished before our first competition.</div></div>
+            <div class="bb-cell"><div class="bb-name">Chairman's Award</div><div class="bb-text">Chairman's is currently working with Business and Media for the Chairman's video. They are also finishing and practicing the presentation, working on the presentation prop, and completing the Executive Summary and Essay for submission.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">Members of Software Robot have been working on the robot software for the Beta and Competition robots. They are coding the robot climb, tracking the goals, and finishing the color sensors. In addition, they are refining auto paths, and plan to continue driver practice.</div></div>
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">Strategy is continuing to categorize robots based on their performance baselines for future competitions. They used the Everybot design from the Robonauts Team 118 as a baseline for determining the ability to score in the low/high goal, specialized high goal shots, or just dumping into the low goals. They are also presenting some auto paths in order to maximize scores.</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 2 — LET THE PROTOTYPING BEGIN! ═══════════════════ -->
+        <div class="blog-week" id="week-2">
+          <div class="blog-week-header"><div class="blog-week-title">Week 2 - Let the Prototyping Begin!</div></div>
+          <div class="blog-intro">The success of our prototyping week led us to release a teaser of our five-ball autonomous routine on day 10 of build season, the earliest we've ever been able to show what our robots can do! The Alpha bot has been constructed as an almost fully-functional prototype that can intake and shoot the cargo using vision software for target acquisition.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware — Intake</div><div class="bb-text">The intake group finished designing and fabricating the intake mechanism for the Alpha bot. To quickly acquire the cargo pieces, the intake uses ¾" bore cylinders with a 6" stroke to get as much leverage as possible on the intake.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/20Build Blog 2022.jpg" alt="Hardware Intake Week 2"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/21Build Blog 2022.jpg" alt="Hardware Singulator Week 2"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware — Singulator &amp; Indexer</div><div class="bb-text">The main purpose of the singulator is to line balls up single-file as they approach the indexer. The indexer then pushes balls up towards the shooter via a conveyor belt system. The group was able to finish a CAD revision and design side rollers for the cargo to enter the center of the robot.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware — Shooter</div><div class="bb-text">Members that worked on the shooter continued to tune the compression of the cargo for shooting accuracy and consistency, and created the final Alpha shooter mechanism. The shooter was fabricated and mounted onto the Alpha robot, ultimately changing from shooting over the intake side to shooting from the opposite side of the robot.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/22Build Blog 2022.jpg" alt="Hardware Shooter Week 2"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/23Build Blog 2022.jpg" alt="Hardware Climber Week 2"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware — Climber</div><div class="bb-text">The climber mechanism was originally going to be constructed using parts from the 4414 robot used at MadTown and move sequentially from the mid bar to the high traversal bar. However, the climbing approach has changed significantly. We decided to start prototyping a different style that will move the robot directly from the mid bar to the traversal bar, skipping one bar entirely and making the overall climb significantly faster. The new concept was mocked-up in wood and is being tested.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">Members of Software Robot worked with Strategy to find the most efficient and fastest auto route for the robot to score. They are also revising Pull Requests (PRs), which are contributions to the code via an open codebase like GitHub to edit and optimize the code. Software Robot successfully developed the five-ball auto for this year's game that was highlighted in our teaser video.</div></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Software Scouting was able to define subjective criteria (criteria super scouts use) and pit scout criteria. Both subjective and pit scout criteria are in the user interface and are available in software for use. All data points are in the process of being identified and reviewed. Software Scouting is also working with Strategy to develop a list of priority data points that we will use to evaluate which robots perform better in comparison to others.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">Strategy is continuing to review threads from Chief Delphi, a forum for FRC strategy and development. They are also working with Software General to categorize all possible robots by their function. These categories include being able to shoot from the far and/or the near side of the field, climbing certain rungs on the Hangar during endgame, and more.</div></div>
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">Business and Media members have been prepping this year's apparel orders, including formatting designs and sponsor logos for the 2022 shirts. They are also preparing the Interactive Pit Display and edited the reveal video for the five-ball auto, hiding our robot with an image of a shipping container to fit the theme for RAPID REACT. The Chairman's subteam sent their essay and presentation drafts to Team 3132 and got great feedback.</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 1 — KICKOFF! ═══════════════════ -->
+        <div class="blog-week" id="week-1">
+          <div class="blog-week-header"><div class="blog-week-title">Week 1 - Kickoff!</div></div>
+          <div class="blog-intro">Welcome to the weekly Citrus Circuits Build Blog! On January 8, our team participated in the kickoff for the worldwide reveal of the 2022 FIRST Robotics Competition game, RAPID REACT. All of our team members gathered outside the robotics building throughout the weekend to discuss the requirements of the new game and what we want our robot to do.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">The Business and Media team has been preparing for the competition season by working on 1678's interactive pit display and determining the video and photo strategy for the game. Also they've been working on the Offseason Recap Video, sponsor follow-up, January Newsletter, finances, and Week 1 Build Blog!</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/24Build Blog 2022.jpg" alt="Business and Media Week 1"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/25Build Blog 2022.jpg" alt="Hardware Week 1"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware</div><div class="bb-text">This week, Hardware subteams have been working on building prototypes from the ground up. Members were divided into four groups to focus on the shooter, hopper, climber, and intake. We designed an adjustable compression prototype for the shooter, and we're focusing on laser cutting the prototype and testing different compressions and flywheels. Hopper teams are working on creating more detailed parts after completing prototyping. We used climbing mechanisms from FRC Team 1986 Titanium's 2013 robot as inspiration for our climbing system. For the intake, sketches were made of how the system will work, and we started fabricating a CAD for the Alpha robot.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">The Software Robot subteam has been busy testing our new Alpha robot. They're working on developing autonomous routines using the Alpha drivetrain, with the goal of having a five-ball auto. With that, they've been working up with the strategy team to find the simplest route for robots to move most efficiently on the field. Also, they are working on peer-reviewing all subsystems and drivetrain alignment.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2022/26Build Blog 2022.jpg" alt="Software Robot Week 1"></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Software Scouting is working on user interface (UI) and software systems. They are currently creating a scout UI used for inputting data during matches, and are testing to see how it works functionally. Also, they were working on what data needed to be collected, such as the number of cargos scored by a team in a match or their climb capability.</div></div>
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">Strategy is reviewing threads from Chief Delphi, a forum for FRC strategy and development. They are working with Software General to categorize all possible robots by their function and are working with Software Robot to find the most efficient routes for autonomous routines.</div></div>
+          </div>
+          <div class="bb-full"><div class="bb-name">Rapid React</div><div class="bb-text">RAPID REACT is the 2022 FIRST Robotics Competition game, presented by Boeing Company with a transportation theme. Two alliances of three teams each compete to earn points. Each robot retrieves oversized tennis balls, known as cargo, from various places on the field. The robots collect cargos with their assigned alliance color, then shoot them into two different goals with different values assigned to each. In the last thirty seconds of the match, the robots return to the Hangar, a rectangular structure in the corner of the field, to climb and reach four separate metal bars of increasing height.</div></div>
+          <div class="bb-full"><div class="bb-name">Thank You Parents!</div><div class="bb-text">Thank you to all of the parents who helped us build the new field elements for the new season, and provided us meals during the weekend meetings! Your time and efforts are appreciated by the team, and help us to continue doing our best during this build season and competition!</div></div>
+        </div>
+
+        <div class="blog-nav">
+          <a href="../build_blogs.html">&larr; All Build Blogs</a>
+          <a href="blog_2023.html">2023 Build Blog &rarr;</a>
+        </div>
+      </div>
     </main>
 
 
