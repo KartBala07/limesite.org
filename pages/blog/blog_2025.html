@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History — Citrus Circuits 1678</title>
+    <title>2025 Build Blog — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
     <meta name="description" content="Two decades of FRC Team 1678, Citrus Circuits — from a single classroom in 2004 to a ten-year Einstein streak.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,6 +110,26 @@
         .hist-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
         .hist-nav-link:hover { color:var(--lime); }
         .hist-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+
+        /* build blog */
+        .blog-wrap { max-width:900px; margin:0 auto; padding:0 2rem 6rem; }
+        .blog-head { padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--border); margin-bottom:3rem; }
+        .blog-season-tag { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.7rem; margin-bottom:1.2rem; }
+        .blog-season-tag::before,.blog-season-tag::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
+        .blog-week { margin-bottom:4rem; }
+        .blog-week-header { display:flex; align-items:baseline; gap:1rem; margin-bottom:1.5rem; padding-bottom:.75rem; border-bottom:1px solid var(--border); }
+        .blog-week-num { font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--lime); line-height:1; }
+        .blog-week-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--text-main); letter-spacing:.04em; text-transform:uppercase; }
+        .blog-photos { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:2rem; border-radius:12px; overflow:hidden; }
+        .blog-photos img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border-radius:8px; }
+        .blog-photos .photo-err { width:100%; aspect-ratio:4/3; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; display:none; align-items:center; justify-content:center; color:var(--text-muted); font-size:.75rem; }
+        .blog-subteam { margin-bottom:1.5rem; }
+        .blog-subteam-name { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--lime); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.4rem; }
+        .blog-subteam p { color:var(--text-muted); font-size:.95rem; line-height:1.75; }
+        .blog-nav { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; }
+        .blog-nav a { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s; }
+        .blog-nav a:hover { color:var(--lime); }
+        @media(max-width:600px){ .blog-photos{grid-template-columns:1fr;} }
     </style>
 </head>
 <body>
@@ -192,20 +212,184 @@
     </header>
 
     <main>
-        <div class="wrap">
-            <a href="../seasons/history.html" class="hist-back-link">&larr; Team History</a>
-            <div class="page-head" style="text-align:left;margin:0 0 2rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">Build Blog</div>
-                <h1 class="page-title">2025</h1>
-            </div>
-            <div class="hist-detail">
-                <p>Our robot SubLime swept three regionals during REEFSCAPE — seeding first at and winning Pinnacles, Sacramento, and Contra Costa — and we took the Impact Award at Pinnacles. Our ten-year Einstein streak closed this year, but we built one of our most complex machines yet and finished among the top five in EPA by Championships.</p><div class="tl-tags"><span>3× Regional Winner</span><span>Impact Award</span><span>Top 5 EPA</span></div><p>The full build blog archive for this season lives with our newsletters and build updates — see the <a class="inline-link" href="../build_blogs.html" style="color:var(--lime);text-decoration:underline;">Build Blogs / Newsletters</a> page.</p>
-            </div>
+      <div class="blog-wrap">
+        <div class="blog-head">
+          <div class="blog-season-tag">REEFSCAPE &bull; 2025</div>
+          <h1 class="page-title">2025 Build Blog</h1>
+          <p style="color:var(--text-muted);margin-top:1rem;font-size:1rem;line-height:1.7;">Weekly updates from all subteams throughout our REEFSCAPE build season — from Kickoff to Pinnacles Regional.</p>
+          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">3× Regional Winner</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">Impact Award — Pinnacles</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">Top 5 EPA</span>
+          </div>
         </div>
-        <div class="hist-nav-strip">
-            <a href="blog_2024.html" class="hist-nav-link">&larr; 2024</a>
-            <span></span>
+
+        <!-- WEEK 7 -->
+        <div class="blog-week" id="week-7">
+          <div class="blog-week-header">
+            <span class="blog-week-num">07</span>
+            <span class="blog-week-title">Rising to the Surface</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/24Build Blog 2025.jpg" alt="Week 7 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/25Build Blog 2025.jpg" alt="Week 7 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/26Build Blog 2025.jpg" alt="Week 7 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/27Build Blog 2025.jpg" alt="Week 7 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;">With only one week before our first competition, subteams are working hard to finish our competition robot before Pinnacles Regional.</p>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Design is implementing multiple changes to Comp, including a new end effector design enhanced by MAXComposite, switching indexer and intake motors, and considering better intake options. Additionally, they have been cutting spare parts for Comp and working with Electrical to wire the robot.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Hardware Fabrication has been working on finishing parts for both Comp and Beta upgrades. They also started working on the spare parts for Comp with the goal of finishing everything this weekend.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Hardware Electrical has been assisting Design with multiple upgrades, swaps, and changes being made to Comp. They are rewiring the swapped mechanisms, improving the reliability of our competition robot, and preparing to upgrade our Beta robot.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End ran a full system field test for our Match Collection app and is implementing new features including bigger buttons and different colors. Back-End also ran a full system field test, fixed the last few bugs found during testing, and started extensive stress testing ahead of Pinnacles Regional.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot successfully implemented coral detection on our competition robot. They are updating sequencing for the newest iteration of Comp and working on both single and multi-piece autos.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM recently released an Instagram announcement video for our newest sponsor: The Sacramento Kings! In the first three days, the post gained 20,000 views and more than 800 shares. They continue to take media to document the progress of our robot for future videos.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Strategy</div><p>Strategy has been pre-scouting teams attending Pinnacles Regional and analyzing Week 0 events to better understand expected performance and craft new match strategies.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Impact Award</div><p>Impact Award has been preparing for the Pinnacles interview. The presentation team practiced in front of a parent panel acting as mock judges. The team designed a prop featuring team information, photos, graphs, moving LED lights, and a glowing lime in the center — nearing completion with help from shop mentors.</p></div>
         </div>
+
+        <!-- WEEK 6 -->
+        <div class="blog-week" id="week-6">
+          <div class="blog-week-header">
+            <span class="blog-week-num">06</span>
+            <span class="blog-week-title">All Hands on Deck</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/20Build Blog 2025.jpg" alt="Week 6 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/21Build Blog 2025.jpg" alt="Week 6 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/22Build Blog 2025.jpg" alt="Week 6 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/23Build Blog 2025.jpg" alt="Week 6 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;">With just under two weeks before our first competition, our team is working hard to finish our Comp robot!</p>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Hardware Design is making all final revisions to Comp. They plan to upgrade Beta with Comp's features — altering the indexer to stabilize it when intaking coral, modifying the rollers, and continuing to test and reiterate the End-Effector design. Once Comp is brought up by Software, they plan to test and reiterate or pivot to a different design.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Hardware Fabrication has been hard at work fabricating parts for our Comp and mega defense robot. They have also started creating parts for our updated Beta robot.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Hardware Electrical finished wiring our Comp robot. They have been creating a signal loop for our motor system, fixing LED strips onto the robot to signal the driver, and wiring the new Limelight 4.0 cameras for our vision system. They are preparing to re-wire portions of Beta as Design plans to upgrade certain features.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End is fixing last bugs in Match Collection and adding user-friendly features. They are continuing to finish auto paths on Viewer and testing both the Stand Strategist and Subjective Scout apps in preparation for a full system field test. Back-End finished most projects including machine learning for match predictions, a new elimination bracket prediction system, and pickability calculations. They began a series of full-system field tests for Pinnacles.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot just brought up the Comp robot, SubLime! They are working on porting all code, tuning auto align setpoints on Beta, building an improved autonomous architecture, mechanism visualization for Comp, and updating their superstructure planning.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM has been continuing work on the Robot Reveal and Impact videos, handling merchandise sales, budgeting, designing the sponsor panel and pit display, and transferring our website to another hosting provider. They are also finishing the February newsletter.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Strategy</div><p>Strategy has been analyzing 2023 and 2024 data to predict team abilities at Pinnacles Regional and watching Week 0 events to gauge robot capabilities.</p></div>
+        </div>
+
+        <!-- WEEK 5 -->
+        <div class="blog-week" id="week-5">
+          <div class="blog-week-header">
+            <span class="blog-week-num">05</span>
+            <span class="blog-week-title">Sailing into Success</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/16Build Blog 2025.jpg" alt="Week 5 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/17Build Blog 2025.jpg" alt="Week 5 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/18Build Blog 2025.jpg" alt="Week 5 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/19Build Blog 2025.jpg" alt="Week 5 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;">Our fifth week of build season — picking up the pace before Pinnacles to have our robot confidently ready to go.</p>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Hardware Design worked on finalizing SubLime — reworking the coral intake and adjusting the algae intake to be able to score. They've tested the end effector and may pivot the design. All mechanisms including the drivetrain, elevator, climber, and indexer are being assembled.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Hardware Fabrication continued fabricating parts for SubLime, making a total of 150 parts this week across all machines.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Hardware Electrical wrapped up wiring the beta robot and started preparations for SubLime. They received a new set of batteries and fully wired them for the competition season.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End finished match collection documentation, updated auto paths, datapoints, and screens for the Viewer app, and is adding new features to apps like Overrate. Back-End continued expansion projects including machine learning for match predictions, anomalous data flagging, and a new elimination bracket prediction algorithm, with full system field tests planned for next week.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot worked on tuning the auto-align sequence on Beta, prepared code for autonomous routines and SubLime, set IDs for the drivetrain, and is tuning Limelight vision.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM has been hard at work on the Robot Reveal and Impact Award videos, strengthening sponsor relationships by inviting sponsors to Reveal Night and posting daily thank-you messages on Instagram. They also worked on the sponsor banner, SubLime branding, and multiple outreach flyers.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Strategy</div><p>Strategy continued to work on creating and finalizing robot ability matrices, and began analyzing past data from 2023 and 2024 to predict abilities of teams at Pinnacles Regional.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Impact Award</div><p>Impact Award has been preparing to submit the Impact Award on February 10, collaborating with Australian FRC team 5985 on their submission. They started building a circuit-themed prop with LED lights and a script for the judges.</p></div>
+        </div>
+
+        <!-- WEEK 4 -->
+        <div class="blog-week" id="week-4">
+          <div class="blog-week-header">
+            <span class="blog-week-num">04</span>
+            <span class="blog-week-title">A Reflection on Our Week</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/12Build Blog 2025.jpg" alt="Week 4 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/13Build Blog 2025.jpg" alt="Week 4 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/14Build Blog 2025.jpg" alt="Week 4 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/15Build Blog 2025.jpg" alt="Week 4 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;">The fourth week of build season — our team finished assembling our Beta robot and started designing our competition robot.</p>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Hardware Design constructed our Beta robot and started working on the CAD for our competition robot. They are still prototyping certain mechanisms, including the coral intake and end effector, to ensure we can compete at a high level this year.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Fabrication spent the majority of the week fabricating the drivetrain and other parts for our competition robot, and organized the shop in their spare time.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Hardware Electrical fully wired our robot and made preparations for new batteries for the competition season. They also wired up the new elevator chain system, ensuring the wires were fully protected on our scoring and end effector.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End worked to properly activate buttons when the scouted robot intakes or scores certain game pieces, and is rewriting pages in Jetpack Compose while updating data points and user preferences. Back-End worked on machine learning for match predictions, playoff double-elimination bracket simulation, anomalous data point detection, and a competition report summarizing scout accuracy.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot has all subsystems on beta running and is currently tuning superstructure sequencing to score CORAL and ALGAE as fast as possible. Having received the Limelight 4s, they brought them up on alpha and are preparing to move auto-align logic to beta. Beta's mechanism visualization is also complete.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM has been working on the Robot Reveal and Impact Award videos, continuing to manage expenses and sponsors, and expanding social recognition through social media platforms, newsletters, and community outreach.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Impact Award</div><p>Impact Award worked on finishing the Essay and Executive Summary for submission in under a week. They started recording voiceovers for the Impact video, finalized visuals, worked on the script, and finished a prototype of the Impact prop in preparation for the first parent panel next week.</p></div>
+        </div>
+
+        <!-- WEEK 3 -->
+        <div class="blog-week" id="week-3">
+          <div class="blog-week-header">
+            <span class="blog-week-num">03</span>
+            <span class="blog-week-title">Raise the Reef</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/8Build Blog 2025.jpg" alt="Week 3 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/9Build Blog 2025.jpg" alt="Week 3 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/10Build Blog 2025.jpg" alt="Week 3 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/11Build Blog 2025.jpg" alt="Week 3 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;">We are almost finished with our Beta robot — the second iteration in the process of developing a final robot design.</p>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Hardware Design has been focusing on assembling our Beta robot in time to practice with Team 254 in San Jose next week. Prototyping groups are putting together parts provided by Fabrication and attaching them to the drivetrain.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Hardware Fabrication has been producing parts for Beta while completing several key components. They have also experimented with making bumpers on Haas machines based on the new bumper construction rules for this season.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Hardware Electrical has been working on wiring Beta's belly pan and intakes, preparing materials to wire batteries, and completing the defense bot which will be used for driver practice to simulate game conditions.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End has been updating data points and the user interface for the Match Collection app, with a key focus on updating how auto paths are viewed. Back-End finished the server's core calculations — it now runs successfully — and updated all code testing to 2025. They are moving on to machine learning for predictions, global skill rating systems, post-competition analytics, and automatic anomalous data flagging.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot has been drafting autonomous routines, creating a custom controller to merge Choreo trajectories with pure pursuit automated scoring, improving trajectory calculations, and simulating the Beta superstructure. They are also starting CAN ID bring-up on Beta and the defense robot.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM has been hard at work planning upcoming videos including the Robot Reveal and Impact Award videos. They also finalized 2025 apparel designs, worked on the budget, updated the website, and completed multiple graphic design projects.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Impact Award</div><p>Impact Award made progress on the essay, executive summary, and Impact Award video. Using data from the recent team Demographic Survey, they added additional supporting detail to the essay.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Strategy</div><p>Strategy has been developing simulations to analyze different tradeoff situations during matches, working on classifying robot traits, and identifying match collectives.</p></div>
+        </div>
+
+        <!-- WEEK 2 -->
+        <div class="blog-week" id="week-2">
+          <div class="blog-week-header">
+            <span class="blog-week-num">02</span>
+            <span class="blog-week-title">What's Kraken</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/4Build Blog 2025.jpg" alt="Week 2 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/5Build Blog 2025.jpg" alt="Week 2 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/6Build Blog 2025.jpg" alt="Week 2 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/7Build Blog 2025.jpg" alt="Week 2 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <p style="color:var(--text-muted);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;">The second week of build season — we completed the architecture of Beta and achieved our first successful auto score!</p>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Prototyping is nearly complete and Hardware Design has finalized the Beta architecture. They started assembling the drivetrain and hope to have coral intake, climber, and elevator drawings ready for fabrication soon.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Fabrication created parts for the practice fields, started on a drivetrain for Beta, and organized the shop in preparation for the large number of parts they will need to create soon.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Hardware Electrical helped the Design subteam finish prototyping projects and began preparing to wire the Beta and Competition robots.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End is continuing to update our Match and Pit Collection apps and Stand Strategist apps, ensuring they're fully ready for the season. Back-End finished coding core calculations for the 2025 game and is currently updating auxiliary calculations while field-testing the entire system.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot continued working on auto-scoring, achieving our first successful score this Saturday! Additionally, they brought up the Alpha robot, got vision running on the coprocessors, and started drafting and simulating subsystems for Beta.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM has been taking and processing media, creating the annual Impact Award video, managing the team budget and expenses, and working on reaching out to the community through social media.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Strategy</div><p>Strategy has been using analysis of different nuances and exploits within the game rules to create Q&amp;A questions to publish online, and started comparing possible strategies and developing simulations to analyze tradeoff situations.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Impact Award</div><p>The Impact Award subteam has been continuing to revise the essay and executive summary and developing a circuit-themed prop and script for the presentation.</p></div>
+        </div>
+
+        <!-- WEEK 1 -->
+        <div class="blog-week" id="week-1">
+          <div class="blog-week-header">
+            <span class="blog-week-num">01</span>
+            <span class="blog-week-title">Deep Dive</span>
+          </div>
+          <div class="blog-photos">
+            <img src="../pictures/blog/2025/Build Blog 2025.jpg" alt="Week 1 photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/1Build Blog 2025.jpg" alt="Week 1 photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/2Build Blog 2025.jpg" alt="Week 1 photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+            <img src="../pictures/blog/2025/3Build Blog 2025.jpg" alt="Week 1 photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo-err">Photo unavailable</div>
+          </div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Kickoff</div><p>On January 4, our team participated in the kickoff for the worldwide reveal of the 2025 game Reefscape. In the morning, we hosted 15 other teams at Brunelle Hall to watch the reveal livestream. Throughout the weekend, we split into small groups to read and analyze the game manual and determine what our robot should do.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">About REEFSCAPE</div><p>In Reefscape (presented by Haas), two alliances of three teams compete to earn points by harvesting Algae (16″ rubber playground balls) and seeding Coral (12″ by 4″ PVC pipe) on their Reef. Alliances also earn points by parking underneath or climbing onto Deep (3-1/8 in. off the ground) or Shallow (2 ft. 6-1/8 in.) cages to ascend to the ocean's surface.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Design</div><p>Hardware Design completed the architecture for Beta, dividing into smaller prototyping groups to focus on testing key mechanisms including the Algae and Coral intakes and both high and low pivot climbs.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Fabrication</div><p>Fabrication members spent the week machining wood parts for prototyping and starting parts for Alpha, the first robot in our design process that consists of a drivebase with preliminary mechanism designs.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Hardware Electrical</div><p>Electrical subteam members have been assisting in prototyping our 2025 robot, running motors off prototyping rigs, and assisting with the overall prototyping and documentation process.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Scouting</div><p>Front-End is currently updating our Match Collection app to reflect the 2025 game, Reefscape, and improving our Pit Collection and Stand Strategist apps. Back-End has been determining data points for this year and creating new calculations for Reefscape's unique scoring mechanics.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Software Robot</div><p>Software Robot has been brainstorming auto-align options, how to approach odometry and vision implementations, and updating all Alpha contenders as hardware determines which robot becomes Alpha.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Business &amp; Media</div><p>BAM members have been assisting in prototyping our 2025 robot, running motors off prototyping rigs, and assisting with the overall prototyping and documentation process.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Strategy</div><p>The Strategy subteam has been analyzing the nuances and potential exploits within the Reefscape game rules, refining match flow strategies, and beginning to create simulations to optimize robot performance.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Impact Award</div><p>The Impact Award subteam has been hard at work revising the essay and executive summary, collaborating with Australian team 5985 Project Bucephalus for video material, and beginning to develop a circuit-themed prop and script for the presentation.</p></div>
+          <div class="blog-subteam"><div class="blog-subteam-name">Thank You, Parents!</div><p>A big thank you to all the parents who helped us build the field elements for this year's game and provided meals for our weekend meetings. All your efforts and support encourage us to do our best and help us get a great start to the new season!</p></div>
+        </div>
+
+        <div class="blog-nav">
+          <a href="../build_blogs.html">&larr; All Build Blogs</a>
+          <a href="blog_2024.html">2024 Build Blog &rarr;</a>
+        </div>
+      </div>
     </main>
 
 
