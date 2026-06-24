@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citrus Service — Citrus Circuits 1678</title>
+    <title>FRC Team Digital Minds — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
-    <meta name="description" content="Citrus Service is Citrus Circuits' outreach program dedicated to aiding other robotics teams at competitions since 2017.">
+    <meta name="description" content="Citrus Circuits mentors FRC Team 5458 Digital Minds from Woodland, CA — 2015 Sacramento Regional winners and Rookie All-Star Award recipients.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -60,34 +60,34 @@
         main { padding-top:95px; }
 
         /* page layout */
-        .cs-wrap { max-width:1000px; margin:0 auto; padding:3rem 2rem 6rem; }
-        .cs-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; }
-        .cs-eyebrow::before, .cs-eyebrow::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
-        .cs-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; margin-bottom:2rem; }
-        .cs-title em { color:var(--lime); font-style:normal; }
+        .dm-wrap { max-width:1000px; margin:0 auto; padding:3rem 2rem 6rem; }
+        .dm-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; }
+        .dm-eyebrow::before, .dm-eyebrow::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
+        .dm-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; margin-bottom:2.5rem; }
+        .dm-title em { color:var(--lime); font-style:normal; }
 
         /* stat chips */
-        .cs-stats { display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:2.5rem; }
-        .cs-stat { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:.75rem 1.25rem; text-align:center; }
-        .cs-stat .n { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--lime); line-height:1; }
-        .cs-stat .l { font-family:'JetBrains Mono',monospace; font-size:.65rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-top:.3rem; }
+        .dm-chips { display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:2.5rem; }
+        .dm-chip { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:.65rem 1.2rem; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.05em; }
 
-        /* two-column: text + video */
-        .cs-content { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; margin-bottom:2.5rem; }
-        .cs-text p { color:var(--text-muted); font-size:1.05rem; line-height:1.85; margin-bottom:1.4rem; }
-        .cs-text p:last-child { margin-bottom:0; }
+        /* two-column: text + image */
+        .dm-content { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
+        .dm-text p { color:var(--text-muted); font-size:1.05rem; line-height:1.85; margin-bottom:1.4rem; }
+        .dm-text p:last-child { margin-bottom:0; }
+        .dm-cta { display:inline-flex; align-items:center; gap:.4rem; margin-top:.5rem; color:var(--lime); font-weight:600; font-size:.95rem; text-decoration:none; transition:opacity .2s; }
+        .dm-cta:hover { opacity:.75; }
 
-        /* youtube embed */
-        .cs-video-wrap { position:relative; width:100%; border-radius:12px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); aspect-ratio:16/9; }
-        .cs-video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+        /* photo */
+        .dm-photo { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--bg-card); }
+        .dm-photo img { width:100%; height:auto; display:block; }
 
         /* back link */
-        .cs-back { display:inline-flex; align-items:center; gap:.4rem; color:var(--text-muted); text-decoration:none; font-size:.85rem; font-weight:600; margin-bottom:2rem; transition:color .2s; }
-        .cs-back:hover { color:var(--lime); }
+        .dm-back { display:inline-flex; align-items:center; gap:.4rem; color:var(--text-muted); text-decoration:none; font-size:.85rem; font-weight:600; margin-bottom:2rem; transition:color .2s; }
+        .dm-back:hover { color:var(--lime); }
 
         .footer-socket a { color:var(--lime); text-decoration:none; }
         @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
-        @media (max-width:700px) { .cs-content { grid-template-columns:1fr; } }
+        @media (max-width:700px) { .dm-content { grid-template-columns:1fr; } }
 
         .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -118,7 +118,7 @@
             <svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg>
             <span class="ld-pct" id="ldPct">0%</span>
         </div>
-        <div class="ld-sub" id="ldSub">Loading Citrus Service</div>
+        <div class="ld-sub" id="ldSub">Loading Digital Minds</div>
     </div>
 
     <header>
@@ -144,14 +144,13 @@
                     <a href="../resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
                         <a href="../djusd_cte.html">DJUSD CTE Courses</a><a href="../team_handbook.html">Team Handbook</a>
-                        <a href="../media.html">Media</a>
-                        <a href="../technical_training.html">Technical Training</a>
+                        <a href="../media.html">Media</a><a href="../technical_training.html">Technical Training</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a href="outreach.html" class="nav-link active">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="citrus_service.html" class="active">Citrus Service</a><a href="farmers_market.html">Farmers Market</a>
+                        <a href="citrus_service.html">Citrus Service</a><a href="farmers_market.html">Farmers Market</a>
                         <a href="fall_workshops.html">Fall Workshops</a><a href="outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
                         <a href="distem.html">DiSTEM</a><a href="outreach.html#wise">WiSE</a>
                         <a href="outreach.html#robot-demos">Robot Demos</a>
@@ -190,26 +189,29 @@
     </header>
 
     <main>
-      <div class="cs-wrap">
-        <a href="outreach.html" class="cs-back">&#8592; All Outreach</a>
-        <div class="cs-eyebrow">Outreach &bull; Founded 2017</div>
-        <h1 class="cs-title">Citrus <em>Service</em></h1>
+      <div class="dm-wrap">
+        <a href="outreach.html" class="dm-back">&#8592; All Outreach</a>
+        <div class="dm-eyebrow">Outreach &bull; Mentorship &bull; Since 2014</div>
+        <h1 class="dm-title">FRC Team <em>Digital Minds</em></h1>
 
-        <div class="cs-stats">
-          <div class="cs-stat"><div class="n">36+</div><div class="l">Competitions Helped</div></div>
-          <div class="cs-stat"><div class="n">350+</div><div class="l">Teams Assisted</div></div>
-          <div class="cs-stat"><div class="n">6</div><div class="l">Dedicated Members</div></div>
-          <div class="cs-stat"><div class="n">2017</div><div class="l">Year Founded</div></div>
+        <div class="dm-chips">
+          <div class="dm-chip">Team 5458</div>
+          <div class="dm-chip">Woodland, CA</div>
+          <div class="dm-chip">Rookie Year 2015</div>
+          <div class="dm-chip">Sacramento Regional Champions</div>
         </div>
 
-        <div class="cs-content">
-          <div class="cs-text">
-            <p>Citrus Service is an outreach program founded in 2017 with the purpose of aiding other robotics teams in their competitive pursuits. Citrus Service is composed of six dedicated Citrus Circuits members who are prepared to help with all aspects of a robot.</p>
-            <p>During competitions, Citrus Service members scout the pits and actively assist teams in need. Citrus Service also participates in the Team Service Center at Champs, working with five other teams to help provide the best possible experience for everyone. As of November 2025, Citrus Service has helped at over 36 competitions and has worked with more than 350 teams.</p>
-            <p>The mission of Citrus Service is to help teams reach their full potential by supporting their success and teaching them along the way. We aim to share our knowledge, tools, and resources to strengthen both individual teams and the robotics community as a whole.</p>
+        <div class="dm-content">
+          <div class="dm-text">
+            <p>FRC 5458 — Digital Minds is an FRC team in Woodland, CA with students from Woodland High School and Pioneer High School. We began to mentor 5458 starting in the fall of 2014.</p>
+            <p>In 2015, their rookie year, they competed at the Sacramento Regional and were on the winning alliance, in addition to winning the Rookie All-Star Award. Both of these achievements qualified them for World Championships.</p>
+            <p>Their success continued into the 2016–2017 season when Digital Minds started off the season as an alliance captain at the Sacramento Regional. Their hard work and determination continued all the way to championships in Houston where they were ranked 10th and won a subdivision finalist award.</p>
+            <a href="https://www.facebook.com/frc5458/" target="_blank" rel="noopener noreferrer" class="dm-cta">
+              Visit their Facebook page &#8594;
+            </a>
           </div>
-          <div class="cs-video-wrap">
-            <iframe src="https://www.youtube.com/embed/iIxMMe_neWw" title="Citrus Service Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="dm-photo">
+            <img src="../pictures/outreach/Digital Minds.jpg" alt="FRC Team 5458 Digital Minds" onerror="this.closest('.dm-photo').style.display='none'">
           </div>
         </div>
       </div>
@@ -314,8 +316,12 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   {u:'about/recruitment.html',t:'Recruitment',k:'recruitment join apply application become a member new members'},
   {u:'about/faq.html',t:'FAQ',k:'faq questions answers frequently asked help'},
   {u:'about/contact.html',t:'Contact Us',k:'contact email address location map davis high school'},
-  {u:'outreach/outreach.html',t:'Outreach',k:'outreach community service robocamps workshops farmers market distem'},
+  {u:'outreach/outreach.html',t:'Outreach',k:'outreach community service workshops farmers market distem'},
   {u:'outreach/citrus_service.html',t:'Citrus Service',k:'citrus service pit competition help assist teams champs 2017'},
+  {u:'outreach/farmers_market.html',t:'Farmers Market',k:'farmers market davis saturday robot demo stem community booth'},
+  {u:'outreach/compass_alliance.html',t:'The Compass Alliance',k:'compass alliance tca rookie teams resources pathways international leadership founding member'},
+  {u:'outreach/fall_workshops.html',t:'Fall Workshops',k:'fall workshops 2015 2016 2017 2018 2019 2020 2022 2023 2024 2025 youtube playlist training frc'},
+  {u:'outreach/digital_minds.html',t:'FRC Team Digital Minds',k:'digital minds 5458 woodland frc team mentorship rookie 2015 sacramento regional'},
   {u:'outreach/dyr.html',t:'Davis Youth Robotics',k:'dyr davis youth robotics robocamps league school programs kids'},
   {u:'capital_city_classic.html',t:'Capital City Classic',k:'capital city classic ccc offseason competition event tournament'},
   {u:'sponsors.html',t:'Sponsors',k:'sponsors partners donors funding support companies'},
