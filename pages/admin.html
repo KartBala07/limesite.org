@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — Citrus Circuits 1678</title>
+    <link rel="icon" type="image/png" href="pictures/site/favicon.png?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        [data-theme="dark"] .sun-icon{display:none}[data-theme="dark"] .moon-icon{display:block}
+        [data-theme="light"] .sun-icon{display:block}[data-theme="light"] .moon-icon{display:none}
+        :root[data-theme="dark"]{--bg-darkest:#050606;--bg-dark:#0b0d0d;--bg-card:#111414;--lime:#3CD52E;--text-main:#f3f4f6;--text-muted:#9ca3af;--border:rgba(255,255,255,.06);--header-bg:rgba(5,6,6,.9)}
+        :root[data-theme="light"]{--bg-darkest:#f9fafb;--bg-dark:#f3f4f6;--bg-card:#ffffff;--lime:#3CD52E;--text-main:#111827;--text-muted:#4b5563;--border:rgba(0,0,0,.08);--header-bg:rgba(255,255,255,.92)}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+        body{background:var(--bg-darkest);color:var(--text-main);overflow-x:hidden}
+        header{background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:fixed;width:100%;top:0;z-index:1000}
+        .navbar{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:95px;padding:0 2rem}
+        .brand{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--text-main)}
+        .brand-logo{height:55px;width:auto}
+        .brand-title{font-size:1.15rem;font-weight:800;color:var(--lime)}.brand-title span{color:var(--text-main);font-weight:400;font-size:1rem}
+        .brand-subtitle{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
+        .nav-actions{display:flex;align-items:center;gap:1rem}
+        .theme-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:40px;height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+        .theme-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+        .btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
+        .btn-outline:hover{border-color:var(--lime);color:var(--lime)}
+        main{padding-top:95px}
+        .wrap{max-width:1280px;margin:0 auto;padding:2rem 2rem 5rem}
+        .page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;margin-bottom:.5rem}
+        .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4rem);letter-spacing:.03em;margin-bottom:2.5rem}
+        .page-title em{color:var(--lime);font-style:normal}
+        /* Stat cards */
+        .stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.5rem}
+        @media(max-width:1024px){.stat-grid{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:600px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center}
+        .stat-card .n{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--lime);line-height:1}
+        .stat-card .l{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.5rem}
+        /* Charts row */
+        .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
+        @media(max-width:768px){.charts-row{grid-template-columns:1fr}}
+        .chart-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+        .chart-card h3{font-size:.85rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1.25rem}
+        .chart-wrap{position:relative;height:220px}
+        /* Tables */
+        .section-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;color:var(--lime);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+        .table-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2.5rem;overflow-x:auto}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        th{padding:.85rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap}
+        td{padding:.85rem 1rem;border-bottom:1px solid var(--border);color:var(--text-muted);vertical-align:middle}
+        tr:last-child td{border-bottom:none}
+        td.hl{color:var(--text-main);font-weight:600}
+        .status-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;border-radius:5px}
+        .s-pending{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24}
+        .s-processing{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);color:#60a5fa}
+        .s-shipped{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:#a78bfa}
+        .s-delivered{background:rgba(60,213,46,.1);border:1px solid rgba(60,213,46,.3);color:var(--lime)}
+        select.status-select{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);padding:.3rem .5rem;border-radius:6px;font-size:.8rem;cursor:pointer}
+        /* Gate / loading */
+        .gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;gap:1rem}
+        .gate .icon{font-size:3rem}
+        .gate h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--lime)}
+        .gate p{color:var(--text-muted);font-size:.95rem}
+        .gate .uid-box{font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--bg-card);border:1px solid var(--border);padding:.75rem 1rem;border-radius:8px;color:var(--lime);margin-top:.5rem;word-break:break-all}
+        .loading-txt{color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem;letter-spacing:.1em;text-align:center;padding:4rem}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="brand">
+                <img src="pictures/site/1678.png" alt="Citrus Circuits" class="brand-logo">
+                <div><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">Admin Dashboard</div></div>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="profile.html" class="btn-outline">My Profile</a>
+                <button class="btn-outline" id="signOutBtn">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap" id="mainWrap">
+            <div class="loading-txt" id="loadingState">Loading dashboard…</div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { onAuthChange, signOutUser, getAllOrders, getAllUsers, getPageViews, updateOrderStatus, ADMIN_UID }
+          from './js/firebase-config.js';
+
+        const root = document.documentElement;
+        root.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', n); localStorage.setItem('theme', n);
+        });
+        document.getElementById('signOutBtn').addEventListener('click', async () => {
+            await signOutUser(); location.href = 'login.html';
+        });
+
+        function fmtDate(ts) {
+            if (!ts) return '—';
+            const d = ts.toDate ? ts.toDate() : new Date(ts);
+            return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+        }
+
+        function statusBadge(s) {
+            const map = { pending:'s-pending', processing:'s-processing', shipped:'s-shipped', delivered:'s-delivered' };
+            return `<span class="status-badge ${map[s]||'s-pending'}">${s||'pending'}</span>`;
+        }
+
+        onAuthChange(async user => {
+            const wrap = document.getElementById('mainWrap');
+
+            if (!user) {
+                wrap.innerHTML = `<div class="gate"><div class="icon">🔒</div><h2>Sign In Required</h2><p>Please <a href="login.html?redirect=admin.html" style="color:var(--lime)">sign in</a> to access the admin dashboard.</p></div>`;
+                return;
+            }
+
+            // Show UID if not yet configured (config still has placeholder)
+            if (ADMIN_UID === 'REPLACE_WITH_YOUR_FIREBASE_UID') {
+                wrap.innerHTML = `<div class="gate"><div class="icon">⚙️</div><h2>One-Time Setup</h2>
+                    <p>Copy your Firebase UID below and paste it as <code>ADMIN_UID</code> in <code>pages/js/firebase-config.js</code> and <code>firestore.rules</code>.</p>
+                    <div class="uid-box">${user.uid}</div>
+                    <p style="margin-top:1rem;font-size:.85rem">After updating both files, reload this page.</p></div>`;
+                return;
+            }
+
+            if (user.uid !== ADMIN_UID) {
+                wrap.innerHTML = `<div class="gate"><div class="icon">🚫</div><h2>Access Denied</h2><p>This page is only accessible to site owners.</p></div>`;
+                return;
+            }
+
+            // Fetch data
+            let [orders, users, pageviews] = await Promise.all([
+                getAllOrders(100).catch(()=>[]),
+                getAllUsers(200).catch(()=>[]),
+                getPageViews(500).catch(()=>[])
+            ]);
+
+            // Compute stats
+            const revenue = orders.reduce((s,o) => s+(o.total||0), 0);
+            const uniqueVisitors = new Set(pageviews.map(p=>p.uid)).size;
+
+            // Country counts
+            const countryCounts = {};
+            pageviews.forEach(p => { countryCounts[p.country||'Unknown'] = (countryCounts[p.country||'Unknown']||0)+1; });
+            const topCountries = Object.entries(countryCounts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+
+            // Daily views (last 14 days)
+            const now = Date.now();
+            const DAY = 86400000;
+            const dailyMap = {};
+            for (let i=13;i>=0;i--) {
+                const d = new Date(now - i*DAY);
+                dailyMap[d.toLocaleDateString('en-US',{month:'short',day:'numeric'})] = 0;
+            }
+            pageviews.forEach(p => {
+                if (!p.timestamp) return;
+                const d = p.timestamp.toDate ? p.timestamp.toDate() : new Date(p.timestamp);
+                const key = d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+                if (key in dailyMap) dailyMap[key]++;
+            });
+
+            // Top pages
+            const pageCounts = {};
+            pageviews.forEach(p => { pageCounts[p.path||'?'] = (pageCounts[p.path||'?']||0)+1; });
+            const topPages = Object.entries(pageCounts).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            const gridColor = isDark ? 'rgba(255,255,255,.05)' : 'rgba(0,0,0,.05)';
+            const tickColor = isDark ? '#9ca3af' : '#6b7280';
+
+            wrap.innerHTML = `
+                <div class="page-eyebrow">Owner Only</div>
+                <h1 class="page-title">Admin <em>Dashboard</em></h1>
+
+                <div class="stat-grid">
+                    <div class="stat-card"><div class="n">${pageviews.length}</div><div class="l">Page Views</div></div>
+                    <div class="stat-card"><div class="n">${uniqueVisitors}</div><div class="l">Unique Visitors</div></div>
+                    <div class="stat-card"><div class="n">${users.length}</div><div class="l">Registered Users</div></div>
+                    <div class="stat-card"><div class="n">${orders.length}</div><div class="l">Total Orders</div></div>
+                    <div class="stat-card"><div class="n">$${revenue.toFixed(0)}</div><div class="l">Revenue</div></div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>Daily Page Views — Last 14 Days</h3>
+                        <div class="chart-wrap"><canvas id="viewsChart"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Visitors by Country</h3>
+                        <div class="chart-wrap"><canvas id="countryChart"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="section-title">Top Pages</div>
+                <div class="table-wrap" style="margin-bottom:2.5rem">
+                    <table>
+                        <thead><tr><th>Page</th><th>Views</th></tr></thead>
+                        <tbody>${topPages.map(([p,c])=>`<tr><td class="hl">${p}</td><td>${c}</td></tr>`).join('')||'<tr><td colspan="2" style="text-align:center;padding:2rem">No data yet</td></tr>'}</tbody>
+                    </table>
+                </div>
+
+                <div class="section-title">Recent Orders</div>
+                <div class="table-wrap">
+                    <table id="ordersTable">
+                        <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Date</th><th>Status</th></tr></thead>
+                        <tbody id="ordersTbody">
+                            ${orders.length === 0
+                                ? '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--text-muted)">No orders yet</td></tr>'
+                                : orders.map(o=>`
+                                    <tr>
+                                        <td class="hl">#${o.id.slice(-8).toUpperCase()}</td>
+                                        <td>${o.shippingInfo?.name||o.email||'—'}</td>
+                                        <td>${(o.items||[]).map(i=>i.name+(i.qty>1?' ×'+i.qty:'')).join(', ')}</td>
+                                        <td class="hl">$${(o.total||0).toFixed(2)}</td>
+                                        <td>${fmtDate(o.createdAt)}</td>
+                                        <td>
+                                            <select class="status-select" data-id="${o.id}">
+                                                ${['pending','processing','shipped','delivered'].map(s=>`<option${s===o.status?' selected':''}>${s}</option>`).join('')}
+                                            </select>
+                                        </td>
+                                    </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section-title">Registered Users</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Name</th><th>Email</th><th>Joined</th></tr></thead>
+                        <tbody>
+                            ${users.length === 0
+                                ? '<tr><td colspan="3" style="text-align:center;padding:2rem;color:var(--text-muted)">No users yet</td></tr>'
+                                : users.map(u=>`<tr><td class="hl">${u.displayName||'—'}</td><td>${u.email||'—'}</td><td>${fmtDate(u.createdAt)}</td></tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+
+            // Charts
+            const chartDefaults = {
+                plugins:{ legend:{ labels:{ color: tickColor, font:{ size:11 } } } },
+                scales:{ x:{ ticks:{ color:tickColor, font:{size:10} }, grid:{ color:gridColor } }, y:{ ticks:{ color:tickColor, font:{size:10} }, grid:{ color:gridColor } } }
+            };
+
+            new Chart(document.getElementById('viewsChart'), {
+                type:'line',
+                data:{
+                    labels: Object.keys(dailyMap),
+                    datasets:[{ label:'Views', data:Object.values(dailyMap), borderColor:'#3CD52E', backgroundColor:'rgba(60,213,46,.1)', tension:.35, fill:true, pointRadius:3 }]
+                },
+                options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales: chartDefaults.scales }
+            });
+
+            new Chart(document.getElementById('countryChart'), {
+                type:'bar',
+                data:{
+                    labels: topCountries.map(([c])=>c),
+                    datasets:[{ label:'Visitors', data:topCountries.map(([,n])=>n), backgroundColor:'rgba(60,213,46,.7)', borderColor:'#3CD52E', borderWidth:1 }]
+                },
+                options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ x:{ ticks:{ color:tickColor, font:{size:10} }, grid:{ color:gridColor } }, y:{ ticks:{ color:tickColor, font:{size:10} }, grid:{ color:gridColor } } } }
+            });
+
+            // Order status updates
+            document.querySelectorAll('.status-select').forEach(sel => {
+                sel.addEventListener('change', async () => {
+                    await updateOrderStatus(sel.dataset.id, sel.value).catch(()=>{});
+                });
+            });
+        });
+    </script>
+</body>
+</html>

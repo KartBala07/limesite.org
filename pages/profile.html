@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — Citrus Circuits 1678</title>
+    <link rel="icon" type="image/png" href="pictures/site/favicon.png?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="dark"] .sun-icon{display:none}[data-theme="dark"] .moon-icon{display:block}
+        [data-theme="light"] .sun-icon{display:block}[data-theme="light"] .moon-icon{display:none}
+        :root[data-theme="dark"]{--bg-darkest:#050606;--bg-dark:#0b0d0d;--bg-card:#111414;--bg-dropdown:#121616;--lime:#3CD52E;--text-main:#f3f4f6;--text-muted:#9ca3af;--border:rgba(255,255,255,.06);--header-bg:rgba(5,6,6,.9)}
+        :root[data-theme="light"]{--bg-darkest:#f9fafb;--bg-dark:#f3f4f6;--bg-card:#ffffff;--bg-dropdown:#ffffff;--lime:#3CD52E;--lime-soft:#2fa824;--text-main:#111827;--text-muted:#4b5563;--border:rgba(0,0,0,.08);--header-bg:rgba(255,255,255,.92)}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+        body{background:var(--bg-darkest);color:var(--text-main);overflow-x:hidden}
+        header{background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:fixed;width:100%;top:0;z-index:1000}
+        .navbar{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:95px;padding:0 2rem}
+        .brand{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--text-main)}
+        .brand-logo{height:55px;width:auto}
+        .brand-title{font-size:1.15rem;font-weight:800;color:var(--lime)}.brand-title span{color:var(--text-main);font-weight:400;font-size:1rem}
+        .brand-subtitle{font-size:.75rem;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
+        .nav-actions{display:flex;align-items:center;gap:1rem}
+        .theme-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:40px;height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+        .theme-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+        .btn-outline{background:transparent;border:1px solid var(--lime);color:var(--lime);padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
+        .btn-outline:hover{background:var(--lime);color:#000}
+        main{padding-top:95px}
+        .wrap{max-width:1000px;margin:0 auto;padding:3rem 2rem 5rem}
+        .pf-hero{display:flex;align-items:center;gap:2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;margin-bottom:2.5rem}
+        .pf-avatar{width:90px;height:90px;border-radius:50%;border:2px solid var(--lime);object-fit:cover;flex-shrink:0}
+        .pf-avatar-placeholder{width:90px;height:90px;border-radius:50%;background:rgba(60,213,46,.1);border:2px solid var(--lime);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--lime);flex-shrink:0}
+        .pf-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.03em;margin-bottom:.2rem}
+        .pf-email{color:var(--text-muted);font-size:.95rem;margin-bottom:.8rem}
+        .pf-badge{display:inline-block;background:rgba(60,213,46,.12);border:1px solid rgba(60,213,46,.3);color:var(--lime);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:6px}
+        .section-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--lime);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+        .order-list{display:flex;flex-direction:column;gap:1rem;margin-bottom:3rem}
+        .order-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}
+        .order-id{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+        .order-items{color:var(--text-main);font-size:.95rem;margin-bottom:.5rem}
+        .order-date{color:var(--text-muted);font-size:.82rem}
+        .order-total{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--lime);text-align:right}
+        .order-status{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:6px;text-align:right;margin-top:.4rem}
+        .status-pending{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24}
+        .status-processing{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);color:#60a5fa}
+        .status-shipped{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:#a78bfa}
+        .status-delivered{background:rgba(60,213,46,.1);border:1px solid rgba(60,213,46,.3);color:var(--lime)}
+        .empty-state{text-align:center;padding:4rem 2rem;color:var(--text-muted)}
+        .empty-state p{font-size:1rem;margin-bottom:1.5rem}
+        .btn-lime{display:inline-block;background:var(--lime);color:#000;text-decoration:none;padding:.85rem 1.5rem;border-radius:8px;font-weight:700;font-size:.9rem;transition:opacity .2s,transform .2s}
+        .btn-lime:hover{opacity:.88;transform:translateY(-1px)}
+        .loading{text-align:center;padding:4rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace;font-size:.85rem;letter-spacing:.1em}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="brand">
+                <img src="pictures/site/1678.png" alt="Citrus Circuits" class="brand-logo">
+                <div><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div></div>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle">
+                    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="shop.html" class="btn-outline">Shop</a>
+                <button class="btn-outline" id="signOutBtn">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap" id="mainWrap">
+            <div class="loading" id="loadingState">Loading your profile…</div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { onAuthChange, signOutUser, getUserOrders, ADMIN_UID } from './js/firebase-config.js';
+
+        const root = document.documentElement;
+        root.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', n); localStorage.setItem('theme', n);
+        });
+
+        document.getElementById('signOutBtn').addEventListener('click', async () => {
+            await signOutUser(); location.href = 'login.html';
+        });
+
+        function fmtDate(ts) {
+            if (!ts) return '—';
+            const d = ts.toDate ? ts.toDate() : new Date(ts);
+            return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+        }
+
+        function fmtStatus(s) {
+            const map = { pending:'status-pending', processing:'status-processing', shipped:'status-shipped', delivered:'status-delivered' };
+            return `<div class="order-status ${map[s]||'status-pending'}">${s||'pending'}</div>`;
+        }
+
+        onAuthChange(async user => {
+            if (!user) { location.href = 'login.html?redirect=profile.html'; return; }
+
+            const isAdmin = user.uid === ADMIN_UID;
+            let orders = [];
+            try { orders = await getUserOrders(user.uid); } catch {}
+
+            const wrap = document.getElementById('mainWrap');
+            const initials = (user.displayName || user.email || 'U').charAt(0).toUpperCase();
+
+            const ordersHtml = orders.length === 0
+                ? `<div class="empty-state">
+                     <p>You haven't placed any orders yet.</p>
+                     <a href="shop.html" class="btn-lime">Browse the Shop</a>
+                   </div>`
+                : orders.map(o => {
+                    const itemList = (o.items||[]).map(i => `${i.name} (×${i.qty}${i.size ? ', '+i.size : ''})`).join(', ');
+                    return `<div class="order-card">
+                        <div>
+                            <div class="order-id">Order #${o.id.slice(-8).toUpperCase()}</div>
+                            <div class="order-items">${itemList}</div>
+                            <div class="order-date">${fmtDate(o.createdAt)}</div>
+                        </div>
+                        <div>
+                            <div class="order-total">$${(o.total||0).toFixed(2)}</div>
+                            ${fmtStatus(o.status)}
+                        </div>
+                    </div>`;
+                }).join('');
+
+            wrap.innerHTML = `
+                <div class="pf-hero">
+                    ${user.photoURL
+                        ? `<img src="${user.photoURL}" alt="Profile" class="pf-avatar">`
+                        : `<div class="pf-avatar-placeholder">${initials}</div>`}
+                    <div>
+                        <div class="pf-name">${user.displayName || 'Citrus Fan'}</div>
+                        <div class="pf-email">${user.email}</div>
+                        ${isAdmin ? '<span class="pf-badge">&#x2B50; Admin</span>' : '<span class="pf-badge">Member</span>'}
+                    </div>
+                </div>
+                ${isAdmin ? `<p style="margin-bottom:1.5rem"><a href="admin.html" style="color:var(--lime);text-decoration:underline">→ Go to Admin Dashboard</a></p>` : ''}
+                <div class="section-title">My Orders</div>
+                <div class="order-list">${ordersHtml}</div>
+                <a href="shop.html" class="btn-lime">Browse the Shop</a>`;
+        });
+    </script>
+</body>
+</html>

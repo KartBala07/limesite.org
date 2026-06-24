@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In — Citrus Circuits 1678</title>
+    <link rel="icon" type="image/png" href="pictures/site/favicon.png?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="dark"] .sun-icon{display:none}[data-theme="dark"] .moon-icon{display:block}
+        [data-theme="light"] .sun-icon{display:block}[data-theme="light"] .moon-icon{display:none}
+        :root[data-theme="dark"]{--bg-darkest:#050606;--bg-dark:#0b0d0d;--bg-card:#111414;--lime:#3CD52E;--lime-soft:#7fe676;--text-main:#f3f4f6;--text-muted:#9ca3af;--border:rgba(255,255,255,.06);--header-bg:rgba(5,6,6,.9)}
+        :root[data-theme="light"]{--bg-darkest:#f9fafb;--bg-dark:#f3f4f6;--bg-card:#ffffff;--lime:#3CD52E;--lime-soft:#2fa824;--text-main:#111827;--text-muted:#4b5563;--border:rgba(0,0,0,.08);--header-bg:rgba(255,255,255,.92)}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+        body{background:var(--bg-darkest);color:var(--text-main);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:3rem 2.5rem;max-width:420px;width:100%;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,.3)}
+        .logo{height:60px;margin:0 auto 1.5rem}
+        .title{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;color:var(--lime);margin-bottom:.4rem}
+        .sub{color:var(--text-muted);font-size:.95rem;line-height:1.6;margin-bottom:2.5rem}
+        .google-btn{display:flex;align-items:center;justify-content:center;gap:.75rem;width:100%;padding:.9rem 1.5rem;background:#fff;color:#1f1f1f;border:none;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;transition:box-shadow .2s ease,transform .2s ease}
+        .google-btn:hover{box-shadow:0 4px 20px rgba(0,0,0,.25);transform:translateY(-1px)}
+        .google-btn svg{width:20px;height:20px;flex-shrink:0}
+        .divider{display:flex;align-items:center;gap:1rem;margin:1.75rem 0;color:var(--text-muted);font-size:.82rem}
+        .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+        .back-link{display:inline-block;color:var(--text-muted);text-decoration:none;font-size:.88rem;transition:color .2s}
+        .back-link:hover{color:var(--lime)}
+        .status{margin-top:1.25rem;font-size:.88rem;color:var(--text-muted);min-height:1.2rem}
+        .status.err{color:#f87171}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="pictures/site/1678.png" alt="Citrus Circuits" class="logo">
+        <div class="title">Welcome Back</div>
+        <p class="sub">Sign in to access your profile, order history, and more from Citrus Circuits 1678.</p>
+        <button class="google-btn" id="googleBtn">
+            <svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/><path fill="none" d="M2 2h44v44H2z"/></svg>
+            Continue with Google
+        </button>
+        <p class="status" id="status"></p>
+        <div class="divider">or</div>
+        <a href="index.html" class="back-link">← Return to home</a>
+    </div>
+
+    <script type="module">
+        import { signInWithGoogle, onAuthChange } from './js/firebase-config.js';
+
+        const root = document.documentElement;
+        root.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+
+        // If already signed in, redirect to profile
+        onAuthChange(user => {
+            if (user) {
+                const redir = new URLSearchParams(location.search).get('redirect') || 'profile.html';
+                location.href = redir;
+            }
+        });
+
+        document.getElementById('googleBtn').addEventListener('click', async () => {
+            const st = document.getElementById('status');
+            st.textContent = 'Signing in…';
+            st.className = 'status';
+            try {
+                await signInWithGoogle();
+            } catch (e) {
+                st.textContent = 'Sign-in failed. Please try again.';
+                st.className = 'status err';
+            }
+        });
+    </script>
+</body>
+</html>
