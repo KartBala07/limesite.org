@@ -66,11 +66,11 @@
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        /* Main content split */
-        .handbook-split { display:grid; grid-template-columns:1fr 420px; gap:3.5rem; align-items:start; margin-bottom:4rem; }
-        .handbook-photo { border-radius:18px; overflow:hidden; border:1px solid var(--border); position:sticky; top:120px; }
-        .handbook-photo img { width:100%; height:auto; display:block; }
-        .handbook-photo-fallback { aspect-ratio:4/3; background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--lime); letter-spacing:.06em; }
+        /* Main content */
+        .handbook-cards { margin-bottom:2.5rem; }
+        .handbook-photo { border-radius:18px; overflow:hidden; border:1px solid var(--border); margin-bottom:4rem; }
+        .handbook-photo img { width:100%; max-height:520px; object-fit:cover; display:block; }
+        .handbook-photo-fallback { height:320px; background:var(--bg-card); display:none; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--lime); letter-spacing:.06em; }
 
         /* Download cards */
         .download-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2rem 2.5rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; transition:border-color .2s ease; }
@@ -93,7 +93,7 @@
 
 .footer-socket a { color:var(--lime); text-decoration:none; }
         @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} }
-        @media (max-width:820px) { .handbook-split{grid-template-columns:1fr;} .handbook-photo{position:static;max-width:480px;margin:0 auto;} }
+        @media (max-width:820px) { .handbook-photo img{max-height:320px;} }
         @media (max-width:620px) {
             .wrap{padding:0 1.25rem;}
             .page-head{margin:2.5rem auto 1rem;}
@@ -210,39 +210,37 @@
                 <p class="page-sub">Our team handbook outlines our organizational team structure, member expectations, and other pieces of information designed to aid students or mentors with various procedures.</p>
             </div>
 
-            <div class="handbook-split">
-                <div>
-                    <div class="intro-card">
-                        <p>Click below to download the respective handbook you need. The student handbook covers team structure, expectations, and procedures for all team members. The mentor handbook covers mentorship guidelines and responsibilities specific to adult mentors on the team.</p>
-                    </div>
-
-                    <div class="download-card">
-                        <div class="download-info">
-                            <h3>Team Handbook</h3>
-                            <p>2025&ndash;26 season edition &mdash; organizational structure, member expectations, and team procedures for students.</p>
-                        </div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_f4960a5a3ceb40ce9beacf1180c37b60.pdf" target="_blank" rel="noopener" class="download-btn">
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                            Download PDF
-                        </a>
-                    </div>
-
-                    <div class="download-card">
-                        <div class="download-info">
-                            <h3>Mentor Handbook</h3>
-                            <p>Guidelines and responsibilities for adult mentors participating with Citrus Circuits.</p>
-                        </div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_4cfbac136393485fa548e9171a42af84.pdf" target="_blank" rel="noopener" class="download-btn">
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                            Download PDF
-                        </a>
-                    </div>
+            <div class="handbook-cards">
+                <div class="intro-card">
+                    <p>Click below to download the respective handbook you need. The student handbook covers team structure, expectations, and procedures for all team members. The mentor handbook covers mentorship guidelines and responsibilities specific to adult mentors on the team.</p>
                 </div>
 
-                <div class="handbook-photo">
-                    <img src="pictures/resources/Team Handbook.jpg" alt="Team Handbook" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="handbook-photo-fallback" style="display:none;">Team Handbook</div>
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3>Team Handbook</h3>
+                        <p>2025&ndash;26 season edition &mdash; organizational structure, member expectations, and team procedures for students.</p>
+                    </div>
+                    <a href="https://www.citruscircuits.org/_files/ugd/146bfa_f4960a5a3ceb40ce9beacf1180c37b60.pdf" target="_blank" rel="noopener" class="download-btn">
+                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download PDF
+                    </a>
                 </div>
+
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3>Mentor Handbook</h3>
+                        <p>Guidelines and responsibilities for adult mentors participating with Citrus Circuits.</p>
+                    </div>
+                    <a href="https://www.citruscircuits.org/_files/ugd/146bfa_4cfbac136393485fa548e9171a42af84.pdf" target="_blank" rel="noopener" class="download-btn">
+                        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="handbook-photo">
+                <img src="pictures/resources/Team Handbook.jpg" alt="Team Handbook" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="handbook-photo-fallback">Team Handbook</div>
             </div>
         </div>
 
@@ -408,22 +406,54 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     if(/(creator|credits|who made this|made this site|made this website|behind this site|behind this website|who is behind|secret page)/.test(q)) return true;
     return false;
   }
+  function score(p,q,toks){
+    var title=norm(p.t),hay=norm(p.t+' '+p.k),s=0;
+    if(q.indexOf(' ')>=0&&hay.indexOf(q)>=0) s+=5;
+    toks.forEach(function(tk){if(title.indexOf(tk)>=0) s+=2; else if(hay.indexOf(tk)>=0) s+=1;});
+    return s;
+  }
+  function topN(q,n){
+    var toks=q.split(' ').filter(function(t){return t.length>1;});
+    var scored=[];
+    PAGES.forEach(function(p){var s=score(p,q,toks);if(s>0)scored.push({p:p,s:s});});
+    scored.sort(function(a,b){return b.s-a.s;});
+    return scored.slice(0,n).map(function(x){return x.p;});
+  }
+  var sugBox=document.createElement('div');
+  sugBox.style.cssText='position:absolute;left:0;right:0;top:100%;background:var(--bg-dropdown);border:1px solid var(--border);border-radius:10px;overflow:hidden;z-index:3000;display:none;box-shadow:0 12px 32px rgba(0,0,0,.35);margin-top:4px;';
+  var wrap=si.parentElement;
+  wrap.style.position='relative';
+  wrap.appendChild(sugBox);
+  function renderSug(results){
+    if(!results.length){sugBox.style.display='none';return;}
+    sugBox.innerHTML='';
+    results.forEach(function(p,i){
+      var a=document.createElement('a');
+      a.href=PREFIX+p.u;
+      a.textContent=p.t;
+      a.style.cssText='display:block;padding:.6rem 1rem;color:var(--text-muted);text-decoration:none;font-size:.85rem;border-top:'+(i?'1px solid var(--border)':'none')+';transition:background .15s,color .15s;';
+      a.addEventListener('mouseenter',function(){this.style.background='var(--bg-dark)';this.style.color='var(--lime)';});
+      a.addEventListener('mouseleave',function(){this.style.background='';this.style.color='var(--text-muted)';});
+      sugBox.appendChild(a);
+    });
+    sugBox.style.display='block';
+  }
+  si.addEventListener('input',function(){
+    var q=norm(si.value);
+    renderSug(q.length>1?topN(q,3):[]);
+  });
   si.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){sugBox.style.display='none';return;}
     if(e.key!=='Enter') return;
+    sugBox.style.display='none';
     var q=norm(si.value);
     if(!q) return;
-    if(isSecret(q)){ window.location.href=PREFIX+'about/credits.html'; return; }
-    var toks=q.split(' ').filter(function(t){return t.length>2;});
-    var best=null, bestScore=0;
-    PAGES.forEach(function(p){
-      var title=norm(p.t), hay=norm(p.t+' '+p.k), score=0;
-      if(q.indexOf(' ')>=0 && hay.indexOf(q)>=0) score+=5;
-      toks.forEach(function(tk){if(title.indexOf(tk)>=0) score+=2; else if(hay.indexOf(tk)>=0) score+=1;});
-      if(score>bestScore){ bestScore=score; best=p; }
-    });
-    if(best && bestScore>0){ window.location.href=PREFIX+best.u; }
-    else { window.location.href=PREFIX+'resources.html'; }
+    if(isSecret(q)){window.location.href=PREFIX+'about/credits.html';return;}
+    var res=topN(q,1);
+    if(res.length) window.location.href=PREFIX+res[0].u;
+    else window.location.href=PREFIX+'resources.html';
   });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))sugBox.style.display='none';});
 })();
 </script>
 </body>
