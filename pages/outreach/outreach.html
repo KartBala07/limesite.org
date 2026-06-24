@@ -66,56 +66,34 @@
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .section-header { display:flex; align-items:baseline; gap:1rem; margin:4rem 0 2rem; padding-bottom:1rem; border-bottom:1px solid var(--border); }
-        .section-header h2 { color:var(--lime); font-size:1.4rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; }
+        /* hero */
+        .or-hero { position:relative; width:100%; max-height:520px; overflow:hidden; }
+        .or-hero img { width:100%; max-height:520px; object-fit:cover; display:block; }
+        .or-hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(5,6,6,0) 30%, rgba(5,6,6,.85) 100%); }
 
-        .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; padding-bottom:3rem; }
-        .info-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease; scroll-margin-top:120px; }
-        .info-card:hover { transform:translateY(-5px); border-color:var(--lime); }
-        .info-media { position:relative; aspect-ratio:3/2; background:linear-gradient(150deg,#0e1410 0%,#060806 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .info-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
-        .info-media img { width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
-        .info-media img.hidden { display:none; }
-        .info-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
-        .info-body { padding:1.5rem; flex-grow:1; }
-        .info-body h3 { font-size:1.3rem; font-weight:800; color:var(--lime); letter-spacing:-.01em; margin-bottom:.6rem; }
-        .info-body p { color:var(--text-muted); font-size:.95rem; line-height:1.65; }
-        .info-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
+        /* intro */
+        .or-intro { max-width:820px; margin:3rem auto 1.5rem; padding:0 2rem; text-align:center; }
+        .or-intro .page-eyebrow { justify-content:center; }
+        .or-intro .page-title { font-size:clamp(3rem,8vw,5.5rem); }
+        .or-intro .page-sub { font-size:1.05rem; }
 
-        .full-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; margin-bottom:2rem; scroll-margin-top:120px; }
-        .full-card h3 { color:var(--lime); font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
-        .full-card p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
-        .full-card p:last-child { margin-bottom:0; }
+        /* "Find out more" label */
+        .or-label { max-width:1100px; margin:2.5rem auto .75rem; padding:0 2rem; }
+        .or-label p { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--text-muted); letter-spacing:.2em; text-transform:uppercase; }
 
-        /* Davis Youth Robotics brand palette (DYR Orange / DYR Blue) */
-        #dyr h3, #robocamps h3, #fall-workshops h3 { color:#FF6F2A; }
-        #dyr strong { color:#0075C9; }
-        #robocamps:hover, #fall-workshops:hover { border-color:#FF6F2A; }
-        #robocamps .info-fallback .ic, #fall-workshops .info-fallback .ic { color:#FF6F2A; text-shadow:0 0 36px rgba(255,111,42,.3); }
-        #robocamps .tag, #fall-workshops .tag { color:#0075C9; }
-
-        /* DiSTEM brand palette (Purple / Green) */
-        #distem h3 { color:#a1007D; }
-        #distem:hover { border-color:#a1007D; }
-        #distem .info-fallback .ic { color:#a1007D; text-shadow:0 0 36px rgba(161,0,125,.3); }
-        #distem .tag { color:#8cc63f; }
-        .full-card a.inline-link { color:var(--lime); text-decoration:underline; }
-
-        .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
-        .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
-        .stat-cell .n { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--lime); line-height:1; }
-        .stat-cell .l { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-top:.5rem; }
-
-        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
-        .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
-        .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
-        .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
-        .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
-        .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+        /* program grid */
+        .or-grid { max-width:1100px; margin:0 auto; padding:0 2rem 5rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+        .or-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem 1.5rem; text-decoration:none; display:flex; align-items:center; gap:1rem; transition:border-color .2s ease,transform .2s ease; }
+        .or-card:hover { border-color:var(--lime); transform:translateY(-3px); }
+        .or-card-icon { width:42px; height:42px; border-radius:10px; background:rgba(60,213,46,.08); border:1px solid rgba(60,213,46,.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .or-card-icon svg { width:20px; height:20px; stroke:var(--lime); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+        .or-card-name { font-size:1rem; font-weight:700; color:var(--text-main); line-height:1.2; }
+        .or-card-arrow { margin-left:auto; color:var(--text-muted); font-size:1.1rem; transition:color .2s,transform .2s; flex-shrink:0; }
+        .or-card:hover .or-card-arrow { color:var(--lime); transform:translateX(3px); }
 
 .footer-socket a { color:var(--lime); text-decoration:none; }
-        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .info-grid{grid-template-columns:1fr 1fr;} .stat-strip{grid-template-columns:1fr 1fr;} }
-        @media (max-width:620px) { .info-grid{grid-template-columns:1fr;} .stat-strip{grid-template-columns:1fr;} }
+        @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .or-grid{grid-template-columns:1fr 1fr;} }
+        @media (max-width:560px) { .or-grid{grid-template-columns:1fr;} }
 
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
@@ -221,67 +199,76 @@
 
     <main>
 
-        <div class="wrap">
-            <div class="page-head">
-                <div class="page-eyebrow">Community &bull; STEM &bull; Service</div>
-                <h1 class="page-title">Outreach &amp; <em>Service</em></h1>
-                <p class="page-sub">Citrus Circuits exports its expertise by starting and mentoring DYR and FRC teams, hosting Diversity in STEM events, running workshops, and showing up at the Davis Farmers Market every week.</p>
-            </div>
+      <div class="or-hero">
+        <img src="../pictures/outreach/outreach.jpg" alt="Citrus Circuits Outreach">
+        <div class="or-hero-overlay"></div>
+      </div>
 
-            <div class="full-card" id="citrus-service">
-                <h3>Citrus Service</h3>
-                <p>Founded in 2017, Citrus Service is our outreach program dedicated to aiding other robotics teams in their competitive pursuits &mdash; from spare parts and machining favors to scouting help and strategy support at competitions.</p>
-            </div>
+      <div class="or-intro">
+        <div class="page-eyebrow">Community &bull; STEM &bull; Service</div>
+        <h1 class="page-title">Outreach</h1>
+        <p class="page-sub">Part of our job as an FRC team is to reach out to our community and spread the message of FIRST&reg;. We export our expertise through starting and mentoring DYR and FRC teams, hosting our Diversity In STEM events, holding workshops at our off-season competition Capital City Classic, maintaining a booth at our town's famous Farmers Market, and helping people experiencing homelessness find shelters. We make it a priority during team meetings to always set a time for outreach and to follow through with our ambitious goals.</p>
+      </div>
 
-            <div class="full-card" id="dyr">
-                <h3>Davis Youth Robotics (DYR)</h3>
-                <p>Davis Youth Robotics is the K-12 robotics pipeline that Citrus Circuits founded and continues to mentor, feeding students into FLL, FTC, and eventually FRC teams across Davis.</p>
-                <p><strong id="about-dyr-robocamps">About DYR RoboCamps</strong> &mdash; week-long summer camps introducing robotics fundamentals.<br>
-                <strong id="dyr-robocamps-registration">DYR RoboCamps Registration</strong> &mdash; sign-ups open each spring for the following summer.<br>
-                <strong id="dyr-robocamps-forms">DYR RoboCamps Forms</strong> &mdash; waivers, medical forms, and camper info sheets.<br>
-                <strong id="dyr-robocamps-resources">DYR RoboCamps Resources</strong> &mdash; curriculum and lesson plans for camp counselors.<br>
-                <strong id="dyr-league">DYR League</strong> &mdash; a youth competition league for younger robotics teams in the district.<br>
-                <strong id="dyr-school-programs">DYR School Programs</strong> &mdash; in-classroom robotics units taught at DJUSD elementary and middle schools.</p>
-            </div>
+      <div class="or-label"><p>Find out more about our community outreach:</p></div>
 
-            <div class="info-grid">
-                <div class="info-card" id="robocamps">
-                    <div class="info-media"><img src="../pictures/site/robocamps_cover_pic.jpg" class="info-img" alt="RoboCamps" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">CAMP</span></div></div>
-                    <div class="info-body"><span class="tag">Grades K&ndash;8</span><h3>RoboCamps</h3><p>Introductory camps for grades 4&ndash;8, Seedling camps for K&ndash;1st, and Sprouts camps for grades 2&ndash;3.</p></div>
-                </div>
-                <div class="info-card" id="fall-workshops">
-                    <div class="info-media"><img src="../pictures/site/2025_fall_workshops.jpg" class="info-img" alt="Fall Workshops" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">FALL</span></div></div>
-                    <div class="info-body"><span class="tag">Annual</span><h3>Fall Workshops</h3><p>A collection of technical workshops led by students and mentors at our off-season event, Capital City Classic.</p></div>
-                </div>
-                <div class="info-card" id="farmers-market">
-                    <div class="info-media"><img src="../pictures/site/robocamp.jpg" class="info-img" alt="Farmers Market" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DFM</span></div></div>
-                    <div class="info-body"><span class="tag">Weekly</span><h3>Farmers Market</h3><p>We maintain a booth at the Davis Farmers Market, demoing robots and running hands-on activities for the community.</p></div>
-                </div>
-                <div class="info-card" id="lgbtq-of-first">
-                    <div class="info-media"><img src="../pictures/2026/business_media_2026.jpg" class="info-img" alt="LGBTQ+ of FIRST" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">LGBT</span></div></div>
-                    <div class="info-body"><span class="tag">Affinity Group</span><h3>LGBTQ+ of FIRST</h3><p>A space connecting LGBTQ+ students and mentors across FIRST teams, fostering belonging in the robotics community.</p></div>
-                </div>
-                <div class="info-card" id="distem">
-                    <div class="info-media"><img src="../pictures/2026/scouting_frontend_2026.jpg" class="info-img" alt="DiSTEM" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DI</span></div></div>
-                    <div class="info-body"><span class="tag">Diversity in STEM</span><h3>DiSTEM</h3><p>Events and panels promoting diversity, equity, and inclusion across STEM and robotics.</p></div>
-                </div>
-                <div class="info-card" id="wise">
-                    <div class="info-media"><img src="../pictures/2026/scouting_backend_2026.jpg" class="info-img" alt="WiSE" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">WiSE</span></div></div>
-                    <div class="info-body"><span class="tag">Women in STEM &amp; Eng.</span><h3>WiSE</h3><p>Women in STEM and Engineering &mdash; mentorship and community-building for women on the team and across FIRST.</p></div>
-                </div>
-                <div class="info-card" id="robot-demos">
-                    <div class="info-media"><img src="../pictures/robots/robot_2025_sublime.jpg" class="info-img" alt="Robot Demos" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">DEMO</span></div></div>
-                    <div class="info-body"><span class="tag">Community Events</span><h3>Robot Demos</h3><p>Live robot demonstrations at schools, libraries, and community events across Davis.</p></div>
-                </div>
-            </div>
-        </div>
+      <div class="or-grid">
 
-        <div class="lead-cta">
-            <div class="lead-cta-inner">
-                <div><h3>Want us at your event?</h3><p>We bring robots, demos, and mentors to schools and community events across Davis.</p></div>
-                <a href="../about/contact.html" class="lead-cta-btn">Get in Touch &rarr;</a>
-            </div>
-        </div>
+        <a href="compass_alliance.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></div>
+          <span class="or-card-name">The Compass Alliance</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="robotics_courses.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+          <span class="or-card-name">Robotics Courses</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="dyr.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <span class="or-card-name">Davis Youth Robotics</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="distem.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <span class="or-card-name">DiSTEM</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="../capital_city_classic.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+          <span class="or-card-name">Capital City Classic</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="farmers_market.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+          <span class="or-card-name">Farmers Market</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="digital_minds.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+          <span class="or-card-name">FRC Team Digital Minds</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="fall_workshops.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"></path><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"></path><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"></path><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"></path></svg></div>
+          <span class="or-card-name">Fall Workshops</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+        <a href="citrus_service.html" class="or-card">
+          <div class="or-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+          <span class="or-card-name">Citrus Service</span>
+          <span class="or-card-arrow">&#8594;</span>
+        </a>
+
+      </div>
 
     </main>
 
