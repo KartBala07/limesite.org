@@ -26,7 +26,7 @@ export const firebaseConfig = {
 };
 
 // ⚠️ Replace with your own Firebase UID (shown on /admin page after first login)
-export const ADMIN_UID = "REPLACE_WITH_YOUR_FIREBASE_UID";
+export const ADMIN_UID = "qMUZXWmAszXZFuk5ZDuWw4mOo3v2";
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
