@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History — Citrus Circuits 1678</title>
+    <title>2023 Build Blog — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
     <meta name="description" content="Two decades of FRC Team 1678, Citrus Circuits — from a single classroom in 2004 to a ten-year Einstein streak.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,6 +110,34 @@
         .hist-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
         .hist-nav-link:hover { color:var(--lime); }
         .hist-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
+
+        /* build blog */
+        .blog-wrap { max-width:980px; margin:0 auto; padding:0 2rem 6rem; }
+        .blog-head { text-align:center; padding:3.5rem 0 2.5rem; border-bottom:2px solid var(--border); margin-bottom:0; }
+        .blog-week { margin-top:0; }
+        .blog-week-header { padding:1.5rem 0 .6rem; border-bottom:2px solid var(--lime); margin-bottom:0; }
+        .blog-week-title { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; color:var(--text-main); letter-spacing:.06em; text-transform:uppercase; }
+        .blog-intro { color:var(--text-muted); font-size:1rem; line-height:1.7; padding:.85rem 0 .85rem; border-bottom:1px solid var(--border); }
+        .bb-row { display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid var(--border); }
+        .bb-cell { padding:1.6rem 1.5rem; }
+        .bb-cell--img { padding:.75rem; display:flex; align-items:center; justify-content:center; background:var(--bg-card); }
+        .bb-cell--img img { width:100%; height:260px; object-fit:cover; border-radius:6px; display:block; }
+        .bb-name { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--lime); letter-spacing:.06em; text-transform:uppercase; margin-bottom:.6rem; }
+        .bb-text { color:var(--text-muted); font-size:1.05rem; line-height:1.8; }
+        .bb-dual { display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid var(--border); }
+        .bb-dual .bb-cell { border-right:1px solid var(--border); padding:1.6rem 1.5rem; }
+        .bb-dual .bb-cell:last-child { border-right:none; }
+        .bb-full { padding:1.6rem 1.5rem; border-bottom:1px solid var(--border); }
+        .bb-full .bb-name { margin-bottom:.5rem; }
+        .blog-nav { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:2rem; margin-top:2rem; }
+        .blog-nav a { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s; }
+        .blog-nav a:hover { color:var(--lime); }
+        @media(max-width:700px){
+          .bb-row,.bb-dual { grid-template-columns:1fr; }
+          .bb-cell--img { height:200px; }
+          .bb-cell--img img { height:200px; }
+          .bb-dual .bb-cell { border-right:none; border-bottom:1px solid var(--border); }
+        }
     </style>
 </head>
 <body>
@@ -192,20 +220,232 @@
     </header>
 
     <main>
-        <div class="wrap">
-            <a href="../seasons/history.html" class="hist-back-link">&larr; Team History</a>
-            <div class="page-head" style="text-align:left;margin:0 0 2rem;">
-                <div class="page-eyebrow" style="justify-content:flex-start;">Build Blog</div>
-                <h1 class="page-title">2023</h1>
-            </div>
-            <div class="hist-detail">
-                <p>With Tangerine Tumbler we won the Hueneme Port, Sacramento, and Silicon Valley regionals. In Houston we ranked first and won the Galileo Division, then advanced to Einstein with a 1–2 record.</p><div class="tl-tags"><span>Galileo Champions</span><span>3× Regional Winner</span></div><p>The full build blog archive for this season lives with our newsletters and build updates — see the <a class="inline-link" href="../build_blogs.html" style="color:var(--lime);text-decoration:underline;">Build Blogs / Newsletters</a> page.</p>
-            </div>
+      <div class="blog-wrap">
+        <div class="blog-head">
+          <h1 class="page-title">Build Blog 2023</h1>
+          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">Galileo Champions</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">3× Regional Winner</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--bg-card);border:1px solid var(--border);color:var(--lime);padding:.3rem .7rem;border-radius:6px;">CHARGED UP</span>
+          </div>
         </div>
-        <div class="hist-nav-strip">
-            <a href="blog_2022.html" class="hist-nav-link">&larr; 2022</a>
-            <a href="blog_2024.html" class="hist-nav-link">2024 &rarr;</a>
+
+        <!-- ═══════════════════ WEEK 7 — READY FOR THE C"OHM"PETITION ═══════════════════ -->
+        <div class="blog-week" id="week-7">
+          <div class="blog-week-header"><div class="blog-week-title">Week 7 - Ready for the C"ohm"petition</div></div>
+          <div class="blog-intro">Final week of build season is here! Hueneme is right around the corner. We are ex-static and looking forward to our first competition!</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">Hardware Design is working on mounting the new elevator and version four of the intake to Comp. The new elevator will use chains instead of belts to prevent wear during extended use. They also simplified the gearbox to reduce the weight and manufacturing time.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/Build Blog 2023.jpg" alt="Hardware Design Week 7"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/1Build Blog 2023.jpg" alt="Hardware Fabrication Week 7"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication has been doing final preparations for our first regional. They finished the new bumpers for the Comp bot. They then took inventory and restocked the pit boxes with spare parts. They also assembled the last parts for versions three and four of the intake. Finally, Hardware Fabrication built both of the human player substations.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">Hardware Electrical finished setting up the new Limelight sensors for the Comp bot's vision systems. They also rearranged the belly pan on Comp to better position the center of gravity and finished wiring the intake, arm, and elevator mechanisms for Comp. Additionally, they have been working on creating a human player communication system. This system signals which type of game piece the drive team needs from the substations using LED strips on the robot.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/2Build Blog 2023.jpg" alt="Hardware Electrical Week 7"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/3Build Blog 2023.jpg" alt="Business and Media Week 7"></div>
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">Business and Media just finished the Impact Award Video which will be shown at competitions if we win the Impact award. They also made the vinyl cutouts for the Impact Award prop and the new robot bumpers. Additionally, they finalized the latest iteration of the pit display and worked on the sponsor panel for the robot.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Impact Award</div><div class="bb-text">On Thursday, the Impact Award presenters unveiled their presentation to the team. The presenters also participated in the final parent panel, which included two former members of 3132 Thunder Down Under. They also helped finalize the Impact Award video with Business and Media.</div></div>
+            <div class="bb-cell"><div class="bb-name">Strategy</div><div class="bb-text">This week, the Strategy team gave their presentation on various teams' robots that each member has been researching throughout the build season. They also used xRC, a program that simulates FRC games, to determine the viability of different strategies that they developed through the season.</div></div>
+          </div>
         </div>
+
+        <!-- ═══════════════════ WEEK 6 — LIGHTING IT UP ═══════════════════ -->
+        <div class="blog-week" id="week-6">
+          <div class="blog-week-header"><div class="blog-week-title">Week 6 - Lighting It Up</div></div>
+          <div class="blog-intro">With our first competition in less than two weeks, our team members are all working hard to get the Beta robot charged-up and ready to go.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Front End</div><div class="bb-text">Front End had another full system field test and received more user feedback from all of our leading strategists. They also fixed various bugs in Pit Collection, while testing ways on transferring photos from Pit Collection to Viewer. Additionally, Front End worked on fixing data point inconsistencies in Viewer, and improving the user interface and small features in match collection that the users wanted.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/4Build Blog 2023.jpg" alt="Software Scouting Front End Week 6"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/5Build Blog 2023.jpg" alt="Software Scouting Back End Week 6"></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Back End</div><div class="bb-text">This week, Back End tested the scouting system and worked on finding and fixing bugs. They updated Pit Collection, making it more accessible for other users. They also finalized the list of variables and what they meant for users through fixing data points. Finally, Back End improved the accuracy of ranking point predictions.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">This week Software Robot continued to test code on Beta. They drove their first autonomous paths on Thursday, and got their first autonomous balance success on Friday! On the weekend, Software Robot also helped with writing and testing code on the Comp chassis.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/6Build Blog 2023.jpg" alt="Software Robot Week 6"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/7Build Blog 2023.jpg" alt="Hardware Design Week 6"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">Hardware Design collaborated with Hardware Electrical and worked on the elevator mechanism on the Comp robot. They finished assembling version three of the intake for Comp. Hardware Design also replaced the 3D printed limelight mounts and fixed intake issues with the Beta bot.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication made bumpers for the Comp robot, and finished fabricating elevator mechanism parts and tubes. They also improved the traction of version three of the intake, modified the swerve modules, made spares for Beta, and built a new driver station for the field.</div></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">Hardware Electrical further developed the Comp robot and improved soldering standards. New members got hands-on experience with the Beta bot and they set up the new limelight on the Alpha bot. Hardware Electrical also reiterated designs for the elevator mechanism while working alongside Hardware Design.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">With the completion of the Offseason recap video, Business and Media is focusing on the Impact Award video and actively promoting WISE (Women In STEM) events. They are also continuing the robot pit display and creating the sponsor panel for the Comp robot. Look forward to the February newsletter coming out later this week!</div></div>
+            <div class="bb-cell"><div class="bb-name">Impact Award</div><div class="bb-text">Impact Award submitted the essay and executive summary earlier this week! On Saturday, they had another parent panel for the presentation team, with one panel to go. The presentation team also had a wonderful presentation from Terry Gault on better presenting skills. Lastly, they worked with Business and Media on completing the Impact Award video.</div></div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 5 — WIRING FOR SUCCESS ═══════════════════ -->
+        <div class="blog-week" id="week-5">
+          <div class="blog-week-header"><div class="blog-week-title">Week 5 - Wiring for Success</div></div>
+          <div class="blog-intro">Our first competition is coming up quickly! The Competition and Beta robots are nearing completion and our drivers have begun practicing. We also just released our Offseason Recap, giving a rundown of our experiences at Chezy Champs, Capital City Classic, and MadTown Throwdown, as well as the progress of our outreach programs.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Front End</div><div class="bb-text">Front End has been fixing various bugs, such as the camera not working, issues with Match Collection, and refining the auto intake buttons. They also implemented a new popup for robots intaking from the scoring rows to account for teams moving game pieces from lower to higher scoring positions. After that, they tested Pit Collection with the Viewer and updated the data points for the Viewer to be consistent with the Server. In addition, they finished working on documentation for both Grosbeak and Green Jay servers.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/8Build Blog 2023.jpg" alt="Software Scouting Front End Week 5"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/9Build Blog 2023.jpg" alt="Software Scouting Back End Week 5"></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Back End</div><div class="bb-text">In addition to fixing bugs from the field test, Back End added more data points, such as medians, and worked on completing predictions. They also worked with the Strategy team to determine the pickability metrics for the Charged Up game, changing the weight value of different scouted actions. Back End is also waiting on The Blue Alliance to update its API to determine the naming and categorizations of various statistics before implementing them into the system.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">This week Software Robot ran code on Beta! They ran driver practice, and continued to fix issues as they were discovered. Beta was able to run both cone and cube cycles, and climb with its special fork mechanism. They also worked on refining the vision and targeting system with the new three camera setup on Beta.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/10Build Blog 2023.jpg" alt="Software Robot Week 5"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/11Build Blog 2023.jpg" alt="Hardware Fabrication Week 5"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication has been busy churning out parts for our Beta and Comp bots, including the superstructure and the new elevator mechanism. Once done, they began restoring and repurposing old bumpers and replacing any that were too damaged. They also built new field elements and repaired any damage sustained during early drive practices. Finally, they gave pocketing training with the router.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">This week, Hardware Design finished creating all the major parts of the Beta robot, including its drivebase, A frame, and elevator mechanism. They have also fitted bumpers to Beta, finalized the Everybot intake, and are currently designing the third version of the intake. Next week, they will refine the final parts for the Comp robot to send to Hardware Fabrication.</div></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">Now that Comp and Beta have been designed and fabricated, Hardware Electrical has been working hard to prepare them for Software Robot. They finished wiring-up mechanisms to the Comp drive base, which has allowed Software Robot to begin testing. They recently received new batteries for the coming competition season. With this, they have been implementing new procedures and standardizations to prolong the health of the batteries. They have also been practicing better documentation to keep track of parts.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">This week, Business and Media completed a number of projects. Members re-scripted the Impact Award video and completed the Offseason Recap video, which is now on our YouTube Channel. The progress on the Pit Display continues, including finalizing hyperlinks and sections of the interactive pdf, and the information is ready to be updated. In addition, they finished the WISE logo for its rebranding.</div></div>
+            <div class="bb-cell"><div class="bb-name">Impact Award</div><div class="bb-text">The Impact Award team has recently finalized the essay for submission next week and are working on finalizing the executive summary. The presentation team was subject to their second parent panel which resulted in lots of positive feedback. They are currently looking for additional parents to sign up for the next two panels.</div></div>
+          </div>
+          <div class="bb-full"><div class="bb-name">Strategy</div><div class="bb-text">The Strategy team presented slideshows about match choreography when partnered with variations of two mid-level robots. They discussed the ideal starting combination of Cubes and Cones for the autonomous period, and also talked about the cases in which we would fork climb or drive up the Charge Station to engage.</div></div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 4 — WE'VE GOT THE POWER ═══════════════════ -->
+        <div class="blog-week" id="week-4">
+          <div class="blog-week-header"><div class="blog-week-title">Week 4 - We've Got the Power</div></div>
+          <div class="blog-intro">We "volted" through week four of build season! We can't believe it's already been four weeks since kickoff, and we are excited to share our progress with you. This week we mainly developed our Beta robot, R2B2.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">Software Robot focused their efforts on R2B2 this week. This included fine tuning limelight vision, writing the superstructure and driver controls, testing R2B2's swerve drive base, and writing code to control the arm, claw, elevator, and wrist. Additionally, they tested code on Alpha to automatically align the robot to scoring locations. We hope to get R2B2 up and running next week.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/12Build Blog 2023.jpg" alt="Software Robot Week 4"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/13Build Blog 2023.jpg" alt="Software Scouting Front End Week 4"></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Front End</div><div class="bb-text">Front-End is mainly working on finding and fixing bugs this week. They ran their second field test and discovered a few bugs, one of which caused the prediction of rankings not to work, and another that allowed users to score game pieces other than the type that they preloaded. They fixed those bugs, and are also currently fixing the feature that allows users to search for teams and matches on Viewer.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Back End</div><div class="bb-text">Software Scouting Back-End was busy this week finishing tests and working on updating calculations specific to this year such as predicted score, links, and total score per robot. They also updated calculations and predictions regarding link ranking points (RP) and charge station RP.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/14Build Blog 2023.jpg" alt="Software Scouting Back End Week 4"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/15Build Blog 2023.jpg" alt="Hardware Design Week 4"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">Along with finishing designing and assembling R2B2 version one, Hardware Design made progress on the assembly of the drivetrain, and finished the second iteration of R2B2 where they are shortening the elevator stages and decreasing the weight of the intake.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">This week, Electrical was wiring up assemblies and working on R2B2. They are also working on new standardization of the Falcon 500 motors, working on the competition robot, and organizing the scouting room.</div></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Hardware Fabrication was hard at work making parts for R2B2. Veteran members shared their knowledge with new members, who got more experience using lathes and mills. In addition to that, Hardware Fabrication finished making the drivetrain for R2B2.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">Business and Media continued to work on the Impact Award Video and finalizing the Offseason Recap Video this week. In addition, they are continuing to edit and update the Pit Display. They also finalized the sponsor list and finished designing the Citrus Assist and WISE logo. Citrus Assist is the parent program of Citrus Service, while WISE is the new name of the program Girl Powered, which they are in the process of rebranding. Lastly, Business and Media made a brochure for the team's Farmer's Market booth.</div></div>
+            <div class="bb-cell"><div class="bb-name">Impact Award</div><div class="bb-text">Impact Award was busy this week launching their first Parent Panel for the presentation team, and finalizing the executive summary and essay. The Parent Panel is a group of parent volunteers who listen to and give feedback on our presentations in order to improve our presentation skills, as well as simulate presenting before a panel of judges at a competition. Thank you to the parents who volunteered during our first practice presentation!</div></div>
+          </div>
+          <div class="bb-full"><div class="bb-name">Strategy</div><div class="bb-text">Strategy discussed the weighting of the first pickability and second pickability calculations this week, and created new strategies for different matchups to add to the strategy handbook.</div></div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 3 — MAKING SPARKS ═══════════════════ -->
+        <div class="blog-week" id="week-3">
+          <div class="blog-week-header"><div class="blog-week-title">Week 3 - Making Sparks</div></div>
+          <div class="blog-intro">"Watt" a week! Cheers to Citrus Circuits for making it through the first three weeks of the season! Through the hard work of each subteam, we have completed Alpha, our first robot, and are now working on Beta.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">This week, Software Robot focused on getting their autonomous balance routine tuned. Since balancing in the autonomous period counts towards earning a ranking point, the robot must be able to balance quickly and reliably through code. The first approach used a gyroscope on Margie, our robot from last year, to measure the angle at which it was tilted. They experimented with adding measurements from wheel speed sensors and tracking vision targets. Software Robot also worked on getting code for Beta, which will be implemented once it is built and wired by other subteams.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/16Build Blog 2023.jpg" alt="Software Robot Week 3"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/17Build Blog 2023.jpg" alt="Software Scouting Front End Week 3"></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Front End</div><div class="bb-text">Along with organizing spreadsheets and consolidating data, Front-End was troubleshooting their apps last weekend and used this week to fix the bugs they found during the field test. They also updated their Picklist, a file used to track tasks, and added new data points.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Back End</div><div class="bb-text">Other than a few minor improvements, Software's schema is almost ready for competition. All their test files have been written, and now their main plan focuses on calculations. This process will take a long time due to the game's complexity. So far, averages, modes, and standard deviations have been calculated. They are waiting for more updates from The Blue Alliance to improve their game information for Charged Up.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/18Build Blog 2023.jpg" alt="Hardware Fabrication Week 3"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/19Build Blog 2023.jpg" alt="Hardware Design Week 3"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Congratulations to the Fabrication subteam for completing 200 parts! They have worked hard this week to produce all of the parts required for Beta. For each robot and mechanism, the Design team sends the CAD files of the parts needed to be created, and Fabrication creates them. Design and Hardware pair up to assemble pieces and test the robot. Once they evaluate the performance, they will return to the drawing board and create improved parts for the next robot.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">This week, Hardware tested and evaluated different intake ideas for the Beta robot and raced to complete CAD files faster than Fabrication can construct. They have brainstormed ideas about different versions of the claw, cube-handoffs, and possibly developing a pinching system. So far, they have settled on a full-length claw, but it is still in design.</div></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">This week, Electrical collaborated with the Software, Design, and Fabrication subteams. Subteam members tested the new Limelight 3 and the new proximity sensors, which can detect an object from a designated distance. They will also be focusing on optimizing robot configuration and applying game mechanics.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">Business and Media continued editing the Off-Season recap video, the Impact Award video, and the re-design of the pit display. The first drafts were assessed this weekend with the team. They are also creating the Women In Stem Empowered logo (W.I.S.E), formerly known as Girl-Powered, and preparing our submission for the Sustainability Award.</div></div>
+            <div class="bb-cell"><div class="bb-name">Impact Award</div><div class="bb-text">Along with working on the Impact Award Essay, the subteam has finalized their presentation script and video submission. During their weekly meeting, they practiced answering questions similar to the ones the judges would pose. In addition, they started working on the Impact Award prop for this year.</div></div>
+          </div>
+          <div class="bb-full"><div class="bb-name">Strategy</div><div class="bb-text">Strategy worked on designing approaches for different match situations. They discussed having a drive coach signal to a human player by LEDs on the robot or with colored flags during matches.</div></div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 2 — RECHARGED ═══════════════════ -->
+        <div class="blog-week" id="week-2">
+          <div class="blog-week-header"><div class="blog-week-title">Week 2 - Recharged</div></div>
+          <div class="blog-intro">It's the second week of build season! Within the first two weeks, we've already assembled the Alpha robot and are making progress for our Beta robot. This week, the team transformed our main room, M1, into a half-practice field. We spent a day cleaning up the floor, rearranging the room, and setting up our game pieces in preparation for driver practice.</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Design</div><div class="bb-text">This week, Hardware Design finalized the beta design and are sending robot parts to Hardware Fabrication to be made. Additionally, three new prototype claw designs and two Endgame mechanisms were tested. The claw prototypes focused on a spring-loaded grabbing mechanism — one prototype was designed as a static claw that doesn't pivot, while the second iteration was made with a set pivoting point powered by a motor. The two endgame mechanisms are the roller bar and the wooden blocks. The goal was for these mechanisms to allow us to hang off the end of the Charging Station, allowing more space to be available for our alliance robots. Both of these mechanisms were placed on the bottom of the robot, but ended up not working due to excessive friction and lack of weight. However, a new forklift is currently being designed.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/20Build Blog 2023.jpg" alt="Hardware Design Week 2"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/21Build Blog 2023.jpg" alt="Hardware Fabrication Week 2"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware Fabrication</div><div class="bb-text">Along with making prototypes on the laser cutter this week, Hardware Fabrication began making physical parts of the Beta robot, including the drive train and claw. New members are gaining more experience and training making parts on the lathe, routers (OMIOs and Velox), mill, and various other machines. The subteam also cut out pieces and made field elements for our practice field.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Hardware Electrical</div><div class="bb-text">Hardware Electrical has been refining soldering protocols and soldering setups to increase safety. For the Alpha robot, they wired up the scoring mechanism and power for signal, vision, proximity sensors, color sensors, and RoboRio. The subteam has also been working to develop and wire the upcoming Beta robot from the ground up in collaboration with Hardware Design.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/22Build Blog 2023.jpg" alt="Hardware Electrical Week 2"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/23Build Blog 2023.jpg" alt="Software Robot Week 2"></div>
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">This week Software Robot ran code on Alpha for the first time. They started the week by tuning voltage levels on the arm, and writing code to let it snap to preset angles using sensors. Alpha's claw was also tested and was able to pick up both cones and cubes. Hardware Design also repaired Alpha's swerve modules on Thursday, and Alpha was able to score its first game pieces in teleop on Friday! Software Robot is still further nailing down vision targeting and auto paths for the robot.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Front End</div><div class="bb-text">Front-End finished most of the Match Collection app and completely finished the Pit Collection app. Currently, they're figuring out the data points displayed in the Viewer app, adding another intake page for the Match Collection app, and creating the new Picklist app. The first drafts for every app have been completed, and the subteam is working towards finalizing them as soon as possible.</div></div>
+            <div class="bb-cell"><div class="bb-name">Software Scouting — Back End</div><div class="bb-text">Back-End has been making changes and working towards finalizing the schema. They have been writing tests for testing files and calculations, as well as developing more specific calculations for this year's point combinations. Their goal is to get a semi-system test for the server before the end of the week.</div></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">In addition to taking and processing lots of photos and videos of the entire team, the Business and Media subteam worked on the Impact Award video, monthly Newsletter, and Off-Season recap video, which is a compilation of activities and competitions that were attended between the Summer and Fall of 2022. They are also working on the Pit display, an interactive PDF that features details about our team and is displayed on a monitor at competitions, allowing people from other teams to learn more about our team.</div></div>
+            <div class="bb-cell"><div class="bb-name">Impact Award</div><div class="bb-text">The Impact Award subteam has finished writing the script for their video submission and is currently putting the first draft of their video together. Additionally, they are now working on the presentation prop and have finalized a draft of their presentation script.</div></div>
+          </div>
+          <div class="bb-full"><div class="bb-name">Strategy</div><div class="bb-text">This week, Strategy discussed game plans and match game flow while also coming up with plans to the first four cycles of teleop. They also went over scoring position names and are working on creating the 2023 strategy handbook slideshow.</div></div>
+        </div>
+
+        <!-- ═══════════════════ WEEK 1 — PLUGGING IN! ═══════════════════ -->
+        <div class="blog-week" id="week-1">
+          <div class="blog-week-header"><div class="blog-week-title">Week 1 - Plugging In!</div></div>
+          <div class="blog-intro">Welcome to Citrus Circuits Build Blog! On January 7, our team participated in kickoff for the worldwide reveal of the 2023 FIRST Robotics Competition game, CHARGED UP. In the morning, we hosted 13 other teams in the Brunelle Theater to get hyped and watch the reveal livestream. Throughout the weekend, we split off into small groups to read the game manual, discuss the requirements of the new game, and determine what we want our robot to do!</div>
+
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Business &amp; Media</div><div class="bb-text">The Business and Media subteam took lots of photos and video, and processed photos from this weekend's kick-off. A few members have been storyboarding and brainstorming ideas for this year's Impact Award video as well as the off-season recap video. So far they have completed this year's master ledger, designed a farmer's market brochure, and finished the Omron Foundation grant!</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/24Build Blog 2023.jpg" alt="Business and Media Week 1"></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/25Build Blog 2023.jpg" alt="Hardware Week 1"></div>
+            <div class="bb-cell"><div class="bb-name">Hardware</div><div class="bb-text">Hardware subteams were split into groups to work on prototyping parts for the robot. Hardware Design finished the Alpha robot design, and Hardware Fabrication prepared the shop to make the parts for the robot. Together in their prototyping groups, they assembled and tested these designs. Hardware Electrical was in prototyping groups with Hardware Design to make sure designs were able to be wired with the structure of the robot, ensuring the wires can work alone and function on the prototype and robot. Other students from Hardware Fabrication were retrained on how to work the mill and cut pieces for the Alpha robot. Hardware Design is also beginning the CAD design for the next version of the beta competition prototype robot.</div></div>
+          </div>
+          <div class="bb-row">
+            <div class="bb-cell"><div class="bb-name">Software Robot</div><div class="bb-text">Software Robot started working on creating a system to utilize the new-for-2023 AprilTags! These tags unlock the ability to calculate where the robot is on the field, purely from vision. This will allow the robot to be able to automatically align to scoring locations, both in teleoperated and autonomous operation. Additionally, they also plan on using the tags to enhance the autonomous routines since wheel odometry won't be accurate while traversing obstacles such as the Charging Station or the cable guard. Besides working on vision, Software Robot has also been preparing prototype code for Alpha, and they hope to test the drafts this week once Alpha is mechanically ready.</div></div>
+            <div class="bb-cell--img"><img src="../pictures/blog/2023/26Build Blog 2023.jpg" alt="Software Robot Week 1"></div>
+          </div>
+          <div class="bb-dual">
+            <div class="bb-cell"><div class="bb-name">Software Scouting</div><div class="bb-text">Software Scouting Front-End started kickoff by creating a list of all data points to be collected for the new season. They started prototyping new user interface (UI) designs for the new scouting app. They split into teams for each app of the scouting system, and since then have been working hard on updating apps for the new data point requirements and user input. Software Scouting Back-End updated the database schema this week and finished the new data points and variables for the game. They are currently updating test data and new calculations for the new data and server.</div></div>
+            <div class="bb-cell"><div class="bb-name">Strategy &amp; Impact Award</div><div class="bb-text">The Strategy team joined Business and Media in reviewing the game reveal and starting to plan for the 2023 season, discussing game strategy and scoring mechanics. The Impact Award subteam also began storyboarding and brainstorming ideas for this year's Impact Award video and off-season recap video.</div></div>
+          </div>
+          <div class="bb-full"><div class="bb-name">Charged Up</div><div class="bb-text">Get energized for FRC's 2023 game, CHARGED UP! Presented by Haas, FIRST Robotics Competition has created a game to inspire teams to see the potential of energy storage. Two alliances of three teams each compete to earn points by scoring cubes and cones into their grid to charge up their community. Robots collect cubes and cones from human players at their substations to deliver power to the grids. As time runs out, robots race to their charging stations. Alliances earn points for each robot docked to or engaged with the charge station.</div></div>
+          <div class="bb-full"><div class="bb-name">Thank You Parents</div><div class="bb-text">A big thank you to all of the parents who helped us build the field elements for this year's game and made meals for our weekend meetings! A special thank you to alumni team member parents Craig and Tracey Long for hosting the field element build crew. All your efforts and support encourage us to do our best and help us get a great start to the new season!</div></div>
+        </div>
+
+        <div class="blog-nav">
+          <a href="../build_blogs.html">&larr; All Build Blogs</a>
+          <a href="blog_2024.html">2024 Build Blog &rarr;</a>
+        </div>
+      </div>
     </main>
 
 
