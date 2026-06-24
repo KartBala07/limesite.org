@@ -102,7 +102,7 @@
   .dropdown-panel{position:static!important;opacity:1!important;pointer-events:auto!important;transform:none!important;width:100%;display:none!important;grid-template-columns:1fr!important;box-shadow:none;border:none;background:transparent;padding:0 0 .5rem 1rem!important;margin-top:0}
   .nav-item.open .dropdown-panel{display:flex!important;flex-direction:column}
   .nav-actions-hub{margin-left:auto;order:2}.nav-toggle{order:3}
-  .nav-cta{display:none}
+  .nav-cta{display:none}.nav-login-btn{font-size:.75rem;padding:.45rem .7rem}
 }
 
         .robot-detail { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; padding-bottom:3rem; }
@@ -248,13 +248,13 @@
                 </li>
             </ul>
             <div class="nav-actions-hub">
-      <button class="nav-search-btn" id="searchToggle" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-      <a href="../login.html" class="nav-login-btn">Sign In</a>
                 <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
                     <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
                 <a href="../about/recruitment.html" class="nav-cta">Apply to Team</a>
+      <button class="nav-search-btn" id="searchToggle" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+      <a href="../login.html" class="nav-login-btn">Sign In</a>
             </div>
         </div>
     </header>
@@ -581,7 +581,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   <div class="search-box">
     <p class="search-hint">Search Citrus Circuits 1678</p>
     <form class="search-form" id="searchForm">
-      <input class="search-input" type="text" id="searchInput" placeholder="robots, outreach, season…">
+      <input class="search-input" type="text" id="searchInput" placeholder="robots, outreach, season…" autocomplete="off">
       <button class="search-submit" type="submit">Search</button>
     </form>
   </div>
@@ -590,14 +590,32 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 (function(){
   var overlay=document.getElementById('searchOverlay');
   var inp=document.getElementById('searchInput');
-  if(!overlay) return;
-  document.getElementById('searchToggle').addEventListener('click',function(){overlay.classList.add('open');setTimeout(function(){inp.focus()},50)});
-  overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('open')});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')overlay.classList.remove('open')});
+  var toggle=document.getElementById('searchToggle');
+  if(!overlay||!toggle) return;
+  toggle.addEventListener('click',function(e){
+    e.stopPropagation();
+    overlay.classList.add('open');
+    setTimeout(function(){inp.focus();},60);
+  });
+  overlay.addEventListener('click',function(e){
+    if(e.target===overlay) overlay.classList.remove('open');
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') overlay.classList.remove('open');
+  });
   document.getElementById('searchForm').addEventListener('submit',function(e){
     e.preventDefault();
     var q=inp.value.trim();
-    if(q) window.open('https://www.google.com/search?q=site:kartbala07.github.io/limesite.org+'+encodeURIComponent(q),'_blank');
+    if(!q) return;
+    var a=document.createElement('a');
+    a.href='https://www.google.com/search?q=site:kartbala07.github.io%2Flimesite.org+'+encodeURIComponent(q);
+    a.target='_blank';
+    a.rel='noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    overlay.classList.remove('open');
+    inp.value='';
   });
 })();
 </script>
