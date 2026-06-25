@@ -63,7 +63,7 @@
         .fw-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem 6rem; }
         .fw-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; }
         .fw-eyebrow::before, .fw-eyebrow::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
-        .fw-title { font-family:Impact,'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; margin-bottom:.75rem; }
+        .fw-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; margin-bottom:.75rem; }
         .fw-title em { color:var(--lime); font-style:normal; }
         .fw-intro { color:var(--text-muted); font-size:1.05rem; line-height:1.8; max-width:680px; margin-bottom:3rem; }
 
@@ -87,7 +87,7 @@
         .fw-card-placeholder svg { width:40px; height:40px; stroke:var(--border); fill:none; stroke-width:1.5; }
 
         .fw-card-body { padding:1.25rem 1.4rem 1.5rem; flex:1; display:flex; flex-direction:column; gap:.6rem; }
-        .fw-card-year { font-family:Impact,'Bebas Neue',sans-serif; font-size:1.75rem; color:var(--lime); letter-spacing:.06em; line-height:1; }
+        .fw-card-year { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; color:var(--lime); letter-spacing:.06em; line-height:1; }
         .fw-card-label { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--text-muted); letter-spacing:.1em; text-transform:uppercase; }
         .fw-card-btn { margin-top:auto; display:inline-flex; align-items:center; gap:.4rem; font-size:.82rem; font-weight:600; color:var(--lime); padding-top:.5rem; }
 
@@ -480,7 +480,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   inp.addEventListener('input',function(){
     var q=inp.value.trim().toLowerCase();
     if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}
-    var _terms=q.split(/\s+/).filter(Boolean);showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;});}));
+    var _terms=q.split(/\s+/).filter(Boolean);function _subseq(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;})||_subseq(p.t,q);}));
   });
 
   inp.addEventListener('keydown',function(e){
@@ -498,7 +498,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}
     var q=inp.value.trim();if(!q) return;
     var lq=q.toLowerCase();
-    var _st=lq.split(/\s+/).filter(Boolean);var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;});});
+    var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});
     if(match){window.location.href=BASE+match.u;}
     drop.classList.remove('open');btn.classList.remove('active');
   });

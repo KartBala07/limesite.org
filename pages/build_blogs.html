@@ -62,14 +62,14 @@
         .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
-        .page-title { font-family:Impact,'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
+        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
         /* Photo pair */
         .photo-pair { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:4rem; }
         .photo-pair img { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:16px; border:1px solid var(--border); display:block; }
-        .photo-fallback { aspect-ratio:16/9; border-radius:16px; border:1px solid var(--border); background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-family:Impact,'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.06em; }
+        .photo-fallback { aspect-ratio:16/9; border-radius:16px; border:1px solid var(--border); background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.06em; }
 
         /* Section label */
         .section-label { font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; margin-bottom:1.5rem; display:flex; align-items:center; gap:.75rem; }
@@ -77,7 +77,7 @@
 
         /* Coming soon banner */
         .coming-soon { background:var(--bg-card); border:1px solid var(--lime); border-radius:16px; padding:2rem 2.5rem; margin-bottom:3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
-        .coming-soon h3 { font-family:Impact,'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:.04em; color:var(--lime); margin-bottom:.3rem; }
+        .coming-soon h3 { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:.04em; color:var(--lime); margin-bottom:.3rem; }
         .coming-soon p { color:var(--text-muted); font-size:.95rem; }
         .coming-soon-badge { font-family:'JetBrains Mono',monospace; font-size:.75rem; letter-spacing:.15em; text-transform:uppercase; background:rgba(60,213,46,.12); color:var(--lime); border:1px solid rgba(60,213,46,.3); padding:.5rem 1.1rem; border-radius:999px; white-space:nowrap; }
 
@@ -85,7 +85,7 @@
         .blog-year-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.25rem; margin-bottom:4rem; }
         .blog-year-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:1.75rem 2rem; text-decoration:none; color:var(--text-main); display:flex; flex-direction:column; gap:.6rem; transition:border-color .2s,transform .2s; }
         .blog-year-card:hover { border-color:var(--lime); transform:translateY(-3px); }
-        .blog-year-card .yr { font-family:Impact,'Bebas Neue',sans-serif; font-size:3rem; color:var(--lime); line-height:1; }
+        .blog-year-card .yr { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--lime); line-height:1; }
         .blog-year-card .yr-label { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.15em; text-transform:uppercase; }
         .blog-year-card .yr-arrow { font-size:.85rem; color:var(--lime); margin-top:.5rem; }
 
@@ -435,7 +435,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
             let pct=0,mi=0;
             const tick=setInterval(()=>{pct=Math.min(100,pct+Math.ceil(Math.random()*9));pctEl.textContent=pct+'%';if(pct>=100)clearInterval(tick);},110);
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
-            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
+            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},400));
         })();
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
@@ -491,7 +491,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   inp.addEventListener('input',function(){
     var q=inp.value.trim().toLowerCase();
     if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}
-    var _terms=q.split(/\s+/).filter(Boolean);showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;});}));
+    var _terms=q.split(/\s+/).filter(Boolean);function _subseq(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;})||_subseq(p.t,q);}));
   });
 
   inp.addEventListener('keydown',function(e){
@@ -509,7 +509,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}
     var q=inp.value.trim();if(!q) return;
     var lq=q.toLowerCase();
-    var _st=lq.split(/\s+/).filter(Boolean);var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;});});
+    var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});
     if(match){window.location.href=BASE+match.u;}
     drop.classList.remove('open');btn.classList.remove('active');
   });

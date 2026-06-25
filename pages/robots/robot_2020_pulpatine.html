@@ -62,7 +62,7 @@
         .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
-        .page-title { font-family:Impact,'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
+        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
@@ -79,7 +79,7 @@
         .detail-media::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(60,213,46,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,213,46,.04) 1px,transparent 1px); background-size:30px 30px; }
         .detail-media img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.08); position:relative; z-index:1; }
         .detail-media img.hidden { display:none; }
-        .detail-fallback .ic { position:relative; font-family:Impact,'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
+        .detail-fallback .ic { position:relative; font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; text-shadow:0 0 36px rgba(60,213,46,.3); z-index:1; }
         .detail-body .tag { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--lime); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.7rem; display:block; }
         .detail-body h3 { font-size:1.6rem; font-weight:800; margin-bottom:.9rem; }
         .detail-body p { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:.9rem; }
@@ -383,7 +383,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
                 if(pct>=100){clearInterval(tick);}
             },110);
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
-            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500));
+            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},400));
         })();
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
@@ -440,7 +440,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   inp.addEventListener('input',function(){
     var q=inp.value.trim().toLowerCase();
     if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}
-    var _terms=q.split(/\s+/).filter(Boolean);showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;});}));
+    var _terms=q.split(/\s+/).filter(Boolean);function _subseq(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;})||_subseq(p.t,q);}));
   });
 
   inp.addEventListener('keydown',function(e){
@@ -458,7 +458,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}
     var q=inp.value.trim();if(!q) return;
     var lq=q.toLowerCase();
-    var _st=lq.split(/\s+/).filter(Boolean);var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;});});
+    var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});
     if(match){window.location.href=BASE+match.u;}
     drop.classList.remove('open');btn.classList.remove('active');
   });

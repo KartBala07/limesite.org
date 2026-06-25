@@ -66,7 +66,7 @@
         .ws-header { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; margin-bottom:2.5rem; }
         .ws-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; }
         .ws-eyebrow::before, .ws-eyebrow::after { content:''; width:28px; height:1px; background:var(--lime); opacity:.5; }
-        .ws-title { font-family:Impact,'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
+        .ws-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
         .ws-title em { color:var(--lime); font-style:normal; }
         .ws-logo { width:160px; height:auto; border-radius:12px; border:1px solid var(--border); }
 
@@ -86,7 +86,7 @@
 
         /* section divider */
         .ws-section { margin-bottom:3.5rem; }
-        .ws-section-title { font-family:Impact,'Bebas Neue',sans-serif; font-size:1.9rem; letter-spacing:.03em; color:var(--lime); margin-bottom:1.5rem; border-bottom:1px solid var(--border); padding-bottom:.75rem; }
+        .ws-section-title { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; letter-spacing:.03em; color:var(--lime); margin-bottom:1.5rem; border-bottom:1px solid var(--border); padding-bottom:.75rem; }
 
         /* testimonials */
         .ws-quotes { display:flex; flex-direction:column; gap:1rem; }
@@ -489,7 +489,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   inp.addEventListener('input',function(){
     var q=inp.value.trim().toLowerCase();
     if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}
-    var _terms=q.split(/\s+/).filter(Boolean);showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;});}));
+    var _terms=q.split(/\s+/).filter(Boolean);function _subseq(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;})||_subseq(p.t,q);}));
   });
 
   inp.addEventListener('keydown',function(e){
@@ -507,7 +507,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}
     var q=inp.value.trim();if(!q) return;
     var lq=q.toLowerCase();
-    var _st=lq.split(/\s+/).filter(Boolean);var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;});});
+    var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});
     if(match){window.location.href=BASE+match.u;}
     drop.classList.remove('open');btn.classList.remove('active');
   });
