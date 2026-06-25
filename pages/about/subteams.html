@@ -815,10 +815,35 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   </div>
 </footer>
 
-    
 
+<script>
+(function(){
+  var pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
+  var msgs=['Loading Subteams','Building the Roster','Firing Up CAD','Almost Ready'];
+  var pct=0,mi=0;
+  var tick=setInterval(function(){pct=Math.min(100,pct+Math.ceil(Math.random()*9));pctEl.textContent=pct+'%';if(pct>=100)clearInterval(tick);},110);
+  var msgTick=setInterval(function(){mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
+  window.addEventListener('load',function(){setTimeout(function(){clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1500);});
+})();
 
+// Theme toggle
+var tBtn=document.getElementById('themeToggle'),root=document.documentElement;
+root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
+tBtn.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
 
+// Nav toggle
+var navToggle=document.getElementById('navToggle'),navMenu=document.querySelector('.nav-menu');
+if(navToggle){navToggle.addEventListener('click',function(){navToggle.classList.toggle('open');navMenu.classList.toggle('open');});
+document.querySelectorAll('.nav-item').forEach(function(item){item.addEventListener('click',function(e){if(window.innerWidth<=1100){item.classList.toggle('open');}});});}
+
+// Cursor
+var dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';var rx=0,ry=0,mx=0,my=0;
+  window.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+  document.querySelectorAll('a,button,.subteam-card').forEach(function(el){el.addEventListener('mouseenter',function(){ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',function(){ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
+}
+</script>
 
 <script>
 // Scroll reveal
