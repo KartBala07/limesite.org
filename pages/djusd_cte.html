@@ -50,7 +50,7 @@
         .dropdown-panel a { color:var(--text-muted); text-decoration:none; font-size:.8rem; padding:.65rem .85rem; border-radius:8px; transition:all .2s ease; }
         .dropdown-panel a:hover { background-color:var(--bg-dark); color:var(--lime); }
         .dropdown-panel a.active { color:var(--lime); background-color:var(--bg-dark); }
-        .nav-actions-hub { display:grid;grid-template-columns:auto auto;gap:.35rem .5rem;align-items:center;justify-items:start; }
+        .nav-actions-hub{display:flex;align-items:center;gap:.5rem}
         .nav-cta { background:transparent; border:1px solid var(--lime); color:var(--lime); padding:.6rem 1.2rem; border-radius:8px; font-size:.85rem; font-weight:600; text-decoration:none; transition:all .2s ease; }
         .nav-cta:hover { background:var(--lime); color:#000; }
         .theme-toggle-btn { background:var(--bg-dark); border:1px solid var(--border); color:var(--text-main); width:40px; height:40px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s ease; }
@@ -62,7 +62,7 @@
         .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
-        .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
+        .page-title { font-family:Impact,'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
         .page-title em { color:var(--lime); font-style:normal; }
         .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
@@ -86,7 +86,7 @@
         .cte-video iframe { width:100%; height:100%; display:block; border:none; }
         .cte-photo-pair { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
         .cte-photo-pair img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid var(--border); display:block; }
-        .cte-photo-fallback { aspect-ratio:4/3; border-radius:12px; border:1px solid var(--border); background:var(--bg-darkest); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.06em; }
+        .cte-photo-fallback { aspect-ratio:4/3; border-radius:12px; border:1px solid var(--border); background:var(--bg-darkest); display:flex; align-items:center; justify-content:center; font-family:Impact,'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:.06em; }
 
         .lead-cta { max-width:1280px; margin:2rem auto 0; padding:0 2rem 5rem; }
         .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
@@ -129,11 +129,11 @@
   .nav-link svg{padding:.75rem;margin:-.75rem;box-sizing:content-box}
   .dropdown-panel{position:static!important;opacity:1!important;pointer-events:auto!important;transform:none!important;width:100%;display:none!important;grid-template-columns:1fr!important;box-shadow:none;border:none;background:transparent;padding:0 0 .5rem 1rem!important;margin-top:0}
   .nav-item.open .dropdown-panel{display:flex!important;flex-direction:column}
-  .nav-actions-hub{margin-left:auto;order:2;gap:.25rem .35rem}.nav-toggle{order:3}
+  .nav-actions-hub{display:flex;align-items:center;gap:.5rem}.nav-toggle{order:3}
   .nav-cta{display:none}}
 
 @media(max-width:768px){}
-.nav-search-wrap{position:relative}
+.nav-search-wrap{position:relative;margin-left:.75rem}
 .nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:40px;height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .nav-search-btn:hover,.nav-search-btn.active{border-color:var(--lime);color:var(--lime)}
 .nav-search-btn svg{width:17px;height:17px}
@@ -225,13 +225,13 @@
                 </li>
             </ul>
             <div class="nav-actions-hub">
+      <a href="login.html" class="nav-login-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="nav-login-txt">Sign In</span></a>
+      <a href="about/recruitment.html" class="nav-cta">Apply to Team</a>
       <div class="nav-search-wrap"><button class="nav-search-btn" id="navSearchBtn" aria-label="Search" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button><div class="nav-search-drop" id="navSearchDrop"><div class="nav-search-drop-inner"><form class="nav-search-form" id="navSearchForm" autocomplete="off"><input class="nav-search-input" id="navSearchInput" type="text" placeholder="Search pages…" autocomplete="off" spellcheck="false"><button class="nav-search-go" type="submit">Go</button></form><div class="nav-search-suggs" id="navSearchSuggs"></div></div></div></div>
       <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
                     <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
-                <a href="login.html" class="nav-login-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="nav-login-txt">Sign In</span></a>
-                <a href="about/recruitment.html" class="nav-cta">Apply to Team</a>
             </div>
         </div>
     </header>
@@ -438,7 +438,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   inp.addEventListener('input',function(){
     var q=inp.value.trim().toLowerCase();
     if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}
-    showSuggs(PAGES.filter(function(p){return p.t.toLowerCase().indexOf(q)>-1||p.c.toLowerCase().indexOf(q)>-1;}));
+    var _terms=q.split(/\s+/).filter(Boolean);showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;});}));
   });
 
   inp.addEventListener('keydown',function(e){
@@ -456,7 +456,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}
     var q=inp.value.trim();if(!q) return;
     var lq=q.toLowerCase();
-    var match=PAGES.find(function(p){return p.t.toLowerCase().indexOf(lq)>-1;});
+    var _st=lq.split(/\s+/).filter(Boolean);var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;});});
     if(match){window.location.href=BASE+match.u;}
     drop.classList.remove('open');btn.classList.remove('active');
   });
@@ -483,13 +483,13 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   suggs.id='footerSearchSuggs';
   suggs.style.cssText='position:absolute;left:0;right:0;top:calc(100% + 2px);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);z-index:500;display:none;flex-direction:column;overflow:hidden;max-height:260px;overflow-y:auto;';
   var wrap=fi.closest('.footer-search');
-  if(wrap){wrap.style.position='relative';wrap.parentNode.insertBefore(suggs,wrap.nextSibling);}
+  if(wrap){var fl=wrap.parentNode;fl.style.position='relative';fl.insertBefore(suggs,wrap.nextSibling);suggs.style.top='auto';suggs.style.left='0';suggs.style.maxWidth='320px';}
   fi.addEventListener('input',function(){
     var q=fi.value.trim().toLowerCase();
     suggs.innerHTML='';
     if(!q){suggs.style.display='none';return;}
     var P=window.SITE_PAGES||[];
-    var res=P.filter(function(p){return p.t.toLowerCase().indexOf(q)>-1||p.c.toLowerCase().indexOf(q)>-1;}).slice(0,6);
+    var _ft=q.split(/\s+/).filter(Boolean);var res=P.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _ft.some(function(t){return _s.indexOf(t)>-1;});}).slice(0,6);
     if(!res.length){suggs.style.display='none';return;}
     var BASE='https://kartbala07.github.io/limesite.org';
     res.forEach(function(p){
