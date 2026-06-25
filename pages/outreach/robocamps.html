@@ -39,7 +39,7 @@
         .brand-subtitle { font-size:.75rem; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em; margin-top:.1rem; }
         .nav-menu { display:flex; list-style:none; align-items:center; height:100%; }
         .nav-item { position:relative; height:100%; display:flex; align-items:center; }
-        .nav-link { color:var(--text-muted); text-decoration:none; font-size:.82rem; font-weight:500; padding:0 .8rem; height:100%; display:flex; align-items:center; gap:.35rem; transition:color .2s ease; }
+        .nav-link { color:var(--text-muted); text-decoration:none; font-size:.82rem; font-weight:500; padding:0 .6rem; height:100%; display:flex; align-items:center; gap:.35rem; transition:color .2s ease; white-space:nowrap; }
         .nav-link:hover, .nav-item:hover .nav-link { color:var(--text-main); }
         .nav-link.active { color:var(--lime); }
         .nav-link svg { width:10px; height:10px; fill:none; stroke:currentColor; stroke-width:2.5; transition:transform .25s ease; }
@@ -50,7 +50,7 @@
         .dropdown-panel a:hover { background-color:var(--bg-dark); color:var(--lime); }
         .dropdown-panel a.active { color:var(--lime); background-color:var(--bg-dark); }
         .nav-actions-hub{display:flex;align-items:center;gap:.75rem;margin-left:1.5rem}.nav-icon-row{display:flex;gap:.4rem;align-items:center}.nav-btn-stack{display:flex;flex-direction:column;gap:.25rem}
-        .nav-cta { background:transparent; border:1px solid var(--lime); color:var(--lime); padding:.6rem 1.2rem; border-radius:8px; font-size:.85rem; font-weight:600; text-decoration:none; transition:all .2s ease; }
+        .nav-cta { background:transparent; border:1px solid var(--lime); color:var(--lime); padding:0 .55rem; border-radius:6px; font-size:.7rem; font-weight:600; text-decoration:none; transition:all .2s ease; width:100%; height:28px; line-height:28px; text-align:center; display:block; }
         .nav-cta:hover { background:var(--lime); color:#000; }
         .theme-toggle-btn { background:var(--bg-dark); border:1px solid var(--border); color:var(--text-main); width:40px; height:40px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s ease; }
         .theme-toggle-btn:hover { border-color:var(--lime); color:var(--lime); }
@@ -103,6 +103,35 @@
 
         .rc-back { display:inline-flex; align-items:center; gap:.5rem; color:var(--text-muted); text-decoration:none; font-size:.9rem; margin:0 0 3rem; transition:color .2s ease; }
         .rc-back:hover { color:var(--lime); }
+
+        /* About section */
+        .rc-section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3.5rem); color:var(--lime); letter-spacing:.04em; text-transform:uppercase; margin:4rem 0 .5rem; }
+        .rc-about-row { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center; margin-bottom:3rem; }
+        .rc-about-row.reverse { direction:rtl; }
+        .rc-about-row.reverse > * { direction:ltr; }
+        .rc-about-text h3 { font-size:1.2rem; font-weight:800; color:var(--lime); margin-bottom:.75rem; }
+        .rc-about-text p { color:var(--text-muted); font-size:.95rem; line-height:1.7; }
+        .rc-about-img { border-radius:14px; overflow:hidden; border:1px solid var(--border); }
+        .rc-about-img img { width:100%; height:260px; object-fit:cover; display:block; transition:transform .4s ease; }
+        .rc-about-img:hover img { transform:scale(1.03); }
+        .rc-full-img { border-radius:14px; overflow:hidden; border:1px solid var(--border); margin:2rem 0; }
+        .rc-full-img img { width:100%; display:block; border-radius:14px; }
+        .rc-full-img-caption { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-muted); letter-spacing:.1em; text-transform:uppercase; text-align:center; margin-top:.6rem; }
+
+        /* FAQ */
+        .rc-faq-list { margin:1.5rem 0 3rem; display:flex; flex-direction:column; gap:.75rem; }
+        .rc-faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+        .rc-faq-q { width:100%; background:none; border:none; color:var(--text-main); font-size:.95rem; font-weight:700; padding:1.1rem 1.4rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; text-align:left; gap:1rem; transition:color .2s; }
+        .rc-faq-q:hover { color:var(--lime); }
+        .rc-faq-q svg { flex-shrink:0; transition:transform .25s ease; }
+        .rc-faq-item.open .rc-faq-q svg { transform:rotate(180deg); }
+        .rc-faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+        .rc-faq-item.open .rc-faq-a { max-height:600px; }
+        .rc-faq-a-inner { padding:.1rem 1.4rem 1.2rem; color:var(--text-muted); font-size:.9rem; line-height:1.7; }
+        .rc-faq-a-inner a { color:var(--lime); word-break:break-all; }
+        .rc-faq-a-inner ul { margin:.5rem 0 .5rem 1.2rem; }
+        .rc-faq-a-inner ul li { margin-bottom:.25rem; }
+        @media(max-width:768px){ .rc-about-row,.rc-about-row.reverse { grid-template-columns:1fr; direction:ltr; } }
 
         .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
         .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -448,6 +477,176 @@
                 <div class="rc-gallery-photo rc-gallery-wide reveal-up"><img src="../pictures/dyr/robocamps5.jpg" alt="RoboCamps photo" onerror="this.closest('.rc-gallery-photo').style.display='none'"></div>
             </div>
 
+            <!-- ===== ABOUT THE CAMPS ===== -->
+            <h2 class="rc-section-title" id="about-camps">About the Camps</h2>
+
+            <!-- Intro-Intermediate -->
+            <div class="rc-about-row reveal-up">
+                <div class="rc-about-text">
+                    <h3>Introductory – Intermediate</h3>
+                    <p>The Introductory - Intermediate camps are geared towards kids going into grades 4–8 who have little or no experience with robotics or already have experience working with robots (i.e. those who have been a part of a Davis Youth Robotics League or Schools team, attended RoboCamps last year, etc.) Introductory-Intermediate camps provide campers with additional scaffolded support and a structured curriculum in designing, building, and programming their robots. This camp uses the VEX IQ platform and ROBOTC programming language, typically as block programming.</p>
+                </div>
+                <div class="rc-about-img">
+                    <img src="../pictures/dyr/robocamps about1.jpg" alt="Introductory-Intermediate RoboCamp" onerror="this.closest('.rc-about-img').style.display='none'">
+                </div>
+            </div>
+
+            <!-- Intermediate-Advanced -->
+            <div class="rc-about-row reverse reveal-up">
+                <div class="rc-about-text">
+                    <h3>Intermediate – Advanced</h3>
+                    <p>The Intermediate - Advanced weeks are for campers grades 4–8 who have experience with robotics or have been to one of our programs before (i.e. those who have been a part of a Davis Youth Robotics League or Schools team, attended RoboCamps last year, etc.) These weeks will allow campers to explore and have more freedom with designing, building, and programming their robots.</p>
+                </div>
+                <div class="rc-about-img">
+                    <img src="../pictures/dyr/robocamps about2.jpg" alt="Intermediate-Advanced RoboCamp" onerror="this.closest('.rc-about-img').style.display='none'">
+                </div>
+            </div>
+
+            <!-- Programming Skills -->
+            <div class="rc-about-row reveal-up">
+                <div class="rc-about-text">
+                    <h3>Programming Skills</h3>
+                    <p>The Programming Skills camp is for campers going into grades 4–8 with robotics experience, who are interested in improving their programming skills. There will be little focus on the mechanical side of robotics. Instead, campers will be taught text-based programming in ROBOTC. This camp will culminate with a series of programming challenges that require the use of sensors, motor encoders, and advanced programming logic. This camp will teach programming skills through completing autonomous-based challenges, instead of using the standard VEX IQ game.</p>
+                </div>
+                <div class="rc-about-img">
+                    <img src="../pictures/dyr/robocamps about3.jpg" alt="Programming Skills RoboCamp" onerror="this.closest('.rc-about-img').style.display='none'">
+                </div>
+            </div>
+
+            <!-- WiSE -->
+            <div class="rc-about-row reverse reveal-up">
+                <div class="rc-about-text">
+                    <h3>WiSE — Women in STEM Empowerment</h3>
+                    <p>The WiSE camp is exclusively for girls and non-binary kids going into grades 4–8 who have little or no experience with robotics, and features an all-female team of camp staff. This year, WiSE camp will be provided as an introductory RoboCamp during the week of June 15–18.</p>
+                </div>
+                <div class="rc-about-img">
+                    <img src="../pictures/dyr/robocamps about4.jpg" alt="WiSE RoboCamp" onerror="this.closest('.rc-about-img').style.display='none'">
+                </div>
+            </div>
+
+            <!-- Intro to Engineering -->
+            <div class="rc-about-row reveal-up">
+                <div class="rc-about-text">
+                    <h3>Intro to Engineering</h3>
+                    <p>The Intro to Engineering camp introduces students entering grades 6–8 to practical skills in technology and engineering. Campers will learn the basics of CAD (Computer-Aided Design) and 3D printing, as well as how to fly and work with drones. No prior experience is needed, however we do encourage that students bring their own computers to camp every day if they have them. It's a straightforward introduction to useful tools and techniques for students interested in exploring technology.</p>
+                </div>
+                <div class="rc-about-img">
+                    <img src="../pictures/dyr/robocamps about5.jpg" alt="Intro to Engineering RoboCamp" onerror="this.closest('.rc-about-img').style.display='none'">
+                </div>
+            </div>
+
+            <!-- Schedule & Prices image -->
+            <h2 class="rc-section-title" id="schedule-prices">Schedule &amp; Prices</h2>
+            <div class="rc-full-img reveal-up">
+                <img src="../pictures/dyr/Robocamps grid with prices.jpg" alt="RoboCamps 2026 Schedule and Prices" onerror="this.closest('.rc-full-img').style.display='none'">
+                <p class="rc-full-img-caption">Full schedule and pricing for Summer 2026</p>
+            </div>
+
+            <!-- Flowchart -->
+            <h2 class="rc-section-title" id="flowchart">Which Camp Is Right For My Child?</h2>
+            <div class="rc-full-img reveal-up">
+                <img src="../pictures/dyr/Flow Chart for Robocamps.jpg" alt="RoboCamps Camp Selection Flowchart" onerror="this.closest('.rc-full-img').style.display='none'">
+                <p class="rc-full-img-caption">Use this flowchart to find the right camp</p>
+            </div>
+
+            <!-- FAQ -->
+            <h2 class="rc-section-title" id="faq">Frequently Asked Questions</h2>
+            <div class="rc-faq-list reveal-up">
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">When does registration open for RoboCamps?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Registration will open on Wednesday, March 11th at 7:00 PM PST. We anticipate many of our camps will sell out that night, so please be prepared to sign up immediately.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Where can I sign my child up for a RoboCamp?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">We use the Ticket Tailor ticketing platform. Our <a href="robocamps.html">registration page</a> has links to the Ticket Tailor page for each of the RoboCamps sessions.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">My child has no experience with robotics. Is there a RoboCamp for them?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Yes! Our Introductory camps are designed for students entering grades 4–8, where we teach campers with little to no robotics experience. Seedling camps are for students entering Kindergarten or 1st Grade, and Sprouts camps are designed for students entering grades 2–3. In addition, our Intro to Engineering camp does not require prior experience.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Which DYR RoboCamp should my child register for?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">There are camps appropriate for the skill and interest level of every camper, including camps that focus on learning programming skills and introducing robotics for everyone. Please see the camp descriptions above for more specific information on each session available. If you are unsure of which camp to choose, refer to the flowchart above!</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">What age groups are eligible for DYR RoboCamps?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Camps are available for students entering grades K–1 in Seedling camps, entering grades 2–3 in Sprouts camps, entering grades 4–8 for all other VEX IQ programs, and entering grades 6–8 for Intro to Engineering camps. Students above 8th grade are encouraged to join the high school robotics team, Citrus Circuits.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Can my child attend more than one week in one summer?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Yes, but not in the same type of camp. Each session of a camp repeats the same curriculum, so subsequent weeks of the same camp will not be engaging for your child. The Intro/Intermediate, Intermediate/Advanced, and Programming Skills camps can make a natural progression. Please be aware of the age range for each camp as well.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Can I sign up more than one child for the same camp?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Yes! You can sign up either 1 or 2 campers for the same camp at the same time (siblings only). After clicking the button on the Ticket Tailor page for that camp, change the ticket quantity from 1 to 2. You will be prompted to enter attendee information for each child.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Is there a waitlist if the DYR RoboCamps are full?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">A waitlist is available for each of our camps. If the camp is full, please enter your email address on the waitlist line for that camp. If a spot opens up, we will notify you at that email address.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">What is the cost of a RoboCamp?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">The price of one week of RoboCamps is variable depending on the camp and number of days. Please refer to the chart above! All campers receive a RoboCamps shirt. We do not offer family discounts for those registering more than one student. There are also need-based, full scholarships available.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Where will the RoboCamps be held?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">All of our RoboCamps sessions will be held at Birch Lane Elementary, Davis, CA. The address is 1600 Birch Lane, Davis CA 95618.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">How many people are in a RoboCamp?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Each camp will have a maximum of 48 campers, except Seedlings and Sprouts (max 18), WiSE (max 20), and Intro to Engineering (max 32).</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Who runs the RoboCamps?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Camps are organized by Davis's internationally-recognized high school robotics team, Citrus Circuits (FRC Team 1678), under the direction of Dr. Kanwardeep Singh. Dr. Singh has a Career Technical Education certificate in programming and teaches robotics at Davis Senior High School and Holmes Junior High. She is assisted by members of Citrus Circuits who volunteer as camp counselors. Each camp has an adult supervisor.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">What does the daily agenda look like?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Each full day camp begins at 9 a.m. and ends at 3 p.m., with regular snack and lunch breaks. (The weeks of June 15–18 and June 29–July 2 will be four days long, held from 9 a.m. to 4 p.m. for Intro-Intermediate and WiSE camps.) Seedling and Sprout camps are half-day: AM sessions 9 a.m.–12 p.m., PM sessions 1–4 p.m. Students in most camps will work together to build and program a robot for the mini-competition at the end of the week.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">How does applying for a scholarship work?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">A limited number of need-based scholarships are available. Fill out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfq8yuD_YrXo6xXKjn3eU4cm6wGcwsuBp1RW97w-l6N6nBneQ/viewform" target="_blank" rel="noopener noreferrer">Scholarship Request Form</a>. You may be asked to show you receive, or qualify for, one of the following:
+                        <ul><li>CalFresh SNAP</li><li>CalWorks</li><li>County General Assistance</li><li>Medi-Cal</li><li>PG&amp;E CARE</li><li>Refugee Cash Assistance</li><li>Women, Infants and Children (WIC)</li></ul>
+                        Within 3–5 days of submitting, we will either ask for more information, send you an access code (valid for 5 days), or inform you that the spot is unavailable.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Will food be provided?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Lunch and snacks will not be provided. We ask that families provide food for campers each day. Please do not bring peanuts or tree nuts.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">What is your late pickup policy?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">You must pick up your camper within 10 minutes after the camp's scheduled dismissal. You will be charged $15 per 15 minutes thereafter, which must be paid before your child may attend the next day of camp. Citrus Circuits and Davis Robotics Foundation are not responsible for campers not picked up within one hour after the scheduled dismissal.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">What is your refund policy?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">If a refund is requested at least 30 days before the first day of camp: full refund (minus service fee). If 30 to 7 days before: half refund (minus service fee). If within 7 days: no refund unless the camp is canceled by Citrus Circuits.</div></div>
+                </div>
+
+                <div class="rc-faq-item">
+                    <button class="rc-faq-q">Are there any forms to bring on the first day?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    <div class="rc-faq-a"><div class="rc-faq-a-inner">Yes. Please print and fill out the Emergency Medical Information form, Media Opt-Out form, and (if applicable) the Camper Self-Checkout Permission form, and bring them to the first day of camp. See <a href="robocamps_forms.html">RoboCamps Forms</a> to find these forms.</div></div>
+                </div>
+
+            </div>
+
             <div class="rc-cta-strip reveal-up">
                 <div>
                     <h3>Stay in the loop</h3>
@@ -602,6 +801,15 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
     var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});
     if(match){window.location.href=BASE+match.u;}
     drop.classList.remove('open');btn.classList.remove('active');
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.rc-faq-item').forEach(function(item){
+    item.querySelector('.rc-faq-q').addEventListener('click',function(){
+      item.classList.toggle('open');
+    });
   });
 })();
 </script>
