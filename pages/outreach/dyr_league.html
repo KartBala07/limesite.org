@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DYR RoboCamps Forms — Citrus Circuits 1678</title>
+    <title>DYR League — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
-    <meta name="description" content="DYR RoboCamps camper forms — emergency medical information, media opt-out, and self-checkout release forms in English and Spanish.">
+    <meta name="description" content="Davis Youth Robotics (DYR) League — competitive after-school robotics for 4th through 8th grade students in Davis, CA.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -57,42 +57,50 @@
         .theme-toggle-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
 
         main { padding-top:95px; }
-        .wrap { max-width:960px; margin:0 auto; padding:0 2rem; }
+        .wrap { max-width:1280px; margin:0 auto; padding:0 2rem; }
         .page-head { text-align:center; margin:4rem auto 1rem; }
         .page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--lime); letter-spacing:.3em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
         .page-eyebrow::before, .page-eyebrow::after { content:''; width:36px; height:1px; background:var(--lime); opacity:.5; }
         .page-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6.5rem); line-height:.95; letter-spacing:.02em; text-transform:uppercase; }
         .page-title em { color:var(--lime); font-style:normal; font-family:'Bebas Neue',sans-serif; font-weight:inherit; }
-        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:620px; margin:1.5rem auto 3rem; }
+        .page-sub { color:var(--text-muted); font-size:1.05rem; line-height:1.7; max-width:680px; margin:1.5rem auto 3rem; }
 
-        .rf-notice { background:var(--bg-card); border:1px solid var(--lime); border-radius:14px; padding:1.5rem 2rem; margin:0 0 3rem; display:flex; align-items:flex-start; gap:1rem; }
-        .rf-notice-icon { font-size:1.4rem; flex-shrink:0; margin-top:.1rem; }
-        .rf-notice p { color:var(--text-muted); font-size:.98rem; line-height:1.65; }
-        .rf-notice p strong { color:var(--text-main); }
+        .dl-section { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin-bottom:4rem; }
+        .dl-section.reverse { direction:rtl; }
+        .dl-section.reverse > * { direction:ltr; }
+        @media(max-width:768px){ .dl-section { grid-template-columns:1fr; gap:2rem; } .dl-section.reverse { direction:ltr; } }
+        .dl-text h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); color:var(--lime); letter-spacing:.04em; text-transform:uppercase; margin-bottom:1rem; }
+        .dl-text p { color:var(--text-muted); font-size:.98rem; line-height:1.75; margin-bottom:.9rem; }
+        .dl-text p:last-child { margin-bottom:0; }
+        .dl-img { border-radius:14px; overflow:hidden; border:1px solid var(--border); }
+        .dl-img img { width:100%; height:340px; object-fit:cover; display:block; transition:transform .4s ease; }
+        .dl-img:hover img { transform:scale(1.03); }
 
-        .rf-lang-section { margin-bottom:3rem; }
-        .rf-lang-title { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.05em; color:var(--lime); text-transform:uppercase; border-bottom:1px solid var(--border); padding-bottom:.75rem; margin-bottom:1.5rem; }
-        .rf-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
-        @media(max-width:720px){ .rf-grid { grid-template-columns:1fr; } }
+        .dl-signup { background:var(--bg-card); border:1px solid var(--lime); border-radius:14px; padding:2rem 2.5rem; margin:2rem 0 3.5rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+        .dl-signup p { color:var(--text-muted); font-size:.98rem; }
+        .dl-cta-btn { display:inline-block; background:var(--lime); color:#000; text-decoration:none; padding:.85rem 1.5rem; border-radius:8px; font-weight:700; font-size:.9rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; flex-shrink:0; }
+        .dl-cta-btn:hover { opacity:.88; transform:translateY(-2px); }
+        .dl-cta-btn.outline { background:transparent; border:1px solid var(--lime); color:var(--lime); }
+        .dl-cta-btn.outline:hover { background:var(--lime); color:#000; }
 
-        .rf-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.5rem; display:flex; flex-direction:column; gap:1rem; transition:border-color .25s ease,transform .25s ease; }
-        .rf-card:hover { border-color:var(--lime); transform:translateY(-3px); }
-        .rf-card-icon { width:40px; height:40px; border-radius:8px; background:rgba(60,213,46,.1); border:1px solid rgba(60,213,46,.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-        .rf-card-icon svg { width:20px; height:20px; fill:none; stroke:var(--lime); stroke-width:2; }
-        .rf-card-name { font-size:1rem; font-weight:700; color:var(--text-main); line-height:1.4; }
-        .rf-card-note { font-size:.82rem; color:var(--text-muted); font-style:italic; line-height:1.5; }
-        .rf-card-btn { display:inline-flex; align-items:center; gap:.5rem; background:var(--lime); color:#000; text-decoration:none; padding:.6rem 1.1rem; border-radius:7px; font-weight:700; font-size:.85rem; transition:opacity .2s ease,transform .2s ease; margin-top:auto; align-self:flex-start; }
-        .rf-card-btn:hover { opacity:.88; transform:translateY(-1px); }
-        .rf-card-btn svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.5; }
+        .dl-resources { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:2rem 2.5rem; margin-bottom:5rem; }
+        .dl-resources h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,4vw,2.5rem); color:var(--lime); letter-spacing:.04em; text-transform:uppercase; margin-bottom:1rem; }
+        .dl-resources p { color:var(--text-muted); font-size:.98rem; line-height:1.75; margin-bottom:1.25rem; }
+        .dl-link-list { display:flex; flex-direction:column; gap:.6rem; }
+        .dl-link-list a { display:inline-flex; align-items:center; gap:.5rem; color:var(--lime); text-decoration:none; font-size:.95rem; font-weight:600; transition:opacity .2s; }
+        .dl-link-list a:hover { opacity:.75; }
+        .dl-link-list a::before { content:'→'; font-size:.85rem; }
 
-        .rf-back { display:inline-flex; align-items:center; gap:.5rem; color:var(--text-muted); text-decoration:none; font-size:.9rem; margin:0 0 4rem; transition:color .2s ease; }
-        .rf-back:hover { color:var(--lime); }
+        .dl-back { display:inline-flex; align-items:center; gap:.5rem; color:var(--text-muted); text-decoration:none; font-size:.9rem; margin:0 0 3rem; transition:color .2s ease; }
+        .dl-back:hover { color:var(--lime); }
+
+        .reveal-up { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+        .reveal-up.visible { opacity:1; transform:none; }
 
         .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
         .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
         .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .25s ease}
-        .nav-toggle span::before{top:-7px}
-        .nav-toggle span::after{top:7px}
+        .nav-toggle span::before{top:-7px} .nav-toggle span::after{top:7px}
         .nav-toggle.open span{background:transparent}
         .nav-toggle.open span::before{transform:translateY(7px) rotate(45deg)}
         .nav-toggle.open span::after{transform:translateY(-7px) rotate(-45deg)}
@@ -106,8 +114,6 @@
           .dropdown-panel{position:static!important;opacity:1!important;pointer-events:auto!important;transform:none!important;width:100%;display:none!important;grid-template-columns:1fr!important;box-shadow:none;border:none;background:transparent;padding:0 0 .5rem 1rem!important;margin-top:0}
           .nav-item.open .dropdown-panel{display:grid!important}
           .nav-actions-hub .nav-cta{display:none}}
-    
-@media(max-width:768px){}
 .nav-search-wrap{position:relative}
 .nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .nav-search-btn:hover,.nav-search-btn.active{border-color:var(--lime);color:var(--lime)}
@@ -130,13 +136,13 @@
 .nav-login-btn svg{width:15px;height:15px;flex-shrink:0}
 .nav-login-txt{display:inline}
 @media(max-width:768px){.nav-login-txt{display:none}.nav-login-btn{padding:.45rem .55rem;gap:0}}
-</style>
+    </style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
         <div class="ld-n">DYR</div>
-        <div class="ld-sub">Loading RoboCamps Forms</div>
+        <div class="ld-sub">Loading DYR League</div>
         <div class="ld-bw"><div class="ld-b"></div></div>
     </div>
 
@@ -181,9 +187,9 @@
                     <div class="dropdown-panel" style="grid-template-columns:1fr;width:260px;">
                         <a href="robocamps_about.html">About DYR RoboCamps</a>
                         <a href="robocamps.html">DYR RoboCamps Registration</a>
-                        <a href="robocamps_forms.html" class="active">DYR RoboCamps Forms</a>
+                        <a href="robocamps_forms.html">DYR RoboCamps Forms</a>
                         <a href="robocamps_resources.html">DYR RoboCamps Resources</a>
-                        <a href="dyr_league.html">DYR League</a>
+                        <a href="dyr_league.html" class="active">DYR League</a>
                         <a href="dyr.html#dyr-school-programs">DYR School Programs</a>
                     </div>
                 </li>
@@ -215,93 +221,49 @@
     <main>
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">DYR RoboCamps &bull; Camper Documents</div>
-                <h1 class="page-title">RoboCamps <em>Forms</em></h1>
-                <p class="page-sub">Please print then fill out these forms and bring them to the first day of camp to speed up the check-in process. Blank forms will be available on-site as well.</p>
+                <div class="page-eyebrow">DYR &bull; Competitive Robotics &bull; Grades 4–8</div>
+                <h1 class="page-title">DYR <em>League</em></h1>
+                <p class="page-sub">Competitive after-school robotics for 4th through 8th graders in Davis, CA — building teamwork, programming, and engineering skills.</p>
             </div>
 
-            <div class="rf-notice">
-                <div class="rf-notice-icon">&#x1F4CB;</div>
-                <p><strong>Tip:</strong> Print and complete all applicable forms before arriving at camp. Bring them on the first day to speed up check-in. Blank copies will also be available on-site.</p>
+            <!-- Sign Up banner -->
+            <div class="dl-signup reveal-up">
+                <p>Stay informed — sign up for the DYR mailing list to receive updates on tournaments, programs, and registration.</p>
+                <a href="https://citruscircuits.us18.list-manage.com/subscribe?u=baaa8ef57d81cf6d18dcb8d23&id=ee60288693" target="_blank" rel="noopener noreferrer" class="dl-cta-btn">DYR Mailing List</a>
             </div>
 
-            <!-- English -->
-            <div class="rf-lang-section">
-                <div class="rf-lang-title">English</div>
-                <div class="rf-grid">
-                    <div class="rf-card">
-                        <div class="rf-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <div class="rf-card-name">Emergency Medical Information Form</div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_40ebf16d99d841f4a480ceb9e5945a93.docx?dn=Emergency%20Medical%20Information.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
-                            Click here
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                        </a>
-                    </div>
-                    <div class="rf-card">
-                        <div class="rf-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <div class="rf-card-name">Media Opt-Out Form</div>
-                        <div class="rf-card-note">ONLY fill out if you do not want your child to be photographed.</div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_722395163ebc4419bfbb1646db3b7630.pdf" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
-                            Click here
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                        </a>
-                    </div>
-                    <div class="rf-card">
-                        <div class="rf-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <div class="rf-card-name">Camper Self-Checkout Release</div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_c56816dba2284633950cebeefb6c7c4c.docx?dn=Camper%20Self%20Check-Out%20Release%20Form.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
-                            Click here
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                        </a>
-                    </div>
+            <!-- Tournaments section -->
+            <div class="dl-section reveal-up">
+                <div class="dl-text">
+                    <h2>Tournaments</h2>
+                    <p>Around the winter months, the Davis Youth Robotics tournament schedule is determined and posted here. Tournaments are held to inspire future generations and encourage students to engage in STEM. They take place in local gymnasiums.</p>
+                    <p>If you have any questions, please email <a href="mailto:davisyouthrobotics@citruscircuits.org" style="color:var(--lime);">davisyouthrobotics@citruscircuits.org</a>.</p>
+                </div>
+                <div class="dl-img">
+                    <img src="../pictures/dyr/DYR League1.jpg" alt="DYR League Tournament" onerror="this.closest('.dl-img').style.display='none'">
                 </div>
             </div>
 
-            <!-- Español -->
-            <div class="rf-lang-section">
-                <div class="rf-lang-title">Espa&ntilde;ol</div>
-                <div class="rf-grid">
-                    <div class="rf-card">
-                        <div class="rf-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <div class="rf-card-name">Forma de Informaci&oacute;n M&eacute;dica de Emergencia</div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_2b46bcd5f9bf4a53b57dc6b7cdb54403.docx?dn=Emergency%20Medical%20Information%20-%20Spanish.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
-                            Clic aqu&iacute;
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                        </a>
+            <!-- Resources section -->
+            <div class="dl-section reverse reveal-up">
+                <div class="dl-text">
+                    <h2>Resources</h2>
+                    <p>Davis Youth Robotics (DYR) League is a program aimed at engaging 4th through 8th-grade students in competitive robotics in an after-school setting. Through the DYR League, students learn skills like teamwork, programming, communication, engineering, and math principles in a fun, collaborative environment. Each DYR team is run by parent coaches, with technical support from Citrus Circuits student mentors.</p>
+                    <p>Below are some resources for the DYR League program.</p>
+                    <div class="dl-link-list">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_21-2iy4LnMgRKkqmWRzO6eCJIagmM-j90zWAKnmGiCVO1g/viewform" target="_blank" rel="noopener noreferrer">Team Interest Form</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_21-2iy4LnMgRKkqmWRzO6eCJIagmM-j90zWAKnmGiCVO1g/viewform" target="_blank" rel="noopener noreferrer">Student Interest Form</a>
+                        <a href="https://docs.google.com/document/d/1Uw9cja13HqM0_onYeDy0oyEwlRY4KbB7Hg13NkzbL9A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">2025 Coaches Handbook</a>
+                        <a href="https://docs.google.com/document/d/1ySzdgu0QLn2d6lZ3RzQAhRCG_Wx3l-cVD2LJpbwC8v8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">2025 Parent Resource Document</a>
+                        <a href="https://drive.google.com/file/d/1amRfxbCuFQA8BrSBBobwwqIr_aVTnhxp/view" target="_blank" rel="noopener noreferrer">2025 Parent Info Night Recording</a>
                     </div>
-                    <div class="rf-card">
-                        <div class="rf-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <div class="rf-card-name">Formulario de Exclusi&oacute;n de Medios</div>
-                        <div class="rf-card-note">Compl&eacute;telo SOLO si no desea que fotografi&eacute;n a su hijo/a.</div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_79fa636bea5b43619fa582bcb8096fb1.pdf" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
-                            Clic aqu&iacute;
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                        </a>
-                    </div>
-                    <div class="rf-card">
-                        <div class="rf-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <div class="rf-card-name">Documento Autorizaci&oacute;n de Salir Solo para Participantes</div>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_924ec32cc9fa4885b1062bceb74bd614.docx?dn=Camper%20Self%20Check-Out%20Release%20Form%20-%20Spanish.docx" target="_blank" rel="noopener noreferrer" class="rf-card-btn">
-                            Clic aqu&iacute;
-                            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                        </a>
-                    </div>
+                </div>
+                <div class="dl-img">
+                    <img src="../pictures/dyr/DYR League2.jpg" alt="DYR League students" onerror="this.closest('.dl-img').style.display='none'">
                 </div>
             </div>
 
-            <a href="robocamps.html" class="rf-back">&larr; Back to RoboCamps Registration</a>
+            <a href="dyr.html" class="dl-back">&larr; Back to DYR</a>
         </div>
     </main>
 
@@ -358,6 +320,12 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 </footer>
 
     <script>
+        (function(){
+          var obs=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+          },{threshold:0.08});
+          document.querySelectorAll('.reveal-up').forEach(function(el){obs.observe(el);});
+        })();
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
@@ -366,14 +334,21 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
             (function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
-            document.querySelectorAll('a,button,.rf-card').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});
         }
+        var tog=document.getElementById('navToggle'),menu=document.querySelector('.nav-menu');
+        tog.addEventListener('click',function(){tog.classList.toggle('open');menu.classList.toggle('open');});
+        document.querySelectorAll('.nav-item .nav-link').forEach(function(lnk){
+            lnk.addEventListener('click',function(e){
+                if(window.innerWidth<=1100&&lnk.nextElementSibling&&lnk.nextElementSibling.classList.contains('dropdown-panel')){
+                    e.preventDefault();lnk.parentElement.classList.toggle('open');
+                }
+            });
+        });
     </script>
-    
 <script>
 (function(){
-  var PAGES=[{"t":"Home","u":"/index.html","c":"Main"},{"t":"Shop \u2014 Merch Store","u":"/shop.html","c":"Main"},{"t":"Media Gallery","u":"/media.html","c":"Main"},{"t":"Resources","u":"/resources.html","c":"Main"},{"t":"Sponsors","u":"/sponsors.html","c":"Main"},{"t":"Support Us","u":"/support.html","c":"Main"},{"t":"Technical Training","u":"/technical_training.html","c":"Main"},{"t":"Cheers","u":"/cheers.html","c":"Main"},{"t":"Build Blogs","u":"/build_blogs.html","c":"Main"},{"t":"Capital City Classic","u":"/capital_city_classic.html","c":"Events"},{"t":"DJUSD CTE","u":"/djusd_cte.html","c":"Main"},{"t":"Team Handbook","u":"/team_handbook.html","c":"Main"},{"t":"About Us","u":"/about/about.html","c":"About"},{"t":"FAQ","u":"/about/faq.html","c":"About"},{"t":"Contact","u":"/about/contact.html","c":"About"},{"t":"Leadership","u":"/about/leadership.html","c":"About"},{"t":"FIRST Leadership","u":"/about/first_leadership.html","c":"About"},{"t":"Subteams","u":"/about/subteams.html","c":"About"},{"t":"Recruitment & Apply","u":"/about/recruitment.html","c":"About"},{"t":"Credits","u":"/about/credits.html","c":"About"},{"t":"Team 1857","u":"/about/1857.html","c":"About"},{"t":"Our Robots","u":"/robots/our_robots.html","c":"Robots"},{"t":"2026 Robot","u":"/robots/2026_robot.html","c":"Robots"},{"t":"2025 Robot \u2014 Sublime","u":"/robots/robot_2025_sublime.html","c":"Robots"},{"t":"2024 Robot \u2014 Nik","u":"/robots/robot_2024_nik.html","c":"Robots"},{"t":"2023 Robot \u2014 Tangerine","u":"/robots/robot_2023_tangerine.html","c":"Robots"},{"t":"2022 Robot \u2014 Margie","u":"/robots/robot_2022_margie.html","c":"Robots"},{"t":"2021 Robot \u2014 Clementwins","u":"/robots/robot_2021_clementwins.html","c":"Robots"},{"t":"2020 Robot \u2014 Pulpatine","u":"/robots/robot_2020_pulpatine.html","c":"Robots"},{"t":"2019 Robot \u2014 Buzz","u":"/robots/robot_2019_buzz.html","c":"Robots"},{"t":"2018 Robot \u2014 Zest","u":"/robots/robot_2018_zest.html","c":"Robots"},{"t":"2017 Robot \u2014 Pomelo","u":"/robots/robot_2017_pomelo.html","c":"Robots"},{"t":"2016 Robot \u2014 Adrian","u":"/robots/robot_2016_adrian.html","c":"Robots"},{"t":"2015 Robot \u2014 Lemondrop","u":"/robots/robot_2015_lemondrop.html","c":"Robots"},{"t":"2014 Robot \u2014 Beca","u":"/robots/robot_2014_beca.html","c":"Robots"},{"t":"2013 Robot \u2014 Elimonator","u":"/robots/robot_2013_elimonator.html","c":"Robots"},{"t":"2012 Robot \u2014 Juicer","u":"/robots/robot_2012_juicer.html","c":"Robots"},{"t":"2011 Robot \u2014 Optimus","u":"/robots/robot_2011_optimus.html","c":"Robots"},{"t":"2010 Robot \u2014 Orangecrush","u":"/robots/robot_2010_orangecrush.html","c":"Robots"},{"t":"2009 Robot \u2014 Lemonsqueeze","u":"/robots/robot_2009_lemonsqueeze.html","c":"Robots"},{"t":"Season History","u":"/seasons/history.html","c":"Seasons"},{"t":"2025 Season","u":"/seasons/season_2025.html","c":"Seasons"},{"t":"2024 Season","u":"/seasons/season_2024.html","c":"Seasons"},{"t":"2023 Season","u":"/seasons/season_2023.html","c":"Seasons"},{"t":"2022 Season","u":"/seasons/season_2022.html","c":"Seasons"},{"t":"2021 Season","u":"/seasons/season_2021.html","c":"Seasons"},{"t":"2020 Season","u":"/seasons/season_2020.html","c":"Seasons"},{"t":"2019 Season","u":"/seasons/season_2019.html","c":"Seasons"},{"t":"2018 Season","u":"/seasons/season_2018.html","c":"Seasons"},{"t":"2017 Season","u":"/seasons/season_2017.html","c":"Seasons"},{"t":"2016 Season","u":"/seasons/season_2016.html","c":"Seasons"},{"t":"Outreach","u":"/outreach/outreach.html","c":"Outreach"},{"t":"DYR \u2014 Do Your Research","u":"/outreach/dyr.html","c":"Outreach"},{"t":"RoboCamps Registration","u":"/outreach/robocamps.html","c":"Outreach"},{"t":"RoboCamps Forms","u":"/outreach/robocamps_forms.html","c":"Outreach"},{"t":"RoboCamps Resources","u":"/outreach/robocamps_resources.html","c":"Outreach"},
-  {"t":"DYR League","u":"/outreach/dyr_league.html","c":"Outreach"},{"t":"WiSE \u2014 Women in STEM & Engineering","u":"/outreach/wise.html","c":"Outreach"},{"t":"Robot Demos","u":"/outreach/robot_demos.html","c":"Outreach"},{"t":"Fall Workshops","u":"/outreach/fall_workshops.html","c":"Outreach"},{"t":"Farmers Market","u":"/outreach/farmers_market.html","c":"Outreach"},{"t":"Citrus Service","u":"/outreach/citrus_service.html","c":"Outreach"},{"t":"Digital Minds","u":"/outreach/digital_minds.html","c":"Outreach"},{"t":"Compass Alliance","u":"/outreach/compass_alliance.html","c":"Outreach"},{"t":"DISTEM","u":"/outreach/distem.html","c":"Outreach"},{"t":"Blog 2025","u":"/blog/blog_2025.html","c":"Blog"},{"t":"Blog 2024","u":"/blog/blog_2024.html","c":"Blog"},{"t":"Blog 2023","u":"/blog/blog_2023.html","c":"Blog"},{"t":"Blog 2022","u":"/blog/blog_2022.html","c":"Blog"}];
+  var PAGES=[{"t":"Home","u":"/index.html","c":"Main"},{"t":"Shop — Merch Store","u":"/shop.html","c":"Main"},{"t":"Media Gallery","u":"/media.html","c":"Main"},{"t":"Resources","u":"/resources.html","c":"Main"},{"t":"Sponsors","u":"/sponsors.html","c":"Main"},{"t":"Support Us","u":"/support.html","c":"Main"},{"t":"Technical Training","u":"/technical_training.html","c":"Main"},{"t":"Cheers","u":"/cheers.html","c":"Main"},{"t":"Build Blogs","u":"/build_blogs.html","c":"Main"},{"t":"Capital City Classic","u":"/capital_city_classic.html","c":"Events"},{"t":"DJUSD CTE","u":"/djusd_cte.html","c":"Main"},{"t":"Team Handbook","u":"/team_handbook.html","c":"Main"},{"t":"About Us","u":"/about/about.html","c":"About"},{"t":"FAQ","u":"/about/faq.html","c":"About"},{"t":"Contact","u":"/about/contact.html","c":"About"},{"t":"Leadership","u":"/about/leadership.html","c":"About"},{"t":"FIRST Leadership","u":"/about/first_leadership.html","c":"About"},{"t":"Subteams","u":"/about/subteams.html","c":"About"},{"t":"Recruitment & Apply","u":"/about/recruitment.html","c":"About"},{"t":"Credits","u":"/about/credits.html","c":"About"},{"t":"Team 1857","u":"/about/1857.html","c":"About"},{"t":"Our Robots","u":"/robots/our_robots.html","c":"Robots"},{"t":"2026 Robot","u":"/robots/2026_robot.html","c":"Robots"},{"t":"2025 Robot — Sublime","u":"/robots/robot_2025_sublime.html","c":"Robots"},{"t":"2024 Robot — Nik","u":"/robots/robot_2024_nik.html","c":"Robots"},{"t":"2023 Robot — Tangerine","u":"/robots/robot_2023_tangerine.html","c":"Robots"},{"t":"2022 Robot — Margie","u":"/robots/robot_2022_margie.html","c":"Robots"},{"t":"2021 Robot — Clementwins","u":"/robots/robot_2021_clementwins.html","c":"Robots"},{"t":"2020 Robot — Pulpatine","u":"/robots/robot_2020_pulpatine.html","c":"Robots"},{"t":"2019 Robot — Buzz","u":"/robots/robot_2019_buzz.html","c":"Robots"},{"t":"2018 Robot — Zest","u":"/robots/robot_2018_zest.html","c":"Robots"},{"t":"2017 Robot — Pomelo","u":"/robots/robot_2017_pomelo.html","c":"Robots"},{"t":"2016 Robot — Adrian","u":"/robots/robot_2016_adrian.html","c":"Robots"},{"t":"2015 Robot — Lemondrop","u":"/robots/robot_2015_lemondrop.html","c":"Robots"},{"t":"2014 Robot — Beca","u":"/robots/robot_2014_beca.html","c":"Robots"},{"t":"2013 Robot — Elimonator","u":"/robots/robot_2013_elimonator.html","c":"Robots"},{"t":"2012 Robot — Juicer","u":"/robots/robot_2012_juicer.html","c":"Robots"},{"t":"2011 Robot — Optimus","u":"/robots/robot_2011_optimus.html","c":"Robots"},{"t":"2010 Robot — Orangecrush","u":"/robots/robot_2010_orangecrush.html","c":"Robots"},{"t":"2009 Robot — Lemonsqueeze","u":"/robots/robot_2009_lemonsqueeze.html","c":"Robots"},{"t":"Season History","u":"/seasons/history.html","c":"Seasons"},{"t":"2025 Season","u":"/seasons/season_2025.html","c":"Seasons"},{"t":"2024 Season","u":"/seasons/season_2024.html","c":"Seasons"},{"t":"2023 Season","u":"/seasons/season_2023.html","c":"Seasons"},{"t":"2022 Season","u":"/seasons/season_2022.html","c":"Seasons"},{"t":"2021 Season","u":"/seasons/season_2021.html","c":"Seasons"},{"t":"2020 Season","u":"/seasons/season_2020.html","c":"Seasons"},{"t":"2019 Season","u":"/seasons/season_2019.html","c":"Seasons"},{"t":"2018 Season","u":"/seasons/season_2018.html","c":"Seasons"},{"t":"2017 Season","u":"/seasons/season_2017.html","c":"Seasons"},{"t":"2016 Season","u":"/seasons/season_2016.html","c":"Seasons"},{"t":"Outreach","u":"/outreach/outreach.html","c":"Outreach"},{"t":"DYR — Do Your Research","u":"/outreach/dyr.html","c":"Outreach"},{"t":"About DYR RoboCamps","u":"/outreach/robocamps_about.html","c":"Outreach"},{"t":"DYR RoboCamps Registration","u":"/outreach/robocamps.html","c":"Outreach"},
+  {"t":"About DYR RoboCamps","u":"/outreach/robocamps_about.html","c":"Outreach"},{"t":"RoboCamps Forms","u":"/outreach/robocamps_forms.html","c":"Outreach"},{"t":"RoboCamps Resources","u":"/outreach/robocamps_resources.html","c":"Outreach"},{"t":"DYR League","u":"/outreach/dyr_league.html","c":"Outreach"},{"t":"WiSE — Women in STEM & Engineering","u":"/outreach/wise.html","c":"Outreach"},{"t":"Robot Demos","u":"/outreach/robot_demos.html","c":"Outreach"},{"t":"Fall Workshops","u":"/outreach/fall_workshops.html","c":"Outreach"},{"t":"Farmers Market","u":"/outreach/farmers_market.html","c":"Outreach"},{"t":"Citrus Service","u":"/outreach/citrus_service.html","c":"Outreach"},{"t":"Digital Minds","u":"/outreach/digital_minds.html","c":"Outreach"},{"t":"Compass Alliance","u":"/outreach/compass_alliance.html","c":"Outreach"},{"t":"DISTEM","u":"/outreach/distem.html","c":"Outreach"},{"t":"Blog 2025","u":"/blog/blog_2025.html","c":"Blog"},{"t":"Blog 2024","u":"/blog/blog_2024.html","c":"Blog"},{"t":"Blog 2023","u":"/blog/blog_2023.html","c":"Blog"},{"t":"Blog 2022","u":"/blog/blog_2022.html","c":"Blog"}];
   window.SITE_PAGES=PAGES;var BASE="https://kartbala07.github.io/limesite.org";
   var btn=document.getElementById('navSearchBtn');
   var drop=document.getElementById('navSearchDrop');
@@ -381,106 +356,15 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   var form=document.getElementById('navSearchForm');
   if(!btn||!drop||!inp) return;
   var ai=-1;
-
-  btn.addEventListener('click',function(e){
-    e.stopPropagation();
-    var open=drop.classList.toggle('open');
-    btn.classList.toggle('active',open);
-    if(open) setTimeout(function(){inp.focus();},40);
-  });
-
-  document.addEventListener('click',function(e){
-    if(!drop.contains(e.target)&&e.target!==btn){
-      drop.classList.remove('open');btn.classList.remove('active');
-    }
-  });
-
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){drop.classList.remove('open');btn.classList.remove('active');}
-  });
-
-  function showSuggs(matches){
-    var suggs=document.getElementById('navSearchSuggs');
-    suggs.innerHTML='';ai=-1;
-    matches.slice(0,6).forEach(function(p){
-      var a=document.createElement('a');
-      a.className='nav-sugg-item';a.href=BASE+p.u;
-      a.innerHTML='<span class="nav-sugg-name">'+p.t+'</span><span class="nav-sugg-cat">'+p.c+'</span>';
-      suggs.appendChild(a);
-    });
-  }
-
-  inp.addEventListener('input',function(){
-    var q=inp.value.trim().toLowerCase();
-    if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}
-    var _terms=q.split(/\s+/).filter(Boolean);function _subseq(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;})||_subseq(p.t,q);}));
-  });
-
-  inp.addEventListener('keydown',function(e){
-    var els=document.querySelectorAll('#navSearchSuggs .nav-sugg-item');
-    if(!els.length) return;
-    if(e.key==='ArrowDown'){e.preventDefault();ai=Math.min(ai+1,els.length-1);}
-    else if(e.key==='ArrowUp'){e.preventDefault();ai=Math.max(ai-1,-1);}
-    else return;
-    els.forEach(function(el,i){el.classList.toggle('ss-active',i===ai);});
-  });
-
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var els=document.querySelectorAll('#navSearchSuggs .nav-sugg-item');
-    if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}
-    var q=inp.value.trim();if(!q) return;
-    var lq=q.toLowerCase();
-    var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});
-    if(match){window.location.href=BASE+match.u;}
-    drop.classList.remove('open');btn.classList.remove('active');
-  });
-})();
-</script>
-<script>
-(function(){
-  var nt=document.getElementById('navToggle'),nm=document.querySelector('.nav-menu');
-  if(!nt||!nm)return;
-  nt.addEventListener('click',function(){nt.classList.toggle('open');nm.classList.toggle('open');});
-  nm.querySelectorAll('.nav-item').forEach(function(item){
-    var lk=item.querySelector('.nav-link');
-    if(lk&&item.querySelector('.dropdown-panel')){
-      lk.addEventListener('click',function(e){if(window.innerWidth<=1100){e.preventDefault();item.classList.toggle('open');}});
-    }
-  });
-})();
-</script>
-<script>
-(function(){
-  var fi=document.getElementById('footerSearchInput');
-  if(!fi)return;
-  var suggs=document.createElement('div');
-  suggs.id='footerSearchSuggs';
-  suggs.style.cssText='position:absolute;left:0;right:0;top:calc(100% + 2px);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);z-index:500;display:none;flex-direction:column;overflow:hidden;max-height:260px;overflow-y:auto;';
-  var wrap=fi.closest('.footer-search');
-  if(wrap){var fl=wrap.parentNode;fl.style.position='relative';fl.insertBefore(suggs,wrap.nextSibling);suggs.style.top='auto';suggs.style.left='0';suggs.style.maxWidth='320px';}
-  fi.addEventListener('input',function(){
-    var q=fi.value.trim().toLowerCase();
-    suggs.innerHTML='';
-    if(!q){suggs.style.display='none';return;}
-    var P=window.SITE_PAGES||[];
-    var _ft=q.split(/\s+/).filter(Boolean);var res=P.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _ft.some(function(t){return _s.indexOf(t)>-1;});}).slice(0,6);
-    if(!res.length){suggs.style.display='none';return;}
-    var BASE='https://kartbala07.github.io/limesite.org';
-    res.forEach(function(p){
-      var a=document.createElement('a');
-      a.href=BASE+p.u;
-      a.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:.5rem .85rem;text-decoration:none;color:var(--text-main);font-size:.84rem;border-top:1px solid var(--border);gap:.5rem;transition:background .12s,color .12s;';
-      a.innerHTML='<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+p.t+'</span><span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;flex-shrink:0;">'+p.c+'</span>';
-      a.addEventListener('mouseenter',function(){this.style.background='var(--bg-dark)';this.style.color='var(--lime)';});
-      a.addEventListener('mouseleave',function(){this.style.background='';this.style.color='var(--text-main)';});
-      suggs.appendChild(a);
-    });
-    suggs.style.display='flex';
-  });
-  fi.addEventListener('keydown',function(e){if(e.key==='Enter'){var first=suggs.querySelector('a');if(first)window.location.href=first.href;}});
-  document.addEventListener('click',function(e){if(!fi.contains(e.target)&&!suggs.contains(e.target))suggs.style.display='none';});
-  fi.addEventListener('focus',function(){if(fi.value.trim()){fi.dispatchEvent(new Event('input'));}});
+  btn.addEventListener('click',function(e){e.stopPropagation();var open=drop.classList.toggle('open');btn.classList.toggle('active',open);if(open) setTimeout(function(){inp.focus();},40);});
+  document.addEventListener('click',function(e){if(!drop.contains(e.target)&&e.target!==btn){drop.classList.remove('open');btn.classList.remove('active');}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){drop.classList.remove('open');btn.classList.remove('active');}});
+  function showSuggs(matches){var suggs=document.getElementById('navSearchSuggs');suggs.innerHTML='';ai=-1;matches.slice(0,6).forEach(function(p){var a=document.createElement('a');a.className='nav-sugg-item';a.href=BASE+p.u;a.innerHTML='<span class="nav-sugg-name">'+p.t+'</span><span class="nav-sugg-cat">'+p.c+'</span>';suggs.appendChild(a);});}
+  inp.addEventListener('input',function(){var q=inp.value.trim().toLowerCase();if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}var _terms=q.split(/\s+/).filter(Boolean);function _subseq(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}showSuggs(PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _terms.some(function(t){return _s.indexOf(t)>-1;})||_subseq(p.t,q);}));});
+  inp.addEventListener('keydown',function(e){var els=document.querySelectorAll('#navSearchSuggs .nav-sugg-item');if(!els.length) return;if(e.key==='ArrowDown'){e.preventDefault();ai=Math.min(ai+1,els.length-1);}else if(e.key==='ArrowUp'){e.preventDefault();ai=Math.max(ai-1,-1);}else return;els.forEach(function(el,i){el.classList.toggle('ss-active',i===ai);});});
+  form.addEventListener('submit',function(e){e.preventDefault();var els=document.querySelectorAll('#navSearchSuggs .nav-sugg-item');if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}var q=inp.value.trim();if(!q) return;var lq=q.toLowerCase();var _st=lq.split(/\s+/).filter(Boolean);function _subseq2(s,q){var si=0,qi=0;s=s.toLowerCase();q=q.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}var match=PAGES.find(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _st.some(function(t){return _s.indexOf(t)>-1;})||_subseq2(p.t,lq);});if(match){window.location.href=BASE+match.u;}drop.classList.remove('open');btn.classList.remove('active');});
+  function _fSearch(inp2,suggs2){inp2.addEventListener('input',function(){var q=inp2.value.trim().toLowerCase();suggs2.innerHTML='';if(!q) return;var _t=q.split(/\s+/).filter(Boolean);function _sq(s,q){var si=0,qi=0;s=s.toLowerCase();while(si<s.length&&qi<q.length){if(s[si]===q[qi])qi++;si++;}return qi===q.length;}PAGES.filter(function(p){var _s=(p.t+' '+p.u+' '+p.c).toLowerCase();return _t.some(function(t){return _s.indexOf(t)>-1;})||_sq(p.t,q);}).slice(0,5).forEach(function(p){var a=document.createElement('a');a.className='nav-sugg-item';a.href=BASE+p.u;a.innerHTML='<span class="nav-sugg-name">'+p.t+'</span><span class="nav-sugg-cat">'+p.c+'</span>';suggs2.appendChild(a);});});}
+  var fi=document.getElementById('footerSearchInput');if(fi){var fs=document.createElement('div');fs.className='nav-search-suggs';fs.style.cssText='margin-top:.5rem;border-radius:8px;overflow:hidden;background:var(--bg-card);border:1px solid var(--border)';fi.parentNode.insertAdjacentElement('afterend',fs);_fSearch(fi,fs);}
 })();
 </script>
 </body>
