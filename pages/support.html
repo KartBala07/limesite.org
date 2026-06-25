@@ -92,17 +92,31 @@
         #davis-robotics-foundation h3 { color:#F7941D; }
         #davis-robotics-foundation a.inline-link { color:#F7941D; }
 
-        .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin:3rem 0; }
-        .stat-cell { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:1.75rem; text-align:center; }
-        .stat-cell .n { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--lime); line-height:1; }
-        .stat-cell .l { font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-top:.5rem; }
+        .hero-photo { border-radius:16px; overflow:hidden; border:1px solid var(--border); margin-bottom:3rem; }
+        .hero-photo img { width:100%; height:380px; object-fit:cover; display:block; }
 
-        .lead-cta { max-width:1280px; margin:5rem auto 0; padding:0 2rem 5rem; }
+        .support-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-bottom:3rem; }
+        .support-card { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2rem; display:flex; flex-direction:column; gap:1rem; transition:transform .25s,border-color .25s; position:relative; overflow:hidden; }
+        .support-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--lime); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+        .support-card:hover::before { transform:scaleX(1); }
+        .support-card:hover { transform:translateY(-5px); border-color:var(--lime); }
+        .support-card-icon { font-size:2rem; }
+        .support-card h3 { font-size:1.35rem; font-weight:800; color:var(--lime); }
+        .support-card p { color:var(--text-muted); font-size:.95rem; line-height:1.7; flex:1; }
+        .support-card a.sc-link { color:var(--lime); text-decoration:underline; }
+        .support-card .sc-btn { display:inline-block; margin-top:.5rem; background:var(--lime); color:#000; font-weight:700; font-size:.88rem; padding:.65rem 1.25rem; border-radius:8px; text-decoration:none; transition:opacity .2s,transform .2s; }
+        .support-card .sc-btn:hover { opacity:.88; transform:translateY(-2px); }
+        .support-card .sc-btn.outline { background:transparent; border:1px solid var(--lime); color:var(--lime); }
+        .support-card .sc-btn.outline:hover { background:var(--lime); color:#000; }
+
+        .lead-cta { max-width:1280px; margin:2rem auto 0; padding:0 2rem 5rem; }
         .lead-cta-inner { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
         .lead-cta-inner h3 { font-size:1.5rem; font-weight:800; margin-bottom:.4rem; }
         .lead-cta-inner p { color:var(--text-muted); font-size:.98rem; }
         .lead-cta-btn { background:var(--lime); color:#000; text-decoration:none; padding:.9rem 1.6rem; border-radius:8px; font-weight:700; font-size:.95rem; white-space:nowrap; transition:opacity .2s ease,transform .2s ease; }
         .lead-cta-btn:hover { transform:translateY(-2px); opacity:.95; }
+
+        @media(max-width:768px){ .support-grid { grid-template-columns:1fr; } .hero-photo img { height:220px; } }
 
 .footer-socket a { color:var(--lime); text-decoration:none; }
         @media (max-width:968px) { .nav-menu{display:none;} .navbar{padding:0 1.5rem;} .info-grid{grid-template-columns:1fr 1fr;} .stat-strip{grid-template-columns:1fr 1fr;} }
@@ -236,16 +250,44 @@
     <main>
 
         <div class="wrap">
-            <div class="page-head">
-                <div class="page-eyebrow">Donate &bull; Volunteer &bull; Sponsor</div>
+                <div class="page-head">
+                <div class="page-eyebrow">Donate &bull; Coach &bull; Sponsor</div>
                 <h1 class="page-title">Support <em>Us</em></h1>
-                <p class="page-sub">Citrus Circuits is funded through the Davis Robotics Foundation, a 501(c)(3) nonprofit. Whether through donations, sponsorship, or volunteer hours, every bit of support keeps the team running.</p>
+                <p class="page-sub">As a FIRST Robotics Team, we require many resources for our program to be successful. Our team is always looking for support whether it be in the form of coaching, sponsorships, or other involvement.</p>
+            </div>
+
+            <div class="hero-photo">
+                <img src="pictures/site/support.jpg" alt="Citrus Circuits Support" onerror="this.closest('.hero-photo').style.display='none'">
+            </div>
+
+            <div class="support-grid">
+                <div class="support-card" id="become-a-coach">
+                    <div class="support-card-icon">&#127979;</div>
+                    <h3>Become a Coach</h3>
+                    <p>If you have any questions or are interested in mentoring our team, we'd love to hear from you. No prior robotics experience is required — all backgrounds are welcome.</p>
+                    <a href="mailto:admin@citruscircuits.org" class="sc-btn">Email Us &rarr;</a>
+                </div>
+
+                <div class="support-card" id="become-a-sponsor">
+                    <div class="support-card-icon">&#129309;</div>
+                    <h3>Become a Sponsor</h3>
+                    <p>Our team is always in need of funding and sponsors. If your company is interested in sponsoring us through money, parts, or mentors, contact us — we'll be happy to add you as a sponsor and see your logo on our t-shirts and robot. View our <a href="sponsors.html" class="sc-link">Sponsor page</a>.</p>
+                    <a href="mailto:administration@citruscircuits.org" class="sc-btn">Contact Us &rarr;</a>
+                </div>
+
+                <div class="support-card" id="support-with-purchases">
+                    <div class="support-card-icon">&#10084;</div>
+                    <h3>Support With Your Purchases</h3>
+                    <p>If you would like to support the team in another manner, please choose the Davis Robotics Foundation — a 501(c)(3) nonprofit that directly funds our program, outreach, and competition activities.</p>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=YXGHB8WLD96M8" target="_blank" rel="noopener noreferrer" class="sc-btn">Donate via PayPal &rarr;</a>
+                    <a href="https://www.bigdayofgiving.org/organization/Davis-Robotics-Foundation" target="_blank" rel="noopener noreferrer" class="sc-btn outline" style="margin-top:.5rem">Big Day of Giving</a>
+                </div>
             </div>
 
             <div class="full-card" id="davis-robotics-foundation">
                 <h3>Davis Robotics Foundation</h3>
                 <p>The Davis Robotics Foundation (DRF) is a nonprofit corporation, incorporated in California on October 10, 2016, organized to support STEM activities for K&ndash;12 students with a focus on robotics. DRF funds the operation of FRC Team 1678, the Davis Youth Robotics program, and associated competition, outreach, and education programs.</p>
-                <p>Donations to the Foundation are tax-deductible. You can also support DRF through the <a class="inline-link" href="https://www.bigdayofgiving.org/organization/Davis-Robotics-Foundation" target="_blank" rel="noopener noreferrer">Big Day of Giving</a> campaign each year.</p>
+                <p>Donations to the Foundation are tax-deductible.</p>
             </div>
 
             <div class="full-card" id="nik-murray-memorial-sponsorship">
@@ -266,13 +308,6 @@
             <div class="full-card" id="volunteer-opportunities">
                 <h3>Volunteer Opportunities</h3>
                 <p>We need mentors, judges, scouts, drivers, and event-day volunteers throughout the season &mdash; technical background not required. Reach out via the <a class="inline-link" href="about/contact.html">Contact</a> page if you'd like to help.</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-media"><img src="pictures/people/team_2026.jpg" class="info-img" alt="Sponsors" onerror="this.classList.add('hidden');this.nextElementSibling.style.display='flex';"><div class="info-fallback" style="display:none"><span class="ic">SPON</span></div></div>
-                    <div class="info-body"><span class="tag">Companies &amp; Orgs</span><h3>Become a Sponsor</h3><p>Companies interested in sponsoring through money, parts, or mentors can reach us at <a class="inline-link" href="mailto:sponsorships@citruscircuits.org">sponsorships@citruscircuits.org</a>. See our current sponsors on the <a class="inline-link" href="sponsors.html">Sponsors</a> page.</p></div>
-                </div>
             </div>
         </div>
 
