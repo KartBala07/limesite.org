@@ -81,7 +81,7 @@ header{
 .nav-item:hover .nav-link svg{transform:rotate(180deg);color:var(--lime)}
 .dropdown-panel{position:absolute;top:95px;left:50%;transform:translateX(-50%) translateY(10px);background-color:var(--bg-dropdown);border:1px solid var(--border);border-radius:12px;width:520px;padding:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:.35rem;opacity:0;pointer-events:none;box-shadow:0 30px 60px rgba(0,0,0,.25);transition:opacity .3s ease .15s,transform .3s ease .15s}
 .nav-item:hover .dropdown-panel{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .2s ease}
-.dropdown-panel a{color:var(--text-muted);text-decoration:none;font-size:.8rem;padding:.65rem .85rem;border-radius:8px;transition:all .2s ease}
+.dropdown-panel a{color:var(--text-muted);text-decoration:none;font-size:.8rem;padding:.65rem .85rem;border-radius:8px;transition:all .2s ease}.dropdown-panel::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
 .dropdown-panel a:hover{background-color:var(--bg-dark);color:var(--lime)}
 .nav-actions-hub{display:flex;align-items:center;gap:.75rem;margin-left:1.5rem}.nav-icon-row{display:flex;gap:.4rem;align-items:center}.nav-btn-stack{display:flex;flex-direction:column;gap:.25rem}
 .theme-toggle-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease}
