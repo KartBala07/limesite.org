@@ -127,11 +127,25 @@
         .rc-logo-row { text-align:center; margin-bottom:2rem; }
         .rc-logo { max-height:160px; width:auto; margin:0 auto; border-radius:8px; }
         [data-theme="dark"] .rc-logo { background:#fff; padding:.5rem 1rem; }
-        .rc-photo-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:2.5rem; }
-        .rc-photo { aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); }
-        .rc-photo img { width:100%; height:100%; object-fit:cover; }
-        @media(max-width:768px){ .rc-photo-strip { grid-template-columns:repeat(2,1fr); } }
-        @media(max-width:480px){ .rc-photo-strip { grid-template-columns:1fr; } }
+
+        /* Hero photo */
+        .rc-hero-photo { border-radius:16px; overflow:hidden; border:1px solid var(--border); margin-bottom:2.5rem; position:relative; }
+        .rc-hero-photo img { width:100%; height:420px; object-fit:cover; display:block; transition:transform .5s ease; }
+        .rc-hero-photo:hover img { transform:scale(1.02); }
+        .rc-hero-badge { position:absolute; top:1.25rem; left:1.25rem; background:var(--lime); color:#000; font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.4rem .85rem; border-radius:999px; }
+
+        /* Bottom photo gallery */
+        .rc-gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin:3rem 0 2.5rem; }
+        .rc-gallery-photo { aspect-ratio:4/3; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--bg-card); }
+        .rc-gallery-photo img { width:100%; height:100%; object-fit:cover; transition:transform .4s ease; display:block; }
+        .rc-gallery-photo:hover img { transform:scale(1.04); }
+        .rc-gallery-wide { grid-column:1/-1; aspect-ratio:16/6; }
+
+        /* Reveal */
+        .reveal-up{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+        .reveal-up.visible{opacity:1;transform:translateY(0)}
+
+        @media(max-width:768px){ .rc-hero-photo img { height:240px; } .rc-gallery { grid-template-columns:1fr; } .rc-gallery-wide { aspect-ratio:4/3; } }
     
 @media(max-width:768px){}
 .nav-search-wrap{position:relative}
@@ -248,20 +262,18 @@
                 <img src="../pictures/dyr/robocamps logo.jpg" alt="DYR RoboCamps Logo" class="rc-logo" onerror="this.style.display='none'">
             </div>
 
-            <div class="rc-photo-strip">
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps1.jpg" alt="RoboCamps photo 1" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps2.jpg" alt="RoboCamps photo 2" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps3.jpg" alt="RoboCamps photo 3" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps4.jpg" alt="RoboCamps photo 4" onerror="this.closest('.rc-photo').style.display='none'"></div>
-                <div class="rc-photo"><img src="../pictures/dyr/robocamps5.jpg" alt="RoboCamps photo 5" onerror="this.closest('.rc-photo').style.display='none'"></div>
+            <!-- Hero photo -->
+            <div class="rc-hero-photo reveal-up">
+                <div class="rc-hero-badge">&#127381; Summer 2026</div>
+                <img src="../pictures/dyr/robocamps1.jpg" alt="RoboCamps campers at work" onerror="this.closest('.rc-hero-photo').style.display='none'">
             </div>
 
-            <div class="rc-notice">
+            <div class="rc-notice reveal-up">
                 <div class="rc-notice-icon">&#x1F4CD;</div>
                 <p><strong>Location:</strong> Birch Lane Elementary School, 1600 Birch Lane, Davis, CA &nbsp;&bull;&nbsp; <strong>Registration opens:</strong> Wednesday, March 11 at 7:00 p.m.</p>
             </div>
 
-            <div class="rc-week-grid">
+            <div class="rc-week-grid reveal-up">
 
                 <!-- Week 1 -->
                 <div class="rc-week">
@@ -427,7 +439,15 @@
 
             </div>
 
-            <div class="rc-cta-strip">
+            <!-- Photo gallery -->
+            <div class="rc-gallery">
+                <div class="rc-gallery-photo reveal-up"><img src="../pictures/dyr/robocamps2.jpg" alt="RoboCamps photo" onerror="this.closest('.rc-gallery-photo').style.display='none'"></div>
+                <div class="rc-gallery-photo reveal-up"><img src="../pictures/dyr/robocamps3.jpg" alt="RoboCamps photo" onerror="this.closest('.rc-gallery-photo').style.display='none'"></div>
+                <div class="rc-gallery-photo rc-gallery-wide reveal-up"><img src="../pictures/dyr/robocamps4.jpg" alt="RoboCamps photo" onerror="this.closest('.rc-gallery-photo').style.display='none'"></div>
+                <div class="rc-gallery-photo reveal-up"><img src="../pictures/dyr/robocamps5.jpg" alt="RoboCamps photo" onerror="this.closest('.rc-gallery-photo').style.display='none'"></div>
+            </div>
+
+            <div class="rc-cta-strip reveal-up">
                 <div>
                     <h3>Stay in the loop</h3>
                     <p>Sign up for the DYR mailing list to receive notifications for future camps and DYR programs.</p>
@@ -495,6 +515,13 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 </footer>
 
     <script>
+        // Scroll reveal
+        (function(){
+          var obs=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+          },{threshold:0.08});
+          document.querySelectorAll('.reveal-up').forEach(function(el){obs.observe(el);});
+        })();
         const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
         root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
         tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});

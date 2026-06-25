@@ -218,10 +218,13 @@
             letter-spacing: -0.02em;
             color: var(--lime);
             text-transform: uppercase;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
+        .subteams-eyebrow { text-align:center; font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--text-muted); letter-spacing:.3em; text-transform:uppercase; margin-bottom:1.5rem; }
+        .subteams-stat-strip { display:flex; justify-content:center; gap:3rem; margin-bottom:2.5rem; padding:1.5rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+        .stat-pill { text-align:center; }
+        .stat-pill-n { font-size:2.2rem; font-weight:900; color:var(--lime); line-height:1; }
+        .stat-pill-l { font-size:.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-top:.25rem; font-family:'JetBrains Mono',monospace; }
 
         .intro-split {
             display: grid;
@@ -341,14 +344,23 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
-
+        .subteam-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--lime); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+        .subteam-card:hover::before { transform:scaleX(1); }
         .subteam-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: var(--lime);
+            box-shadow: 0 20px 60px rgba(60,213,46,.1);
         }
+        .card-num { position:absolute; top:1.5rem; right:1.75rem; font-family:'JetBrains Mono',monospace; font-size:3.5rem; font-weight:900; color:rgba(60,213,46,.06); line-height:1; pointer-events:none; user-select:none; }
+
+        /* reveal animations */
+        .reveal-up { opacity:0; transform:translateY(30px); transition:opacity .6s ease,transform .6s ease; }
+        .reveal-up.visible { opacity:1; transform:translateY(0); }
 
         .subteam-image {
             width: 100%;
@@ -571,9 +583,16 @@
 
     <main>
         <div class="intro-container">
+            <div class="subteams-eyebrow">Citrus Circuits 1678 &mdash; Team Structure</div>
             <h1 class="subteams-title">Subteams</h1>
-            
-            <div class="intro-split">
+            <div class="subteams-stat-strip">
+                <div class="stat-pill"><div class="stat-pill-n">6</div><div class="stat-pill-l">Primary Subteams</div></div>
+                <div class="stat-pill"><div class="stat-pill-n">2</div><div class="stat-pill-l">Secondary Options</div></div>
+                <div class="stat-pill"><div class="stat-pill-n">100+</div><div class="stat-pill-l">Student Members</div></div>
+                <div class="stat-pill"><div class="stat-pill-n">20+</div><div class="stat-pill-l">Years of Excellence</div></div>
+            </div>
+
+            <div class="intro-split reveal-up">
                 <div class="video-wrapper">
                     <a class="video-link" href="https://www.youtube.com/watch?v=Ezk68Fi9byU" target="_blank" rel="noopener noreferrer">
                         <img src="https://img.youtube.com/vi/Ezk68Fi9byU/maxresdefault.jpg" alt="Introduction video thumbnail" loading="lazy">
@@ -597,7 +616,8 @@
         </div>
 
         <div class="subteams-grid">
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">01</div>
                 <div class="subteam-info">
                     <h3>Hardware Design</h3>
                     <p>In Citrus Circuits, we design and manufacture almost all of our own parts. Because of this, the Hardware Mechanical subteam is split into the design and fabrication teams. The Hardware Design subteam uses Computer-Aided Design (CAD) to create a 3D representation of necessary parts and mechanisms for our robot, which is then sent to Hardware Fabrication. After parts are made, Hardware Design assembles them utilizing bolts, rivets, and more to assemble the final products. Additionally, design members have opportunities to use 3d printers, laser cutters, and gain experience with a variety of industry-grade machines.</p>
@@ -613,7 +633,8 @@
                 </div>
             </div>
 
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">02</div>
                 <div class="subteam-info">
                     <h3>Hardware Fabrication</h3>
                     <p>The Hardware Fabrication subteam works closely with the Hardware Design subteam to create parts based on CAD specifications using a wide variety of tools. Fabrication members receive in-depth training on our various mills, lathes, Haas machines, and CNC routers. Members also gain the opportunity to achieve an industry-recognized Haas certification, which boosts employability and offers a head start in manufacturing careers.</p>
@@ -629,7 +650,8 @@
                 </div>
             </div>
 
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">03</div>
                 <div class="subteam-info">
                     <h3>Hardware Electrical</h3>
                     <p>The Hardware Electrical subteam is the bridge between the mechanical and software subteams. Students in electrical apply wiring design concepts to wire robot bases that are created by Hardware Design, learning electrical techniques and real-life skills such as crimping, soldering, and routing in addition to electrical theory. Some components that students learn to use include Kraken motors, Power Distribution Hubs, RoboRios, 12V 18Ah batteries, and various gauges of wire.</p>
@@ -645,7 +667,8 @@
                 </div>
             </div>
 
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">04</div>
                 <div class="subteam-info">
                     <h3>Software Robot</h3>
                     <p>The Software Robot subteam programs and creates all the control systems necessary for our robots. They primarily use the Java programming language. This subteam creates all the automation necessary to control our robot, from alignment to motion profiling to path following. Both calculus and physics concepts are used heavily. Additional projects that the subteam works on include position estimation and object detection.</p>
@@ -661,7 +684,8 @@
                 </div>
             </div>
 
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">05</div>
                 <div class="subteam-info">
                     <h3>Software Scouting</h3>
                     <p>The Software Scouting subteam does coding in a variety of different computer languages - with Front End using Kotlin and Back End using Python. They create a scouting app each season for competitions, allowing scouts to input data about robots in matches at competitions. Members additionally interpret data recorded on scouting apps. The subteam is split into two sections: Front End, which creates the app interface, and Back End, which uses recorded data to assist with match strategy and the alliance selection process.</p>
@@ -677,7 +701,8 @@
                 </div>
             </div>
 
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">06</div>
                 <div class="subteam-info">
                     <h3>Business and Media</h3>
                     <p>The Business and Media (BaM) subteam encompasses a wide range of skills and is responsible for the majority of non-technical tasks on Citrus Circuits. Throughout the year, they contact sponsors for fundraising, write grants, track income and expenditures, and complete the yearly business plan. To maintain the team image, they write and release social media posts, newspaper articles, monthly newsletters, and design the website and all team apparel. Additionally, they capture media and create videos to document the team during the season, the offseason, and outreach events.</p>
@@ -699,7 +724,8 @@
         </div>
 
         <div class="subteams-grid" style="padding-bottom: 8rem;">
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">S1</div>
                 <div class="subteam-info">
                     <h3>Strategy</h3>
                     <p>Students on the Strategy subteam collaborate to create a playbook that encapsulates any scenarios that occur on the field. They guide the drive team to better prepare for quick reactions in matches. Software students often participate in this secondary subteam, although it is open to any member. The students utilize collaboration and critical thinking skills.</p>
@@ -715,7 +741,8 @@
                 </div>
             </div>
 
-            <div class="subteam-card">
+            <div class="subteam-card reveal-up">
+                <div class="card-num">S2</div>
                 <div class="subteam-info">
                     <h3>Impact Award</h3>
                     <p>The Impact Award subteam works towards completing a submission for the prestigious FIRST Impact Award. This award demonstrates a team’s ability to embody the mission of FIRST through non-technical efforts. The generation application includes an Executive summary of 13 questions, a 10,000-character Essay, and a presentation, all of which are shown to judges. In this subteam, a strong work ethic is essential and open feedback is shared. The submission is worked on in the off-season meaning a strong work ethic is essential and open feedback helps move the application progress forward.</p>
@@ -793,6 +820,18 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 
 
 
+<script>
+// Scroll reveal
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal-up').forEach(function(el,i){
+    el.style.transitionDelay=(i*0.07)+'s';
+    obs.observe(el);
+  });
+})();
+</script>
 <script>
 (function(){
   var PAGES=[{"t":"Home","u":"/index.html","c":"Main"},{"t":"Shop \u2014 Merch Store","u":"/shop.html","c":"Main"},{"t":"Media Gallery","u":"/media.html","c":"Main"},{"t":"Resources","u":"/resources.html","c":"Main"},{"t":"Sponsors","u":"/sponsors.html","c":"Main"},{"t":"Support Us","u":"/support.html","c":"Main"},{"t":"Technical Training","u":"/technical_training.html","c":"Main"},{"t":"Cheers","u":"/cheers.html","c":"Main"},{"t":"Build Blogs","u":"/build_blogs.html","c":"Main"},{"t":"Capital City Classic","u":"/capital_city_classic.html","c":"Events"},{"t":"DJUSD CTE","u":"/djusd_cte.html","c":"Main"},{"t":"Team Handbook","u":"/team_handbook.html","c":"Main"},{"t":"About Us","u":"/about/about.html","c":"About"},{"t":"FAQ","u":"/about/faq.html","c":"About"},{"t":"Contact","u":"/about/contact.html","c":"About"},{"t":"Leadership","u":"/about/leadership.html","c":"About"},{"t":"FIRST Leadership","u":"/about/first_leadership.html","c":"About"},{"t":"Subteams","u":"/about/subteams.html","c":"About"},{"t":"Recruitment & Apply","u":"/about/recruitment.html","c":"About"},{"t":"Credits","u":"/about/credits.html","c":"About"},{"t":"Team 1857","u":"/about/1857.html","c":"About"},{"t":"Our Robots","u":"/robots/our_robots.html","c":"Robots"},{"t":"2026 Robot","u":"/robots/2026_robot.html","c":"Robots"},{"t":"2025 Robot \u2014 Sublime","u":"/robots/robot_2025_sublime.html","c":"Robots"},{"t":"2024 Robot \u2014 Nik","u":"/robots/robot_2024_nik.html","c":"Robots"},{"t":"2023 Robot \u2014 Tangerine","u":"/robots/robot_2023_tangerine.html","c":"Robots"},{"t":"2022 Robot \u2014 Margie","u":"/robots/robot_2022_margie.html","c":"Robots"},{"t":"2021 Robot \u2014 Clementwins","u":"/robots/robot_2021_clementwins.html","c":"Robots"},{"t":"2020 Robot \u2014 Pulpatine","u":"/robots/robot_2020_pulpatine.html","c":"Robots"},{"t":"2019 Robot \u2014 Buzz","u":"/robots/robot_2019_buzz.html","c":"Robots"},{"t":"2018 Robot \u2014 Zest","u":"/robots/robot_2018_zest.html","c":"Robots"},{"t":"2017 Robot \u2014 Pomelo","u":"/robots/robot_2017_pomelo.html","c":"Robots"},{"t":"2016 Robot \u2014 Adrian","u":"/robots/robot_2016_adrian.html","c":"Robots"},{"t":"2015 Robot \u2014 Lemondrop","u":"/robots/robot_2015_lemondrop.html","c":"Robots"},{"t":"2014 Robot \u2014 Beca","u":"/robots/robot_2014_beca.html","c":"Robots"},{"t":"2013 Robot \u2014 Elimonator","u":"/robots/robot_2013_elimonator.html","c":"Robots"},{"t":"2012 Robot \u2014 Juicer","u":"/robots/robot_2012_juicer.html","c":"Robots"},{"t":"2011 Robot \u2014 Optimus","u":"/robots/robot_2011_optimus.html","c":"Robots"},{"t":"2010 Robot \u2014 Orangecrush","u":"/robots/robot_2010_orangecrush.html","c":"Robots"},{"t":"2009 Robot \u2014 Lemonsqueeze","u":"/robots/robot_2009_lemonsqueeze.html","c":"Robots"},{"t":"Season History","u":"/seasons/history.html","c":"Seasons"},{"t":"2025 Season","u":"/seasons/season_2025.html","c":"Seasons"},{"t":"2024 Season","u":"/seasons/season_2024.html","c":"Seasons"},{"t":"2023 Season","u":"/seasons/season_2023.html","c":"Seasons"},{"t":"2022 Season","u":"/seasons/season_2022.html","c":"Seasons"},{"t":"2021 Season","u":"/seasons/season_2021.html","c":"Seasons"},{"t":"2020 Season","u":"/seasons/season_2020.html","c":"Seasons"},{"t":"2019 Season","u":"/seasons/season_2019.html","c":"Seasons"},{"t":"2018 Season","u":"/seasons/season_2018.html","c":"Seasons"},{"t":"2017 Season","u":"/seasons/season_2017.html","c":"Seasons"},{"t":"2016 Season","u":"/seasons/season_2016.html","c":"Seasons"},{"t":"Outreach","u":"/outreach/outreach.html","c":"Outreach"},{"t":"DYR \u2014 Do Your Research","u":"/outreach/dyr.html","c":"Outreach"},{"t":"RoboCamps Registration","u":"/outreach/robocamps.html","c":"Outreach"},{"t":"RoboCamps Forms","u":"/outreach/robocamps_forms.html","c":"Outreach"},{"t":"RoboCamps Resources","u":"/outreach/robocamps_resources.html","c":"Outreach"},{"t":"WiSE \u2014 Women in STEM & Engineering","u":"/outreach/wise.html","c":"Outreach"},{"t":"Robot Demos","u":"/outreach/robot_demos.html","c":"Outreach"},{"t":"Fall Workshops","u":"/outreach/fall_workshops.html","c":"Outreach"},{"t":"Farmers Market","u":"/outreach/farmers_market.html","c":"Outreach"},{"t":"Citrus Service","u":"/outreach/citrus_service.html","c":"Outreach"},{"t":"Digital Minds","u":"/outreach/digital_minds.html","c":"Outreach"},{"t":"Compass Alliance","u":"/outreach/compass_alliance.html","c":"Outreach"},{"t":"DISTEM","u":"/outreach/distem.html","c":"Outreach"},{"t":"Blog 2025","u":"/blog/blog_2025.html","c":"Blog"},{"t":"Blog 2024","u":"/blog/blog_2024.html","c":"Blog"},{"t":"Blog 2023","u":"/blog/blog_2023.html","c":"Blog"},{"t":"Blog 2022","u":"/blog/blog_2022.html","c":"Blog"}];
