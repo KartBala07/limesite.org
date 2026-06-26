@@ -223,9 +223,9 @@
                 <li class="nav-item">
                     <a href="support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
-                        <a href="support.html#davis-robotics-foundation">Davis Robotics Foundation</a><a href="support.html#nik-murray-memorial-sponsorship">Niklas Murray Memorial Sponsorship</a>
-                        <a href="support.html#parent-committee">Parent Logistics Committee</a><a href="support.html#reimbursement">Reimbursements</a>
-                        <a href="support.html#volunteer-opportunities">Volunteer Opportunities</a>
+                        <a href="support/drf.html">Davis Robotics Foundation</a><a href="support/nik_murray.html">Niklas Murray Memorial Sponsorship</a>
+                        <a href="support/parent_committee.html">Parent Logistics Committee</a><a href="support/reimbursements.html">Reimbursements</a>
+                        <a href="support/volunteer_opportunities.html">Volunteer Opportunities</a>
                     </div>
                 </li>
             </ul>
@@ -437,7 +437,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
             let pct=0,mi=0;
             const tick=setInterval(()=>{pct=Math.min(100,pct+Math.ceil(Math.random()*9));pctEl.textContent=pct+'%';if(pct>=100)clearInterval(tick);},110);
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
-            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},400));
+            setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1750);
         })();
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;

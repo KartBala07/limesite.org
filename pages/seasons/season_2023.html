@@ -338,7 +338,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
                 if(pct>=100){clearInterval(tick);}
             },110);
             const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
-            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},400));
+            setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},1750);
         })();
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
