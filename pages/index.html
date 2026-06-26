@@ -613,8 +613,7 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
 (function(){
   var dismissed=false;
   function dismiss(){if(dismissed)return;dismissed=true;document.getElementById('loader').classList.add('out');}
-  window.addEventListener('load',function(){setTimeout(dismiss,900);});
-  setTimeout(dismiss,4000);
+  setTimeout(dismiss,3500);
 })();
 
 /* === THEME TOGGLE === */
