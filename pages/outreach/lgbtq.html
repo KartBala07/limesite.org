@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davis Robotics Foundation — Citrus Circuits 1678</title>
+    <title>LGBTQ+ of FIRST — Citrus Circuits 1678</title>
     <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,9 +61,8 @@
         .back-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
         .sp-split{display:flex;gap:3rem;align-items:flex-start;margin:2rem 0 3rem}
         .sp-split.reverse{flex-direction:row-reverse}
-        .sp-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:1rem;flex-shrink:0;width:360px}
-        .sp-photo{border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 12px 36px rgba(0,0,0,.35);aspect-ratio:4/3}.sp-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.sp-photo:hover img{transform:scale(1.05)}
-        .sp-photo.sp-main{grid-column:1/-1;aspect-ratio:16/9}
+        .sp-photos{flex-shrink:0;width:360px}
+        .sp-photo{border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 64px rgba(0,0,0,.4),0 0 0 4px rgba(60,213,46,.08);aspect-ratio:4/3;transform:rotate(-1.5deg);transition:transform .35s ease}.sp-photo:hover{transform:rotate(0deg) scale(1.02)}.sp-photo img{width:100%;height:100%;object-fit:cover;display:block}
         .sp-text{flex:1}
         .sp-text p{color:var(--text-muted);line-height:1.8;font-size:1rem;margin-bottom:1.25rem}
         .sp-text p:last-child{margin-bottom:0}
@@ -72,37 +71,9 @@
         .sp-text ul{color:var(--text-muted);line-height:1.9;font-size:1rem;padding-left:1.4rem;margin-bottom:1.25rem}
         .sp-text ol{color:var(--text-muted);line-height:1.9;font-size:1rem;padding-left:1.4rem;margin-bottom:1.25rem}
         .sp-text a:not(.sp-btn){color:var(--lime);text-decoration:underline;text-underline-offset:2px}
-        .sp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;margin-bottom:1.5rem}
-        .sp-card h3{font-size:1.2rem;font-weight:800;color:var(--lime);margin-bottom:.75rem}
-        .sp-card p{color:var(--text-muted);line-height:1.75;font-size:.98rem;margin-bottom:.75rem}
-        .sp-card p:last-child{margin-bottom:0}
-        .sp-card ul{color:var(--text-muted);line-height:1.9;font-size:.98rem;padding-left:1.4rem}
-        .sp-card a{color:var(--lime);text-decoration:underline;text-underline-offset:2px}
-        .sp-card ol{color:var(--text-muted);line-height:1.9;font-size:.98rem;padding-left:1.4rem}
         .sp-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--lime);color:#000;font-weight:700;font-size:.9rem;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;transition:opacity .2s,transform .2s;margin-top:.75rem}
         .sp-btn:hover{opacity:.88;transform:translateY(-2px)}
-        .sp-btn.outline{background:transparent;border:1px solid var(--lime);color:var(--lime)}
-        .sp-btn.outline:hover{background:var(--lime);color:#000}
-        .board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
-        .board-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem}
-        .board-card .name{font-weight:700;color:var(--text-main);font-size:.95rem}
-        .board-card .role{color:var(--lime);font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;margin-top:.25rem}
-        .doc-links{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0}
-        .doc-link{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);text-decoration:none;font-size:.85rem;padding:.6rem 1rem;border-radius:8px;transition:all .2s ease}
-        .doc-link:hover{border-color:var(--lime);color:var(--lime)}
-        .drf-logo{display:flex;justify-content:center;margin:0 0 2.5rem}
-        .drf-logo img{height:120px;width:auto}
-        .winners-table{width:100%;border-collapse:collapse;margin:1rem 0}
-        .winners-table th,.winners-table td{text-align:left;padding:.65rem .9rem;border-bottom:1px solid var(--border);font-size:.9rem}
-        .winners-table th{color:var(--lime);font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
-        .winners-table td{color:var(--text-muted)}
-        .winners-table tr:last-child td{border-bottom:none}
-        .step-list{counter-reset:steps;list-style:none;padding:0;margin:1rem 0}
-        .step-list li{counter-increment:steps;display:flex;gap:1rem;margin-bottom:1.25rem;align-items:flex-start}
-        .step-list li::before{content:counter(steps);background:var(--lime);color:#000;font-weight:800;font-size:.85rem;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
-        .step-list li p{color:var(--text-muted);line-height:1.7;font-size:.97rem;margin:0}
-        .step-list li a{color:var(--lime);text-decoration:underline}
-        @media(max-width:768px){.sp-split{flex-direction:column}.sp-photos{width:100%}.board-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:768px){.sp-split{flex-direction:column}.sp-photos{width:100%}}
         @media(max-width:968px){.nav-menu{display:none}.navbar{padding:0 1.5rem}}
         .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
         .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -149,10 +120,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="../outreach/outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../outreach/outreach.html" class="nav-link active">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel">
                         <a href="../outreach/citrus_service.html">Citrus Service</a><a href="../outreach/farmers_market.html">Farmers Market</a>
-                        <a href="../outreach/fall_workshops.html">Fall Workshops</a><a href="../outreach/lgbtq.html">LGBTQ+ of FIRST</a>
+                        <a href="../outreach/fall_workshops.html">Fall Workshops</a><a href="../outreach/lgbtq.html" class="active">LGBTQ+ of FIRST</a>
                         <a href="../outreach/distem.html">DiSTEM</a><a href="../outreach/wise.html">WiSE</a>
                         <a href="../outreach/robot_demos.html">Robot Demos</a>
                     </div>
@@ -171,13 +142,13 @@
                 <li class="nav-item"><a href="../capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
                 <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
                 <li class="nav-item">
-                    <a href="../support.html" class="nav-link active">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="../support.html" class="nav-link">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <div class="dropdown-panel" style="grid-template-columns:1fr;width:320px;">
-                        <a href="drf.html" class="active">Davis Robotics Foundation</a>
-                        <a href="nik_murray.html">Niklas Murray Memorial Sponsorship</a>
-                        <a href="parent_committee.html">Parent Logistics Committee</a>
-                        <a href="reimbursements.html">Reimbursements</a>
-                        <a href="volunteer_opportunities.html">Volunteer Opportunities</a>
+                        <a href="../support/drf.html">Davis Robotics Foundation</a>
+                        <a href="../support/nik_murray.html">Niklas Murray Memorial Sponsorship</a>
+                        <a href="../support/parent_committee.html">Parent Logistics Committee</a>
+                        <a href="../support/reimbursements.html">Reimbursements</a>
+                        <a href="../support/volunteer_opportunities.html">Volunteer Opportunities</a>
                     </div>
                 </li>
             </ul>
@@ -190,67 +161,28 @@
     <main>
         <div class="wrap">
             <div class="page-head">
-                <div class="page-eyebrow">Support</div>
-                <h1 class="page-title">Davis Robotics <em>Foundation</em></h1>
-                <p class="page-sub">A 501(c)(3) nonprofit corporation supporting STEM education and robotics for K-12 students in California.</p>
+                <div class="page-eyebrow">Outreach</div>
+                <h1 class="page-title">LGBTQ+ <em>of FIRST</em></h1>
+                <p class="page-sub">A student-run organization dedicated to raising awareness and creating acceptance of LGBTQ+ participants in FIRST Robotics.</p>
             </div>
-            <a href="../support.html" class="back-link"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>Back to Support Us</a>
-            <div class="drf-logo">
-                <img src="../pictures/support%20us/Davis%20Robotics%20Foundation%20logo.jpg" alt="Davis Robotics Foundation Logo" onerror="this.parentElement.style.display='none'">
-            </div>
-            <!-- Zigzag 1: photo left, about text right -->
+            <a href="../outreach/outreach.html" class="back-link"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>Back to Outreach</a>
             <div class="sp-split">
                 <div class="sp-photos">
-                    <div class="sp-photo sp-main"><img src="../pictures/support%20us/Davis%20Robotics%20Foundation1.jpg" alt="Davis Robotics Foundation" onerror="this.parentElement.style.display='none'"></div>
+                    <div class="sp-photo"><img src="../pictures/outreach/lgbtq%2B1.jpg" alt="LGBTQ+ of FIRST" onerror="this.parentElement.style.display='none'"></div>
                 </div>
                 <div class="sp-text">
-                    <p>The Davis Robotics Foundation is a non-profit corporation organized to support science, technology, engineering, and math (STEM) activities for K-12 students in California, with a focus on robotics programs. The Foundation funds the operation of FIRST Robotics Competition (FRC) teams, primarily FRC Team 1678 in Davis, CA; the Davis Youth Robotics program; and associated competition, outreach, and education programs that promote STEM education and awareness.</p>
-                    <p>In addition, the Foundation is organized to accept funding to be used to support other FRC teams and other robotics programs for students in grades K-12.</p>
-                    <p>The Davis Robotics Foundation was incorporated as a non-profit in California on October 10, 2016. The Foundation is recognized by the Internal Revenue Service as a 501(c)(3) charitable organization. Our EIN is 81-4194986.</p>
+                    <p>LGBTQ+ of First is a student run organization dedicated to raising awareness and creating acceptance of LGBTQ+ participants in FIRST Robotics. The mission of this organization is to increase visibility of LGBTQ+ members in STEM community by providing resources to help and educate everyone inside and outside FIRST Robotics.</p>
+                    <p>In 2021, Citrus Circuits began our partnership with the LGBTQ+ in FIRST community as to spread knowledge and diversity within our team to create safe spaces for members.</p>
                 </div>
             </div>
-
-            <!-- Zigzag 2: donate info left, photo right -->
             <div class="sp-split reverse">
                 <div class="sp-photos">
-                    <div class="sp-photo"><img src="../pictures/support%20us/Davis%20Robotics%20Foundation2.jpg" alt="Davis Robotics Foundation" onerror="this.parentElement.style.display='none'"></div>
+                    <div class="sp-photo"><img src="../pictures/outreach/lgbtq%2B2.jpg" alt="LGBTQ+ of FIRST community" onerror="this.parentElement.style.display='none'"></div>
                 </div>
                 <div class="sp-text">
-                    <h3>Donate</h3>
-                    <p>All checks for donations or purchases from the team should be made out to <strong style="color:var(--text-main)">"Davis Robotics Foundation."</strong> Checks can be mailed to Davis Robotics Foundation at P.O. Box 577, Davis, CA 95617.</p>
-                    <a href="https://www.paypal.com/donate/?hosted_button_id=YXGHB8WLD96M8" target="_blank" rel="noopener noreferrer" class="sp-btn">Donate via PayPal &rarr;</a>
-                    <a href="https://www.bigdayofgiving.org/organization/Davis-Robotics-Foundation" target="_blank" rel="noopener noreferrer" class="sp-btn outline" style="margin-left:.75rem">Big Day of Giving</a>
-                    <h3 style="margin-top:2rem">Contact</h3>
-                    <p>Website: <a href="https://www.bigdayofgiving.org/organization/Davis-Robotics-Foundation" target="_blank" rel="noopener noreferrer">bigdayofgiving.org/organization/Davis-Robotics-Foundation</a></p>
-                    <p>Email: <a href="mailto:davisroboticsfoundation@gmail.com">davisroboticsfoundation@gmail.com</a></p>
-                    <p>PO Box 577, Davis, CA 95617</p>
-                </div>
-            </div>
-
-            <!-- Zigzag 3: Board of Directors left, photo right -->
-            <div class="sp-split">
-                <div class="sp-photos">
-                    <div class="sp-photo"><img src="../pictures/support%20us/Davis%20Robotics%20Foundation3.jpg" alt="Davis Robotics Foundation" onerror="this.parentElement.style.display='none'"></div>
-                </div>
-                <div class="sp-text">
-                    <h3>Board of Directors</h3>
-                    <div class="board-grid">
-                        <div class="board-card"><div class="name">Richard J. McCann</div><div class="role">President</div></div>
-                        <div class="board-card"><div class="name">Kendra Wershing</div><div class="role">Vice President</div></div>
-                        <div class="board-card"><div class="name">Michael Corsetto</div><div class="role">Secretary</div></div>
-                        <div class="board-card"><div class="name">Brian Laurenson</div><div class="role">Treasurer</div></div>
-                        <div class="board-card"><div class="name">Maggie Men</div><div class="role">Director</div></div>
-                        <div class="board-card"><div class="name">Kanwar Singh</div><div class="role">Director</div></div>
-                        <div class="board-card"><div class="name">John W. (Brook) Ostrom</div><div class="role">Director</div></div>
-                        <div class="board-card"><div class="name">Elaine Woo Phimmasehn</div><div class="role">Director</div></div>
-                        <div class="board-card"><div class="name">Stephen Harvey</div><div class="role">Director</div></div>
-                    </div>
-                    <h3 style="margin-top:2rem">Foundation Documents</h3>
-                    <div class="doc-links">
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_2ac2db48c98648dbb6aff35e8db0efc7.pdf" target="_blank" rel="noopener noreferrer" class="doc-link">&#128196; Bylaws of DRF</a>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_0bf47285a3fe4b0f9c8b2feb62b4d8a6.pdf" target="_blank" rel="noopener noreferrer" class="doc-link">&#128196; Non-Standard Gift Policy</a>
-                        <a href="https://www.citruscircuits.org/_files/ugd/146bfa_be1bec17e93d423dbf43a65b853db9da.pdf" target="_blank" rel="noopener noreferrer" class="doc-link">&#128196; Conflict of Interest Policy</a>
-                    </div>
+                    <h3>Learn More</h3>
+                    <p>For more information, visit their website!</p>
+                    <a href="https://lgbtqoffirst.weebly.com/" target="_blank" rel="noopener noreferrer" class="sp-btn">Visit LGBTQ+ of FIRST &#8599;</a>
                 </div>
             </div>
         </div>
