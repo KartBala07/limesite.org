@@ -28,7 +28,6 @@
             --text-muted: #9ca3af;
             --border: rgba(255, 255, 255, 0.06);
             --header-bg: rgba(5, 6, 6, 0.9);
-        }
 
         :root[data-theme="light"] {
             --bg-darkest: #f9fafb;
@@ -41,7 +40,6 @@
             --text-muted: #4b5563;
             --border: rgba(0, 0, 0, 0.08);
             --header-bg: rgba(255, 255, 255, 0.92);
-        }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
         html { scroll-behavior: smooth; }
@@ -56,13 +54,8 @@
         /* === LOADER === */
         #loader { position: fixed; inset: 0; background: var(--bg-darkest); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 8000; transition: opacity .8s, visibility .8s; }
         #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
-        .ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
-.ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}
-.ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 1.8s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}
-.ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}
-.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}
-@keyframes ldRing{to{stroke-dashoffset:0}}
+        
+
 
         /* --- Navigation Bar Header --- */
         header {
@@ -72,7 +65,6 @@
             border-bottom: 1px solid var(--border);
             position: fixed; width: 100%; top: 0; left: 0; z-index: 1000;
             transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
         .navbar { max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 95px; padding: 0 2rem; }
         .brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-main); }
         .brand-logo { height: 55px; width: auto; object-fit: contain; }
@@ -98,7 +90,6 @@
             opacity: 0; pointer-events: none;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
             transition: opacity 0.2s ease, transform 0.2s ease;
-        }
         .nav-item:hover .dropdown-panel { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
         .dropdown-panel a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; padding: 0.65rem 0.85rem; border-radius: 8px; transition: all 0.2s ease; }
         .dropdown-panel a:hover { background-color: var(--bg-dark); color: var(--lime); }
@@ -145,7 +136,6 @@
             position: absolute; inset: 0;
             background-image: linear-gradient(rgba(60,213,46,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(60,213,46,.05) 1px, transparent 1px);
             background-size: 26px 26px;
-        }
         .leader-fallback .mono { position: relative; font-family: 'Bebas Neue', sans-serif; font-size: 3.6rem; letter-spacing: 0.04em; color: var(--lime); text-shadow: 0 0 36px rgba(127, 255, 0, 0.35); }
         .leader-tier-tag { position: absolute; top: 12px; left: 12px; z-index: 2; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); background: rgba(0, 0, 0, 0.45); border: 1px solid var(--border); padding: 0.25rem 0.6rem; border-radius: 999px; }
 
@@ -170,7 +160,6 @@
             .leadership-grid { gap: 1.25rem; grid-template-columns: repeat(2, 1fr); }
             .leadership-grid .leader-card { max-width: none; }
             .lead-cta-inner { flex-direction: column; align-items: flex-start; }
-        }
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
 .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
@@ -192,7 +181,6 @@
   .nav-actions-hub{display:flex;align-items:center;gap:.75rem;margin-left:1.5rem}.nav-icon-row{display:flex;gap:.4rem;align-items:center}.nav-btn-stack{display:flex;flex-direction:column;gap:.25rem}.nav-toggle{order:3}
   .nav-cta{display:none}}
 
-@media(max-width:768px){.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.leadership-grid{grid-template-columns:1fr}.grid-captains{grid-template-columns:1fr}}
 .nav-search-wrap{position:relative}
 .nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .nav-search-btn:hover,.nav-search-btn.active{border-color:var(--lime);color:var(--lime)}
@@ -214,8 +202,11 @@
 .nav-login-btn:hover{background:var(--lime);color:#000}
 .nav-login-btn svg{width:15px;height:15px;flex-shrink:0}
 .nav-login-txt{display:inline}
-@media(max-width:768px){.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.leadership-grid{grid-template-columns:1fr}.grid-captains{grid-template-columns:1fr}}.nav-login-btn{padding:.45rem .55rem;gap:0}}
-</style>
+.nav-login-btn{padding:.45rem .55rem;gap:0}}
+
+
+@media(max-width:768px){.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.nav-login-txt{display:none}.nav-login-btn{padding:.45rem .55rem;gap:0}.leadership-grid{grid-template-columns:1fr}.grid-captains{grid-template-columns:1fr}}
+.ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}.ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}.ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}.ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 3.2s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}.ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}@keyframes ldRing{to{stroke-dashoffset:0}}</style>
 </head>
 <body>
 
@@ -225,10 +216,11 @@
 
     <!-- LOADER -->
     <div id="loader">
-        <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 116,60 60,116 4,60"></polygon><polygon class="ld-ring-fg" points="60,4 116,60 60,116 4,60" pathLength="345"></polygon></svg>
-            <span class="ld-pct" id="ldPct">0%</span>
-        </div>
+        <div class="ld-ring-wrap"><svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg><span class="ld-pct" id="ldPct">0%</span></div>
+        <div class="ld-sub" id="ldSub">Loading</div>
+    </div>
+        <div class="ld-sub" id="ldSub">Loading</div>
+    </div>
         <div class="ld-sub" id="ldSub">Loading Leadership</div>
     </div>
 
@@ -543,18 +535,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
         });
 
         // --- Loader ---
-        (function(){
-            const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading Leadership','Gathering Captains','Compiling Roster','Almost There'];
-            let pct=0,mi=0;
-            const tick=setInterval(()=>{
-                pct=Math.min(100,pct+Math.ceil(Math.random()*9));
-                pctEl.textContent=pct+'%';
-                if(pct>=100){clearInterval(tick);}
-            },110);
-            const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
-            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},400));
-        })();
+        (function(){var pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');var msgs=['Loading Leadership','Gathering Captains','Compiling Roster','Almost There'];var pct=0,mi=0,dismissed=false;var tick=setInterval(function(){pct=Math.min(95,pct+Math.ceil(Math.random()*3+1));pctEl.textContent=pct+'%';},110);var msgTick=setInterval(function(){mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},600);function dismiss(){if(dismissed)return;dismissed=true;clearInterval(tick);clearInterval(msgTick);pct=100;pctEl.textContent='100%';setTimeout(function(){document.getElementById('loader').classList.add('out');},300);}setTimeout(dismiss,3500);})();
 
         // --- Custom cursor ---
         const dot = document.getElementById('cdot');
