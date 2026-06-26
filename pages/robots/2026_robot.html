@@ -23,13 +23,8 @@
         @media (hover:none){ #cdot,#cring{display:none;} body{cursor:auto;} }
         #loader { position:fixed; inset:0; background:var(--bg-darkest); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:8000; transition:opacity .8s,visibility .8s; }
         #loader.out { opacity:0; visibility:hidden; pointer-events:none; }
-        .ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
-.ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}
-.ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 1.8s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}
-.ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}
-.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}
-@keyframes ldRing{to{stroke-dashoffset:0}}
+        
+
         header { background-color:var(--header-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); position:fixed; width:100%; top:0; left:0; z-index:1000; transition:background-color .3s ease,border-color .3s ease; }
         .navbar { max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; height:95px; padding:0 2rem; }
         .brand { display:flex; align-items:center; gap:1rem; text-decoration:none; color:var(--text-main); }
@@ -144,7 +139,6 @@
             .full-card h3{font-size:1.35rem;}
             .detail-body h3{font-size:1.35rem;}
             .lead-cta-inner{padding:1.75rem;flex-direction:column;align-items:flex-start;}
-        }
 
     
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
@@ -167,7 +161,6 @@
   .nav-actions-hub{display:flex;align-items:center;gap:.75rem;margin-left:1.5rem}.nav-icon-row{display:flex;gap:.4rem;align-items:center}.nav-btn-stack{display:flex;flex-direction:column;gap:.25rem}.nav-toggle{order:3}
   .nav-cta{display:none}}
 
-@media(max-width:768px){.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.info-grid{grid-template-columns:1fr}.stat-strip{grid-template-columns:repeat(2,1fr)}.detail-row{grid-template-columns:1fr;flex-direction:column}}
 .nav-search-wrap{position:relative}
 .nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .nav-search-btn:hover,.nav-search-btn.active{border-color:var(--lime);color:var(--lime)}
@@ -189,16 +182,20 @@
 .nav-login-btn:hover{background:var(--lime);color:#000}
 .nav-login-btn svg{width:15px;height:15px;flex-shrink:0}
 .nav-login-txt{display:inline}
-@media(max-width:768px){.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.info-grid{grid-template-columns:1fr}.stat-strip{grid-template-columns:repeat(2,1fr)}.detail-row{grid-template-columns:1fr;flex-direction:column}}.nav-login-btn{padding:.45rem .55rem;gap:0}}
-</style>
+.nav-login-btn{padding:.45rem .55rem;gap:0}}
+
+
+@media(max-width:768px){.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.nav-login-txt{display:none}.nav-login-btn{padding:.45rem .55rem;gap:0}.info-grid{grid-template-columns:1fr}.stat-strip{grid-template-columns:repeat(2,1fr)}.detail-row{grid-template-columns:1fr}}
+.ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}.ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}.ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}.ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 3.2s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}.ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}@keyframes ldRing{to{stroke-dashoffset:0}}</style>
 </head>
 <body>
     <div id="cdot"></div><div id="cring"></div>
     <div id="loader">
-        <div class="ld-ring-wrap">
-            <svg viewBox="0 0 120 120"><polygon class="ld-ring-bg" points="60,4 111,32 111,88 60,116 9,88 9,32"></polygon><polygon class="ld-ring-fg" points="60,4 111,32 111,88 60,116 9,88 9,32" pathLength="345"></polygon></svg>
-            <span class="ld-pct" id="ldPct">0%</span>
-        </div>
+        <div class="ld-ring-wrap"><svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg><span class="ld-pct" id="ldPct">0%</span></div>
+        <div class="ld-sub" id="ldSub">Loading</div>
+    </div>
+        <div class="ld-sub" id="ldSub">Loading</div>
+    </div>
         <div class="ld-sub" id="ldSub">Loading CAD Data</div>
     </div>
 
@@ -499,18 +496,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
             let i=0;
             setInterval(()=>{imgs[i].classList.remove('active');i=(i+1)%imgs.length;imgs[i].classList.add('active');},2500);
         });
-        (function(){
-            const pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');
-            const msgs=['Loading CAD Data','Rendering Robot','Checking Subsystems','Almost There'];
-            let pct=0,mi=0;
-            const tick=setInterval(()=>{
-                pct=Math.min(100,pct+Math.ceil(Math.random()*9));
-                pctEl.textContent=pct+'%';
-                if(pct>=100){clearInterval(tick);}
-            },110);
-            const msgTick=setInterval(()=>{mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},420);
-            window.addEventListener('load',()=>setTimeout(()=>{clearInterval(msgTick);document.getElementById('loader').classList.add('out');},400));
-        })();
+        (function(){var pctEl=document.getElementById('ldPct'),subEl=document.getElementById('ldSub');var msgs=['Loading CAD Data','Rendering Robot','Checking Subsystems','Almost There'];var pct=0,mi=0,dismissed=false;var tick=setInterval(function(){pct=Math.min(95,pct+Math.ceil(Math.random()*3+1));pctEl.textContent=pct+'%';},110);var msgTick=setInterval(function(){mi=(mi+1)%msgs.length;subEl.textContent=msgs[mi];},600);function dismiss(){if(dismissed)return;dismissed=true;clearInterval(tick);clearInterval(msgTick);pct=100;pctEl.textContent='100%';setTimeout(function(){document.getElementById('loader').classList.add('out');},300);}setTimeout(dismiss,3500);})();
         const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
         if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;
             window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
