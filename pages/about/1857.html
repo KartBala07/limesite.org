@@ -96,7 +96,8 @@
         .pm-heading { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:.04em; color:var(--lime); text-transform:uppercase; margin-bottom:2.75rem; }
         .pm-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem 2rem; padding-bottom:4rem; max-width:920px; margin:0 auto; }
         .pm-card { max-width:290px; width:100%; margin:0 auto; text-align:center; }
-        @media (max-width:768px) { .pm-grid { grid-template-columns:repeat(2,1fr); } }
+        .pm-center { grid-column:2; }
+        @media (max-width:768px) { .pm-grid { grid-template-columns:repeat(2,1fr); } .pm-center { grid-column:auto; } }
         @media (max-width:480px) { .pm-grid { grid-template-columns:1fr; } }
         .pm-photo { width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--bg-card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; }
         .pm-photo span { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--lime); opacity:.55; }
@@ -270,7 +271,7 @@
                 <div class="pm-card"><div class="pm-photo"><img src="../pictures/2026/pit_mechanical1.jpg" alt="Miriam S." style="width:100%;height:100%;object-fit:cover;"></div><div class="pm-name">Miriam S.</div><div class="pm-role">Pit Mechanical</div></div>
                 <div class="pm-card"><div class="pm-photo"><img src="../pictures/2026/pit_mechanical2.jpg" alt="Jocelyne W." style="width:100%;height:100%;object-fit:cover;"></div><div class="pm-name">Jocelyne W.</div><div class="pm-role">Pit Mechanical</div></div>
                 <div class="pm-card"><div class="pm-photo"><img src="../pictures/2026/pit_software.jpg" alt="Trent C." style="width:100%;height:100%;object-fit:cover;"></div><div class="pm-name">Trent C.</div><div class="pm-role">Pit Software</div></div>
-                <div class="pm-card" style="grid-column:2"><div class="pm-photo"><img src="../pictures/2026/pit_design.jpg" alt="Linden J." style="width:100%;height:100%;object-fit:cover;"></div><div class="pm-name">Linden J.</div><div class="pm-role">Pit Design</div></div>
+                <div class="pm-card pm-center"><div class="pm-photo"><img src="../pictures/2026/pit_design.jpg" alt="Linden J." style="width:100%;height:100%;object-fit:cover;"></div><div class="pm-name">Linden J.</div><div class="pm-role">Pit Design</div></div>
             </div>
         </div>
 
