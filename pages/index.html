@@ -608,9 +608,12 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
 });
 
 /* === LOADER === */
-window.addEventListener('load',()=>{
-  setTimeout(()=>document.getElementById('loader').classList.add('out'),800);
-});
+(function(){
+  var dismissed=false;
+  function dismiss(){if(dismissed)return;dismissed=true;document.getElementById('loader').classList.add('out');}
+  window.addEventListener('load',function(){setTimeout(dismiss,400);});
+  setTimeout(dismiss,2000);
+})();
 
 /* === THEME TOGGLE === */
 const themeToggleBtn = document.getElementById('themeToggle');
