@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niklas Murray Memorial Sponsorship — Citrus Circuits 1678</title>
+    <link rel="icon" type="image/png" href="../pictures/site/favicon.png?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="dark"] .sun-icon{display:none}[data-theme="dark"] .moon-icon{display:block}[data-theme="light"] .sun-icon{display:block}[data-theme="light"] .moon-icon{display:none}
+        :root[data-theme="dark"]{--bg-darkest:#050606;--bg-dark:#0b0d0d;--bg-card:#111414;--bg-dropdown:#121616;--lime:#3CD52E;--lime-soft:#7fe676;--text-main:#f3f4f6;--text-muted:#9ca3af;--border:rgba(255,255,255,.06);--header-bg:rgba(5,6,6,.9)}
+        :root[data-theme="light"]{--bg-darkest:#f9fafb;--bg-dark:#f3f4f6;--bg-card:#ffffff;--bg-dropdown:#ffffff;--lime:#3CD52E;--lime-soft:#2fa824;--text-main:#111827;--text-muted:#4b5563;--border:rgba(0,0,0,.08);--header-bg:rgba(255,255,255,.92)}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+        html{scroll-behavior:smooth}
+        body{background-color:var(--bg-darkest);color:var(--text-main);overflow-x:hidden;transition:background-color .3s ease,color .3s ease}
+        img{max-width:100%;display:block}
+        #cdot{position:fixed;width:10px;height:10px;background:var(--lime);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
+        #cring{position:fixed;width:34px;height:34px;border:1.5px solid var(--lime);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.7;transition:width .25s,height .25s,opacity .25s}
+        @media(hover:none){#cdot,#cring{display:none}body{cursor:auto}}
+        #loader{position:fixed;inset:0;background:var(--bg-darkest);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:8000;transition:opacity .8s,visibility .8s}
+        #loader.out{opacity:0;visibility:hidden;pointer-events:none}
+        .ld-ring-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}.ld-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}.ld-ring-bg{fill:none;stroke:var(--border);stroke-width:4}.ld-ring-fg{fill:none;stroke:var(--lime);stroke-width:4;stroke-linecap:round;stroke-dasharray:345;stroke-dashoffset:345;animation:ldRing 1.8s ease-in-out forwards;filter:drop-shadow(0 0 10px rgba(60,213,46,.6))}.ld-pct{position:absolute;font-family:'JetBrains Mono',monospace;font-size:1.3rem;color:var(--lime)}.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:.3em;text-transform:uppercase;margin-top:22px;opacity:.8}@keyframes ldRing{to{stroke-dashoffset:0}}
+        header{background-color:var(--header-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:fixed;width:100%;top:0;left:0;z-index:1000;transition:background-color .3s ease,border-color .3s ease}
+        .navbar{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:95px;padding:0 2rem}
+        .brand{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--text-main)}
+        .brand-logo{height:55px;width:auto;object-fit:contain}
+        .brand-text-stack{display:flex;flex-direction:column;line-height:1.2}
+        .brand-title{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;color:var(--lime);display:flex;align-items:center;gap:.4rem}
+        .brand-title span{color:var(--text-main);font-weight:400;font-size:1rem}
+        .brand-subtitle{font-size:.75rem;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
+        .nav-menu{display:flex;list-style:none;align-items:center;height:100%}
+        .nav-item{position:relative;height:100%;display:flex;align-items:center}
+        .nav-link{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:500;padding:0 .6rem;height:100%;display:flex;align-items:center;gap:.35rem;transition:color .2s ease;white-space:nowrap}
+        .nav-link:hover,.nav-item:hover .nav-link{color:var(--text-main)}
+        .nav-link.active{color:var(--lime)}
+        .nav-link svg{width:10px;height:10px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .25s ease}
+        .nav-item:hover .nav-link svg{transform:rotate(180deg);color:var(--lime)}
+        .dropdown-panel{position:absolute;top:95px;left:50%;transform:translateX(-50%) translateY(10px);background-color:var(--bg-dropdown);border:1px solid var(--border);border-radius:12px;width:520px;padding:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:.35rem;opacity:0;pointer-events:none;box-shadow:0 30px 60px rgba(0,0,0,.25);transition:opacity .3s ease .15s,transform .3s ease .15s}
+        .nav-item:hover .dropdown-panel{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .2s ease,transform .2s ease}
+        .dropdown-panel a{color:var(--text-muted);text-decoration:none;font-size:.8rem;padding:.65rem .85rem;border-radius:8px;transition:all .2s ease}.dropdown-panel::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+        .dropdown-panel a:hover{background-color:var(--bg-dark);color:var(--lime)}
+        .dropdown-panel a.active{color:var(--lime);background-color:var(--bg-dark)}
+        .nav-actions-hub{display:flex;align-items:center;gap:.75rem;margin-left:1.5rem}.nav-icon-row{display:flex;gap:.4rem;align-items:center}.nav-btn-stack{display:flex;flex-direction:column;gap:.25rem}
+        .nav-cta{background:transparent;border:1px solid var(--lime);color:var(--lime);padding:0 .55rem;border-radius:6px;font-size:.7rem;font-weight:600;text-decoration:none;transition:all .2s ease;width:100%;height:28px;line-height:28px;text-align:center;display:block}
+        .nav-cta:hover{background:var(--lime);color:#000}
+        .theme-toggle-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease}
+        .theme-toggle-btn:hover{border-color:var(--lime);color:var(--lime)}
+        .theme-toggle-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+        main{padding-top:95px}
+        .wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+        .page-head{text-align:center;margin:4rem auto 3rem}
+        .page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.5rem}
+        .page-eyebrow::before,.page-eyebrow::after{content:'';width:36px;height:1px;background:var(--lime);opacity:.5}
+        .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,9vw,6.5rem);line-height:.95;letter-spacing:.02em;text-transform:uppercase}
+        .page-title em{color:var(--lime);font-style:normal;font-family:'Bebas Neue',sans-serif;font-weight:inherit}
+        .page-sub{color:var(--text-muted);font-size:1.05rem;line-height:1.7;max-width:680px;margin:1.5rem auto 0}
+        .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--text-muted);text-decoration:none;font-size:.85rem;margin-bottom:2rem;transition:color .2s ease}
+        .back-link:hover{color:var(--lime)}
+        .back-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+        .sp-split{display:flex;gap:3rem;align-items:flex-start;margin:2rem 0 3rem}
+        .sp-split.reverse{flex-direction:row-reverse}
+        .sp-photos{display:flex;flex-direction:column;gap:1.5rem;flex-shrink:0;width:340px}
+        .sp-photo img{width:100%;border-radius:14px;border:1px solid var(--border);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+        .sp-text{flex:1}
+        .sp-text p{color:var(--text-muted);line-height:1.8;font-size:1rem;margin-bottom:1.25rem}
+        .sp-text p:last-child{margin-bottom:0}
+        .sp-text h3{font-size:1.3rem;font-weight:800;color:var(--text-main);margin:2rem 0 .75rem}
+        .sp-text h3:first-child{margin-top:0}
+        .sp-text ul{color:var(--text-muted);line-height:1.9;font-size:1rem;padding-left:1.4rem;margin-bottom:1.25rem}
+        .sp-text ol{color:var(--text-muted);line-height:1.9;font-size:1rem;padding-left:1.4rem;margin-bottom:1.25rem}
+        .sp-text a{color:var(--lime);text-decoration:underline;text-underline-offset:2px}
+        .sp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;margin-bottom:1.5rem}
+        .sp-card h3{font-size:1.2rem;font-weight:800;color:var(--lime);margin-bottom:.75rem}
+        .sp-card p{color:var(--text-muted);line-height:1.75;font-size:.98rem;margin-bottom:.75rem}
+        .sp-card p:last-child{margin-bottom:0}
+        .sp-card ul{color:var(--text-muted);line-height:1.9;font-size:.98rem;padding-left:1.4rem}
+        .sp-card a{color:var(--lime);text-decoration:underline;text-underline-offset:2px}
+        .sp-card ol{color:var(--text-muted);line-height:1.9;font-size:.98rem;padding-left:1.4rem}
+        .sp-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--lime);color:#000;font-weight:700;font-size:.9rem;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;transition:opacity .2s,transform .2s;margin-top:.75rem}
+        .sp-btn:hover{opacity:.88;transform:translateY(-2px)}
+        .sp-btn.outline{background:transparent;border:1px solid var(--lime);color:var(--lime)}
+        .sp-btn.outline:hover{background:var(--lime);color:#000}
+        .board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+        .board-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem}
+        .board-card .name{font-weight:700;color:var(--text-main);font-size:.95rem}
+        .board-card .role{color:var(--lime);font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;margin-top:.25rem}
+        .doc-links{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0}
+        .doc-link{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);text-decoration:none;font-size:.85rem;padding:.6rem 1rem;border-radius:8px;transition:all .2s ease}
+        .doc-link:hover{border-color:var(--lime);color:var(--lime)}
+        .drf-logo{display:flex;justify-content:center;margin:0 0 2.5rem}
+        .drf-logo img{height:120px;width:auto}
+        .winners-table{width:100%;border-collapse:collapse;margin:1rem 0}
+        .winners-table th,.winners-table td{text-align:left;padding:.65rem .9rem;border-bottom:1px solid var(--border);font-size:.9rem}
+        .winners-table th{color:var(--lime);font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+        .winners-table td{color:var(--text-muted)}
+        .winners-table tr:last-child td{border-bottom:none}
+        .step-list{counter-reset:steps;list-style:none;padding:0;margin:1rem 0}
+        .step-list li{counter-increment:steps;display:flex;gap:1rem;margin-bottom:1.25rem;align-items:flex-start}
+        .step-list li::before{content:counter(steps);background:var(--lime);color:#000;font-weight:800;font-size:.85rem;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+        .step-list li p{color:var(--text-muted);line-height:1.7;font-size:.97rem;margin:0}
+        .step-list li a{color:var(--lime);text-decoration:underline}
+        @media(max-width:768px){.sp-split{flex-direction:column}.sp-photos{width:100%}.board-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:968px){.nav-menu{display:none}.navbar{padding:0 1.5rem}}
+        .nav-toggle{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center;color:var(--text-main);position:relative;z-index:1100;flex-shrink:0}
+        .nav-toggle span{display:block;width:24px;height:2px;background:currentColor;position:relative;transition:background .2s ease}
+        .nav-toggle span::before,.nav-toggle span::after{content:'';position:absolute;left:0;width:24px;height:2px;background:currentColor;transition:transform .25s ease}
+        .nav-toggle span::before{top:-7px}.nav-toggle span::after{top:7px}
+        .nav-toggle.open span{background:transparent}.nav-toggle.open span::before{transform:translateY(7px) rotate(45deg)}.nav-toggle.open span::after{transform:translateY(-7px) rotate(-45deg)}
+        @media(max-width:1100px){.nav-toggle{display:flex!important}.nav-menu{position:fixed!important;top:0;right:-100%;width:82%;max-width:340px;height:100vh;background:var(--bg-dropdown,var(--bg-dark));flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;padding:100px 1.5rem 2rem;gap:0;overflow-y:auto;transition:right .3s ease;border-left:1px solid var(--border);display:flex!important}.nav-menu.open{right:0}.nav-item{height:auto!important;width:100%;flex-direction:column;align-items:flex-start!important;display:flex}.nav-link{width:100%;padding:.9rem 0!important;height:auto!important;justify-content:space-between!important}.nav-link svg{padding:.75rem;margin:-.75rem;box-sizing:content-box}.dropdown-panel{position:static!important;opacity:1!important;pointer-events:auto!important;transform:none!important;width:100%;display:none!important;grid-template-columns:1fr!important;box-shadow:none;border:none;background:transparent;padding:0 0 .5rem 1rem!important;margin-top:0}.nav-item.open .dropdown-panel{display:flex!important;flex-direction:column}.nav-actions-hub{display:flex;align-items:center;gap:.75rem;margin-left:1.5rem}.nav-icon-row{display:flex;gap:.4rem;align-items:center}.nav-btn-stack{display:flex;flex-direction:column;gap:.25rem}.nav-toggle{order:3}.nav-cta{display:none}}
+        .nav-search-wrap{position:relative}.nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}.nav-search-btn:hover,.nav-search-btn.active{border-color:var(--lime);color:var(--lime)}.nav-search-btn svg{width:17px;height:17px}.nav-search-drop{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:9999;display:none;align-items:flex-start;justify-content:center;padding-top:120px;backdrop-filter:blur(5px)}.nav-search-drop.open{display:flex}.nav-search-drop-inner{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;width:100%;max-width:600px;margin:0 1rem;box-shadow:0 40px 80px rgba(0,0,0,.5)}.nav-search-form{display:flex;gap:.5rem}.nav-search-input{flex:1;background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);padding:.6rem .85rem;border-radius:8px;font-size:.88rem;outline:none;transition:border-color .2s}.nav-search-input::placeholder{color:var(--text-muted)}.nav-search-input:focus{border-color:var(--lime)}.nav-search-go{background:var(--lime);color:#000;border:none;padding:.6rem .85rem;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer}.nav-search-suggs{display:flex;flex-direction:column}.nav-sugg-item{display:flex;justify-content:space-between;align-items:center;padding:.55rem .85rem;text-decoration:none;color:var(--text-main);font-size:.84rem;gap:.5rem;transition:background .12s;border-top:1px solid var(--border)}.nav-sugg-item:hover,.nav-sugg-item.ss-active{background:var(--bg-dark);color:var(--lime)}.nav-sugg-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav-sugg-cat{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
+        .nav-login-btn{display:flex;align-items:center;justify-content:center;gap:.3rem;background:transparent;border:1px solid var(--lime);color:var(--lime);padding:0 .55rem;border-radius:6px;font-size:.7rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .2s;width:100%;height:28px}.nav-login-btn:hover{background:var(--lime);color:#000}.nav-login-btn svg{width:15px;height:15px;flex-shrink:0}.nav-login-txt{display:inline}@media(max-width:768px){.nav-login-txt{display:none}.nav-login-btn{padding:.45rem .55rem;gap:0}}
+        footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem 2rem 3rem;transition:background-color .3s ease}.footer-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1.5fr;gap:4rem;align-items:flex-start;padding-bottom:4rem;border-bottom:1px solid var(--border)}.footer-left{display:flex;flex-direction:column;gap:1.5rem}.footer-search{background:var(--bg-darkest);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;width:100%;max-width:320px}.footer-search input{background:transparent;border:none;outline:none;color:var(--text-main);font-size:.9rem;width:100%;margin-left:.5rem;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}.footer-search svg{flex-shrink:0}.footer-left p{color:var(--text-muted);font-size:.9rem}.footer-left a{color:var(--lime);text-decoration:none;font-size:.9rem}.footer-links{display:flex;flex-direction:column;gap:.85rem}.footer-links a{color:var(--text-muted);text-decoration:none;font-size:.95rem;transition:color .2s ease}.footer-links a:hover{color:var(--text-main)}.footer-logos{display:flex;justify-content:flex-end;align-items:center;gap:2.5rem}.footer-logo-img{height:65px;width:auto;object-fit:contain;filter:var(--invert-logos,none)}.footer-brand-logo{height:75px;width:auto;object-fit:contain}.footer-socket{max-width:1440px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:.85rem;flex-wrap:wrap;gap:1rem}.footer-social-row{display:flex;gap:1.5rem}.footer-social-row a{color:var(--text-muted);text-decoration:none;font-weight:500;transition:color .2s ease}.footer-social-row a:hover{color:var(--lime)}@media(max-width:900px){.footer-grid{grid-template-columns:1fr;gap:3rem}.footer-logos{justify-content:flex-start}}.footer-socket a{color:var(--lime);text-decoration:none}
+    </style>
+</head>
+<body>
+    <div id="cdot"></div><div id="cring"></div>
+    <div id="loader">
+        <div class="ld-ring-wrap"><svg viewBox="0 0 120 120"><rect class="ld-ring-bg" x="8" y="8" width="104" height="104" rx="16"></rect><rect class="ld-ring-fg" x="8" y="8" width="104" height="104" rx="16" pathLength="345"></rect></svg><span class="ld-pct" id="ldPct">0%</span></div>
+        <div class="ld-sub" id="ldSub">Loading</div>
+    </div>
+    <header>
+        <div class="navbar">
+            <a href="../index.html" class="brand">
+                <img src="../pictures/site/1678.png" alt="Citrus Circuits Logo" class="brand-logo">
+                <div class="brand-text-stack"><div class="brand-title">1678 <span>Citrus Circuits</span></div><div class="brand-subtitle">FIRST Robotics Team &bull; Davis, California</div></div>
+            </a>
+                        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"><span></span></button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="../about/about.html" class="nav-link">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="../about/leadership.html">Leadership</a><a href="../about/subteams.html">Subteams</a>
+                        <a href="../about/recruitment.html">Recruitment</a><a href="../robots/our_robots.html">Our Robots</a>
+                        <a href="../robots/2026_robot.html">2026 Robot</a><a href="../seasons/history.html">History</a>
+                        <a href="../about/1857.html">1857 Citrus Sparks</a><a href="../about/first_leadership.html">FIRST Leadership</a>
+                        <a href="../about/faq.html">FAQ</a><a href="../about/contact.html">Contact Us</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources.html" class="nav-link">Resources <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="../djusd_cte.html">DJUSD CTE Courses</a><a href="../team_handbook.html">Team Handbook</a>
+                        <a href="../build_blogs.html">Build Blogs / Newsletters</a><a href="../media.html">Media</a>
+                        <a href="../technical_training.html">Technical Training</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../outreach/outreach.html" class="nav-link">Outreach <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel">
+                        <a href="../outreach/citrus_service.html">Citrus Service</a><a href="../outreach/farmers_market.html">Farmers Market</a>
+                        <a href="../outreach/fall_workshops.html">Fall Workshops</a><a href="../outreach/outreach.html#lgbtq-of-first">LGBTQ+ of FIRST</a>
+                        <a href="../outreach/distem.html">DiSTEM</a><a href="../outreach/wise.html">WiSE</a>
+                        <a href="../outreach/robot_demos.html">Robot Demos</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../outreach/dyr.html" class="nav-link">DYR <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel" style="grid-template-columns:1fr;width:260px;">
+                        <a href="../outreach/robocamps_about.html">About DYR RoboCamps</a>
+                        <a href="../outreach/robocamps.html">DYR RoboCamps Registration</a>
+                        <a href="../outreach/robocamps_forms.html">DYR RoboCamps Forms</a>
+                        <a href="../outreach/robocamps_resources.html">DYR RoboCamps Resources</a>
+                        <a href="../outreach/dyr_league.html">DYR League</a>
+                        <a href="../outreach/dyr_school_programs.html">DYR School Programs</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="../capital_city_classic.html" class="nav-link">Capital City Classic</a></li>
+                <li class="nav-item"><a href="../sponsors.html" class="nav-link">Sponsors</a></li>
+                <li class="nav-item">
+                    <a href="../support.html" class="nav-link active">Support Us <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="dropdown-panel" style="grid-template-columns:1fr;width:320px;">
+                        <a href="drf.html">Davis Robotics Foundation</a>
+                        <a href="nik_murray.html" class="active">Niklas Murray Memorial Sponsorship</a>
+                        <a href="parent_committee.html">Parent Logistics Committee</a>
+                        <a href="reimbursements.html">Reimbursements</a>
+                        <a href="volunteer_opportunities.html">Volunteer Opportunities</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-actions-hub">
+              <div class="nav-icon-row"><div class="nav-search-wrap"><button class="nav-search-btn" id="navSearchBtn" aria-label="Search" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button><div class="nav-search-drop" id="navSearchDrop"><div class="nav-search-drop-inner"><form class="nav-search-form" id="navSearchForm" autocomplete="off"><input class="nav-search-input" id="navSearchInput" type="text" placeholder="Search pages…" autocomplete="off" spellcheck="false"><button class="nav-search-go" type="submit">Go</button></form><div class="nav-search-suggs" id="navSearchSuggs"></div></div></div></div><button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme"><svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button></div>
+              <div class="nav-btn-stack"><a href="../login.html" class="nav-login-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="nav-login-txt">Sign In</span></a><a href="../about/recruitment.html" class="nav-cta">Apply</a></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrap">
+            <div class="page-head">
+                <div class="page-eyebrow">In Memoriam</div>
+                <h1 class="page-title">Niklas Murray <em>Memorial Scholarship</em></h1>
+                <p class="page-sub">A scholarship fund honoring the legacy of Nik Murray — an inspiring coach, engineer, and friend to every team he touched.</p>
+            </div>
+            <a href="../support.html" class="back-link"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>Back to Support Us</a>
+            <div class="sp-split">
+                <div class="sp-photos">
+                    <div class="sp-photo"><img src="../pictures/Niklas%20Murray1.jpg" alt="Niklas Murray" onerror="this.parentElement.style.display='none'"></div>
+                    <div class="sp-photo"><img src="../pictures/Niklas%20Murray2.jpg" alt="Niklas Murray" onerror="this.parentElement.style.display='none'"></div>
+                </div>
+                <div class="sp-text">
+                    <h3>About</h3>
+                    <p>The Niklas Murray Memorial Scholarship is a scholarship fund established in memory of Niklas Murray, an inspiring coach on Citrus Circuits who passed away in 2023. The scholarship is awarded to graduating high school seniors who are a current member of a team attending the Capital City Classic Off-Season Competition and will be a first generation student in their family to attend post-secondary education.</p>
+
+                    <h3>How to Apply</h3>
+                    <p>To apply for the Niklas Murray Memorial Scholarship, students must fill out the application form provided to each team attending Capital City Classic and submit it by the application deadline for that year.</p>
+                    <p>The application consists of a 300-word essay describing each applicant's experience on their FRC team and how that experience impacted their future goals after graduating high school. Team mentors will be contacted to verify current team participation.</p>
+                    <p>The applications are reviewed by a panel from the Davis Robotics Foundation and up to two recipients are selected annually.</p>
+
+                    <h3>Where to Donate</h3>
+                    <p>Donations to the Niklas Murray Memorial Scholarship are tax-deductible and can be made online:</p>
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=TMMFXCB26W9R4" target="_blank" rel="noopener noreferrer" class="sp-btn">Donate Now &rarr;</a>
+                    <p style="margin-top:1.25rem">Or by mail:</p>
+                    <div class="sp-card" style="margin-top:.75rem;max-width:420px">
+                        <p style="margin:0;line-height:1.9">Davis Robotics Foundation<br>Attn: Niklas Murray Memorial Scholarship<br>P.O. Box 577<br>Davis, CA 95617</p>
+                        <p style="margin:.75rem 0 0;font-size:.88rem">Checks should be made out to <strong style="color:var(--text-main)">"Davis Robotics Foundation"</strong> with the memo line of <strong style="color:var(--text-main)">"Niklas Murray Memorial Scholarship"</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="sp-split reverse" style="margin-top:1rem">
+                <div class="sp-photos">
+                    <div class="sp-photo"><img src="../pictures/Niklas%20Murray3.jpg" alt="Niklas Murray" onerror="this.parentElement.style.display='none'"></div>
+                    <div class="sp-photo"><img src="../pictures/Niklas%20Murray4.jpg" alt="Niklas Murray" onerror="this.parentElement.style.display='none'"></div>
+                </div>
+                <div class="sp-text">
+                    <h3>Past Winners</h3>
+                    <table class="winners-table">
+                        <thead><tr><th>Year</th><th>Recipient</th><th>Team</th></tr></thead>
+                        <tbody>
+                            <tr><td>2023</td><td>James Spencer</td><td>2288 Hydra Robotics</td></tr>
+                            <tr><td>2023</td><td>Sabrina Guo</td><td>Team 253 Boba Bots</td></tr>
+                            <tr><td>2022</td><td>Daniel Apolinar</td><td>Team 7528 Nuts and Bolts</td></tr>
+                            <tr><td>2022</td><td>Alejandro Beltran</td><td>Team 6884 Deep Space</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Niklas Murray's FIRST Legacy</h3>
+                    <p>Niklas (Nik) Murray began his FIRST journey as a student on FRC Team 701, the RoboVikes, in Fairfield, CA. Nik was a student leader in charge of many aspects of team operations, including leading the electrical system.</p>
+                    <p>After high school, Nik moved to Michigan to study Engineering at Kettering University. While in Michigan, he coached FRC Team 1684, the Chimeras, and later FRC Team 148, the Robowranglers. Nik's expertise in FRC led to him being a regular contributor to FIRST Updates Now, a FIRST-focused web show.</p>
+                    <p>In 2022, Nik moved back to the Sacramento area to further his career as a flight instructor and receive treatment for a rare kidney disease. Nik began coaching FRC Team 1678, Citrus Circuits, working with the electrical and strategy subteams. Despite his ongoing health issues, Nik put in countless hours developing students in their passions for STEM.</p>
+                    <p>Nik passed away in November 2023 due to health complications. His impact on FIRST will be felt for generations to come.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-left">
+          <div class="footer-search"><svg width="16" height="16" fill="none" stroke="var(--text-muted)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><input type="text" id="footerSearchInput" placeholder="Search resources..."></div>
+          <p>Email us at <a href="mailto:admin@citruscircuits.org">admin@citruscircuits.org</a></p>
+        </div>
+        <div class="footer-links"><a href="../index.html">Home</a><a href="../about/about.html">About Us</a><a href="../support.html">Support Us</a><a href="../about/contact.html">Contact Us</a></div>
+        <div class="footer-logos"><img src="../pictures/site/first_logo.png" alt="FIRST Robotics Official Logo" class="footer-logo-img"><img src="../pictures/site/1678.png" alt="Citrus Circuits Branding Shield" class="footer-brand-logo"></div>
+      </div>
+      <div class="footer-socket">
+        <div>&copy; 2026 Citrus Circuits 1678. Engineered for competitive execution performance.</div>
+        <div class="footer-social-row"><a href="https://www.instagram.com/frc1678/?hl=en" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/citruscircuits" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.facebook.com/frc1678/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/frc-1678-citrus-circuits-robotics" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+      </div>
+    </footer>
+    <script>
+        const tBtn=document.getElementById('themeToggle'),root=document.documentElement;
+        root.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
+        tBtn.addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+        (function(){const p=document.getElementById('ldPct');let pct=0;const t=setInterval(()=>{pct=Math.min(100,pct+Math.ceil(Math.random()*9));p.textContent=pct+'%';if(pct>=100)clearInterval(t);},110);window.addEventListener('load',()=>setTimeout(()=>{document.getElementById('loader').classList.add('out');},800));})();
+        const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+        if(window.matchMedia('(hover:hover)').matches){document.body.style.cursor='none';let rx=0,ry=0,mx=0,my=0;window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});(function l(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='1';});el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.opacity='.7';});});}
+    </script>
+    <script>
+    (function(){
+      var PAGES=[{"t":"Home","u":"/index.html","c":"Main"},{"t":"Shop — Merch Store","u":"/shop.html","c":"Main"},{"t":"Media Gallery","u":"/media.html","c":"Main"},{"t":"Resources","u":"/resources.html","c":"Main"},{"t":"Sponsors","u":"/sponsors.html","c":"Main"},{"t":"Support Us","u":"/support.html","c":"Main"},{"t":"Davis Robotics Foundation","u":"/support/drf.html","c":"Support"},{"t":"Niklas Murray Memorial Sponsorship","u":"/support/nik_murray.html","c":"Support"},{"t":"Parent Logistics Committee","u":"/support/parent_committee.html","c":"Support"},{"t":"Reimbursements","u":"/support/reimbursements.html","c":"Support"},{"t":"Volunteer Opportunities","u":"/support/volunteer_opportunities.html","c":"Support"},{"t":"Technical Training","u":"/technical_training.html","c":"Main"},{"t":"Cheers","u":"/cheers.html","c":"Main"},{"t":"Build Blogs","u":"/build_blogs.html","c":"Main"},{"t":"Capital City Classic","u":"/capital_city_classic.html","c":"Events"},{"t":"DJUSD CTE","u":"/djusd_cte.html","c":"Main"},{"t":"Team Handbook","u":"/team_handbook.html","c":"Main"},{"t":"About Us","u":"/about/about.html","c":"About"},{"t":"FAQ","u":"/about/faq.html","c":"About"},{"t":"Contact","u":"/about/contact.html","c":"About"},{"t":"Leadership","u":"/about/leadership.html","c":"About"},{"t":"FIRST Leadership","u":"/about/first_leadership.html","c":"About"},{"t":"Subteams","u":"/about/subteams.html","c":"About"},{"t":"Recruitment & Apply","u":"/about/recruitment.html","c":"About"},{"t":"Credits","u":"/about/credits.html","c":"About"},{"t":"Team 1857","u":"/about/1857.html","c":"About"},{"t":"Our Robots","u":"/robots/our_robots.html","c":"Robots"},{"t":"2026 Robot","u":"/robots/2026_robot.html","c":"Robots"},{"t":"2025 Robot — Sublime","u":"/robots/robot_2025_sublime.html","c":"Robots"},{"t":"2024 Robot — Nik","u":"/robots/robot_2024_nik.html","c":"Robots"},{"t":"Season History","u":"/seasons/history.html","c":"Seasons"},{"t":"2025 Season","u":"/seasons/season_2025.html","c":"Seasons"},{"t":"2024 Season","u":"/seasons/season_2024.html","c":"Seasons"},{"t":"2023 Season","u":"/seasons/season_2023.html","c":"Seasons"},{"t":"Outreach","u":"/outreach/outreach.html","c":"Outreach"},{"t":"DYR — Do Your Research","u":"/outreach/dyr.html","c":"Outreach"},{"t":"RoboCamps Registration","u":"/outreach/robocamps.html","c":"Outreach"},{"t":"DYR League","u":"/outreach/dyr_league.html","c":"Outreach"},{"t":"DYR School Programs","u":"/outreach/dyr_school_programs.html","c":"Outreach"},{"t":"WiSE — Women in STEM & Engineering","u":"/outreach/wise.html","c":"Outreach"},{"t":"Robot Demos","u":"/outreach/robot_demos.html","c":"Outreach"},{"t":"Fall Workshops","u":"/outreach/fall_workshops.html","c":"Outreach"},{"t":"Farmers Market","u":"/outreach/farmers_market.html","c":"Outreach"},{"t":"Citrus Service","u":"/outreach/citrus_service.html","c":"Outreach"},{"t":"Blog 2025","u":"/blog/blog_2025.html","c":"Blog"},{"t":"Blog 2024","u":"/blog/blog_2024.html","c":"Blog"}];
+      window.SITE_PAGES=PAGES;var BASE="https://kartbala07.github.io/limesite.org";
+      var btn=document.getElementById('navSearchBtn'),drop=document.getElementById('navSearchDrop'),inp=document.getElementById('navSearchInput'),form=document.getElementById('navSearchForm');
+      if(!btn||!drop||!inp)return;var ai=-1;
+      btn.addEventListener('click',function(e){e.stopPropagation();var o=drop.classList.toggle('open');btn.classList.toggle('active',o);if(o)setTimeout(function(){inp.focus();},40);});
+      document.addEventListener('click',function(e){if(!drop.contains(e.target)&&e.target!==btn){drop.classList.remove('open');btn.classList.remove('active');}});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'){drop.classList.remove('open');btn.classList.remove('active');}});
+      function ss(q){var si=0,qi=0,s=q;return function(t){si=0;qi=0;while(si<t.length&&qi<s.length){if(t[si]===s[qi])qi++;si++;}return qi===s.length;};}
+      function showS(m){var sg=document.getElementById('navSearchSuggs');sg.innerHTML='';ai=-1;m.slice(0,6).forEach(function(p){var a=document.createElement('a');a.className='nav-sugg-item';a.href=BASE+p.u;a.innerHTML='<span class="nav-sugg-name">'+p.t+'</span><span class="nav-sugg-cat">'+p.c+'</span>';sg.appendChild(a);});}
+      inp.addEventListener('input',function(){var q=inp.value.trim().toLowerCase();if(!q){document.getElementById('navSearchSuggs').innerHTML='';ai=-1;return;}var tr=q.split(/\s+/).filter(Boolean),sf=ss(q);showS(PAGES.filter(function(p){var s=(p.t+' '+p.u+' '+p.c).toLowerCase();return tr.some(function(t){return s.indexOf(t)>-1;})||sf(p.t.toLowerCase);}))});
+      inp.addEventListener('keydown',function(e){var els=document.querySelectorAll('#navSearchSuggs .nav-sugg-item');if(!els.length)return;if(e.key==='ArrowDown'){e.preventDefault();ai=Math.min(ai+1,els.length-1);}else if(e.key==='ArrowUp'){e.preventDefault();ai=Math.max(ai-1,-1);}else return;els.forEach(function(el,i){el.classList.toggle('ss-active',i===ai);});});
+      form.addEventListener('submit',function(e){e.preventDefault();var els=document.querySelectorAll('#navSearchSuggs .nav-sugg-item');if(ai>=0&&els[ai]){window.location.href=els[ai].href;return;}var q=inp.value.trim();if(!q)return;var lq=q.toLowerCase(),tr=lq.split(/\s+/).filter(Boolean),sf=ss(lq);var m=PAGES.find(function(p){var s=(p.t+' '+p.u+' '+p.c).toLowerCase();return tr.some(function(t){return s.indexOf(t)>-1;})||sf(p.t.toLowerCase());});if(m)window.location.href=BASE+m.u;drop.classList.remove('open');btn.classList.remove('active');});
+    })();
+    </script>
+    <script>
+    (function(){var nt=document.getElementById('navToggle'),nm=document.querySelector('.nav-menu');if(!nt||!nm)return;nt.addEventListener('click',function(){nt.classList.toggle('open');nm.classList.toggle('open');});nm.querySelectorAll('.nav-item').forEach(function(item){var lk=item.querySelector('.nav-link');if(lk&&item.querySelector('.dropdown-panel')){lk.addEventListener('click',function(e){if(window.innerWidth<=1100){e.preventDefault();item.classList.toggle('open');}})}});})();
+    </script>
+    <script>
+    (function(){var fi=document.getElementById('footerSearchInput');if(!fi)return;var suggs=document.createElement('div');suggs.id='footerSearchSuggs';suggs.style.cssText='position:absolute;left:0;right:0;top:calc(100% + 4px);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);z-index:500;display:none;flex-direction:column;overflow:hidden;max-height:260px;overflow-y:auto;min-width:260px;';var wrap=fi.closest('.footer-search');if(wrap){wrap.style.position='relative';wrap.appendChild(suggs);}fi.addEventListener('input',function(){var q=fi.value.trim().toLowerCase();suggs.innerHTML='';if(!q){suggs.style.display='none';return;}var P=window.SITE_PAGES||[];var res=P.filter(function(p){var s=(p.t+' '+p.u+' '+p.c).toLowerCase();return q.split(/\s+/).some(function(t){return s.indexOf(t)>-1;});}).slice(0,6);if(!res.length){suggs.style.display='none';return;}var BASE='https://kartbala07.github.io/limesite.org';res.forEach(function(p){var a=document.createElement('a');a.href=BASE+p.u;a.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:.5rem .85rem;text-decoration:none;color:var(--text-main);font-size:.84rem;border-top:1px solid var(--border);gap:.5rem;transition:background .12s,color .12s;';a.innerHTML='<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+p.t+'</span><span style="font-family:\'JetBrains Mono\',monospace;font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;flex-shrink:0;">'+p.c+'</span>';a.addEventListener('mouseenter',function(){this.style.background='var(--bg-dark)';this.style.color='var(--lime)';});a.addEventListener('mouseleave',function(){this.style.background='';this.style.color='var(--text-main)';});suggs.appendChild(a);});suggs.style.display='flex';});fi.addEventListener('keydown',function(e){if(e.key==='Enter'){var first=suggs.querySelector('a');if(first)window.location.href=first.href;}});document.addEventListener('click',function(e){if(!fi.contains(e.target)&&!suggs.contains(e.target))suggs.style.display='none';});fi.addEventListener('focus',function(){if(fi.value.trim())fi.dispatchEvent(new Event('input'));});})();
+    </script>
+</body>
+</html>
