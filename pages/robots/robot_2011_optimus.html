@@ -115,9 +115,9 @@
         .robot-nav-link { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:600; transition:color .2s ease; }
         .robot-nav-link:hover { color:var(--lime); }
         .robot-back-link { display:inline-block; margin-bottom:2rem; color:var(--lime); text-decoration:none; font-size:.85rem; font-weight:600; }
-        @media (max-width:768px) { .robot-detail{grid-template-columns:1fr;} }
+        @media(max-width:768px){.robot-detail{grid-template-columns:1fr;.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.robot-grid{grid-template-columns:repeat(2,1fr)}} }
     
-@media(max-width:768px){}
+@media(max-width:768px){.robot-detail{grid-template-columns:1fr;.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.robot-grid{grid-template-columns:repeat(2,1fr)}}
 .nav-search-wrap{position:relative}
 .nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .nav-search-btn:hover,.nav-search-btn.active{border-color:var(--lime);color:var(--lime)}
@@ -139,7 +139,7 @@
 .nav-login-btn:hover{background:var(--lime);color:#000}
 .nav-login-btn svg{width:15px;height:15px;flex-shrink:0}
 .nav-login-txt{display:inline}
-@media(max-width:768px){.nav-login-txt{display:none}.nav-login-btn{padding:.45rem .55rem;gap:0}}
+@media(max-width:768px){.robot-detail{grid-template-columns:1fr;.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}.robot-grid{grid-template-columns:repeat(2,1fr)}}.nav-login-btn{padding:.45rem .55rem;gap:0}}
 </style>
 </head>
 <body>

@@ -117,7 +117,7 @@
         .rc-cta-btn.outline:hover { background:var(--lime); color:#000; }
         .reveal-up{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
         .reveal-up.visible{opacity:1;transform:translateY(0)}
-        @media(max-width:768px){ .rc-about-row,.rc-about-row.reverse { grid-template-columns:1fr; direction:ltr; } }
+        @media(max-width:768px){.rc-about-row,.rc-about-row.reverse { grid-template-columns:1fr; direction:ltr;.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}} }
         @media(max-width:968px){ .rc-cta-strip{flex-direction:column;align-items:flex-start;} }
 .nav-search-wrap{position:relative}
 .nav-search-btn{background:var(--bg-dark);border:1px solid var(--border);color:var(--text-main);width:34px;height:34px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
@@ -140,7 +140,7 @@
 .nav-login-btn:hover{background:var(--lime);color:#000}
 .nav-login-btn svg{width:15px;height:15px;flex-shrink:0}
 .nav-login-txt{display:inline}
-@media(max-width:768px){.nav-login-txt{display:none}.nav-login-btn{padding:.45rem .55rem;gap:0}}
+@media(max-width:768px){.rc-about-row,.rc-about-row.reverse { grid-template-columns:1fr; direction:ltr;.wrap{padding:0 1rem}.page-head{margin:2rem auto 1.5rem}}.nav-login-btn{padding:.45rem .55rem;gap:0}}
     </style>
 </head>
 <body>
