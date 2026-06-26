@@ -493,7 +493,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   if(!fi)return;
   var suggs=document.createElement('div');
   suggs.id='footerSearchSuggs';
-  suggs.style.cssText='position:absolute;left:0;right:0;top:calc(100% + 4px);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);z-index:500;display:none;flex-direction:column;overflow:hidden;max-height:260px;overflow-y:auto;min-width:260px;';
+  suggs.style.cssText='position:absolute;left:0;right:0;bottom:calc(100% + 4px);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,.35);z-index:500;display:none;flex-direction:column;overflow:hidden;max-height:260px;overflow-y:auto;min-width:260px;';
   var wrap=fi.closest('.footer-search');
   if(wrap){wrap.style.position='relative';wrap.appendChild(suggs);}
   fi.addEventListener('input',function(){
