@@ -252,6 +252,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   .navbar{padding:0 1.5rem}
   .nav-menu{display:none}
   .content-header h1{font-size:2.5rem}
+  .ethos-words{flex-direction:column;gap:.5rem}
 }
 @media(max-width:700px){
   #hero{padding:0 20px 40px;height:auto;min-height:unset}
@@ -283,7 +284,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   .nav-link svg{padding:.75rem;margin:-.75rem;box-sizing:content-box}
   .dropdown-panel{position:static!important;opacity:1!important;pointer-events:auto!important;transform:none!important;width:100%;display:none!important;grid-template-columns:1fr!important;box-shadow:none;border:none;background:transparent;padding:0 0 .5rem 1rem!important;margin-top:0}
   .nav-item.open .dropdown-panel{display:flex!important;flex-direction:column}
-  .nav-actions-hub{display:flex;align-items:center;gap:.4rem;margin-left:auto}
+  .nav-actions-hub{display:flex;align-items:center;gap:.4rem;margin-left:auto}.nav-toggle.open ~ .nav-actions-hub{display:none}.nav-toggle.open ~ .nav-btn-stack{display:none}
   .nav-icon-row{display:flex;gap:.5rem;align-items:center}
   .nav-btn-stack{display:flex;flex-direction:row;align-items:center;gap:.4rem}.nav-toggle{order:4}
   .nav-login-btn{width:34px;height:34px;padding:0;border-radius:7px}
@@ -624,10 +625,10 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
   var ld=document.getElementById('loader');
   if(!ld)return;
   var seen=false;
-  try{seen=localStorage.getItem('cc_loader_seen')==='1';}catch(e){}
+  try{seen=sessionStorage.getItem('cc_loader_seen')==='1';}catch(e){}
   if(seen){ld.parentNode.removeChild(ld);return;}
   var dismissed=false;
-  function dismiss(){if(dismissed)return;dismissed=true;ld.classList.add('out');try{localStorage.setItem('cc_loader_seen','1');}catch(e){}}
+  function dismiss(){if(dismissed)return;dismissed=true;ld.classList.add('out');try{sessionStorage.setItem('cc_loader_seen','1');}catch(e){}}
   setTimeout(dismiss,2500);
 })();
 
