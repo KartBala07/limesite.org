@@ -190,6 +190,8 @@ h1.htitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9.5vw,168px);
 .content-header .tag{font-family:'JetBrains Mono',monospace;color:var(--lime);font-size:.85rem;text-transform:uppercase;letter-spacing:3px;display:block;margin-bottom:1rem}
 .content-header h1{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:3.5rem;font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.25rem}
 .content-header p{color:var(--text-muted);font-size:1.2rem;line-height:1.6;max-width:720px}
+.ethos-words{display:flex;flex-wrap:wrap;gap:1rem 3rem;align-items:baseline}
+.ethos-words span{font-family:'Bebas Neue',sans-serif;color:var(--lime);font-size:clamp(3rem,8vw,6rem);line-height:1;letter-spacing:.02em;text-transform:uppercase}
 
 /* === ACTION PANEL GRID === */
 .action-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:4rem}
@@ -281,13 +283,12 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
   .nav-link svg{padding:.75rem;margin:-.75rem;box-sizing:content-box}
   .dropdown-panel{position:static!important;opacity:1!important;pointer-events:auto!important;transform:none!important;width:100%;display:none!important;grid-template-columns:1fr!important;box-shadow:none;border:none;background:transparent;padding:0 0 .5rem 1rem!important;margin-top:0}
   .nav-item.open .dropdown-panel{display:flex!important;flex-direction:column}
-  .nav-actions-hub{position:fixed;top:22px;right:64px;margin:0;gap:.5rem;display:none;z-index:1102}
-  .nav-toggle.open ~ .nav-actions-hub{display:flex}
+  .nav-actions-hub{display:flex;align-items:center;gap:.4rem;margin-left:auto}
   .nav-icon-row{display:flex;gap:.5rem;align-items:center}
-  .nav-btn-stack{display:flex;flex-direction:row;align-items:center;gap:.25rem;margin-left:auto}.nav-toggle{order:3}
+  .nav-btn-stack{display:flex;flex-direction:row;align-items:center;gap:.4rem}.nav-toggle{order:4}
   .nav-login-btn{width:34px;height:34px;padding:0;border-radius:7px}
   .nav-cta{display:none}
-  .brand-text-stack{display:none}}
+  .brand-text-stack{display:none}.navbar{padding:0 1rem}.brand{margin-left:-.25rem}}
 
 @media(max-width:768px){}
 .nav-search-wrap{position:relative}
@@ -502,8 +503,11 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 <section class="content-stack" id="about">
   <div class="content-header reveal">
     <span class="tag">Global Championship Legacy</span>
-    <h1>Built on Collective Drive.</h1>
-    <p>We are a culture of peer-to-peer engineering training, precision manufacturing consistency, and direct community transformation across California and the FIRST network.</p>
+    <div class="ethos-words">
+      <span>Educate</span>
+      <span>Empower</span>
+      <span>Excel</span>
+    </div>
   </div>
 
   <div class="action-grid">
@@ -617,8 +621,13 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
 
 /* === LOADER === */
 (function(){
+  var ld=document.getElementById('loader');
+  if(!ld)return;
+  var seen=false;
+  try{seen=localStorage.getItem('cc_loader_seen')==='1';}catch(e){}
+  if(seen){ld.parentNode.removeChild(ld);return;}
   var dismissed=false;
-  function dismiss(){if(dismissed)return;dismissed=true;document.getElementById('loader').classList.add('out');}
+  function dismiss(){if(dismissed)return;dismissed=true;ld.classList.add('out');try{localStorage.setItem('cc_loader_seen','1');}catch(e){}}
   setTimeout(dismiss,2500);
 })();
 
