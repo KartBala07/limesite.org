@@ -324,7 +324,7 @@ footer{background:var(--bg-dark);border-top:1px solid var(--border);padding:5rem
 
 <!-- LOADER -->
 <div id="loader">
-  <video class="ld-vid" autoplay muted playsinline>
+  <video class="ld-vid" autoplay muted playsinline webkit-playsinline preload="auto">
     <source src="pictures/site/1678%20NEW%20Logo%20Animation.mp4" type="video/mp4">
   </video>
 </div>
@@ -627,6 +627,8 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
   var seen=false;
   try{seen=sessionStorage.getItem('cc_loader_seen')==='1';}catch(e){}
   if(seen){ld.parentNode.removeChild(ld);return;}
+  var vid=ld.querySelector('.ld-vid');
+  if(vid){vid.muted=true;vid.setAttribute('muted','');var p=vid.play();if(p&&p.catch){p.catch(function(){});}}
   var dismissed=false;
   function dismiss(){if(dismissed)return;dismissed=true;ld.classList.add('out');try{sessionStorage.setItem('cc_loader_seen','1');}catch(e){}}
   setTimeout(dismiss,2500);
