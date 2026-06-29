@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" as="video" href="pictures/site/1678%20NEW%20Logo%20Animation.mp4" type="video/mp4" fetchpriority="high">
 <title>Citrus Circuits | Home</title>
     <link rel="icon" type="image/png" href="pictures/site/favicon.png?v=3">
 <meta name="description" content="FRC Team 1678 — Citrus Circuits. Engineering, fabricating, and competing from Davis, California.">
@@ -631,8 +632,10 @@ document.querySelectorAll('a,button,.resource-card,.action-btn,.nav-cta').forEac
   if(vid){
     vid.muted=true;vid.defaultMuted=true;vid.setAttribute('muted','');vid.playsInline=true;
     function tryPlay(){var p=vid.play();if(p&&p.catch){p.catch(function(){});}}
+    vid.addEventListener('loadedmetadata',tryPlay);
     vid.addEventListener('loadeddata',tryPlay);
     vid.addEventListener('canplay',tryPlay);
+    vid.load();
     tryPlay();
   }
   var dismissed=false;
